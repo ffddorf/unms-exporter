@@ -47,7 +47,7 @@ type DeviceInterfaceSchema struct {
 	Lag *Lag `json:"lag,omitempty"`
 
 	// mtu
-	Mtu string `json:"mtu,omitempty"`
+	Mtu float64 `json:"mtu,omitempty"`
 
 	// ospf
 	Ospf *InterfaceOspf `json:"ospf,omitempty"`

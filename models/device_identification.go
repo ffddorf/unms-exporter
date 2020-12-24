@@ -77,8 +77,8 @@ type DeviceIdentification struct {
 	Site *Site `json:"site,omitempty"`
 
 	// started
-	// Format: date
-	Started strfmt.Date `json:"started,omitempty"`
+	// Format: date-time
+	Started strfmt.DateTime `json:"started,omitempty"`
 
 	// Status of the station.
 	// Example: active
@@ -90,8 +90,8 @@ type DeviceIdentification struct {
 	Type string `json:"type,omitempty"`
 
 	// updated
-	// Format: date
-	Updated strfmt.Date `json:"updated,omitempty"`
+	// Format: date-time
+	Updated strfmt.DateTime `json:"updated,omitempty"`
 
 	// wan interface Id
 	WanInterfaceID string `json:"wanInterfaceId,omitempty"`
@@ -1064,7 +1064,7 @@ func (m *DeviceIdentification) validateStarted(formats strfmt.Registry) error {
 		return nil
 	}
 
-	if err := validate.FormatOf("started", "body", "date", m.Started.String(), formats); err != nil {
+	if err := validate.FormatOf("started", "body", "date-time", m.Started.String(), formats); err != nil {
 		return err
 	}
 
@@ -1223,7 +1223,7 @@ func (m *DeviceIdentification) validateUpdated(formats strfmt.Registry) error {
 		return nil
 	}
 
-	if err := validate.FormatOf("updated", "body", "date", m.Updated.String(), formats); err != nil {
+	if err := validate.FormatOf("updated", "body", "date-time", m.Updated.String(), formats); err != nil {
 		return err
 	}
 

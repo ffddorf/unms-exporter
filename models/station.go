@@ -99,8 +99,8 @@ type Station struct {
 
 	// timestamp
 	// Example: 2018-11-14T15:20:32.004Z
-	// Format: date
-	Timestamp strfmt.Date `json:"timestamp,omitempty"`
+	// Format: date-time
+	Timestamp strfmt.DateTime `json:"timestamp,omitempty"`
 
 	// Transmitted/Sent bytes.
 	// Example: 436000
@@ -928,7 +928,7 @@ func (m *Station) validateTimestamp(formats strfmt.Registry) error {
 		return nil
 	}
 
-	if err := validate.FormatOf("timestamp", "body", "date", m.Timestamp.String(), formats); err != nil {
+	if err := validate.FormatOf("timestamp", "body", "date-time", m.Timestamp.String(), formats); err != nil {
 		return err
 	}
 

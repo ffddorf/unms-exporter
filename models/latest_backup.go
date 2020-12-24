@@ -26,8 +26,8 @@ type LatestBackup struct {
 	// Latest backup timestamp.
 	// Example: 2018-11-14T15:20:32.004Z
 	// Required: true
-	// Format: date
-	Timestamp *strfmt.Date `json:"timestamp"`
+	// Format: date-time
+	Timestamp *strfmt.DateTime `json:"timestamp"`
 }
 
 // Validate validates this latest backup
@@ -63,7 +63,7 @@ func (m *LatestBackup) validateTimestamp(formats strfmt.Registry) error {
 		return err
 	}
 
-	if err := validate.FormatOf("timestamp", "body", "date", m.Timestamp.String(), formats); err != nil {
+	if err := validate.FormatOf("timestamp", "body", "date-time", m.Timestamp.String(), formats); err != nil {
 		return err
 	}
 

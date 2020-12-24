@@ -42,8 +42,8 @@ type DeviceOverview struct {
 	CPU float64 `json:"cpu,omitempty"`
 
 	// created at
-	// Format: date
-	CreatedAt strfmt.Date `json:"createdAt,omitempty"`
+	// Format: date-time
+	CreatedAt strfmt.DateTime `json:"createdAt,omitempty"`
 
 	// Nullable property in meters.
 	Distance float64 `json:"distance,omitempty"`
@@ -59,8 +59,8 @@ type DeviceOverview struct {
 
 	// Last seen timestamp in ISO format.
 	// Example: 2018-11-14T15:20:32.004Z
-	// Format: date
-	LastSeen strfmt.Date `json:"lastSeen,omitempty"`
+	// Format: date-time
+	LastSeen strfmt.DateTime `json:"lastSeen,omitempty"`
 
 	// link score
 	LinkScore *LinkScore `json:"linkScore,omitempty"`
@@ -183,7 +183,7 @@ func (m *DeviceOverview) validateCreatedAt(formats strfmt.Registry) error {
 		return nil
 	}
 
-	if err := validate.FormatOf("createdAt", "body", "date", m.CreatedAt.String(), formats); err != nil {
+	if err := validate.FormatOf("createdAt", "body", "date-time", m.CreatedAt.String(), formats); err != nil {
 		return err
 	}
 
@@ -195,7 +195,7 @@ func (m *DeviceOverview) validateLastSeen(formats strfmt.Registry) error {
 		return nil
 	}
 
-	if err := validate.FormatOf("lastSeen", "body", "date", m.LastSeen.String(), formats); err != nil {
+	if err := validate.FormatOf("lastSeen", "body", "date-time", m.LastSeen.String(), formats); err != nil {
 		return err
 	}
 

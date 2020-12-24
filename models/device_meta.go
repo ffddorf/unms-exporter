@@ -42,8 +42,8 @@ type DeviceMeta struct {
 	// restart timestamp
 	// Example: 2018-11-14T15:20:32.004Z
 	// Required: true
-	// Format: date
-	RestartTimestamp *strfmt.Date `json:"restartTimestamp"`
+	// Format: date-time
+	RestartTimestamp *strfmt.DateTime `json:"restartTimestamp"`
 }
 
 // Validate validates this device meta
@@ -124,7 +124,7 @@ func (m *DeviceMeta) validateRestartTimestamp(formats strfmt.Registry) error {
 		return err
 	}
 
-	if err := validate.FormatOf("restartTimestamp", "body", "date", m.RestartTimestamp.String(), formats); err != nil {
+	if err := validate.FormatOf("restartTimestamp", "body", "date-time", m.RestartTimestamp.String(), formats); err != nil {
 		return err
 	}
 

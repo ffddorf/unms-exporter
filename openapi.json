@@ -17304,7 +17304,7 @@
           "$ref": "#/definitions/site",
           "x-alternatives": [{ "$ref": "#/x-alt-definitions/site" }]
         },
-        "started": { "type": "string", "format": "date" },
+        "started": { "type": "string", "format": "date-time" },
         "status": {
           "type": "string",
           "description": "Status of the station.",
@@ -17343,7 +17343,7 @@
           ]
         },
         "wanInterfaceId": { "type": "string" },
-        "updated": { "type": "string", "format": "date" }
+        "updated": { "type": "string", "format": "date-time" }
       },
       "required": ["id"]
     },
@@ -17353,7 +17353,7 @@
       "properties": {
         "timestamp": {
           "type": "string",
-          "format": "date",
+          "format": "date-time",
           "description": "Latest backup timestamp.",
           "example": "2018-11-14T15:20:32.004Z"
         },
@@ -17376,7 +17376,7 @@
         "note": { "type": "string", "maxLength": 300 },
         "restartTimestamp": {
           "type": "string",
-          "format": "date",
+          "format": "date-time",
           "example": "2018-11-14T15:20:32.004Z"
         }
       },
@@ -17438,7 +17438,7 @@
           "description": "TRUE if device can be upgraded."
         },
         "cpu": { "type": "number", "description": "Current cpu load." },
-        "createdAt": { "type": "string", "format": "date" },
+        "createdAt": { "type": "string", "format": "date-time" },
         "distance": {
           "type": "number",
           "description": "Nullable property in meters."
@@ -17453,7 +17453,7 @@
         },
         "lastSeen": {
           "type": "string",
-          "format": "date",
+          "format": "date-time",
           "description": "Last seen timestamp in ISO format.",
           "example": "2018-11-14T15:20:32.004Z"
         },
@@ -18179,7 +18179,7 @@
           "$ref": "#/definitions/site",
           "x-alternatives": [{ "$ref": "#/x-alt-definitions/site" }]
         },
-        "started": { "type": "string", "format": "date" },
+        "started": { "type": "string", "format": "date-time" },
         "status": {
           "type": "string",
           "description": "Status of the station.",
@@ -18218,7 +18218,7 @@
           ]
         },
         "wanInterfaceId": { "type": "string" },
-        "updated": { "type": "string", "format": "date" }
+        "updated": { "type": "string", "format": "date-time" }
       },
       "required": ["id"]
     },
@@ -18522,7 +18522,7 @@
         "rxChainMask": { "type": "integer", "example": 2 },
         "timestamp": {
           "type": "string",
-          "format": "date",
+          "format": "date-time",
           "example": "2018-11-14T15:20:32.004Z"
         },
         "txBytes": {
@@ -18580,7 +18580,7 @@
         "identification": { "$ref": "#/definitions/InterfaceIdentification" },
         "isSwitchedPort": { "type": "boolean" },
         "lag": { "$ref": "#/definitions/lag" },
-        "mtu": { "type": "string" },
+        "mtu": { "type": "number" },
         "ospf": { "$ref": "#/definitions/InterfaceOspf" },
         "poe": { "$ref": "#/definitions/InterfacePoe" },
         "speeds": { "$ref": "#/definitions/InterfaceSpeeds" },
@@ -19157,7 +19157,7 @@
         },
         "lastTrafficSeen": {
           "type": "string",
-          "format": "date",
+          "format": "date-time",
           "description": "Date and time of last traffic in ISO format",
           "example": "2019-08-22T09:49:24.675Z"
         },
@@ -19523,7 +19523,7 @@
           "$ref": "#/definitions/site",
           "x-alternatives": [{ "$ref": "#/x-alt-definitions/site" }]
         },
-        "started": { "type": "string", "format": "date" },
+        "started": { "type": "string", "format": "date-time" },
         "status": {
           "type": "string",
           "description": "Status of the station.",
@@ -19562,7 +19562,7 @@
           ]
         },
         "wanInterfaceId": { "type": "string" },
-        "updated": { "type": "string", "format": "date" }
+        "updated": { "type": "string", "format": "date-time" }
       },
       "required": ["id"]
     },
@@ -19619,7 +19619,7 @@
         },
         "timestamp": {
           "type": "string",
-          "format": "date",
+          "format": "date-time",
           "description": "Date and time of the log creation.",
           "example": "2020-05-12T10:19:10.056Z"
         },
@@ -19928,8 +19928,8 @@
         },
         "color": { "type": "string", "example": "#ff00ff", "maxLength": 20 },
         "heading": { "type": "number" },
-        "updatedAt": { "type": "string", "format": "date" },
-        "createdAt": { "type": "string", "format": "date" }
+        "updatedAt": { "type": "string", "format": "date-time" },
+        "createdAt": { "type": "string", "format": "date-time" }
       },
       "required": [
         "id",
@@ -19986,8 +19986,8 @@
         },
         "quality": { "type": "string", "maxLength": 200 },
         "terrain": { "$ref": "#/definitions/terrain" },
-        "updatedAt": { "type": "string", "format": "date" },
-        "createdAt": { "type": "string", "format": "date" }
+        "updatedAt": { "type": "string", "format": "date-time" },
+        "createdAt": { "type": "string", "format": "date-time" }
       },
       "required": [
         "id",
@@ -20039,7 +20039,7 @@
         "parent": { "$ref": "#/definitions/parent%204" },
         "updated": {
           "type": "string",
-          "format": "date",
+          "format": "date-time",
           "description": "Time when the site was last updated.",
           "example": "2018-11-14T15:20:32.004Z"
         },
@@ -20123,7 +20123,7 @@
         },
         "updated": {
           "type": "string",
-          "format": "date",
+          "format": "date-time",
           "description": "Time when the site was last updated.",
           "example": "2018-11-14T15:20:32.004Z"
         },
@@ -20575,7 +20575,7 @@
         },
         "activeFrom": {
           "type": "string",
-          "format": "date",
+          "format": "date-time",
           "description": "Time when the service was activated.",
           "example": "2018-11-14T15:20:32.004Z"
         },
@@ -20738,25 +20738,25 @@
         },
         "createdAt": {
           "type": "string",
-          "format": "date",
+          "format": "date-time",
           "description": "Time when this token was created.",
           "example": "2011-10-03T14:48:00.000Z"
         },
         "lastUsed": {
           "type": "string",
-          "format": "date",
+          "format": "date-time",
           "description": "Time when this token was last used. If null then it has not been used yet.",
           "example": "2011-10-04T14:48:00.000Z"
         },
         "expiresAt": {
           "type": "string",
-          "format": "date",
+          "format": "date-time",
           "description": "Time when this token will expire unless it is renewed. If null than it will never expire.",
           "example": "2011-10-05T14:48:00.000Z"
         },
         "maxExpiresAt": {
           "type": "string",
-          "format": "date",
+          "format": "date-time",
           "description": "Latest time when the token will expire. If null then it will never expire.",
           "example": "2011-11-05T14:48:00.000Z"
         },
@@ -20823,7 +20823,7 @@
         },
         "updated": {
           "type": "string",
-          "format": "date",
+          "format": "date-time",
           "description": "Last time the location was updated.",
           "example": "2018-11-14T15:20:32.004Z"
         }
@@ -20874,7 +20874,7 @@
         },
         "lastNewsSeenDate": {
           "type": "string",
-          "format": "date",
+          "format": "date-time",
           "description": "Last news check time in ISO format.",
           "example": "2018-11-14T15:20:32.004Z"
         },
@@ -20906,7 +20906,7 @@
         },
         "updated": {
           "type": "string",
-          "format": "date",
+          "format": "date-time",
           "description": "Last time the user was updated.",
           "example": "2018-11-14T15:20:32.004Z"
         }
@@ -21223,13 +21223,13 @@
         },
         "firstSeen": {
           "type": "string",
-          "format": "date",
+          "format": "date-time",
           "description": "First time this IP address was seen as a ISO 8601.",
           "example": "2011-10-05T14:48:00.000Z"
         },
         "lastSeen": {
           "type": "string",
-          "format": "date",
+          "format": "date-time",
           "description": "Last time this IP address was seen as a ISO 8601.",
           "example": "2012-10-05T14:48:00.000Z"
         },
@@ -21546,13 +21546,13 @@
         },
         "updated": {
           "type": "string",
-          "format": "date",
+          "format": "date-time",
           "description": "Last time the installation device was updated.",
           "example": "2020-01-14T15:20:32.004Z"
         },
         "created": {
           "type": "string",
-          "format": "date",
+          "format": "date-time",
           "description": "Last time the installation device was updated.",
           "example": "2020-01-14T15:20:32.004Z"
         }
@@ -21623,7 +21623,7 @@
         "user": { "$ref": "#/definitions/user%203" },
         "created": {
           "type": "string",
-          "format": "date",
+          "format": "date-time",
           "description": "Time when the chat message was created.",
           "example": "2020-01-14T15:20:32.004Z"
         }
@@ -21650,19 +21650,19 @@
         "chat": { "$ref": "#/definitions/chat" },
         "created": {
           "type": "string",
-          "format": "date",
+          "format": "date-time",
           "description": "Time when the installation was created.",
           "example": "2020-01-14T15:20:32.004Z"
         },
         "updated": {
           "type": "string",
-          "format": "date",
+          "format": "date-time",
           "description": "Time when the installation was updated.",
           "example": "2020-01-14T15:20:32.004Z"
         },
         "finished": {
           "type": "string",
-          "format": "date",
+          "format": "date-time",
           "description": "Time when the installation was finished. Null if the installation is not finished yet.",
           "example": "2020-01-14T15:20:32.004Z"
         }
@@ -21703,7 +21703,7 @@
           "x-constraint": { "positive": true }
         },
         "origin": { "type": "string", "enum": ["auto", "manual"] },
-        "createdAt": { "type": "string", "format": "date" }
+        "createdAt": { "type": "string", "format": "date-time" }
       },
       "required": [
         "id",
@@ -22898,7 +22898,7 @@
         },
         "deletedAt": {
           "type": "string",
-          "format": "date",
+          "format": "date-time",
           "description": "Time when the site was deleted in ISO format.",
           "example": "2018-11-14T15:20:32.004Z"
         }
@@ -22948,7 +22948,7 @@
           "type": "string",
           "enum": ["trace", "debug", "info", "warn", "error", "fatal"]
         },
-        "expiresAt": { "type": "string", "format": "date" }
+        "expiresAt": { "type": "string", "format": "date-time" }
       },
       "required": ["verbosity", "expiresAt"]
     },
@@ -24531,7 +24531,7 @@
         },
         "time": {
           "type": "string",
-          "format": "date",
+          "format": "date-time",
           "description": "Time when the error occured.",
           "example": "2019-02-07T10:18:01.000Z"
         }
@@ -25776,7 +25776,7 @@
             "UNKNOWN"
           ]
         },
-        "updated": { "type": "string", "format": "date" },
+        "updated": { "type": "string", "format": "date-time" },
         "ipAddress": {
           "type": "string",
           "x-format": { "ip": { "version": ["ipv4"], "cidr": "optional" } }
@@ -26767,7 +26767,7 @@
           "description": "Set to true to allow DHCP option 82",
           "example": true
         },
-        "mtu": { "type": "string" },
+        "mtu": { "type": "number" },
         "accessFromSfp": { "type": "boolean" },
         "inbandManagementVlan": { "type": "string" },
         "readOnlyAccount": { "$ref": "#/definitions/readOnlyAccount" },
@@ -26836,7 +26836,7 @@
         "id": { "type": "string", "x-format": { "guid": true } },
         "type": { "type": "string", "enum": ["cfg", "tar"] },
         "extension": { "type": "string" },
-        "timestamp": { "type": "string", "format": "date" },
+        "timestamp": { "type": "string", "format": "date-time" },
         "firmwareVersion": {
           "$ref": "#/definitions/interface",
           "x-alternatives": [
@@ -26909,7 +26909,7 @@
         },
         "publicationDate": {
           "type": "string",
-          "format": "date",
+          "format": "date-time",
           "description": "publication date on Ubiquiti blog"
         },
         "read": { "type": "boolean", "description": "user read blog post" },
@@ -27209,7 +27209,7 @@
         "username": { "type": "string" },
         "password": { "type": "string" },
         "readOnly": { "type": "boolean" },
-        "createdAt": { "type": "string", "format": "date" },
+        "createdAt": { "type": "string", "format": "date-time" },
         "deviceId": {
           "type": "string",
           "example": "f7ac9cad-ea28-4390-93c8-7add010e8ee3",
@@ -27238,7 +27238,7 @@
         "username": { "type": "string" },
         "password": { "type": "string" },
         "readOnly": { "type": "boolean" },
-        "createdAt": { "type": "string", "format": "date" }
+        "createdAt": { "type": "string", "format": "date-time" }
       }
     },
     "Device's credentials": {
@@ -30077,25 +30077,25 @@
         },
         "createdAt": {
           "type": "string",
-          "format": "date",
+          "format": "date-time",
           "description": "Time when this token was created.",
           "example": "2011-10-03T14:48:00.000Z"
         },
         "lastUsed": {
           "type": "string",
-          "format": "date",
+          "format": "date-time",
           "description": "Time when this token was last used. If null then it has not been used yet.",
           "example": "2011-10-04T14:48:00.000Z"
         },
         "expiresAt": {
           "type": "string",
-          "format": "date",
+          "format": "date-time",
           "description": "Time when this token will expire unless it is renewed. If null than it will never expire.",
           "example": "2011-10-05T14:48:00.000Z"
         },
         "maxExpiresAt": {
           "type": "string",
-          "format": "date",
+          "format": "date-time",
           "description": "Latest time when the token will expire. If null then it will never expire.",
           "example": "2011-11-05T14:48:00.000Z"
         },
@@ -31993,8 +31993,8 @@
         },
         "quality": { "type": "string", "maxLength": 200 },
         "terrain": { "$ref": "#/definitions/terrain" },
-        "updatedAt": { "type": "string", "format": "date" },
-        "createdAt": { "type": "string", "format": "date" }
+        "updatedAt": { "type": "string", "format": "date-time" },
+        "createdAt": { "type": "string", "format": "date-time" }
       },
       "required": [
         "id",
@@ -32074,8 +32074,8 @@
           "required": ["SimulationLink"],
           "x-alternatives": [{ "$ref": "#/x-alt-definitions/SimulationLink" }]
         },
-        "updatedAt": { "type": "string", "format": "date" },
-        "createdAt": { "type": "string", "format": "date" }
+        "updatedAt": { "type": "string", "format": "date-time" },
+        "createdAt": { "type": "string", "format": "date-time" }
       },
       "required": [
         "id",
@@ -32602,7 +32602,7 @@
         },
         "lastNewsSeenDate": {
           "type": "string",
-          "format": "date",
+          "format": "date-time",
           "description": "Last news check time in ISO format.",
           "example": "2018-11-14T15:20:32.004Z"
         },
@@ -32634,7 +32634,7 @@
         },
         "updated": {
           "type": "string",
-          "format": "date",
+          "format": "date-time",
           "description": "Last time the user was updated.",
           "example": "2018-11-14T15:20:32.004Z"
         }
@@ -35036,7 +35036,7 @@
         "parent": { "$ref": "#/definitions/parent%204" },
         "updated": {
           "type": "string",
-          "format": "date",
+          "format": "date-time",
           "description": "Time when the site was last updated.",
           "example": "2018-11-14T15:20:32.004Z"
         },
@@ -36888,7 +36888,7 @@
         },
         "updated": {
           "type": "string",
-          "format": "date",
+          "format": "date-time",
           "description": "Last time the location was updated.",
           "example": "2018-11-14T15:20:32.004Z"
         }
@@ -36939,7 +36939,7 @@
         },
         "lastNewsSeenDate": {
           "type": "string",
-          "format": "date",
+          "format": "date-time",
           "description": "Last news check time in ISO format.",
           "example": "2018-11-14T15:20:32.004Z"
         },
@@ -36971,7 +36971,7 @@
         },
         "updated": {
           "type": "string",
-          "format": "date",
+          "format": "date-time",
           "description": "Last time the user was updated.",
           "example": "2018-11-14T15:20:32.004Z"
         }
@@ -38073,7 +38073,7 @@
           "$ref": "#/definitions/site",
           "x-alternatives": [{ "$ref": "#/x-alt-definitions/site" }]
         },
-        "started": { "type": "string", "format": "date" },
+        "started": { "type": "string", "format": "date-time" },
         "status": {
           "type": "string",
           "description": "Status of the station.",
@@ -38112,7 +38112,7 @@
           ]
         },
         "wanInterfaceId": { "type": "string" },
-        "updated": { "type": "string", "format": "date" }
+        "updated": { "type": "string", "format": "date-time" }
       },
       "required": ["id"]
     },
@@ -38122,7 +38122,7 @@
       "properties": {
         "timestamp": {
           "type": "string",
-          "format": "date",
+          "format": "date-time",
           "description": "Latest backup timestamp.",
           "example": "2018-11-14T15:20:32.004Z"
         },
@@ -38145,7 +38145,7 @@
         "note": { "type": "string", "maxLength": 300 },
         "restartTimestamp": {
           "type": "string",
-          "format": "date",
+          "format": "date-time",
           "example": "2018-11-14T15:20:32.004Z"
         }
       },
@@ -38214,7 +38214,7 @@
           "description": "TRUE if device can be upgraded."
         },
         "cpu": { "type": "number", "description": "Current cpu load." },
-        "createdAt": { "type": "string", "format": "date" },
+        "createdAt": { "type": "string", "format": "date-time" },
         "distance": {
           "type": "number",
           "description": "Nullable property in meters."
@@ -38229,7 +38229,7 @@
         },
         "lastSeen": {
           "type": "string",
-          "format": "date",
+          "format": "date-time",
           "description": "Last seen timestamp in ISO format.",
           "example": "2018-11-14T15:20:32.004Z"
         },
@@ -38955,7 +38955,7 @@
           "$ref": "#/definitions/site",
           "x-alternatives": [{ "$ref": "#/x-alt-definitions/site" }]
         },
-        "started": { "type": "string", "format": "date" },
+        "started": { "type": "string", "format": "date-time" },
         "status": {
           "type": "string",
           "description": "Status of the station.",
@@ -38994,7 +38994,7 @@
           ]
         },
         "wanInterfaceId": { "type": "string" },
-        "updated": { "type": "string", "format": "date" }
+        "updated": { "type": "string", "format": "date-time" }
       },
       "required": ["id"]
     },
@@ -39298,7 +39298,7 @@
         "rxChainMask": { "type": "integer", "example": 2 },
         "timestamp": {
           "type": "string",
-          "format": "date",
+          "format": "date-time",
           "example": "2018-11-14T15:20:32.004Z"
         },
         "txBytes": {
@@ -39358,7 +39358,7 @@
         },
         "isSwitchedPort": { "type": "boolean" },
         "lag": { "$ref": "#/x-alt-definitions/lag" },
-        "mtu": { "type": "string" },
+        "mtu": { "type": "number" },
         "ospf": { "$ref": "#/x-alt-definitions/InterfaceOspf" },
         "poe": { "$ref": "#/x-alt-definitions/InterfacePoe" },
         "speeds": { "$ref": "#/x-alt-definitions/InterfaceSpeeds" },
@@ -39486,7 +39486,7 @@
         "parent": { "$ref": "#/x-alt-definitions/parent" },
         "updated": {
           "type": "string",
-          "format": "date",
+          "format": "date-time",
           "description": "Time when the site was last updated.",
           "example": "2018-11-14T15:20:32.004Z"
         },
@@ -39570,7 +39570,7 @@
         },
         "updated": {
           "type": "string",
-          "format": "date",
+          "format": "date-time",
           "description": "Time when the site was last updated.",
           "example": "2018-11-14T15:20:32.004Z"
         },
@@ -40022,7 +40022,7 @@
         },
         "activeFrom": {
           "type": "string",
-          "format": "date",
+          "format": "date-time",
           "description": "Time when the service was activated.",
           "example": "2018-11-14T15:20:32.004Z"
         },
@@ -40446,8 +40446,8 @@
         },
         "quality": { "type": "string", "maxLength": 200 },
         "terrain": { "$ref": "#/x-alt-definitions/terrain" },
-        "updatedAt": { "type": "string", "format": "date" },
-        "createdAt": { "type": "string", "format": "date" }
+        "updatedAt": { "type": "string", "format": "date-time" },
+        "createdAt": { "type": "string", "format": "date-time" }
       },
       "required": [
         "id",
