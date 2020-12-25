@@ -27,7 +27,7 @@ func newSpec(help string, labels []string) metricSpec {
 }
 
 var defaultLabels = []string{
-	"deviceId", "deviceName", "mac", "role", "siteId", "siteName",
+	"deviceId", "deviceName", "deviceMac", "role", "siteId", "siteName",
 }
 
 func (s metricSpec) intoDesc(name string) *prom.Desc {
