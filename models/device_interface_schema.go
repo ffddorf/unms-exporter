@@ -59,13 +59,13 @@ type DeviceInterfaceSchema struct {
 	Port *Port `json:"port,omitempty"`
 
 	// pppoe
-	Pppoe string `json:"pppoe,omitempty"`
+	Pppoe *InterfacePppoe `json:"pppoe,omitempty"`
 
 	// proxy a r p
-	ProxyARP string `json:"proxyARP,omitempty"`
+	ProxyARP bool `json:"proxyARP,omitempty"`
 
 	// sfp
-	Sfp string `json:"sfp,omitempty"`
+	Sfp *InterfaceSfp `json:"sfp,omitempty"`
 
 	// speed
 	// Example: auto
@@ -92,7 +92,7 @@ type DeviceInterfaceSchema struct {
 	Visible bool `json:"visible,omitempty"`
 
 	// vlan
-	Vlan string `json:"vlan,omitempty"`
+	Vlan *Vlan `json:"vlan,omitempty"`
 
 	// wireless
 	Wireless *Wireless `json:"wireless,omitempty"`
@@ -130,6 +130,14 @@ func (m *DeviceInterfaceSchema) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validatePppoe(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSfp(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateSpeed(formats); err != nil {
 		res = append(res, err)
 	}
@@ -151,6 +159,10 @@ func (m *DeviceInterfaceSchema) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateSwitch(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateVlan(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -282,6 +294,40 @@ func (m *DeviceInterfaceSchema) validatePort(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *DeviceInterfaceSchema) validatePppoe(formats strfmt.Registry) error {
+	if swag.IsZero(m.Pppoe) { // not required
+		return nil
+	}
+
+	if m.Pppoe != nil {
+		if err := m.Pppoe.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("pppoe")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DeviceInterfaceSchema) validateSfp(formats strfmt.Registry) error {
+	if swag.IsZero(m.Sfp) { // not required
+		return nil
+	}
+
+	if m.Sfp != nil {
+		if err := m.Sfp.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("sfp")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *DeviceInterfaceSchema) validateSpeed(formats strfmt.Registry) error {
 	if swag.IsZero(m.Speed) { // not required
 		return nil
@@ -377,6 +423,23 @@ func (m *DeviceInterfaceSchema) validateSwitch(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *DeviceInterfaceSchema) validateVlan(formats strfmt.Registry) error {
+	if swag.IsZero(m.Vlan) { // not required
+		return nil
+	}
+
+	if m.Vlan != nil {
+		if err := m.Vlan.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("vlan")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *DeviceInterfaceSchema) validateWireless(formats strfmt.Registry) error {
 	if swag.IsZero(m.Wireless) { // not required
 		return nil
@@ -426,6 +489,14 @@ func (m *DeviceInterfaceSchema) ContextValidate(ctx context.Context, formats str
 		res = append(res, err)
 	}
 
+	if err := m.contextValidatePppoe(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSfp(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateSpeeds(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -443,6 +514,10 @@ func (m *DeviceInterfaceSchema) ContextValidate(ctx context.Context, formats str
 	}
 
 	if err := m.contextValidateSwitch(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateVlan(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -552,6 +627,34 @@ func (m *DeviceInterfaceSchema) contextValidatePort(ctx context.Context, formats
 	return nil
 }
 
+func (m *DeviceInterfaceSchema) contextValidatePppoe(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Pppoe != nil {
+		if err := m.Pppoe.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("pppoe")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DeviceInterfaceSchema) contextValidateSfp(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Sfp != nil {
+		if err := m.Sfp.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("sfp")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *DeviceInterfaceSchema) contextValidateSpeeds(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Speeds != nil {
@@ -612,6 +715,20 @@ func (m *DeviceInterfaceSchema) contextValidateSwitch(ctx context.Context, forma
 		if err := m.Switch.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("switch")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DeviceInterfaceSchema) contextValidateVlan(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Vlan != nil {
+		if err := m.Vlan.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("vlan")
 			}
 			return err
 		}

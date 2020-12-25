@@ -35,7 +35,7 @@ type Model3 struct {
 	ID *string `json:"id"`
 
 	// pvid
-	Pvid string `json:"pvid,omitempty"`
+	Pvid int64 `json:"pvid,omitempty"`
 
 	// vid
 	Vid Vid `json:"vid,omitempty"`

@@ -17693,6 +17693,27 @@
         }
       }
     },
+    "interfacePppoe": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "integer" },
+        "parent": { "type": "string" },
+        "account": { "type": "string" },
+        "password": { "type": "string" }
+      }
+    },
+    "interfaceSfp": {
+      "type": "object",
+      "properties": {
+        "present": { "type": "boolean" },
+        "vendor": { "type": "string" },
+        "part": { "type": "string" },
+        "maxSpeed": { "type": "integer" },
+        "olt": { "type": "boolean" },
+        "vlanNative": { "type": "object" },
+        "includeVlans": { "type": "object" }
+      }
+    },
     "loadBalanceValues": { "type": "array", "items": { "type": "string" } },
     "capabilities": {
       "type": "object",
@@ -17729,7 +17750,7 @@
       "type": "object",
       "properties": {
         "id": { "type": "string" },
-        "pvid": { "type": "string" },
+        "pvid": { "type": "integer" },
         "vid": { "$ref": "#/definitions/vid" },
         "displayName": { "type": "string" },
         "enabled": { "type": "boolean" },
@@ -17799,6 +17820,13 @@
         "speedLimit": { "$ref": "#/definitions/speedLimit" },
         "routed": { "type": "boolean" },
         "stp": { "$ref": "#/definitions/stp%201" }
+      }
+    },
+    "vlan": {
+      "type": "object",
+      "description": "VLAN config",
+      "properties": {
+        "id": { "type": "integer" }
       }
     },
     "dfsLockouts": {
@@ -18584,9 +18612,9 @@
         "ospf": { "$ref": "#/definitions/InterfaceOspf" },
         "poe": { "$ref": "#/definitions/InterfacePoe" },
         "speeds": { "$ref": "#/definitions/InterfaceSpeeds" },
-        "pppoe": { "type": "string", "example": null },
-        "proxyARP": { "type": "string" },
-        "sfp": { "type": "string", "example": null },
+        "pppoe": { "$ref": "#/definitions/interfacePppoe" },
+        "proxyARP": { "type": "boolean" },
+        "sfp": { "$ref": "#/definitions/interfaceSfp" },
         "speed": {
           "type": "string",
           "example": "auto",
@@ -18597,7 +18625,7 @@
         "status": { "$ref": "#/definitions/InterfaceStatus" },
         "switch": { "$ref": "#/definitions/switch" },
         "visible": { "type": "boolean", "example": true },
-        "vlan": { "type": "string", "example": null },
+        "vlan": { "$ref": "#/definitions/vlan" },
         "port": { "$ref": "#/definitions/port" },
         "wireless": { "$ref": "#/definitions/wireless" },
         "stations": { "$ref": "#/definitions/stations" }
