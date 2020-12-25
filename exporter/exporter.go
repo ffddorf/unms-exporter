@@ -38,8 +38,15 @@ func (s metricSpec) intoDesc(name string) *prom.Desc {
 }
 
 var metricSpecs = map[string]metricSpec{
-	"device_cpu": newSpec("CPU usage in percent", []string{}),
-	"device_ram": newSpec("RAM usage in percent", []string{}),
+	"device_cpu": newSpec("CPU usage in percent", nil),
+	"device_ram": newSpec("RAM usage in percent", nil),
+
+	"device_enabled":     newSpec("Whether device is enabled", nil),
+	"device_maintenance": newSpec("Whether device is in maintenance", nil),
+
+	"device_uptime":      newSpec("Duration the device is up in seconds", nil),
+	"device_last_seen":   newSpec("Unix epoch when device was last seen", nil),
+	"device_last_backup": newSpec("Unix epoch when last backup was made", nil),
 }
 
 type Exporter struct {
@@ -93,6 +100,13 @@ func (e *Exporter) Collect(out chan<- prom.Metric) {
 	}
 }
 
+func boolToGauge(in bool) float64 {
+	if in {
+		return 1
+	}
+	return 0
+}
+
 var (
 	defaultWithInterfaces = true
 	defaultDevicesParams  = &devices.GetDevicesParams{
@@ -124,6 +138,11 @@ func (e *Exporter) collectImpl(out chan<- prom.Metric) error {
 		}
 		out <- prom.MustNewConstMetric(e.metrics["device_cpu"], prom.GaugeValue, device.Overview.CPU, deviceLabels...)
 		out <- prom.MustNewConstMetric(e.metrics["device_ram"], prom.GaugeValue, device.Overview.RAM, deviceLabels...)
+		out <- prom.MustNewConstMetric(e.metrics["device_enabled"], prom.GaugeValue, boolToGauge(*device.Enabled), deviceLabels...)
+		out <- prom.MustNewConstMetric(e.metrics["device_maintenance"], prom.GaugeValue, boolToGauge(*device.Meta.Maintenance), deviceLabels...)
+		out <- prom.MustNewConstMetric(e.metrics["device_uptime"], prom.GaugeValue, device.Overview.Uptime, deviceLabels...)
+		out <- prom.MustNewConstMetric(e.metrics["device_last_seen"], prom.CounterValue, float64(time.Time(device.Overview.LastSeen).Unix()), deviceLabels...)
+		out <- prom.MustNewConstMetric(e.metrics["device_last_backup"], prom.GaugeValue, float64(time.Time(*device.LatestBackup.Timestamp).Unix()), deviceLabels...)
 	}
 
 	return nil
