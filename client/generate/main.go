@@ -1,6 +1,8 @@
 package main
 
 import (
+	"os"
+
 	"github.com/go-swagger/go-swagger/generator"
 )
 
@@ -85,6 +87,11 @@ var includedModels = []string{
 }
 
 func main() {
+	if len(os.Args) < 2 {
+		panic("Missing target argument")
+	}
+	target := os.Args[1]
+
 	opts := &generator.GenOpts{
 		IncludeModel:      true,
 		IncludeValidator:  true,
@@ -97,7 +104,7 @@ func main() {
 		ValidateSpec:      false,
 		IsClient:          true,
 		Spec:              specLocation,
-		Target:            ".",
+		Target:            target,
 		ModelPackage:      "models",
 		ClientPackage:     "client",
 	}
