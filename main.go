@@ -18,7 +18,7 @@ import (
 type config struct {
 	Host       string `mapstructure:"host"`
 	APIToken   string `mapstructure:"api_token" envconfig:"api_token"`
-	ServerAddr string `mapstructure:"server_addr" envconfig:"server_addr"`
+	ServerAddr string `mapstructure:"listen" envconfig:"server_addr"`
 }
 
 const EnvPrefix = "UNMS_EXPORTER"
@@ -51,14 +51,13 @@ func main() {
 	}
 
 	flags := pflag.NewFlagSet("unms_exporter", pflag.ContinueOnError)
-	flags.String("host", "", "UNMS host to connect to")
-	flags.String("listen", "", "Address for the exporter to listen on")
+	flags.String("host", conf.Host, "UNMS host to connect to")
+	flags.String("listen", conf.ServerAddr, "Address for the exporter to listen on")
 	if err := flags.Parse(os.Args[1:]); err != nil {
 		log.WithError(err).Fatal("failed to parse flags")
 	}
 
 	v := viper.New()
-	v.RegisterAlias("listen", "server_addr")
 	v.BindPFlags(flags)
 	if err := v.Unmarshal(conf); err != nil {
 		log.WithError(err).Fatal("failed to read config from flags")
