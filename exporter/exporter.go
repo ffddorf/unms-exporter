@@ -54,6 +54,14 @@ var metricSpecs = map[string]metricSpec{
 	"interface_enabled": newSpec("Whether interface is enabled", interfaceLabels),
 	"interface_plugged": newSpec("Whether interface has a plugged link", interfaceLabels),
 	"interface_up":      newSpec("Whether interface is up", interfaceLabels),
+
+	"interface_dropped":   newSpec("Number of packets dropped on an interface", interfaceLabels),
+	"interface_errors":    newSpec("Number of interface errors", interfaceLabels),
+	"interface_rx_bytes":  newSpec("Bytes received on an interface", interfaceLabels),
+	"interface_tx_bytes":  newSpec("Bytes sent on an interface", interfaceLabels),
+	"interface_rx_rate":   newSpec("Receive rate on an interface", interfaceLabels),
+	"interface_tx_rate":   newSpec("Transmit rate on an interface", interfaceLabels),
+	"interface_poe_power": newSpec("POE power output on an interface", interfaceLabels),
 }
 
 type Exporter struct {
@@ -162,6 +170,14 @@ func (e *Exporter) collectImpl(out chan<- prom.Metric) error {
 			out <- prom.MustNewConstMetric(e.metrics["interface_enabled"], prom.GaugeValue, boolToGauge(intf.Enabled), intfLabels...)
 			out <- prom.MustNewConstMetric(e.metrics["interface_plugged"], prom.GaugeValue, boolToGauge(intf.Status.Plugged), intfLabels...)
 			out <- prom.MustNewConstMetric(e.metrics["interface_up"], prom.GaugeValue, boolToGauge(intf.Status.Status == "active"), intfLabels...)
+
+			out <- prom.MustNewConstMetric(e.metrics["interface_dropped"], prom.CounterValue, intf.Statistics.Dropped, intfLabels...)
+			out <- prom.MustNewConstMetric(e.metrics["interface_errors"], prom.CounterValue, intf.Statistics.Errors, intfLabels...)
+			out <- prom.MustNewConstMetric(e.metrics["interface_rx_bytes"], prom.CounterValue, intf.Statistics.Rxbytes, intfLabels...)
+			out <- prom.MustNewConstMetric(e.metrics["interface_tx_bytes"], prom.CounterValue, intf.Statistics.Txbytes, intfLabels...)
+			out <- prom.MustNewConstMetric(e.metrics["interface_rx_rate"], prom.GaugeValue, intf.Statistics.Rxrate, intfLabels...)
+			out <- prom.MustNewConstMetric(e.metrics["interface_tx_rate"], prom.GaugeValue, intf.Statistics.Txrate, intfLabels...)
+			out <- prom.MustNewConstMetric(e.metrics["interface_poe_power"], prom.GaugeValue, intf.Statistics.PoePower, intfLabels...)
 		}
 	}
 
