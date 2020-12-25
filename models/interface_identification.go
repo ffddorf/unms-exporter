@@ -38,7 +38,7 @@ type InterfaceIdentification struct {
 
 	// Physical port position.
 	// Example: 0
-	Position float64 `json:"position,omitempty"`
+	Position int64 `json:"position,omitempty"`
 
 	// type
 	// Example: eth

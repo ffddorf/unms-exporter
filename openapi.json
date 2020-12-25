@@ -17594,7 +17594,7 @@
           "example": "eth0"
         },
         "position": {
-          "type": "number",
+          "type": "integer",
           "description": "Physical port position.",
           "example": 0
         },
@@ -38398,7 +38398,7 @@
           "example": "eth0"
         },
         "position": {
-          "type": "number",
+          "type": "integer",
           "description": "Physical port position.",
           "example": 0
         },
