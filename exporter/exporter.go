@@ -3,6 +3,7 @@ package exporter
 import (
 	"context"
 	"fmt"
+	"strconv"
 	"time"
 
 	"github.com/ffddorf/unms-exporter/client"
@@ -37,6 +38,8 @@ func (s metricSpec) intoDesc(name string) *prom.Desc {
 	return prom.NewDesc(namespace+"_"+name, s.help, labels, prom.Labels{})
 }
 
+var interfaceLabels = []string{"ifName", "ifDescr", "ifPos", "ifType"}
+
 var metricSpecs = map[string]metricSpec{
 	"device_cpu": newSpec("CPU usage in percent", nil),
 	"device_ram": newSpec("RAM usage in percent", nil),
@@ -47,6 +50,10 @@ var metricSpecs = map[string]metricSpec{
 	"device_uptime":      newSpec("Duration the device is up in seconds", nil),
 	"device_last_seen":   newSpec("Unix epoch when device was last seen", nil),
 	"device_last_backup": newSpec("Unix epoch when last backup was made", nil),
+
+	"interface_enabled": newSpec("Whether interface is enabled", interfaceLabels),
+	"interface_plugged": newSpec("Whether interface has a plugged link", interfaceLabels),
+	"interface_up":      newSpec("Whether interface is up", interfaceLabels),
 }
 
 type Exporter struct {
@@ -109,9 +116,6 @@ func boolToGauge(in bool) float64 {
 
 var (
 	defaultWithInterfaces = true
-	defaultDevicesParams  = &devices.GetDevicesParams{
-		WithInterfaces: &defaultWithInterfaces,
-	}
 )
 
 func (e *Exporter) collectImpl(out chan<- prom.Metric) error {
@@ -119,7 +123,7 @@ func (e *Exporter) collectImpl(out chan<- prom.Metric) error {
 	defer cancel()
 
 	params := &devices.GetDevicesParams{
-		WithInterfaces: new(bool),
+		WithInterfaces: &defaultWithInterfaces,
 		Context:        ctx,
 	}
 	devices, err := e.api.Devices.GetDevices(params, nil)
@@ -136,6 +140,7 @@ func (e *Exporter) collectImpl(out chan<- prom.Metric) error {
 			*device.Identification.Site.ID,  // siteId
 			device.Identification.Site.Name, // siteName
 		}
+
 		out <- prom.MustNewConstMetric(e.metrics["device_cpu"], prom.GaugeValue, device.Overview.CPU, deviceLabels...)
 		out <- prom.MustNewConstMetric(e.metrics["device_ram"], prom.GaugeValue, device.Overview.RAM, deviceLabels...)
 		out <- prom.MustNewConstMetric(e.metrics["device_enabled"], prom.GaugeValue, boolToGauge(*device.Enabled), deviceLabels...)
@@ -143,6 +148,21 @@ func (e *Exporter) collectImpl(out chan<- prom.Metric) error {
 		out <- prom.MustNewConstMetric(e.metrics["device_uptime"], prom.GaugeValue, device.Overview.Uptime, deviceLabels...)
 		out <- prom.MustNewConstMetric(e.metrics["device_last_seen"], prom.CounterValue, float64(time.Time(device.Overview.LastSeen).Unix()), deviceLabels...)
 		out <- prom.MustNewConstMetric(e.metrics["device_last_backup"], prom.GaugeValue, float64(time.Time(*device.LatestBackup.Timestamp).Unix()), deviceLabels...)
+
+		for _, intf := range device.Interfaces {
+			intfLabels := make([]string, 0, len(deviceLabels)+len(interfaceLabels))
+			intfLabels = append(intfLabels, deviceLabels...)
+			intfLabels = append(intfLabels,
+				intf.Identification.Name,                            // ifName
+				intf.Identification.Description,                     // ifDescr
+				strconv.FormatInt(intf.Identification.Position, 10), // ifPos
+				intf.Identification.Type,                            // ifType
+			)
+
+			out <- prom.MustNewConstMetric(e.metrics["interface_enabled"], prom.GaugeValue, boolToGauge(intf.Enabled), intfLabels...)
+			out <- prom.MustNewConstMetric(e.metrics["interface_plugged"], prom.GaugeValue, boolToGauge(intf.Status.Plugged), intfLabels...)
+			out <- prom.MustNewConstMetric(e.metrics["interface_up"], prom.GaugeValue, boolToGauge(intf.Status.Status == "active"), intfLabels...)
+		}
 	}
 
 	return nil
