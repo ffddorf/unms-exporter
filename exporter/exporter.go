@@ -8,6 +8,7 @@ import (
 
 	"github.com/ffddorf/unms-exporter/client"
 	"github.com/ffddorf/unms-exporter/client/devices"
+	"github.com/ffddorf/unms-exporter/models"
 	openapi "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
 	prom "github.com/prometheus/client_golang/prometheus"
@@ -62,6 +63,11 @@ var metricSpecs = map[string]metricSpec{
 	"interface_rx_rate":   newSpec("Receive rate on an interface", interfaceLabels),
 	"interface_tx_rate":   newSpec("Transmit rate on an interface", interfaceLabels),
 	"interface_poe_power": newSpec("POE power output on an interface", interfaceLabels),
+
+	"wan_rx_bytes": newSpec("Bytes received on WAN interface", nil),
+	"wan_tx_bytes": newSpec("Bytes sent on WAN interface", nil),
+	"wan_rx_rate":  newSpec("Receive rate on WAN interface", nil),
+	"wan_tx_rate":  newSpec("Transmit rate on WAN interface", nil),
 }
 
 type Exporter struct {
@@ -157,7 +163,12 @@ func (e *Exporter) collectImpl(out chan<- prom.Metric) error {
 		out <- prom.MustNewConstMetric(e.metrics["device_last_seen"], prom.CounterValue, float64(time.Time(device.Overview.LastSeen).Unix()), deviceLabels...)
 		out <- prom.MustNewConstMetric(e.metrics["device_last_backup"], prom.GaugeValue, float64(time.Time(*device.LatestBackup.Timestamp).Unix()), deviceLabels...)
 
+		var wanIF *models.DeviceInterfaceSchema
 		for _, intf := range device.Interfaces {
+			if intf.Identification.Name == device.Identification.WanInterfaceID {
+				wanIF = intf
+			}
+
 			intfLabels := make([]string, 0, len(deviceLabels)+len(interfaceLabels))
 			intfLabels = append(intfLabels, deviceLabels...)
 			intfLabels = append(intfLabels,
@@ -178,6 +189,14 @@ func (e *Exporter) collectImpl(out chan<- prom.Metric) error {
 			out <- prom.MustNewConstMetric(e.metrics["interface_rx_rate"], prom.GaugeValue, intf.Statistics.Rxrate, intfLabels...)
 			out <- prom.MustNewConstMetric(e.metrics["interface_tx_rate"], prom.GaugeValue, intf.Statistics.Txrate, intfLabels...)
 			out <- prom.MustNewConstMetric(e.metrics["interface_poe_power"], prom.GaugeValue, intf.Statistics.PoePower, intfLabels...)
+		}
+
+		// WAN metrics
+		if wanIF != nil {
+			out <- prom.MustNewConstMetric(e.metrics["wan_rx_bytes"], prom.CounterValue, wanIF.Statistics.Rxbytes, deviceLabels...)
+			out <- prom.MustNewConstMetric(e.metrics["wan_tx_bytes"], prom.CounterValue, wanIF.Statistics.Txbytes, deviceLabels...)
+			out <- prom.MustNewConstMetric(e.metrics["wan_rx_rate"], prom.GaugeValue, wanIF.Statistics.Rxrate, deviceLabels...)
+			out <- prom.MustNewConstMetric(e.metrics["wan_tx_rate"], prom.GaugeValue, wanIF.Statistics.Txrate, deviceLabels...)
 		}
 	}
 
