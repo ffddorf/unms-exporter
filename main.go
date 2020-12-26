@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"net/http"
 	"os"
+	"strings"
 
 	"github.com/ffddorf/unms-exporter/exporter"
 	"github.com/kelseyhightower/envconfig"
@@ -16,20 +17,16 @@ import (
 )
 
 type config struct {
-	Host       string `mapstructure:"host"`
-	APIToken   string `mapstructure:"api_token" envconfig:"api_token"`
-	ServerAddr string `mapstructure:"listen" envconfig:"server_addr"`
+	ServerAddr string       `mapstructure:"listen" split_words:"true"`
+
+	TokenPerHost map[string]string `mapstructure:"token" envconfig:"-"`
 }
 
-const EnvPrefix = "UNMS_EXPORTER"
+const envPrefix = "UNMS_EXPORTER"
 
 func (c *config) validate() error {
-	if c.Host == "" {
-		return errors.New("Host cannot be empty")
-	}
-
-	if c.APIToken == "" {
-		return fmt.Errorf("API token cannot be empty, set %s_API_TOKEN", EnvPrefix)
+	if len(c.TokenPerHost) < 1 {
+		return errors.New("No token configured")
 	}
 
 	if c.ServerAddr == "" {
@@ -46,19 +43,27 @@ func main() {
 		ServerAddr: "[::]:9806",
 	}
 
-	if err := envconfig.Process(EnvPrefix, conf); err != nil {
+	if err := envconfig.Process(envPrefix, conf); err != nil {
 		log.WithError(err).Fatal("failed to read config from env")
 	}
 
 	flags := pflag.NewFlagSet("unms_exporter", pflag.ContinueOnError)
-	flags.String("host", conf.Host, "UNMS host to connect to")
-	flags.String("listen", conf.ServerAddr, "Address for the exporter to listen on")
+	flags.StringP("listen", "l", conf.ServerAddr, "Address for the exporter to listen on")
+	flags.StringP("config", "c", "", "Config file to use")
 	if err := flags.Parse(os.Args[1:]); err != nil {
 		log.WithError(err).Fatal("failed to parse flags")
 	}
 
-	v := viper.New()
+	v := viper.NewWithOptions(viper.KeyDelimiter("::"))
 	v.BindPFlags(flags)
+
+	if path := v.GetString("config"); path != "" {
+		v.SetConfigFile(path)
+		if err := v.ReadInConfig(); err != nil {
+			log.WithField("path", path).WithError(err).Fatal("Failed to read config")
+		}
+	}
+
 	if err := v.Unmarshal(conf); err != nil {
 		log.WithError(err).Fatal("failed to read config from flags")
 	}
@@ -68,21 +73,42 @@ func main() {
 		log.WithError(err).Fatal("invalid config")
 	}
 
-	export := exporter.New(log.WithField("component", "exporter"), conf.Host, conf.APIToken)
-
-	registry := prometheus.NewPedanticRegistry()
-	registry.MustRegister(
-		prometheus.NewBuildInfoCollector(),
-		prometheus.NewGoCollector(),
-	)
-
-	if err := registry.Register(export); err != nil {
-		log.WithError(err).Fatal("failed to register exporter")
+	targets := make(map[string]*prometheus.Registry)
+	for host, token := range conf.TokenPerHost {
+		host := strings.ToLower(host)
+		registry := prometheus.NewPedanticRegistry()
+		registry.MustRegister(
+			prometheus.NewBuildInfoCollector(),
+			prometheus.NewGoCollector(),
+		)
+		export := exporter.New(
+			log.WithField("component", "exporter").WithField("host", host),
+			host, token,
+		)
+		if err := registry.Register(export); err != nil {
+			log.WithField("host", host).WithError(err).Fatal("failed to register exporter")
+		}
+		targets[host] = registry
 	}
 
-	handler := promhttp.HandlerFor(registry, promhttp.HandlerOpts{
-		ErrorLog: log,
-		Registry: registry,
+	handler := http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		target := r.URL.Query().Get("target")
+		if target == "" {
+			w.WriteHeader(http.StatusBadRequest)
+			return
+		}
+
+		registry, ok := targets[strings.ToLower(target)]
+		if !ok {
+			w.WriteHeader(http.StatusNotFound)
+			return
+		}
+
+		h := promhttp.HandlerFor(registry, promhttp.HandlerOpts{
+			ErrorLog: log,
+			Registry: registry,
+		})
+		h.ServeHTTP(w, r)
 	})
 
 	log.WithField("addr", conf.ServerAddr).Info("Server starting...")
