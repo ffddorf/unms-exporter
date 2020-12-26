@@ -18,6 +18,7 @@ import (
 
 type config struct {
 	ServerAddr string       `mapstructure:"listen" split_words:"true"`
+	LogLevel   logrus.Level `mapstructure:"log_level" split_words:"true"`
 
 	TokenPerHost map[string]string `mapstructure:"token" envconfig:"-"`
 }
@@ -41,6 +42,7 @@ func main() {
 
 	conf := &config{
 		ServerAddr: "[::]:9806",
+		LogLevel:   logrus.InfoLevel,
 	}
 
 	if err := envconfig.Process(envPrefix, conf); err != nil {
@@ -68,6 +70,8 @@ func main() {
 		log.WithError(err).Fatal("failed to read config from flags")
 	}
 
+	log.SetLevel(conf.LogLevel)
+
 	if err := conf.validate(); err != nil {
 		fmt.Println(flags.FlagUsages())
 		log.WithError(err).Fatal("invalid config")
@@ -92,6 +96,12 @@ func main() {
 	}
 
 	handler := http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		log := log.WithFields(logrus.Fields{
+			"url":    r.URL,
+			"method": r.Method,
+		})
+		log.Debug("Starting request")
+
 		target := r.URL.Query().Get("target")
 		if target == "" {
 			w.WriteHeader(http.StatusBadRequest)
