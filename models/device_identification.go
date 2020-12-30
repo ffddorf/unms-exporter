@@ -234,143 +234,143 @@ func init() {
 
 const (
 
-	// DeviceIdentificationModelUFMinusNano captures enum value "UF-Nano"
-	DeviceIdentificationModelUFMinusNano string = "UF-Nano"
+	// DeviceIdentificationModelUFDashNano captures enum value "UF-Nano"
+	DeviceIdentificationModelUFDashNano string = "UF-Nano"
 
-	// DeviceIdentificationModelUFMinusLoco captures enum value "UF-Loco"
-	DeviceIdentificationModelUFMinusLoco string = "UF-Loco"
+	// DeviceIdentificationModelUFDashLoco captures enum value "UF-Loco"
+	DeviceIdentificationModelUFDashLoco string = "UF-Loco"
 
-	// DeviceIdentificationModelUFMinusWifi captures enum value "UF-Wifi"
-	DeviceIdentificationModelUFMinusWifi string = "UF-Wifi"
+	// DeviceIdentificationModelUFDashWifi captures enum value "UF-Wifi"
+	DeviceIdentificationModelUFDashWifi string = "UF-Wifi"
 
-	// DeviceIdentificationModelUFMinusInstant captures enum value "UF-Instant"
-	DeviceIdentificationModelUFMinusInstant string = "UF-Instant"
+	// DeviceIdentificationModelUFDashInstant captures enum value "UF-Instant"
+	DeviceIdentificationModelUFDashInstant string = "UF-Instant"
 
-	// DeviceIdentificationModelUFMinusOLT captures enum value "UF-OLT"
-	DeviceIdentificationModelUFMinusOLT string = "UF-OLT"
+	// DeviceIdentificationModelUFDashOLT captures enum value "UF-OLT"
+	DeviceIdentificationModelUFDashOLT string = "UF-OLT"
 
-	// DeviceIdentificationModelUFMinusOLT4 captures enum value "UF-OLT4"
-	DeviceIdentificationModelUFMinusOLT4 string = "UF-OLT4"
+	// DeviceIdentificationModelUFDashOLT4 captures enum value "UF-OLT4"
+	DeviceIdentificationModelUFDashOLT4 string = "UF-OLT4"
 
-	// DeviceIdentificationModelUNMSMinusRMinusPRO captures enum value "UNMS-R-PRO"
-	DeviceIdentificationModelUNMSMinusRMinusPRO string = "UNMS-R-PRO"
+	// DeviceIdentificationModelUNMSDashRDashPRO captures enum value "UNMS-R-PRO"
+	DeviceIdentificationModelUNMSDashRDashPRO string = "UNMS-R-PRO"
 
-	// DeviceIdentificationModelUNMSMinusRMinusLite captures enum value "UNMS-R-Lite"
-	DeviceIdentificationModelUNMSMinusRMinusLite string = "UNMS-R-Lite"
+	// DeviceIdentificationModelUNMSDashRDashLite captures enum value "UNMS-R-Lite"
+	DeviceIdentificationModelUNMSDashRDashLite string = "UNMS-R-Lite"
 
-	// DeviceIdentificationModelUNMSMinusSMinusLite captures enum value "UNMS-S-Lite"
-	DeviceIdentificationModelUNMSMinusSMinusLite string = "UNMS-S-Lite"
+	// DeviceIdentificationModelUNMSDashSDashLite captures enum value "UNMS-S-Lite"
+	DeviceIdentificationModelUNMSDashSDashLite string = "UNMS-S-Lite"
 
-	// DeviceIdentificationModelERMinusX captures enum value "ER-X"
-	DeviceIdentificationModelERMinusX string = "ER-X"
+	// DeviceIdentificationModelERDashX captures enum value "ER-X"
+	DeviceIdentificationModelERDashX string = "ER-X"
 
-	// DeviceIdentificationModelERMinusXMinusSFP captures enum value "ER-X-SFP"
-	DeviceIdentificationModelERMinusXMinusSFP string = "ER-X-SFP"
+	// DeviceIdentificationModelERDashXDashSFP captures enum value "ER-X-SFP"
+	DeviceIdentificationModelERDashXDashSFP string = "ER-X-SFP"
 
-	// DeviceIdentificationModelERLiteMinus3 captures enum value "ERLite-3"
-	DeviceIdentificationModelERLiteMinus3 string = "ERLite-3"
+	// DeviceIdentificationModelERLiteDash3 captures enum value "ERLite-3"
+	DeviceIdentificationModelERLiteDash3 string = "ERLite-3"
 
-	// DeviceIdentificationModelERPoeMinus5 captures enum value "ERPoe-5"
-	DeviceIdentificationModelERPoeMinus5 string = "ERPoe-5"
+	// DeviceIdentificationModelERPoeDash5 captures enum value "ERPoe-5"
+	DeviceIdentificationModelERPoeDash5 string = "ERPoe-5"
 
-	// DeviceIdentificationModelERProMinus8 captures enum value "ERPro-8"
-	DeviceIdentificationModelERProMinus8 string = "ERPro-8"
+	// DeviceIdentificationModelERProDash8 captures enum value "ERPro-8"
+	DeviceIdentificationModelERProDash8 string = "ERPro-8"
 
-	// DeviceIdentificationModelERMinus8 captures enum value "ER-8"
-	DeviceIdentificationModelERMinus8 string = "ER-8"
+	// DeviceIdentificationModelERDash8 captures enum value "ER-8"
+	DeviceIdentificationModelERDash8 string = "ER-8"
 
-	// DeviceIdentificationModelERMinus8MinusXG captures enum value "ER-8-XG"
-	DeviceIdentificationModelERMinus8MinusXG string = "ER-8-XG"
+	// DeviceIdentificationModelERDash8DashXG captures enum value "ER-8-XG"
+	DeviceIdentificationModelERDash8DashXG string = "ER-8-XG"
 
-	// DeviceIdentificationModelERMinus4 captures enum value "ER-4"
-	DeviceIdentificationModelERMinus4 string = "ER-4"
+	// DeviceIdentificationModelERDash4 captures enum value "ER-4"
+	DeviceIdentificationModelERDash4 string = "ER-4"
 
-	// DeviceIdentificationModelERMinus6P captures enum value "ER-6P"
-	DeviceIdentificationModelERMinus6P string = "ER-6P"
+	// DeviceIdentificationModelERDash6P captures enum value "ER-6P"
+	DeviceIdentificationModelERDash6P string = "ER-6P"
 
-	// DeviceIdentificationModelERMinus12 captures enum value "ER-12"
-	DeviceIdentificationModelERMinus12 string = "ER-12"
+	// DeviceIdentificationModelERDash12 captures enum value "ER-12"
+	DeviceIdentificationModelERDash12 string = "ER-12"
 
-	// DeviceIdentificationModelERMinus12P captures enum value "ER-12P"
-	DeviceIdentificationModelERMinus12P string = "ER-12P"
+	// DeviceIdentificationModelERDash12P captures enum value "ER-12P"
+	DeviceIdentificationModelERDash12P string = "ER-12P"
 
-	// DeviceIdentificationModelERMinus10X captures enum value "ER-10X"
-	DeviceIdentificationModelERMinus10X string = "ER-10X"
+	// DeviceIdentificationModelERDash10X captures enum value "ER-10X"
+	DeviceIdentificationModelERDash10X string = "ER-10X"
 
-	// DeviceIdentificationModelEPMinusR8 captures enum value "EP-R8"
-	DeviceIdentificationModelEPMinusR8 string = "EP-R8"
+	// DeviceIdentificationModelEPDashR8 captures enum value "EP-R8"
+	DeviceIdentificationModelEPDashR8 string = "EP-R8"
 
-	// DeviceIdentificationModelEPMinusR6 captures enum value "EP-R6"
-	DeviceIdentificationModelEPMinusR6 string = "EP-R6"
+	// DeviceIdentificationModelEPDashR6 captures enum value "EP-R6"
+	DeviceIdentificationModelEPDashR6 string = "EP-R6"
 
-	// DeviceIdentificationModelEPMinusS16 captures enum value "EP-S16"
-	DeviceIdentificationModelEPMinusS16 string = "EP-S16"
+	// DeviceIdentificationModelEPDashS16 captures enum value "EP-S16"
+	DeviceIdentificationModelEPDashS16 string = "EP-S16"
 
-	// DeviceIdentificationModelESMinus12F captures enum value "ES-12F"
-	DeviceIdentificationModelESMinus12F string = "ES-12F"
+	// DeviceIdentificationModelESDash12F captures enum value "ES-12F"
+	DeviceIdentificationModelESDash12F string = "ES-12F"
 
-	// DeviceIdentificationModelESMinus16Minus150W captures enum value "ES-16-150W"
-	DeviceIdentificationModelESMinus16Minus150W string = "ES-16-150W"
+	// DeviceIdentificationModelESDash16Dash150W captures enum value "ES-16-150W"
+	DeviceIdentificationModelESDash16Dash150W string = "ES-16-150W"
 
-	// DeviceIdentificationModelESMinus24Minus250W captures enum value "ES-24-250W"
-	DeviceIdentificationModelESMinus24Minus250W string = "ES-24-250W"
+	// DeviceIdentificationModelESDash24Dash250W captures enum value "ES-24-250W"
+	DeviceIdentificationModelESDash24Dash250W string = "ES-24-250W"
 
-	// DeviceIdentificationModelESMinus24Minus500W captures enum value "ES-24-500W"
-	DeviceIdentificationModelESMinus24Minus500W string = "ES-24-500W"
+	// DeviceIdentificationModelESDash24Dash500W captures enum value "ES-24-500W"
+	DeviceIdentificationModelESDash24Dash500W string = "ES-24-500W"
 
-	// DeviceIdentificationModelESMinus24MinusLite captures enum value "ES-24-Lite"
-	DeviceIdentificationModelESMinus24MinusLite string = "ES-24-Lite"
+	// DeviceIdentificationModelESDash24DashLite captures enum value "ES-24-Lite"
+	DeviceIdentificationModelESDash24DashLite string = "ES-24-Lite"
 
-	// DeviceIdentificationModelESMinus48Minus500W captures enum value "ES-48-500W"
-	DeviceIdentificationModelESMinus48Minus500W string = "ES-48-500W"
+	// DeviceIdentificationModelESDash48Dash500W captures enum value "ES-48-500W"
+	DeviceIdentificationModelESDash48Dash500W string = "ES-48-500W"
 
-	// DeviceIdentificationModelESMinus48Minus750W captures enum value "ES-48-750W"
-	DeviceIdentificationModelESMinus48Minus750W string = "ES-48-750W"
+	// DeviceIdentificationModelESDash48Dash750W captures enum value "ES-48-750W"
+	DeviceIdentificationModelESDash48Dash750W string = "ES-48-750W"
 
-	// DeviceIdentificationModelESMinus48MinusLite captures enum value "ES-48-Lite"
-	DeviceIdentificationModelESMinus48MinusLite string = "ES-48-Lite"
+	// DeviceIdentificationModelESDash48DashLite captures enum value "ES-48-Lite"
+	DeviceIdentificationModelESDash48DashLite string = "ES-48-Lite"
 
-	// DeviceIdentificationModelESMinus8Minus150W captures enum value "ES-8-150W"
-	DeviceIdentificationModelESMinus8Minus150W string = "ES-8-150W"
+	// DeviceIdentificationModelESDash8Dash150W captures enum value "ES-8-150W"
+	DeviceIdentificationModelESDash8Dash150W string = "ES-8-150W"
 
-	// DeviceIdentificationModelESMinus16MinusXG captures enum value "ES-16-XG"
-	DeviceIdentificationModelESMinus16MinusXG string = "ES-16-XG"
+	// DeviceIdentificationModelESDash16DashXG captures enum value "ES-16-XG"
+	DeviceIdentificationModelESDash16DashXG string = "ES-16-XG"
 
-	// DeviceIdentificationModelESMinus10XP captures enum value "ES-10XP"
-	DeviceIdentificationModelESMinus10XP string = "ES-10XP"
+	// DeviceIdentificationModelESDash10XP captures enum value "ES-10XP"
+	DeviceIdentificationModelESDash10XP string = "ES-10XP"
 
-	// DeviceIdentificationModelESMinus10X captures enum value "ES-10X"
-	DeviceIdentificationModelESMinus10X string = "ES-10X"
+	// DeviceIdentificationModelESDash10X captures enum value "ES-10X"
+	DeviceIdentificationModelESDash10X string = "ES-10X"
 
-	// DeviceIdentificationModelESMinus18X captures enum value "ES-18X"
-	DeviceIdentificationModelESMinus18X string = "ES-18X"
+	// DeviceIdentificationModelESDash18X captures enum value "ES-18X"
+	DeviceIdentificationModelESDash18X string = "ES-18X"
 
-	// DeviceIdentificationModelESMinus26X captures enum value "ES-26X"
-	DeviceIdentificationModelESMinus26X string = "ES-26X"
+	// DeviceIdentificationModelESDash26X captures enum value "ES-26X"
+	DeviceIdentificationModelESDash26X string = "ES-26X"
 
-	// DeviceIdentificationModelEPMinus54VMinus150W captures enum value "EP-54V-150W"
-	DeviceIdentificationModelEPMinus54VMinus150W string = "EP-54V-150W"
+	// DeviceIdentificationModelEPDash54VDash150W captures enum value "EP-54V-150W"
+	DeviceIdentificationModelEPDash54VDash150W string = "EP-54V-150W"
 
-	// DeviceIdentificationModelEPMinus24VMinus72W captures enum value "EP-24V-72W"
-	DeviceIdentificationModelEPMinus24VMinus72W string = "EP-24V-72W"
+	// DeviceIdentificationModelEPDash24VDash72W captures enum value "EP-24V-72W"
+	DeviceIdentificationModelEPDash24VDash72W string = "EP-24V-72W"
 
-	// DeviceIdentificationModelEPMinus54VMinus72W captures enum value "EP-54V-72W"
-	DeviceIdentificationModelEPMinus54VMinus72W string = "EP-54V-72W"
+	// DeviceIdentificationModelEPDash54VDash72W captures enum value "EP-54V-72W"
+	DeviceIdentificationModelEPDash54VDash72W string = "EP-54V-72W"
 
-	// DeviceIdentificationModelTSWMinusPoE captures enum value "TSW-PoE"
-	DeviceIdentificationModelTSWMinusPoE string = "TSW-PoE"
+	// DeviceIdentificationModelTSWDashPoE captures enum value "TSW-PoE"
+	DeviceIdentificationModelTSWDashPoE string = "TSW-PoE"
 
-	// DeviceIdentificationModelTSWMinusPoEPRO captures enum value "TSW-PoE PRO"
-	DeviceIdentificationModelTSWMinusPoEPRO string = "TSW-PoE PRO"
+	// DeviceIdentificationModelTSWDashPoEPRO captures enum value "TSW-PoE PRO"
+	DeviceIdentificationModelTSWDashPoEPRO string = "TSW-PoE PRO"
 
-	// DeviceIdentificationModelACBMinusAC captures enum value "ACB-AC"
-	DeviceIdentificationModelACBMinusAC string = "ACB-AC"
+	// DeviceIdentificationModelACBDashAC captures enum value "ACB-AC"
+	DeviceIdentificationModelACBDashAC string = "ACB-AC"
 
-	// DeviceIdentificationModelACBMinusISP captures enum value "ACB-ISP"
-	DeviceIdentificationModelACBMinusISP string = "ACB-ISP"
+	// DeviceIdentificationModelACBDashISP captures enum value "ACB-ISP"
+	DeviceIdentificationModelACBDashISP string = "ACB-ISP"
 
-	// DeviceIdentificationModelACBMinusLOCO captures enum value "ACB-LOCO"
-	DeviceIdentificationModelACBMinusLOCO string = "ACB-LOCO"
+	// DeviceIdentificationModelACBDashLOCO captures enum value "ACB-LOCO"
+	DeviceIdentificationModelACBDashLOCO string = "ACB-LOCO"
 
 	// DeviceIdentificationModelAF11FX captures enum value "AF11FX"
 	DeviceIdentificationModelAF11FX string = "AF11FX"
@@ -399,20 +399,20 @@ const (
 	// DeviceIdentificationModelAF5X captures enum value "AF5X"
 	DeviceIdentificationModelAF5X string = "AF5X"
 
-	// DeviceIdentificationModelAFMinus5XHD captures enum value "AF-5XHD"
-	DeviceIdentificationModelAFMinus5XHD string = "AF-5XHD"
+	// DeviceIdentificationModelAFDash5XHD captures enum value "AF-5XHD"
+	DeviceIdentificationModelAFDash5XHD string = "AF-5XHD"
 
-	// DeviceIdentificationModelAFMinusLTU captures enum value "AF-LTU"
-	DeviceIdentificationModelAFMinusLTU string = "AF-LTU"
+	// DeviceIdentificationModelAFDashLTU captures enum value "AF-LTU"
+	DeviceIdentificationModelAFDashLTU string = "AF-LTU"
 
-	// DeviceIdentificationModelLTUMinusLITE captures enum value "LTU-LITE"
-	DeviceIdentificationModelLTUMinusLITE string = "LTU-LITE"
+	// DeviceIdentificationModelLTUDashLITE captures enum value "LTU-LITE"
+	DeviceIdentificationModelLTUDashLITE string = "LTU-LITE"
 
-	// DeviceIdentificationModelAFMinusLTU5 captures enum value "AF-LTU5"
-	DeviceIdentificationModelAFMinusLTU5 string = "AF-LTU5"
+	// DeviceIdentificationModelAFDashLTU5 captures enum value "AF-LTU5"
+	DeviceIdentificationModelAFDashLTU5 string = "AF-LTU5"
 
-	// DeviceIdentificationModelLTUMinusRocket captures enum value "LTU-Rocket"
-	DeviceIdentificationModelLTUMinusRocket string = "LTU-Rocket"
+	// DeviceIdentificationModelLTUDashRocket captures enum value "LTU-Rocket"
+	DeviceIdentificationModelLTUDashRocket string = "LTU-Rocket"
 
 	// DeviceIdentificationModelAFLTULR captures enum value "AFLTULR"
 	DeviceIdentificationModelAFLTULR string = "AFLTULR"
@@ -420,8 +420,8 @@ const (
 	// DeviceIdentificationModelAF60 captures enum value "AF60"
 	DeviceIdentificationModelAF60 string = "AF60"
 
-	// DeviceIdentificationModelAF60MinusLR captures enum value "AF60-LR"
-	DeviceIdentificationModelAF60MinusLR string = "AF60-LR"
+	// DeviceIdentificationModelAF60DashLR captures enum value "AF60-LR"
+	DeviceIdentificationModelAF60DashLR string = "AF60-LR"
 
 	// DeviceIdentificationModelWaveAP captures enum value "WaveAP"
 	DeviceIdentificationModelWaveAP string = "WaveAP"
@@ -429,17 +429,17 @@ const (
 	// DeviceIdentificationModelWaveCPE captures enum value "WaveCPE"
 	DeviceIdentificationModelWaveCPE string = "WaveCPE"
 
-	// DeviceIdentificationModelGBEMinusLR captures enum value "GBE-LR"
-	DeviceIdentificationModelGBEMinusLR string = "GBE-LR"
+	// DeviceIdentificationModelGBEDashLR captures enum value "GBE-LR"
+	DeviceIdentificationModelGBEDashLR string = "GBE-LR"
 
 	// DeviceIdentificationModelGBE captures enum value "GBE"
 	DeviceIdentificationModelGBE string = "GBE"
 
-	// DeviceIdentificationModelGBEMinusPlus captures enum value "GBE-Plus"
-	DeviceIdentificationModelGBEMinusPlus string = "GBE-Plus"
+	// DeviceIdentificationModelGBEDashPlus captures enum value "GBE-Plus"
+	DeviceIdentificationModelGBEDashPlus string = "GBE-Plus"
 
-	// DeviceIdentificationModelGBEMinusAP captures enum value "GBE-AP"
-	DeviceIdentificationModelGBEMinusAP string = "GBE-AP"
+	// DeviceIdentificationModelGBEDashAP captures enum value "GBE-AP"
+	DeviceIdentificationModelGBEDashAP string = "GBE-AP"
 
 	// DeviceIdentificationModelR2N captures enum value "R2N"
 	DeviceIdentificationModelR2N string = "R2N"
@@ -453,23 +453,23 @@ const (
 	// DeviceIdentificationModelR6N captures enum value "R6N"
 	DeviceIdentificationModelR6N string = "R6N"
 
-	// DeviceIdentificationModelR36MinusGPS captures enum value "R36-GPS"
-	DeviceIdentificationModelR36MinusGPS string = "R36-GPS"
+	// DeviceIdentificationModelR36DashGPS captures enum value "R36-GPS"
+	DeviceIdentificationModelR36DashGPS string = "R36-GPS"
 
-	// DeviceIdentificationModelRM3MinusGPS captures enum value "RM3-GPS"
-	DeviceIdentificationModelRM3MinusGPS string = "RM3-GPS"
+	// DeviceIdentificationModelRM3DashGPS captures enum value "RM3-GPS"
+	DeviceIdentificationModelRM3DashGPS string = "RM3-GPS"
 
-	// DeviceIdentificationModelR2NMinusGPS captures enum value "R2N-GPS"
-	DeviceIdentificationModelR2NMinusGPS string = "R2N-GPS"
+	// DeviceIdentificationModelR2NDashGPS captures enum value "R2N-GPS"
+	DeviceIdentificationModelR2NDashGPS string = "R2N-GPS"
 
-	// DeviceIdentificationModelR5NMinusGPS captures enum value "R5N-GPS"
-	DeviceIdentificationModelR5NMinusGPS string = "R5N-GPS"
+	// DeviceIdentificationModelR5NDashGPS captures enum value "R5N-GPS"
+	DeviceIdentificationModelR5NDashGPS string = "R5N-GPS"
 
-	// DeviceIdentificationModelR9NMinusGPS captures enum value "R9N-GPS"
-	DeviceIdentificationModelR9NMinusGPS string = "R9N-GPS"
+	// DeviceIdentificationModelR9NDashGPS captures enum value "R9N-GPS"
+	DeviceIdentificationModelR9NDashGPS string = "R9N-GPS"
 
-	// DeviceIdentificationModelR5TMinusGPS captures enum value "R5T-GPS"
-	DeviceIdentificationModelR5TMinusGPS string = "R5T-GPS"
+	// DeviceIdentificationModelR5TDashGPS captures enum value "R5T-GPS"
+	DeviceIdentificationModelR5TDashGPS string = "R5T-GPS"
 
 	// DeviceIdentificationModelRM3 captures enum value "RM3"
 	DeviceIdentificationModelRM3 string = "RM3"
@@ -525,14 +525,14 @@ const (
 	// DeviceIdentificationModelAG2 captures enum value "AG2"
 	DeviceIdentificationModelAG2 string = "AG2"
 
-	// DeviceIdentificationModelAG2MinusHP captures enum value "AG2-HP"
-	DeviceIdentificationModelAG2MinusHP string = "AG2-HP"
+	// DeviceIdentificationModelAG2DashHP captures enum value "AG2-HP"
+	DeviceIdentificationModelAG2DashHP string = "AG2-HP"
 
 	// DeviceIdentificationModelAG5 captures enum value "AG5"
 	DeviceIdentificationModelAG5 string = "AG5"
 
-	// DeviceIdentificationModelAG5MinusHP captures enum value "AG5-HP"
-	DeviceIdentificationModelAG5MinusHP string = "AG5-HP"
+	// DeviceIdentificationModelAG5DashHP captures enum value "AG5-HP"
+	DeviceIdentificationModelAG5DashHP string = "AG5-HP"
 
 	// DeviceIdentificationModelP2N captures enum value "p2N"
 	DeviceIdentificationModelP2N string = "p2N"
@@ -543,26 +543,26 @@ const (
 	// DeviceIdentificationModelM25 captures enum value "M25"
 	DeviceIdentificationModelM25 string = "M25"
 
-	// DeviceIdentificationModelP2BMinus400 captures enum value "P2B-400"
-	DeviceIdentificationModelP2BMinus400 string = "P2B-400"
+	// DeviceIdentificationModelP2BDash400 captures enum value "P2B-400"
+	DeviceIdentificationModelP2BDash400 string = "P2B-400"
 
-	// DeviceIdentificationModelP5BMinus300 captures enum value "P5B-300"
-	DeviceIdentificationModelP5BMinus300 string = "P5B-300"
+	// DeviceIdentificationModelP5BDash300 captures enum value "P5B-300"
+	DeviceIdentificationModelP5BDash300 string = "P5B-300"
 
-	// DeviceIdentificationModelP5BMinus300MinusISO captures enum value "P5B-300-ISO"
-	DeviceIdentificationModelP5BMinus300MinusISO string = "P5B-300-ISO"
+	// DeviceIdentificationModelP5BDash300DashISO captures enum value "P5B-300-ISO"
+	DeviceIdentificationModelP5BDash300DashISO string = "P5B-300-ISO"
 
-	// DeviceIdentificationModelP5BMinus400 captures enum value "P5B-400"
-	DeviceIdentificationModelP5BMinus400 string = "P5B-400"
+	// DeviceIdentificationModelP5BDash400 captures enum value "P5B-400"
+	DeviceIdentificationModelP5BDash400 string = "P5B-400"
 
-	// DeviceIdentificationModelP5BMinus400MinusISO captures enum value "P5B-400-ISO"
-	DeviceIdentificationModelP5BMinus400MinusISO string = "P5B-400-ISO"
+	// DeviceIdentificationModelP5BDash400DashISO captures enum value "P5B-400-ISO"
+	DeviceIdentificationModelP5BDash400DashISO string = "P5B-400-ISO"
 
-	// DeviceIdentificationModelP5BMinus620 captures enum value "P5B-620"
-	DeviceIdentificationModelP5BMinus620 string = "P5B-620"
+	// DeviceIdentificationModelP5BDash620 captures enum value "P5B-620"
+	DeviceIdentificationModelP5BDash620 string = "P5B-620"
 
-	// DeviceIdentificationModelLB5Minus120 captures enum value "LB5-120"
-	DeviceIdentificationModelLB5Minus120 string = "LB5-120"
+	// DeviceIdentificationModelLB5Dash120 captures enum value "LB5-120"
+	DeviceIdentificationModelLB5Dash120 string = "LB5-120"
 
 	// DeviceIdentificationModelLB5 captures enum value "LB5"
 	DeviceIdentificationModelLB5 string = "LB5"
@@ -570,35 +570,35 @@ const (
 	// DeviceIdentificationModelN5B captures enum value "N5B"
 	DeviceIdentificationModelN5B string = "N5B"
 
-	// DeviceIdentificationModelN5BMinus16 captures enum value "N5B-16"
-	DeviceIdentificationModelN5BMinus16 string = "N5B-16"
+	// DeviceIdentificationModelN5BDash16 captures enum value "N5B-16"
+	DeviceIdentificationModelN5BDash16 string = "N5B-16"
 
-	// DeviceIdentificationModelN5BMinus19 captures enum value "N5B-19"
-	DeviceIdentificationModelN5BMinus19 string = "N5B-19"
+	// DeviceIdentificationModelN5BDash19 captures enum value "N5B-19"
+	DeviceIdentificationModelN5BDash19 string = "N5B-19"
 
-	// DeviceIdentificationModelN5BMinus300 captures enum value "N5B-300"
-	DeviceIdentificationModelN5BMinus300 string = "N5B-300"
+	// DeviceIdentificationModelN5BDash300 captures enum value "N5B-300"
+	DeviceIdentificationModelN5BDash300 string = "N5B-300"
 
-	// DeviceIdentificationModelN5BMinus400 captures enum value "N5B-400"
-	DeviceIdentificationModelN5BMinus400 string = "N5B-400"
+	// DeviceIdentificationModelN5BDash400 captures enum value "N5B-400"
+	DeviceIdentificationModelN5BDash400 string = "N5B-400"
 
-	// DeviceIdentificationModelN5BMinusClient captures enum value "N5B-Client"
-	DeviceIdentificationModelN5BMinusClient string = "N5B-Client"
+	// DeviceIdentificationModelN5BDashClient captures enum value "N5B-Client"
+	DeviceIdentificationModelN5BDashClient string = "N5B-Client"
 
 	// DeviceIdentificationModelN2B captures enum value "N2B"
 	DeviceIdentificationModelN2B string = "N2B"
 
-	// DeviceIdentificationModelN2BMinus13 captures enum value "N2B-13"
-	DeviceIdentificationModelN2BMinus13 string = "N2B-13"
+	// DeviceIdentificationModelN2BDash13 captures enum value "N2B-13"
+	DeviceIdentificationModelN2BDash13 string = "N2B-13"
 
-	// DeviceIdentificationModelN2BMinus400 captures enum value "N2B-400"
-	DeviceIdentificationModelN2BMinus400 string = "N2B-400"
+	// DeviceIdentificationModelN2BDash400 captures enum value "N2B-400"
+	DeviceIdentificationModelN2BDash400 string = "N2B-400"
 
 	// DeviceIdentificationModelPAP captures enum value "PAP"
 	DeviceIdentificationModelPAP string = "PAP"
 
-	// DeviceIdentificationModelLAPMinusHP captures enum value "LAP-HP"
-	DeviceIdentificationModelLAPMinusHP string = "LAP-HP"
+	// DeviceIdentificationModelLAPDashHP captures enum value "LAP-HP"
+	DeviceIdentificationModelLAPDashHP string = "LAP-HP"
 
 	// DeviceIdentificationModelLAP captures enum value "LAP"
 	DeviceIdentificationModelLAP string = "LAP"
@@ -606,14 +606,14 @@ const (
 	// DeviceIdentificationModelAGW captures enum value "AGW"
 	DeviceIdentificationModelAGW string = "AGW"
 
-	// DeviceIdentificationModelAGWMinusLR captures enum value "AGW-LR"
-	DeviceIdentificationModelAGWMinusLR string = "AGW-LR"
+	// DeviceIdentificationModelAGWDashLR captures enum value "AGW-LR"
+	DeviceIdentificationModelAGWDashLR string = "AGW-LR"
 
-	// DeviceIdentificationModelAGWMinusPro captures enum value "AGW-Pro"
-	DeviceIdentificationModelAGWMinusPro string = "AGW-Pro"
+	// DeviceIdentificationModelAGWDashPro captures enum value "AGW-Pro"
+	DeviceIdentificationModelAGWDashPro string = "AGW-Pro"
 
-	// DeviceIdentificationModelAGWMinusInstaller captures enum value "AGW-Installer"
-	DeviceIdentificationModelAGWMinusInstaller string = "AGW-Installer"
+	// DeviceIdentificationModelAGWDashInstaller captures enum value "AGW-Installer"
+	DeviceIdentificationModelAGWDashInstaller string = "AGW-Installer"
 
 	// DeviceIdentificationModelPB5 captures enum value "PB5"
 	DeviceIdentificationModelPB5 string = "PB5"
@@ -648,113 +648,113 @@ const (
 	// DeviceIdentificationModelWM5 captures enum value "WM5"
 	DeviceIdentificationModelWM5 string = "WM5"
 
-	// DeviceIdentificationModelISMinusM5 captures enum value "IS-M5"
-	DeviceIdentificationModelISMinusM5 string = "IS-M5"
+	// DeviceIdentificationModelISDashM5 captures enum value "IS-M5"
+	DeviceIdentificationModelISDashM5 string = "IS-M5"
 
 	// DeviceIdentificationModelLoco5AC captures enum value "Loco5AC"
 	DeviceIdentificationModelLoco5AC string = "Loco5AC"
 
-	// DeviceIdentificationModelNSMinus5AC captures enum value "NS-5AC"
-	DeviceIdentificationModelNSMinus5AC string = "NS-5AC"
+	// DeviceIdentificationModelNSDash5AC captures enum value "NS-5AC"
+	DeviceIdentificationModelNSDash5AC string = "NS-5AC"
 
-	// DeviceIdentificationModelR5ACMinusPTMP captures enum value "R5AC-PTMP"
-	DeviceIdentificationModelR5ACMinusPTMP string = "R5AC-PTMP"
+	// DeviceIdentificationModelR5ACDashPTMP captures enum value "R5AC-PTMP"
+	DeviceIdentificationModelR5ACDashPTMP string = "R5AC-PTMP"
 
-	// DeviceIdentificationModelR5ACMinusPTP captures enum value "R5AC-PTP"
-	DeviceIdentificationModelR5ACMinusPTP string = "R5AC-PTP"
+	// DeviceIdentificationModelR5ACDashPTP captures enum value "R5AC-PTP"
+	DeviceIdentificationModelR5ACDashPTP string = "R5AC-PTP"
 
-	// DeviceIdentificationModelR5ACMinusLite captures enum value "R5AC-Lite"
-	DeviceIdentificationModelR5ACMinusLite string = "R5AC-Lite"
+	// DeviceIdentificationModelR5ACDashLite captures enum value "R5AC-Lite"
+	DeviceIdentificationModelR5ACDashLite string = "R5AC-Lite"
 
-	// DeviceIdentificationModelR5ACMinusPRISM captures enum value "R5AC-PRISM"
-	DeviceIdentificationModelR5ACMinusPRISM string = "R5AC-PRISM"
+	// DeviceIdentificationModelR5ACDashPRISM captures enum value "R5AC-PRISM"
+	DeviceIdentificationModelR5ACDashPRISM string = "R5AC-PRISM"
 
-	// DeviceIdentificationModelR2ACMinusPrism captures enum value "R2AC-Prism"
-	DeviceIdentificationModelR2ACMinusPrism string = "R2AC-Prism"
+	// DeviceIdentificationModelR2ACDashPrism captures enum value "R2AC-Prism"
+	DeviceIdentificationModelR2ACDashPrism string = "R2AC-Prism"
 
-	// DeviceIdentificationModelR2ACMinusGen2 captures enum value "R2AC-Gen2"
-	DeviceIdentificationModelR2ACMinusGen2 string = "R2AC-Gen2"
+	// DeviceIdentificationModelR2ACDashGen2 captures enum value "R2AC-Gen2"
+	DeviceIdentificationModelR2ACDashGen2 string = "R2AC-Gen2"
 
-	// DeviceIdentificationModelRPMinus5ACMinusGen2 captures enum value "RP-5AC-Gen2"
-	DeviceIdentificationModelRPMinus5ACMinusGen2 string = "RP-5AC-Gen2"
+	// DeviceIdentificationModelRPDash5ACDashGen2 captures enum value "RP-5AC-Gen2"
+	DeviceIdentificationModelRPDash5ACDashGen2 string = "RP-5AC-Gen2"
 
-	// DeviceIdentificationModelNBEMinus2ACMinus13 captures enum value "NBE-2AC-13"
-	DeviceIdentificationModelNBEMinus2ACMinus13 string = "NBE-2AC-13"
+	// DeviceIdentificationModelNBEDash2ACDash13 captures enum value "NBE-2AC-13"
+	DeviceIdentificationModelNBEDash2ACDash13 string = "NBE-2AC-13"
 
-	// DeviceIdentificationModelNBEMinus5ACMinus16 captures enum value "NBE-5AC-16"
-	DeviceIdentificationModelNBEMinus5ACMinus16 string = "NBE-5AC-16"
+	// DeviceIdentificationModelNBEDash5ACDash16 captures enum value "NBE-5AC-16"
+	DeviceIdentificationModelNBEDash5ACDash16 string = "NBE-5AC-16"
 
-	// DeviceIdentificationModelNBEMinus5ACMinus19 captures enum value "NBE-5AC-19"
-	DeviceIdentificationModelNBEMinus5ACMinus19 string = "NBE-5AC-19"
+	// DeviceIdentificationModelNBEDash5ACDash19 captures enum value "NBE-5AC-19"
+	DeviceIdentificationModelNBEDash5ACDash19 string = "NBE-5AC-19"
 
-	// DeviceIdentificationModelNBEMinus5ACMinusGen2 captures enum value "NBE-5AC-Gen2"
-	DeviceIdentificationModelNBEMinus5ACMinusGen2 string = "NBE-5AC-Gen2"
+	// DeviceIdentificationModelNBEDash5ACDashGen2 captures enum value "NBE-5AC-Gen2"
+	DeviceIdentificationModelNBEDash5ACDashGen2 string = "NBE-5AC-Gen2"
 
-	// DeviceIdentificationModelPBEMinus5ACMinus300 captures enum value "PBE-5AC-300"
-	DeviceIdentificationModelPBEMinus5ACMinus300 string = "PBE-5AC-300"
+	// DeviceIdentificationModelPBEDash5ACDash300 captures enum value "PBE-5AC-300"
+	DeviceIdentificationModelPBEDash5ACDash300 string = "PBE-5AC-300"
 
-	// DeviceIdentificationModelPBEMinus5ACMinus300MinusISO captures enum value "PBE-5AC-300-ISO"
-	DeviceIdentificationModelPBEMinus5ACMinus300MinusISO string = "PBE-5AC-300-ISO"
+	// DeviceIdentificationModelPBEDash5ACDash300DashISO captures enum value "PBE-5AC-300-ISO"
+	DeviceIdentificationModelPBEDash5ACDash300DashISO string = "PBE-5AC-300-ISO"
 
-	// DeviceIdentificationModelPBEMinus5ACMinus400 captures enum value "PBE-5AC-400"
-	DeviceIdentificationModelPBEMinus5ACMinus400 string = "PBE-5AC-400"
+	// DeviceIdentificationModelPBEDash5ACDash400 captures enum value "PBE-5AC-400"
+	DeviceIdentificationModelPBEDash5ACDash400 string = "PBE-5AC-400"
 
-	// DeviceIdentificationModelPBEMinus5ACMinus400MinusISO captures enum value "PBE-5AC-400-ISO"
-	DeviceIdentificationModelPBEMinus5ACMinus400MinusISO string = "PBE-5AC-400-ISO"
+	// DeviceIdentificationModelPBEDash5ACDash400DashISO captures enum value "PBE-5AC-400-ISO"
+	DeviceIdentificationModelPBEDash5ACDash400DashISO string = "PBE-5AC-400-ISO"
 
-	// DeviceIdentificationModelPBEMinus5ACMinus500 captures enum value "PBE-5AC-500"
-	DeviceIdentificationModelPBEMinus5ACMinus500 string = "PBE-5AC-500"
+	// DeviceIdentificationModelPBEDash5ACDash500 captures enum value "PBE-5AC-500"
+	DeviceIdentificationModelPBEDash5ACDash500 string = "PBE-5AC-500"
 
-	// DeviceIdentificationModelPBEMinus5ACMinus500MinusISO captures enum value "PBE-5AC-500-ISO"
-	DeviceIdentificationModelPBEMinus5ACMinus500MinusISO string = "PBE-5AC-500-ISO"
+	// DeviceIdentificationModelPBEDash5ACDash500DashISO captures enum value "PBE-5AC-500-ISO"
+	DeviceIdentificationModelPBEDash5ACDash500DashISO string = "PBE-5AC-500-ISO"
 
-	// DeviceIdentificationModelPBEMinus5ACMinus620 captures enum value "PBE-5AC-620"
-	DeviceIdentificationModelPBEMinus5ACMinus620 string = "PBE-5AC-620"
+	// DeviceIdentificationModelPBEDash5ACDash620 captures enum value "PBE-5AC-620"
+	DeviceIdentificationModelPBEDash5ACDash620 string = "PBE-5AC-620"
 
-	// DeviceIdentificationModelPBEMinus5ACMinus620MinusISO captures enum value "PBE-5AC-620-ISO"
-	DeviceIdentificationModelPBEMinus5ACMinus620MinusISO string = "PBE-5AC-620-ISO"
+	// DeviceIdentificationModelPBEDash5ACDash620DashISO captures enum value "PBE-5AC-620-ISO"
+	DeviceIdentificationModelPBEDash5ACDash620DashISO string = "PBE-5AC-620-ISO"
 
-	// DeviceIdentificationModelPBEMinus2ACMinus400 captures enum value "PBE-2AC-400"
-	DeviceIdentificationModelPBEMinus2ACMinus400 string = "PBE-2AC-400"
+	// DeviceIdentificationModelPBEDash2ACDash400 captures enum value "PBE-2AC-400"
+	DeviceIdentificationModelPBEDash2ACDash400 string = "PBE-2AC-400"
 
-	// DeviceIdentificationModelPBEMinus2ACMinus400MinusISO captures enum value "PBE-2AC-400-ISO"
-	DeviceIdentificationModelPBEMinus2ACMinus400MinusISO string = "PBE-2AC-400-ISO"
+	// DeviceIdentificationModelPBEDash2ACDash400DashISO captures enum value "PBE-2AC-400-ISO"
+	DeviceIdentificationModelPBEDash2ACDash400DashISO string = "PBE-2AC-400-ISO"
 
-	// DeviceIdentificationModelPBEMinus5ACMinusXMinusGen2 captures enum value "PBE-5AC-X-Gen2"
-	DeviceIdentificationModelPBEMinus5ACMinusXMinusGen2 string = "PBE-5AC-X-Gen2"
+	// DeviceIdentificationModelPBEDash5ACDashXDashGen2 captures enum value "PBE-5AC-X-Gen2"
+	DeviceIdentificationModelPBEDash5ACDashXDashGen2 string = "PBE-5AC-X-Gen2"
 
-	// DeviceIdentificationModelPBEMinus5ACMinusGen2 captures enum value "PBE-5AC-Gen2"
-	DeviceIdentificationModelPBEMinus5ACMinusGen2 string = "PBE-5AC-Gen2"
+	// DeviceIdentificationModelPBEDash5ACDashGen2 captures enum value "PBE-5AC-Gen2"
+	DeviceIdentificationModelPBEDash5ACDashGen2 string = "PBE-5AC-Gen2"
 
-	// DeviceIdentificationModelPBEMinus5ACMinusISOMinusGen2 captures enum value "PBE-5AC-ISO-Gen2"
-	DeviceIdentificationModelPBEMinus5ACMinusISOMinusGen2 string = "PBE-5AC-ISO-Gen2"
+	// DeviceIdentificationModelPBEDash5ACDashISODashGen2 captures enum value "PBE-5AC-ISO-Gen2"
+	DeviceIdentificationModelPBEDash5ACDashISODashGen2 string = "PBE-5AC-ISO-Gen2"
 
-	// DeviceIdentificationModelPBEMinus5ACMinus400MinusISOMinusGen2 captures enum value "PBE-5AC-400-ISO-Gen2"
-	DeviceIdentificationModelPBEMinus5ACMinus400MinusISOMinusGen2 string = "PBE-5AC-400-ISO-Gen2"
+	// DeviceIdentificationModelPBEDash5ACDash400DashISODashGen2 captures enum value "PBE-5AC-400-ISO-Gen2"
+	DeviceIdentificationModelPBEDash5ACDash400DashISODashGen2 string = "PBE-5AC-400-ISO-Gen2"
 
-	// DeviceIdentificationModelLBEMinus5ACMinus16Minus120 captures enum value "LBE-5AC-16-120"
-	DeviceIdentificationModelLBEMinus5ACMinus16Minus120 string = "LBE-5AC-16-120"
+	// DeviceIdentificationModelLBEDash5ACDash16Dash120 captures enum value "LBE-5AC-16-120"
+	DeviceIdentificationModelLBEDash5ACDash16Dash120 string = "LBE-5AC-16-120"
 
-	// DeviceIdentificationModelLAPMinus120 captures enum value "LAP-120"
-	DeviceIdentificationModelLAPMinus120 string = "LAP-120"
+	// DeviceIdentificationModelLAPDash120 captures enum value "LAP-120"
+	DeviceIdentificationModelLAPDash120 string = "LAP-120"
 
-	// DeviceIdentificationModelLBEMinus5ACMinus23 captures enum value "LBE-5AC-23"
-	DeviceIdentificationModelLBEMinus5ACMinus23 string = "LBE-5AC-23"
+	// DeviceIdentificationModelLBEDash5ACDash23 captures enum value "LBE-5AC-23"
+	DeviceIdentificationModelLBEDash5ACDash23 string = "LBE-5AC-23"
 
-	// DeviceIdentificationModelLBEMinus5ACMinusGen2 captures enum value "LBE-5AC-Gen2"
-	DeviceIdentificationModelLBEMinus5ACMinusGen2 string = "LBE-5AC-Gen2"
+	// DeviceIdentificationModelLBEDash5ACDashGen2 captures enum value "LBE-5AC-Gen2"
+	DeviceIdentificationModelLBEDash5ACDashGen2 string = "LBE-5AC-Gen2"
 
-	// DeviceIdentificationModelLBEMinus5ACMinusLR captures enum value "LBE-5AC-LR"
-	DeviceIdentificationModelLBEMinus5ACMinusLR string = "LBE-5AC-LR"
+	// DeviceIdentificationModelLBEDash5ACDashLR captures enum value "LBE-5AC-LR"
+	DeviceIdentificationModelLBEDash5ACDashLR string = "LBE-5AC-LR"
 
-	// DeviceIdentificationModelLAPMinusGPS captures enum value "LAP-GPS"
-	DeviceIdentificationModelLAPMinusGPS string = "LAP-GPS"
+	// DeviceIdentificationModelLAPDashGPS captures enum value "LAP-GPS"
+	DeviceIdentificationModelLAPDashGPS string = "LAP-GPS"
 
-	// DeviceIdentificationModelISMinus5AC captures enum value "IS-5AC"
-	DeviceIdentificationModelISMinus5AC string = "IS-5AC"
+	// DeviceIdentificationModelISDash5AC captures enum value "IS-5AC"
+	DeviceIdentificationModelISDash5AC string = "IS-5AC"
 
-	// DeviceIdentificationModelPSMinus5AC captures enum value "PS-5AC"
-	DeviceIdentificationModelPSMinus5AC string = "PS-5AC"
+	// DeviceIdentificationModelPSDash5AC captures enum value "PS-5AC"
+	DeviceIdentificationModelPSDash5AC string = "PS-5AC"
 
 	// DeviceIdentificationModelSolarSwitch captures enum value "SolarSwitch"
 	DeviceIdentificationModelSolarSwitch string = "SolarSwitch"
@@ -762,11 +762,11 @@ const (
 	// DeviceIdentificationModelSolarPoint captures enum value "SolarPoint"
 	DeviceIdentificationModelSolarPoint string = "SolarPoint"
 
-	// DeviceIdentificationModelBulletACMinusIP67 captures enum value "BulletAC-IP67"
-	DeviceIdentificationModelBulletACMinusIP67 string = "BulletAC-IP67"
+	// DeviceIdentificationModelBulletACDashIP67 captures enum value "BulletAC-IP67"
+	DeviceIdentificationModelBulletACDashIP67 string = "BulletAC-IP67"
 
-	// DeviceIdentificationModelBMinusDBMinusAC captures enum value "B-DB-AC"
-	DeviceIdentificationModelBMinusDBMinusAC string = "B-DB-AC"
+	// DeviceIdentificationModelBDashDBDashAC captures enum value "B-DB-AC"
+	DeviceIdentificationModelBDashDBDashAC string = "B-DB-AC"
 
 	// DeviceIdentificationModelUNKNOWN captures enum value "UNKNOWN"
 	DeviceIdentificationModelUNKNOWN string = "UNKNOWN"

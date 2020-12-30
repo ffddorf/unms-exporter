@@ -375,8 +375,8 @@ const (
 	// DeviceAttributesCountryGuinea captures enum value "Guinea"
 	DeviceAttributesCountryGuinea string = "Guinea"
 
-	// DeviceAttributesCountryGuineaMinusBissau captures enum value "Guinea-Bissau"
-	DeviceAttributesCountryGuineaMinusBissau string = "Guinea-Bissau"
+	// DeviceAttributesCountryGuineaDashBissau captures enum value "Guinea-Bissau"
+	DeviceAttributesCountryGuineaDashBissau string = "Guinea-Bissau"
 
 	// DeviceAttributesCountryGuyana captures enum value "Guyana"
 	DeviceAttributesCountryGuyana string = "Guyana"
@@ -744,8 +744,8 @@ const (
 	// DeviceAttributesCountryThailand captures enum value "Thailand"
 	DeviceAttributesCountryThailand string = "Thailand"
 
-	// DeviceAttributesCountryTimorMinusLeste captures enum value "Timor-Leste"
-	DeviceAttributesCountryTimorMinusLeste string = "Timor-Leste"
+	// DeviceAttributesCountryTimorDashLeste captures enum value "Timor-Leste"
+	DeviceAttributesCountryTimorDashLeste string = "Timor-Leste"
 
 	// DeviceAttributesCountryTogo captures enum value "Togo"
 	DeviceAttributesCountryTogo string = "Togo"

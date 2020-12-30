@@ -82,32 +82,32 @@ const (
 	// InterfaceSpeedsSpeedAutodetect captures enum value "autodetect"
 	InterfaceSpeedsSpeedAutodetect string = "autodetect"
 
-	// InterfaceSpeedsSpeedNr10Minushalf captures enum value "10-half"
-	InterfaceSpeedsSpeedNr10Minushalf string = "10-half"
+	// InterfaceSpeedsSpeedNr10DashHalf captures enum value "10-half"
+	InterfaceSpeedsSpeedNr10DashHalf string = "10-half"
 
-	// InterfaceSpeedsSpeedNr10Minusfull captures enum value "10-full"
-	InterfaceSpeedsSpeedNr10Minusfull string = "10-full"
+	// InterfaceSpeedsSpeedNr10DashFull captures enum value "10-full"
+	InterfaceSpeedsSpeedNr10DashFull string = "10-full"
 
-	// InterfaceSpeedsSpeedNr100Minushalf captures enum value "100-half"
-	InterfaceSpeedsSpeedNr100Minushalf string = "100-half"
+	// InterfaceSpeedsSpeedNr100DashHalf captures enum value "100-half"
+	InterfaceSpeedsSpeedNr100DashHalf string = "100-half"
 
-	// InterfaceSpeedsSpeedNr100Minusfull captures enum value "100-full"
-	InterfaceSpeedsSpeedNr100Minusfull string = "100-full"
+	// InterfaceSpeedsSpeedNr100DashFull captures enum value "100-full"
+	InterfaceSpeedsSpeedNr100DashFull string = "100-full"
 
-	// InterfaceSpeedsSpeedNr300Minusfull captures enum value "300-full"
-	InterfaceSpeedsSpeedNr300Minusfull string = "300-full"
+	// InterfaceSpeedsSpeedNr300DashFull captures enum value "300-full"
+	InterfaceSpeedsSpeedNr300DashFull string = "300-full"
 
-	// InterfaceSpeedsSpeedNr1000Minushalf captures enum value "1000-half"
-	InterfaceSpeedsSpeedNr1000Minushalf string = "1000-half"
+	// InterfaceSpeedsSpeedNr1000DashHalf captures enum value "1000-half"
+	InterfaceSpeedsSpeedNr1000DashHalf string = "1000-half"
 
-	// InterfaceSpeedsSpeedNr1000Minusfull captures enum value "1000-full"
-	InterfaceSpeedsSpeedNr1000Minusfull string = "1000-full"
+	// InterfaceSpeedsSpeedNr1000DashFull captures enum value "1000-full"
+	InterfaceSpeedsSpeedNr1000DashFull string = "1000-full"
 
-	// InterfaceSpeedsSpeedNr2500Minusfull captures enum value "2500-full"
-	InterfaceSpeedsSpeedNr2500Minusfull string = "2500-full"
+	// InterfaceSpeedsSpeedNr2500DashFull captures enum value "2500-full"
+	InterfaceSpeedsSpeedNr2500DashFull string = "2500-full"
 
-	// InterfaceSpeedsSpeedNr10000Minusfull captures enum value "10000-full"
-	InterfaceSpeedsSpeedNr10000Minusfull string = "10000-full"
+	// InterfaceSpeedsSpeedNr10000DashFull captures enum value "10000-full"
+	InterfaceSpeedsSpeedNr10000DashFull string = "10000-full"
 )
 
 // prop value enum

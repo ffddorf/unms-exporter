@@ -97,8 +97,8 @@ const (
 	// Model2OriginSlaac captures enum value "slaac"
 	Model2OriginSlaac string = "slaac"
 
-	// Model2OriginLinkMinuslocal captures enum value "link-local"
-	Model2OriginLinkMinuslocal string = "link-local"
+	// Model2OriginLinkDashLocal captures enum value "link-local"
+	Model2OriginLinkDashLocal string = "link-local"
 
 	// Model2OriginStatic captures enum value "static"
 	Model2OriginStatic string = "static"

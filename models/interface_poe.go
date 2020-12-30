@@ -91,11 +91,11 @@ const (
 	// InterfacePoeOutputNr54v captures enum value "54v"
 	InterfacePoeOutputNr54v string = "54v"
 
-	// InterfacePoeOutputNr24vMinus4pair captures enum value "24v-4pair"
-	InterfacePoeOutputNr24vMinus4pair string = "24v-4pair"
+	// InterfacePoeOutputNr24vDash4pair captures enum value "24v-4pair"
+	InterfacePoeOutputNr24vDash4pair string = "24v-4pair"
 
-	// InterfacePoeOutputNr54vMinus4pair captures enum value "54v-4pair"
-	InterfacePoeOutputNr54vMinus4pair string = "54v-4pair"
+	// InterfacePoeOutputNr54vDash4pair captures enum value "54v-4pair"
+	InterfacePoeOutputNr54vDash4pair string = "54v-4pair"
 
 	// InterfacePoeOutputPthru captures enum value "pthru"
 	InterfacePoeOutputPthru string = "pthru"

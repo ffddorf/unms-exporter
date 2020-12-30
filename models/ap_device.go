@@ -65,143 +65,143 @@ func init() {
 
 const (
 
-	// ApDeviceModelUFMinusNano captures enum value "UF-Nano"
-	ApDeviceModelUFMinusNano string = "UF-Nano"
+	// ApDeviceModelUFDashNano captures enum value "UF-Nano"
+	ApDeviceModelUFDashNano string = "UF-Nano"
 
-	// ApDeviceModelUFMinusLoco captures enum value "UF-Loco"
-	ApDeviceModelUFMinusLoco string = "UF-Loco"
+	// ApDeviceModelUFDashLoco captures enum value "UF-Loco"
+	ApDeviceModelUFDashLoco string = "UF-Loco"
 
-	// ApDeviceModelUFMinusWifi captures enum value "UF-Wifi"
-	ApDeviceModelUFMinusWifi string = "UF-Wifi"
+	// ApDeviceModelUFDashWifi captures enum value "UF-Wifi"
+	ApDeviceModelUFDashWifi string = "UF-Wifi"
 
-	// ApDeviceModelUFMinusInstant captures enum value "UF-Instant"
-	ApDeviceModelUFMinusInstant string = "UF-Instant"
+	// ApDeviceModelUFDashInstant captures enum value "UF-Instant"
+	ApDeviceModelUFDashInstant string = "UF-Instant"
 
-	// ApDeviceModelUFMinusOLT captures enum value "UF-OLT"
-	ApDeviceModelUFMinusOLT string = "UF-OLT"
+	// ApDeviceModelUFDashOLT captures enum value "UF-OLT"
+	ApDeviceModelUFDashOLT string = "UF-OLT"
 
-	// ApDeviceModelUFMinusOLT4 captures enum value "UF-OLT4"
-	ApDeviceModelUFMinusOLT4 string = "UF-OLT4"
+	// ApDeviceModelUFDashOLT4 captures enum value "UF-OLT4"
+	ApDeviceModelUFDashOLT4 string = "UF-OLT4"
 
-	// ApDeviceModelUNMSMinusRMinusPRO captures enum value "UNMS-R-PRO"
-	ApDeviceModelUNMSMinusRMinusPRO string = "UNMS-R-PRO"
+	// ApDeviceModelUNMSDashRDashPRO captures enum value "UNMS-R-PRO"
+	ApDeviceModelUNMSDashRDashPRO string = "UNMS-R-PRO"
 
-	// ApDeviceModelUNMSMinusRMinusLite captures enum value "UNMS-R-Lite"
-	ApDeviceModelUNMSMinusRMinusLite string = "UNMS-R-Lite"
+	// ApDeviceModelUNMSDashRDashLite captures enum value "UNMS-R-Lite"
+	ApDeviceModelUNMSDashRDashLite string = "UNMS-R-Lite"
 
-	// ApDeviceModelUNMSMinusSMinusLite captures enum value "UNMS-S-Lite"
-	ApDeviceModelUNMSMinusSMinusLite string = "UNMS-S-Lite"
+	// ApDeviceModelUNMSDashSDashLite captures enum value "UNMS-S-Lite"
+	ApDeviceModelUNMSDashSDashLite string = "UNMS-S-Lite"
 
-	// ApDeviceModelERMinusX captures enum value "ER-X"
-	ApDeviceModelERMinusX string = "ER-X"
+	// ApDeviceModelERDashX captures enum value "ER-X"
+	ApDeviceModelERDashX string = "ER-X"
 
-	// ApDeviceModelERMinusXMinusSFP captures enum value "ER-X-SFP"
-	ApDeviceModelERMinusXMinusSFP string = "ER-X-SFP"
+	// ApDeviceModelERDashXDashSFP captures enum value "ER-X-SFP"
+	ApDeviceModelERDashXDashSFP string = "ER-X-SFP"
 
-	// ApDeviceModelERLiteMinus3 captures enum value "ERLite-3"
-	ApDeviceModelERLiteMinus3 string = "ERLite-3"
+	// ApDeviceModelERLiteDash3 captures enum value "ERLite-3"
+	ApDeviceModelERLiteDash3 string = "ERLite-3"
 
-	// ApDeviceModelERPoeMinus5 captures enum value "ERPoe-5"
-	ApDeviceModelERPoeMinus5 string = "ERPoe-5"
+	// ApDeviceModelERPoeDash5 captures enum value "ERPoe-5"
+	ApDeviceModelERPoeDash5 string = "ERPoe-5"
 
-	// ApDeviceModelERProMinus8 captures enum value "ERPro-8"
-	ApDeviceModelERProMinus8 string = "ERPro-8"
+	// ApDeviceModelERProDash8 captures enum value "ERPro-8"
+	ApDeviceModelERProDash8 string = "ERPro-8"
 
-	// ApDeviceModelERMinus8 captures enum value "ER-8"
-	ApDeviceModelERMinus8 string = "ER-8"
+	// ApDeviceModelERDash8 captures enum value "ER-8"
+	ApDeviceModelERDash8 string = "ER-8"
 
-	// ApDeviceModelERMinus8MinusXG captures enum value "ER-8-XG"
-	ApDeviceModelERMinus8MinusXG string = "ER-8-XG"
+	// ApDeviceModelERDash8DashXG captures enum value "ER-8-XG"
+	ApDeviceModelERDash8DashXG string = "ER-8-XG"
 
-	// ApDeviceModelERMinus4 captures enum value "ER-4"
-	ApDeviceModelERMinus4 string = "ER-4"
+	// ApDeviceModelERDash4 captures enum value "ER-4"
+	ApDeviceModelERDash4 string = "ER-4"
 
-	// ApDeviceModelERMinus6P captures enum value "ER-6P"
-	ApDeviceModelERMinus6P string = "ER-6P"
+	// ApDeviceModelERDash6P captures enum value "ER-6P"
+	ApDeviceModelERDash6P string = "ER-6P"
 
-	// ApDeviceModelERMinus12 captures enum value "ER-12"
-	ApDeviceModelERMinus12 string = "ER-12"
+	// ApDeviceModelERDash12 captures enum value "ER-12"
+	ApDeviceModelERDash12 string = "ER-12"
 
-	// ApDeviceModelERMinus12P captures enum value "ER-12P"
-	ApDeviceModelERMinus12P string = "ER-12P"
+	// ApDeviceModelERDash12P captures enum value "ER-12P"
+	ApDeviceModelERDash12P string = "ER-12P"
 
-	// ApDeviceModelERMinus10X captures enum value "ER-10X"
-	ApDeviceModelERMinus10X string = "ER-10X"
+	// ApDeviceModelERDash10X captures enum value "ER-10X"
+	ApDeviceModelERDash10X string = "ER-10X"
 
-	// ApDeviceModelEPMinusR8 captures enum value "EP-R8"
-	ApDeviceModelEPMinusR8 string = "EP-R8"
+	// ApDeviceModelEPDashR8 captures enum value "EP-R8"
+	ApDeviceModelEPDashR8 string = "EP-R8"
 
-	// ApDeviceModelEPMinusR6 captures enum value "EP-R6"
-	ApDeviceModelEPMinusR6 string = "EP-R6"
+	// ApDeviceModelEPDashR6 captures enum value "EP-R6"
+	ApDeviceModelEPDashR6 string = "EP-R6"
 
-	// ApDeviceModelEPMinusS16 captures enum value "EP-S16"
-	ApDeviceModelEPMinusS16 string = "EP-S16"
+	// ApDeviceModelEPDashS16 captures enum value "EP-S16"
+	ApDeviceModelEPDashS16 string = "EP-S16"
 
-	// ApDeviceModelESMinus12F captures enum value "ES-12F"
-	ApDeviceModelESMinus12F string = "ES-12F"
+	// ApDeviceModelESDash12F captures enum value "ES-12F"
+	ApDeviceModelESDash12F string = "ES-12F"
 
-	// ApDeviceModelESMinus16Minus150W captures enum value "ES-16-150W"
-	ApDeviceModelESMinus16Minus150W string = "ES-16-150W"
+	// ApDeviceModelESDash16Dash150W captures enum value "ES-16-150W"
+	ApDeviceModelESDash16Dash150W string = "ES-16-150W"
 
-	// ApDeviceModelESMinus24Minus250W captures enum value "ES-24-250W"
-	ApDeviceModelESMinus24Minus250W string = "ES-24-250W"
+	// ApDeviceModelESDash24Dash250W captures enum value "ES-24-250W"
+	ApDeviceModelESDash24Dash250W string = "ES-24-250W"
 
-	// ApDeviceModelESMinus24Minus500W captures enum value "ES-24-500W"
-	ApDeviceModelESMinus24Minus500W string = "ES-24-500W"
+	// ApDeviceModelESDash24Dash500W captures enum value "ES-24-500W"
+	ApDeviceModelESDash24Dash500W string = "ES-24-500W"
 
-	// ApDeviceModelESMinus24MinusLite captures enum value "ES-24-Lite"
-	ApDeviceModelESMinus24MinusLite string = "ES-24-Lite"
+	// ApDeviceModelESDash24DashLite captures enum value "ES-24-Lite"
+	ApDeviceModelESDash24DashLite string = "ES-24-Lite"
 
-	// ApDeviceModelESMinus48Minus500W captures enum value "ES-48-500W"
-	ApDeviceModelESMinus48Minus500W string = "ES-48-500W"
+	// ApDeviceModelESDash48Dash500W captures enum value "ES-48-500W"
+	ApDeviceModelESDash48Dash500W string = "ES-48-500W"
 
-	// ApDeviceModelESMinus48Minus750W captures enum value "ES-48-750W"
-	ApDeviceModelESMinus48Minus750W string = "ES-48-750W"
+	// ApDeviceModelESDash48Dash750W captures enum value "ES-48-750W"
+	ApDeviceModelESDash48Dash750W string = "ES-48-750W"
 
-	// ApDeviceModelESMinus48MinusLite captures enum value "ES-48-Lite"
-	ApDeviceModelESMinus48MinusLite string = "ES-48-Lite"
+	// ApDeviceModelESDash48DashLite captures enum value "ES-48-Lite"
+	ApDeviceModelESDash48DashLite string = "ES-48-Lite"
 
-	// ApDeviceModelESMinus8Minus150W captures enum value "ES-8-150W"
-	ApDeviceModelESMinus8Minus150W string = "ES-8-150W"
+	// ApDeviceModelESDash8Dash150W captures enum value "ES-8-150W"
+	ApDeviceModelESDash8Dash150W string = "ES-8-150W"
 
-	// ApDeviceModelESMinus16MinusXG captures enum value "ES-16-XG"
-	ApDeviceModelESMinus16MinusXG string = "ES-16-XG"
+	// ApDeviceModelESDash16DashXG captures enum value "ES-16-XG"
+	ApDeviceModelESDash16DashXG string = "ES-16-XG"
 
-	// ApDeviceModelESMinus10XP captures enum value "ES-10XP"
-	ApDeviceModelESMinus10XP string = "ES-10XP"
+	// ApDeviceModelESDash10XP captures enum value "ES-10XP"
+	ApDeviceModelESDash10XP string = "ES-10XP"
 
-	// ApDeviceModelESMinus10X captures enum value "ES-10X"
-	ApDeviceModelESMinus10X string = "ES-10X"
+	// ApDeviceModelESDash10X captures enum value "ES-10X"
+	ApDeviceModelESDash10X string = "ES-10X"
 
-	// ApDeviceModelESMinus18X captures enum value "ES-18X"
-	ApDeviceModelESMinus18X string = "ES-18X"
+	// ApDeviceModelESDash18X captures enum value "ES-18X"
+	ApDeviceModelESDash18X string = "ES-18X"
 
-	// ApDeviceModelESMinus26X captures enum value "ES-26X"
-	ApDeviceModelESMinus26X string = "ES-26X"
+	// ApDeviceModelESDash26X captures enum value "ES-26X"
+	ApDeviceModelESDash26X string = "ES-26X"
 
-	// ApDeviceModelEPMinus54VMinus150W captures enum value "EP-54V-150W"
-	ApDeviceModelEPMinus54VMinus150W string = "EP-54V-150W"
+	// ApDeviceModelEPDash54VDash150W captures enum value "EP-54V-150W"
+	ApDeviceModelEPDash54VDash150W string = "EP-54V-150W"
 
-	// ApDeviceModelEPMinus24VMinus72W captures enum value "EP-24V-72W"
-	ApDeviceModelEPMinus24VMinus72W string = "EP-24V-72W"
+	// ApDeviceModelEPDash24VDash72W captures enum value "EP-24V-72W"
+	ApDeviceModelEPDash24VDash72W string = "EP-24V-72W"
 
-	// ApDeviceModelEPMinus54VMinus72W captures enum value "EP-54V-72W"
-	ApDeviceModelEPMinus54VMinus72W string = "EP-54V-72W"
+	// ApDeviceModelEPDash54VDash72W captures enum value "EP-54V-72W"
+	ApDeviceModelEPDash54VDash72W string = "EP-54V-72W"
 
-	// ApDeviceModelTSWMinusPoE captures enum value "TSW-PoE"
-	ApDeviceModelTSWMinusPoE string = "TSW-PoE"
+	// ApDeviceModelTSWDashPoE captures enum value "TSW-PoE"
+	ApDeviceModelTSWDashPoE string = "TSW-PoE"
 
-	// ApDeviceModelTSWMinusPoEPRO captures enum value "TSW-PoE PRO"
-	ApDeviceModelTSWMinusPoEPRO string = "TSW-PoE PRO"
+	// ApDeviceModelTSWDashPoEPRO captures enum value "TSW-PoE PRO"
+	ApDeviceModelTSWDashPoEPRO string = "TSW-PoE PRO"
 
-	// ApDeviceModelACBMinusAC captures enum value "ACB-AC"
-	ApDeviceModelACBMinusAC string = "ACB-AC"
+	// ApDeviceModelACBDashAC captures enum value "ACB-AC"
+	ApDeviceModelACBDashAC string = "ACB-AC"
 
-	// ApDeviceModelACBMinusISP captures enum value "ACB-ISP"
-	ApDeviceModelACBMinusISP string = "ACB-ISP"
+	// ApDeviceModelACBDashISP captures enum value "ACB-ISP"
+	ApDeviceModelACBDashISP string = "ACB-ISP"
 
-	// ApDeviceModelACBMinusLOCO captures enum value "ACB-LOCO"
-	ApDeviceModelACBMinusLOCO string = "ACB-LOCO"
+	// ApDeviceModelACBDashLOCO captures enum value "ACB-LOCO"
+	ApDeviceModelACBDashLOCO string = "ACB-LOCO"
 
 	// ApDeviceModelAF11FX captures enum value "AF11FX"
 	ApDeviceModelAF11FX string = "AF11FX"
@@ -230,20 +230,20 @@ const (
 	// ApDeviceModelAF5X captures enum value "AF5X"
 	ApDeviceModelAF5X string = "AF5X"
 
-	// ApDeviceModelAFMinus5XHD captures enum value "AF-5XHD"
-	ApDeviceModelAFMinus5XHD string = "AF-5XHD"
+	// ApDeviceModelAFDash5XHD captures enum value "AF-5XHD"
+	ApDeviceModelAFDash5XHD string = "AF-5XHD"
 
-	// ApDeviceModelAFMinusLTU captures enum value "AF-LTU"
-	ApDeviceModelAFMinusLTU string = "AF-LTU"
+	// ApDeviceModelAFDashLTU captures enum value "AF-LTU"
+	ApDeviceModelAFDashLTU string = "AF-LTU"
 
-	// ApDeviceModelLTUMinusLITE captures enum value "LTU-LITE"
-	ApDeviceModelLTUMinusLITE string = "LTU-LITE"
+	// ApDeviceModelLTUDashLITE captures enum value "LTU-LITE"
+	ApDeviceModelLTUDashLITE string = "LTU-LITE"
 
-	// ApDeviceModelAFMinusLTU5 captures enum value "AF-LTU5"
-	ApDeviceModelAFMinusLTU5 string = "AF-LTU5"
+	// ApDeviceModelAFDashLTU5 captures enum value "AF-LTU5"
+	ApDeviceModelAFDashLTU5 string = "AF-LTU5"
 
-	// ApDeviceModelLTUMinusRocket captures enum value "LTU-Rocket"
-	ApDeviceModelLTUMinusRocket string = "LTU-Rocket"
+	// ApDeviceModelLTUDashRocket captures enum value "LTU-Rocket"
+	ApDeviceModelLTUDashRocket string = "LTU-Rocket"
 
 	// ApDeviceModelAFLTULR captures enum value "AFLTULR"
 	ApDeviceModelAFLTULR string = "AFLTULR"
@@ -251,8 +251,8 @@ const (
 	// ApDeviceModelAF60 captures enum value "AF60"
 	ApDeviceModelAF60 string = "AF60"
 
-	// ApDeviceModelAF60MinusLR captures enum value "AF60-LR"
-	ApDeviceModelAF60MinusLR string = "AF60-LR"
+	// ApDeviceModelAF60DashLR captures enum value "AF60-LR"
+	ApDeviceModelAF60DashLR string = "AF60-LR"
 
 	// ApDeviceModelWaveAP captures enum value "WaveAP"
 	ApDeviceModelWaveAP string = "WaveAP"
@@ -260,17 +260,17 @@ const (
 	// ApDeviceModelWaveCPE captures enum value "WaveCPE"
 	ApDeviceModelWaveCPE string = "WaveCPE"
 
-	// ApDeviceModelGBEMinusLR captures enum value "GBE-LR"
-	ApDeviceModelGBEMinusLR string = "GBE-LR"
+	// ApDeviceModelGBEDashLR captures enum value "GBE-LR"
+	ApDeviceModelGBEDashLR string = "GBE-LR"
 
 	// ApDeviceModelGBE captures enum value "GBE"
 	ApDeviceModelGBE string = "GBE"
 
-	// ApDeviceModelGBEMinusPlus captures enum value "GBE-Plus"
-	ApDeviceModelGBEMinusPlus string = "GBE-Plus"
+	// ApDeviceModelGBEDashPlus captures enum value "GBE-Plus"
+	ApDeviceModelGBEDashPlus string = "GBE-Plus"
 
-	// ApDeviceModelGBEMinusAP captures enum value "GBE-AP"
-	ApDeviceModelGBEMinusAP string = "GBE-AP"
+	// ApDeviceModelGBEDashAP captures enum value "GBE-AP"
+	ApDeviceModelGBEDashAP string = "GBE-AP"
 
 	// ApDeviceModelR2N captures enum value "R2N"
 	ApDeviceModelR2N string = "R2N"
@@ -284,23 +284,23 @@ const (
 	// ApDeviceModelR6N captures enum value "R6N"
 	ApDeviceModelR6N string = "R6N"
 
-	// ApDeviceModelR36MinusGPS captures enum value "R36-GPS"
-	ApDeviceModelR36MinusGPS string = "R36-GPS"
+	// ApDeviceModelR36DashGPS captures enum value "R36-GPS"
+	ApDeviceModelR36DashGPS string = "R36-GPS"
 
-	// ApDeviceModelRM3MinusGPS captures enum value "RM3-GPS"
-	ApDeviceModelRM3MinusGPS string = "RM3-GPS"
+	// ApDeviceModelRM3DashGPS captures enum value "RM3-GPS"
+	ApDeviceModelRM3DashGPS string = "RM3-GPS"
 
-	// ApDeviceModelR2NMinusGPS captures enum value "R2N-GPS"
-	ApDeviceModelR2NMinusGPS string = "R2N-GPS"
+	// ApDeviceModelR2NDashGPS captures enum value "R2N-GPS"
+	ApDeviceModelR2NDashGPS string = "R2N-GPS"
 
-	// ApDeviceModelR5NMinusGPS captures enum value "R5N-GPS"
-	ApDeviceModelR5NMinusGPS string = "R5N-GPS"
+	// ApDeviceModelR5NDashGPS captures enum value "R5N-GPS"
+	ApDeviceModelR5NDashGPS string = "R5N-GPS"
 
-	// ApDeviceModelR9NMinusGPS captures enum value "R9N-GPS"
-	ApDeviceModelR9NMinusGPS string = "R9N-GPS"
+	// ApDeviceModelR9NDashGPS captures enum value "R9N-GPS"
+	ApDeviceModelR9NDashGPS string = "R9N-GPS"
 
-	// ApDeviceModelR5TMinusGPS captures enum value "R5T-GPS"
-	ApDeviceModelR5TMinusGPS string = "R5T-GPS"
+	// ApDeviceModelR5TDashGPS captures enum value "R5T-GPS"
+	ApDeviceModelR5TDashGPS string = "R5T-GPS"
 
 	// ApDeviceModelRM3 captures enum value "RM3"
 	ApDeviceModelRM3 string = "RM3"
@@ -356,14 +356,14 @@ const (
 	// ApDeviceModelAG2 captures enum value "AG2"
 	ApDeviceModelAG2 string = "AG2"
 
-	// ApDeviceModelAG2MinusHP captures enum value "AG2-HP"
-	ApDeviceModelAG2MinusHP string = "AG2-HP"
+	// ApDeviceModelAG2DashHP captures enum value "AG2-HP"
+	ApDeviceModelAG2DashHP string = "AG2-HP"
 
 	// ApDeviceModelAG5 captures enum value "AG5"
 	ApDeviceModelAG5 string = "AG5"
 
-	// ApDeviceModelAG5MinusHP captures enum value "AG5-HP"
-	ApDeviceModelAG5MinusHP string = "AG5-HP"
+	// ApDeviceModelAG5DashHP captures enum value "AG5-HP"
+	ApDeviceModelAG5DashHP string = "AG5-HP"
 
 	// ApDeviceModelP2N captures enum value "p2N"
 	ApDeviceModelP2N string = "p2N"
@@ -374,26 +374,26 @@ const (
 	// ApDeviceModelM25 captures enum value "M25"
 	ApDeviceModelM25 string = "M25"
 
-	// ApDeviceModelP2BMinus400 captures enum value "P2B-400"
-	ApDeviceModelP2BMinus400 string = "P2B-400"
+	// ApDeviceModelP2BDash400 captures enum value "P2B-400"
+	ApDeviceModelP2BDash400 string = "P2B-400"
 
-	// ApDeviceModelP5BMinus300 captures enum value "P5B-300"
-	ApDeviceModelP5BMinus300 string = "P5B-300"
+	// ApDeviceModelP5BDash300 captures enum value "P5B-300"
+	ApDeviceModelP5BDash300 string = "P5B-300"
 
-	// ApDeviceModelP5BMinus300MinusISO captures enum value "P5B-300-ISO"
-	ApDeviceModelP5BMinus300MinusISO string = "P5B-300-ISO"
+	// ApDeviceModelP5BDash300DashISO captures enum value "P5B-300-ISO"
+	ApDeviceModelP5BDash300DashISO string = "P5B-300-ISO"
 
-	// ApDeviceModelP5BMinus400 captures enum value "P5B-400"
-	ApDeviceModelP5BMinus400 string = "P5B-400"
+	// ApDeviceModelP5BDash400 captures enum value "P5B-400"
+	ApDeviceModelP5BDash400 string = "P5B-400"
 
-	// ApDeviceModelP5BMinus400MinusISO captures enum value "P5B-400-ISO"
-	ApDeviceModelP5BMinus400MinusISO string = "P5B-400-ISO"
+	// ApDeviceModelP5BDash400DashISO captures enum value "P5B-400-ISO"
+	ApDeviceModelP5BDash400DashISO string = "P5B-400-ISO"
 
-	// ApDeviceModelP5BMinus620 captures enum value "P5B-620"
-	ApDeviceModelP5BMinus620 string = "P5B-620"
+	// ApDeviceModelP5BDash620 captures enum value "P5B-620"
+	ApDeviceModelP5BDash620 string = "P5B-620"
 
-	// ApDeviceModelLB5Minus120 captures enum value "LB5-120"
-	ApDeviceModelLB5Minus120 string = "LB5-120"
+	// ApDeviceModelLB5Dash120 captures enum value "LB5-120"
+	ApDeviceModelLB5Dash120 string = "LB5-120"
 
 	// ApDeviceModelLB5 captures enum value "LB5"
 	ApDeviceModelLB5 string = "LB5"
@@ -401,35 +401,35 @@ const (
 	// ApDeviceModelN5B captures enum value "N5B"
 	ApDeviceModelN5B string = "N5B"
 
-	// ApDeviceModelN5BMinus16 captures enum value "N5B-16"
-	ApDeviceModelN5BMinus16 string = "N5B-16"
+	// ApDeviceModelN5BDash16 captures enum value "N5B-16"
+	ApDeviceModelN5BDash16 string = "N5B-16"
 
-	// ApDeviceModelN5BMinus19 captures enum value "N5B-19"
-	ApDeviceModelN5BMinus19 string = "N5B-19"
+	// ApDeviceModelN5BDash19 captures enum value "N5B-19"
+	ApDeviceModelN5BDash19 string = "N5B-19"
 
-	// ApDeviceModelN5BMinus300 captures enum value "N5B-300"
-	ApDeviceModelN5BMinus300 string = "N5B-300"
+	// ApDeviceModelN5BDash300 captures enum value "N5B-300"
+	ApDeviceModelN5BDash300 string = "N5B-300"
 
-	// ApDeviceModelN5BMinus400 captures enum value "N5B-400"
-	ApDeviceModelN5BMinus400 string = "N5B-400"
+	// ApDeviceModelN5BDash400 captures enum value "N5B-400"
+	ApDeviceModelN5BDash400 string = "N5B-400"
 
-	// ApDeviceModelN5BMinusClient captures enum value "N5B-Client"
-	ApDeviceModelN5BMinusClient string = "N5B-Client"
+	// ApDeviceModelN5BDashClient captures enum value "N5B-Client"
+	ApDeviceModelN5BDashClient string = "N5B-Client"
 
 	// ApDeviceModelN2B captures enum value "N2B"
 	ApDeviceModelN2B string = "N2B"
 
-	// ApDeviceModelN2BMinus13 captures enum value "N2B-13"
-	ApDeviceModelN2BMinus13 string = "N2B-13"
+	// ApDeviceModelN2BDash13 captures enum value "N2B-13"
+	ApDeviceModelN2BDash13 string = "N2B-13"
 
-	// ApDeviceModelN2BMinus400 captures enum value "N2B-400"
-	ApDeviceModelN2BMinus400 string = "N2B-400"
+	// ApDeviceModelN2BDash400 captures enum value "N2B-400"
+	ApDeviceModelN2BDash400 string = "N2B-400"
 
 	// ApDeviceModelPAP captures enum value "PAP"
 	ApDeviceModelPAP string = "PAP"
 
-	// ApDeviceModelLAPMinusHP captures enum value "LAP-HP"
-	ApDeviceModelLAPMinusHP string = "LAP-HP"
+	// ApDeviceModelLAPDashHP captures enum value "LAP-HP"
+	ApDeviceModelLAPDashHP string = "LAP-HP"
 
 	// ApDeviceModelLAP captures enum value "LAP"
 	ApDeviceModelLAP string = "LAP"
@@ -437,14 +437,14 @@ const (
 	// ApDeviceModelAGW captures enum value "AGW"
 	ApDeviceModelAGW string = "AGW"
 
-	// ApDeviceModelAGWMinusLR captures enum value "AGW-LR"
-	ApDeviceModelAGWMinusLR string = "AGW-LR"
+	// ApDeviceModelAGWDashLR captures enum value "AGW-LR"
+	ApDeviceModelAGWDashLR string = "AGW-LR"
 
-	// ApDeviceModelAGWMinusPro captures enum value "AGW-Pro"
-	ApDeviceModelAGWMinusPro string = "AGW-Pro"
+	// ApDeviceModelAGWDashPro captures enum value "AGW-Pro"
+	ApDeviceModelAGWDashPro string = "AGW-Pro"
 
-	// ApDeviceModelAGWMinusInstaller captures enum value "AGW-Installer"
-	ApDeviceModelAGWMinusInstaller string = "AGW-Installer"
+	// ApDeviceModelAGWDashInstaller captures enum value "AGW-Installer"
+	ApDeviceModelAGWDashInstaller string = "AGW-Installer"
 
 	// ApDeviceModelPB5 captures enum value "PB5"
 	ApDeviceModelPB5 string = "PB5"
@@ -479,113 +479,113 @@ const (
 	// ApDeviceModelWM5 captures enum value "WM5"
 	ApDeviceModelWM5 string = "WM5"
 
-	// ApDeviceModelISMinusM5 captures enum value "IS-M5"
-	ApDeviceModelISMinusM5 string = "IS-M5"
+	// ApDeviceModelISDashM5 captures enum value "IS-M5"
+	ApDeviceModelISDashM5 string = "IS-M5"
 
 	// ApDeviceModelLoco5AC captures enum value "Loco5AC"
 	ApDeviceModelLoco5AC string = "Loco5AC"
 
-	// ApDeviceModelNSMinus5AC captures enum value "NS-5AC"
-	ApDeviceModelNSMinus5AC string = "NS-5AC"
+	// ApDeviceModelNSDash5AC captures enum value "NS-5AC"
+	ApDeviceModelNSDash5AC string = "NS-5AC"
 
-	// ApDeviceModelR5ACMinusPTMP captures enum value "R5AC-PTMP"
-	ApDeviceModelR5ACMinusPTMP string = "R5AC-PTMP"
+	// ApDeviceModelR5ACDashPTMP captures enum value "R5AC-PTMP"
+	ApDeviceModelR5ACDashPTMP string = "R5AC-PTMP"
 
-	// ApDeviceModelR5ACMinusPTP captures enum value "R5AC-PTP"
-	ApDeviceModelR5ACMinusPTP string = "R5AC-PTP"
+	// ApDeviceModelR5ACDashPTP captures enum value "R5AC-PTP"
+	ApDeviceModelR5ACDashPTP string = "R5AC-PTP"
 
-	// ApDeviceModelR5ACMinusLite captures enum value "R5AC-Lite"
-	ApDeviceModelR5ACMinusLite string = "R5AC-Lite"
+	// ApDeviceModelR5ACDashLite captures enum value "R5AC-Lite"
+	ApDeviceModelR5ACDashLite string = "R5AC-Lite"
 
-	// ApDeviceModelR5ACMinusPRISM captures enum value "R5AC-PRISM"
-	ApDeviceModelR5ACMinusPRISM string = "R5AC-PRISM"
+	// ApDeviceModelR5ACDashPRISM captures enum value "R5AC-PRISM"
+	ApDeviceModelR5ACDashPRISM string = "R5AC-PRISM"
 
-	// ApDeviceModelR2ACMinusPrism captures enum value "R2AC-Prism"
-	ApDeviceModelR2ACMinusPrism string = "R2AC-Prism"
+	// ApDeviceModelR2ACDashPrism captures enum value "R2AC-Prism"
+	ApDeviceModelR2ACDashPrism string = "R2AC-Prism"
 
-	// ApDeviceModelR2ACMinusGen2 captures enum value "R2AC-Gen2"
-	ApDeviceModelR2ACMinusGen2 string = "R2AC-Gen2"
+	// ApDeviceModelR2ACDashGen2 captures enum value "R2AC-Gen2"
+	ApDeviceModelR2ACDashGen2 string = "R2AC-Gen2"
 
-	// ApDeviceModelRPMinus5ACMinusGen2 captures enum value "RP-5AC-Gen2"
-	ApDeviceModelRPMinus5ACMinusGen2 string = "RP-5AC-Gen2"
+	// ApDeviceModelRPDash5ACDashGen2 captures enum value "RP-5AC-Gen2"
+	ApDeviceModelRPDash5ACDashGen2 string = "RP-5AC-Gen2"
 
-	// ApDeviceModelNBEMinus2ACMinus13 captures enum value "NBE-2AC-13"
-	ApDeviceModelNBEMinus2ACMinus13 string = "NBE-2AC-13"
+	// ApDeviceModelNBEDash2ACDash13 captures enum value "NBE-2AC-13"
+	ApDeviceModelNBEDash2ACDash13 string = "NBE-2AC-13"
 
-	// ApDeviceModelNBEMinus5ACMinus16 captures enum value "NBE-5AC-16"
-	ApDeviceModelNBEMinus5ACMinus16 string = "NBE-5AC-16"
+	// ApDeviceModelNBEDash5ACDash16 captures enum value "NBE-5AC-16"
+	ApDeviceModelNBEDash5ACDash16 string = "NBE-5AC-16"
 
-	// ApDeviceModelNBEMinus5ACMinus19 captures enum value "NBE-5AC-19"
-	ApDeviceModelNBEMinus5ACMinus19 string = "NBE-5AC-19"
+	// ApDeviceModelNBEDash5ACDash19 captures enum value "NBE-5AC-19"
+	ApDeviceModelNBEDash5ACDash19 string = "NBE-5AC-19"
 
-	// ApDeviceModelNBEMinus5ACMinusGen2 captures enum value "NBE-5AC-Gen2"
-	ApDeviceModelNBEMinus5ACMinusGen2 string = "NBE-5AC-Gen2"
+	// ApDeviceModelNBEDash5ACDashGen2 captures enum value "NBE-5AC-Gen2"
+	ApDeviceModelNBEDash5ACDashGen2 string = "NBE-5AC-Gen2"
 
-	// ApDeviceModelPBEMinus5ACMinus300 captures enum value "PBE-5AC-300"
-	ApDeviceModelPBEMinus5ACMinus300 string = "PBE-5AC-300"
+	// ApDeviceModelPBEDash5ACDash300 captures enum value "PBE-5AC-300"
+	ApDeviceModelPBEDash5ACDash300 string = "PBE-5AC-300"
 
-	// ApDeviceModelPBEMinus5ACMinus300MinusISO captures enum value "PBE-5AC-300-ISO"
-	ApDeviceModelPBEMinus5ACMinus300MinusISO string = "PBE-5AC-300-ISO"
+	// ApDeviceModelPBEDash5ACDash300DashISO captures enum value "PBE-5AC-300-ISO"
+	ApDeviceModelPBEDash5ACDash300DashISO string = "PBE-5AC-300-ISO"
 
-	// ApDeviceModelPBEMinus5ACMinus400 captures enum value "PBE-5AC-400"
-	ApDeviceModelPBEMinus5ACMinus400 string = "PBE-5AC-400"
+	// ApDeviceModelPBEDash5ACDash400 captures enum value "PBE-5AC-400"
+	ApDeviceModelPBEDash5ACDash400 string = "PBE-5AC-400"
 
-	// ApDeviceModelPBEMinus5ACMinus400MinusISO captures enum value "PBE-5AC-400-ISO"
-	ApDeviceModelPBEMinus5ACMinus400MinusISO string = "PBE-5AC-400-ISO"
+	// ApDeviceModelPBEDash5ACDash400DashISO captures enum value "PBE-5AC-400-ISO"
+	ApDeviceModelPBEDash5ACDash400DashISO string = "PBE-5AC-400-ISO"
 
-	// ApDeviceModelPBEMinus5ACMinus500 captures enum value "PBE-5AC-500"
-	ApDeviceModelPBEMinus5ACMinus500 string = "PBE-5AC-500"
+	// ApDeviceModelPBEDash5ACDash500 captures enum value "PBE-5AC-500"
+	ApDeviceModelPBEDash5ACDash500 string = "PBE-5AC-500"
 
-	// ApDeviceModelPBEMinus5ACMinus500MinusISO captures enum value "PBE-5AC-500-ISO"
-	ApDeviceModelPBEMinus5ACMinus500MinusISO string = "PBE-5AC-500-ISO"
+	// ApDeviceModelPBEDash5ACDash500DashISO captures enum value "PBE-5AC-500-ISO"
+	ApDeviceModelPBEDash5ACDash500DashISO string = "PBE-5AC-500-ISO"
 
-	// ApDeviceModelPBEMinus5ACMinus620 captures enum value "PBE-5AC-620"
-	ApDeviceModelPBEMinus5ACMinus620 string = "PBE-5AC-620"
+	// ApDeviceModelPBEDash5ACDash620 captures enum value "PBE-5AC-620"
+	ApDeviceModelPBEDash5ACDash620 string = "PBE-5AC-620"
 
-	// ApDeviceModelPBEMinus5ACMinus620MinusISO captures enum value "PBE-5AC-620-ISO"
-	ApDeviceModelPBEMinus5ACMinus620MinusISO string = "PBE-5AC-620-ISO"
+	// ApDeviceModelPBEDash5ACDash620DashISO captures enum value "PBE-5AC-620-ISO"
+	ApDeviceModelPBEDash5ACDash620DashISO string = "PBE-5AC-620-ISO"
 
-	// ApDeviceModelPBEMinus2ACMinus400 captures enum value "PBE-2AC-400"
-	ApDeviceModelPBEMinus2ACMinus400 string = "PBE-2AC-400"
+	// ApDeviceModelPBEDash2ACDash400 captures enum value "PBE-2AC-400"
+	ApDeviceModelPBEDash2ACDash400 string = "PBE-2AC-400"
 
-	// ApDeviceModelPBEMinus2ACMinus400MinusISO captures enum value "PBE-2AC-400-ISO"
-	ApDeviceModelPBEMinus2ACMinus400MinusISO string = "PBE-2AC-400-ISO"
+	// ApDeviceModelPBEDash2ACDash400DashISO captures enum value "PBE-2AC-400-ISO"
+	ApDeviceModelPBEDash2ACDash400DashISO string = "PBE-2AC-400-ISO"
 
-	// ApDeviceModelPBEMinus5ACMinusXMinusGen2 captures enum value "PBE-5AC-X-Gen2"
-	ApDeviceModelPBEMinus5ACMinusXMinusGen2 string = "PBE-5AC-X-Gen2"
+	// ApDeviceModelPBEDash5ACDashXDashGen2 captures enum value "PBE-5AC-X-Gen2"
+	ApDeviceModelPBEDash5ACDashXDashGen2 string = "PBE-5AC-X-Gen2"
 
-	// ApDeviceModelPBEMinus5ACMinusGen2 captures enum value "PBE-5AC-Gen2"
-	ApDeviceModelPBEMinus5ACMinusGen2 string = "PBE-5AC-Gen2"
+	// ApDeviceModelPBEDash5ACDashGen2 captures enum value "PBE-5AC-Gen2"
+	ApDeviceModelPBEDash5ACDashGen2 string = "PBE-5AC-Gen2"
 
-	// ApDeviceModelPBEMinus5ACMinusISOMinusGen2 captures enum value "PBE-5AC-ISO-Gen2"
-	ApDeviceModelPBEMinus5ACMinusISOMinusGen2 string = "PBE-5AC-ISO-Gen2"
+	// ApDeviceModelPBEDash5ACDashISODashGen2 captures enum value "PBE-5AC-ISO-Gen2"
+	ApDeviceModelPBEDash5ACDashISODashGen2 string = "PBE-5AC-ISO-Gen2"
 
-	// ApDeviceModelPBEMinus5ACMinus400MinusISOMinusGen2 captures enum value "PBE-5AC-400-ISO-Gen2"
-	ApDeviceModelPBEMinus5ACMinus400MinusISOMinusGen2 string = "PBE-5AC-400-ISO-Gen2"
+	// ApDeviceModelPBEDash5ACDash400DashISODashGen2 captures enum value "PBE-5AC-400-ISO-Gen2"
+	ApDeviceModelPBEDash5ACDash400DashISODashGen2 string = "PBE-5AC-400-ISO-Gen2"
 
-	// ApDeviceModelLBEMinus5ACMinus16Minus120 captures enum value "LBE-5AC-16-120"
-	ApDeviceModelLBEMinus5ACMinus16Minus120 string = "LBE-5AC-16-120"
+	// ApDeviceModelLBEDash5ACDash16Dash120 captures enum value "LBE-5AC-16-120"
+	ApDeviceModelLBEDash5ACDash16Dash120 string = "LBE-5AC-16-120"
 
-	// ApDeviceModelLAPMinus120 captures enum value "LAP-120"
-	ApDeviceModelLAPMinus120 string = "LAP-120"
+	// ApDeviceModelLAPDash120 captures enum value "LAP-120"
+	ApDeviceModelLAPDash120 string = "LAP-120"
 
-	// ApDeviceModelLBEMinus5ACMinus23 captures enum value "LBE-5AC-23"
-	ApDeviceModelLBEMinus5ACMinus23 string = "LBE-5AC-23"
+	// ApDeviceModelLBEDash5ACDash23 captures enum value "LBE-5AC-23"
+	ApDeviceModelLBEDash5ACDash23 string = "LBE-5AC-23"
 
-	// ApDeviceModelLBEMinus5ACMinusGen2 captures enum value "LBE-5AC-Gen2"
-	ApDeviceModelLBEMinus5ACMinusGen2 string = "LBE-5AC-Gen2"
+	// ApDeviceModelLBEDash5ACDashGen2 captures enum value "LBE-5AC-Gen2"
+	ApDeviceModelLBEDash5ACDashGen2 string = "LBE-5AC-Gen2"
 
-	// ApDeviceModelLBEMinus5ACMinusLR captures enum value "LBE-5AC-LR"
-	ApDeviceModelLBEMinus5ACMinusLR string = "LBE-5AC-LR"
+	// ApDeviceModelLBEDash5ACDashLR captures enum value "LBE-5AC-LR"
+	ApDeviceModelLBEDash5ACDashLR string = "LBE-5AC-LR"
 
-	// ApDeviceModelLAPMinusGPS captures enum value "LAP-GPS"
-	ApDeviceModelLAPMinusGPS string = "LAP-GPS"
+	// ApDeviceModelLAPDashGPS captures enum value "LAP-GPS"
+	ApDeviceModelLAPDashGPS string = "LAP-GPS"
 
-	// ApDeviceModelISMinus5AC captures enum value "IS-5AC"
-	ApDeviceModelISMinus5AC string = "IS-5AC"
+	// ApDeviceModelISDash5AC captures enum value "IS-5AC"
+	ApDeviceModelISDash5AC string = "IS-5AC"
 
-	// ApDeviceModelPSMinus5AC captures enum value "PS-5AC"
-	ApDeviceModelPSMinus5AC string = "PS-5AC"
+	// ApDeviceModelPSDash5AC captures enum value "PS-5AC"
+	ApDeviceModelPSDash5AC string = "PS-5AC"
 
 	// ApDeviceModelSolarSwitch captures enum value "SolarSwitch"
 	ApDeviceModelSolarSwitch string = "SolarSwitch"
@@ -593,11 +593,11 @@ const (
 	// ApDeviceModelSolarPoint captures enum value "SolarPoint"
 	ApDeviceModelSolarPoint string = "SolarPoint"
 
-	// ApDeviceModelBulletACMinusIP67 captures enum value "BulletAC-IP67"
-	ApDeviceModelBulletACMinusIP67 string = "BulletAC-IP67"
+	// ApDeviceModelBulletACDashIP67 captures enum value "BulletAC-IP67"
+	ApDeviceModelBulletACDashIP67 string = "BulletAC-IP67"
 
-	// ApDeviceModelBMinusDBMinusAC captures enum value "B-DB-AC"
-	ApDeviceModelBMinusDBMinusAC string = "B-DB-AC"
+	// ApDeviceModelBDashDBDashAC captures enum value "B-DB-AC"
+	ApDeviceModelBDashDBDashAC string = "B-DB-AC"
 
 	// ApDeviceModelUNKNOWN captures enum value "UNKNOWN"
 	ApDeviceModelUNKNOWN string = "UNKNOWN"

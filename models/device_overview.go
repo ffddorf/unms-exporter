@@ -251,29 +251,29 @@ const (
 	// DeviceOverviewWirelessModeAp captures enum value "ap"
 	DeviceOverviewWirelessModeAp string = "ap"
 
-	// DeviceOverviewWirelessModeApMinusptp captures enum value "ap-ptp"
-	DeviceOverviewWirelessModeApMinusptp string = "ap-ptp"
+	// DeviceOverviewWirelessModeApDashPtp captures enum value "ap-ptp"
+	DeviceOverviewWirelessModeApDashPtp string = "ap-ptp"
 
-	// DeviceOverviewWirelessModeApMinusptmp captures enum value "ap-ptmp"
-	DeviceOverviewWirelessModeApMinusptmp string = "ap-ptmp"
+	// DeviceOverviewWirelessModeApDashPtmp captures enum value "ap-ptmp"
+	DeviceOverviewWirelessModeApDashPtmp string = "ap-ptmp"
 
-	// DeviceOverviewWirelessModeApMinusptmpMinusairmax captures enum value "ap-ptmp-airmax"
-	DeviceOverviewWirelessModeApMinusptmpMinusairmax string = "ap-ptmp-airmax"
+	// DeviceOverviewWirelessModeApDashPtmpDashAirmax captures enum value "ap-ptmp-airmax"
+	DeviceOverviewWirelessModeApDashPtmpDashAirmax string = "ap-ptmp-airmax"
 
-	// DeviceOverviewWirelessModeApMinusptmpMinusairmaxMinusmixed captures enum value "ap-ptmp-airmax-mixed"
-	DeviceOverviewWirelessModeApMinusptmpMinusairmaxMinusmixed string = "ap-ptmp-airmax-mixed"
+	// DeviceOverviewWirelessModeApDashPtmpDashAirmaxDashMixed captures enum value "ap-ptmp-airmax-mixed"
+	DeviceOverviewWirelessModeApDashPtmpDashAirmaxDashMixed string = "ap-ptmp-airmax-mixed"
 
-	// DeviceOverviewWirelessModeApMinusptmpMinusairmaxMinusac captures enum value "ap-ptmp-airmax-ac"
-	DeviceOverviewWirelessModeApMinusptmpMinusairmaxMinusac string = "ap-ptmp-airmax-ac"
+	// DeviceOverviewWirelessModeApDashPtmpDashAirmaxDashAc captures enum value "ap-ptmp-airmax-ac"
+	DeviceOverviewWirelessModeApDashPtmpDashAirmaxDashAc string = "ap-ptmp-airmax-ac"
 
 	// DeviceOverviewWirelessModeSta captures enum value "sta"
 	DeviceOverviewWirelessModeSta string = "sta"
 
-	// DeviceOverviewWirelessModeStaMinusptp captures enum value "sta-ptp"
-	DeviceOverviewWirelessModeStaMinusptp string = "sta-ptp"
+	// DeviceOverviewWirelessModeStaDashPtp captures enum value "sta-ptp"
+	DeviceOverviewWirelessModeStaDashPtp string = "sta-ptp"
 
-	// DeviceOverviewWirelessModeStaMinusptmp captures enum value "sta-ptmp"
-	DeviceOverviewWirelessModeStaMinusptmp string = "sta-ptmp"
+	// DeviceOverviewWirelessModeStaDashPtmp captures enum value "sta-ptmp"
+	DeviceOverviewWirelessModeStaDashPtmp string = "sta-ptmp"
 
 	// DeviceOverviewWirelessModeAprepeater captures enum value "aprepeater"
 	DeviceOverviewWirelessModeAprepeater string = "aprepeater"

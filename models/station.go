@@ -256,143 +256,143 @@ func init() {
 
 const (
 
-	// StationModelUFMinusNano captures enum value "UF-Nano"
-	StationModelUFMinusNano string = "UF-Nano"
+	// StationModelUFDashNano captures enum value "UF-Nano"
+	StationModelUFDashNano string = "UF-Nano"
 
-	// StationModelUFMinusLoco captures enum value "UF-Loco"
-	StationModelUFMinusLoco string = "UF-Loco"
+	// StationModelUFDashLoco captures enum value "UF-Loco"
+	StationModelUFDashLoco string = "UF-Loco"
 
-	// StationModelUFMinusWifi captures enum value "UF-Wifi"
-	StationModelUFMinusWifi string = "UF-Wifi"
+	// StationModelUFDashWifi captures enum value "UF-Wifi"
+	StationModelUFDashWifi string = "UF-Wifi"
 
-	// StationModelUFMinusInstant captures enum value "UF-Instant"
-	StationModelUFMinusInstant string = "UF-Instant"
+	// StationModelUFDashInstant captures enum value "UF-Instant"
+	StationModelUFDashInstant string = "UF-Instant"
 
-	// StationModelUFMinusOLT captures enum value "UF-OLT"
-	StationModelUFMinusOLT string = "UF-OLT"
+	// StationModelUFDashOLT captures enum value "UF-OLT"
+	StationModelUFDashOLT string = "UF-OLT"
 
-	// StationModelUFMinusOLT4 captures enum value "UF-OLT4"
-	StationModelUFMinusOLT4 string = "UF-OLT4"
+	// StationModelUFDashOLT4 captures enum value "UF-OLT4"
+	StationModelUFDashOLT4 string = "UF-OLT4"
 
-	// StationModelUNMSMinusRMinusPRO captures enum value "UNMS-R-PRO"
-	StationModelUNMSMinusRMinusPRO string = "UNMS-R-PRO"
+	// StationModelUNMSDashRDashPRO captures enum value "UNMS-R-PRO"
+	StationModelUNMSDashRDashPRO string = "UNMS-R-PRO"
 
-	// StationModelUNMSMinusRMinusLite captures enum value "UNMS-R-Lite"
-	StationModelUNMSMinusRMinusLite string = "UNMS-R-Lite"
+	// StationModelUNMSDashRDashLite captures enum value "UNMS-R-Lite"
+	StationModelUNMSDashRDashLite string = "UNMS-R-Lite"
 
-	// StationModelUNMSMinusSMinusLite captures enum value "UNMS-S-Lite"
-	StationModelUNMSMinusSMinusLite string = "UNMS-S-Lite"
+	// StationModelUNMSDashSDashLite captures enum value "UNMS-S-Lite"
+	StationModelUNMSDashSDashLite string = "UNMS-S-Lite"
 
-	// StationModelERMinusX captures enum value "ER-X"
-	StationModelERMinusX string = "ER-X"
+	// StationModelERDashX captures enum value "ER-X"
+	StationModelERDashX string = "ER-X"
 
-	// StationModelERMinusXMinusSFP captures enum value "ER-X-SFP"
-	StationModelERMinusXMinusSFP string = "ER-X-SFP"
+	// StationModelERDashXDashSFP captures enum value "ER-X-SFP"
+	StationModelERDashXDashSFP string = "ER-X-SFP"
 
-	// StationModelERLiteMinus3 captures enum value "ERLite-3"
-	StationModelERLiteMinus3 string = "ERLite-3"
+	// StationModelERLiteDash3 captures enum value "ERLite-3"
+	StationModelERLiteDash3 string = "ERLite-3"
 
-	// StationModelERPoeMinus5 captures enum value "ERPoe-5"
-	StationModelERPoeMinus5 string = "ERPoe-5"
+	// StationModelERPoeDash5 captures enum value "ERPoe-5"
+	StationModelERPoeDash5 string = "ERPoe-5"
 
-	// StationModelERProMinus8 captures enum value "ERPro-8"
-	StationModelERProMinus8 string = "ERPro-8"
+	// StationModelERProDash8 captures enum value "ERPro-8"
+	StationModelERProDash8 string = "ERPro-8"
 
-	// StationModelERMinus8 captures enum value "ER-8"
-	StationModelERMinus8 string = "ER-8"
+	// StationModelERDash8 captures enum value "ER-8"
+	StationModelERDash8 string = "ER-8"
 
-	// StationModelERMinus8MinusXG captures enum value "ER-8-XG"
-	StationModelERMinus8MinusXG string = "ER-8-XG"
+	// StationModelERDash8DashXG captures enum value "ER-8-XG"
+	StationModelERDash8DashXG string = "ER-8-XG"
 
-	// StationModelERMinus4 captures enum value "ER-4"
-	StationModelERMinus4 string = "ER-4"
+	// StationModelERDash4 captures enum value "ER-4"
+	StationModelERDash4 string = "ER-4"
 
-	// StationModelERMinus6P captures enum value "ER-6P"
-	StationModelERMinus6P string = "ER-6P"
+	// StationModelERDash6P captures enum value "ER-6P"
+	StationModelERDash6P string = "ER-6P"
 
-	// StationModelERMinus12 captures enum value "ER-12"
-	StationModelERMinus12 string = "ER-12"
+	// StationModelERDash12 captures enum value "ER-12"
+	StationModelERDash12 string = "ER-12"
 
-	// StationModelERMinus12P captures enum value "ER-12P"
-	StationModelERMinus12P string = "ER-12P"
+	// StationModelERDash12P captures enum value "ER-12P"
+	StationModelERDash12P string = "ER-12P"
 
-	// StationModelERMinus10X captures enum value "ER-10X"
-	StationModelERMinus10X string = "ER-10X"
+	// StationModelERDash10X captures enum value "ER-10X"
+	StationModelERDash10X string = "ER-10X"
 
-	// StationModelEPMinusR8 captures enum value "EP-R8"
-	StationModelEPMinusR8 string = "EP-R8"
+	// StationModelEPDashR8 captures enum value "EP-R8"
+	StationModelEPDashR8 string = "EP-R8"
 
-	// StationModelEPMinusR6 captures enum value "EP-R6"
-	StationModelEPMinusR6 string = "EP-R6"
+	// StationModelEPDashR6 captures enum value "EP-R6"
+	StationModelEPDashR6 string = "EP-R6"
 
-	// StationModelEPMinusS16 captures enum value "EP-S16"
-	StationModelEPMinusS16 string = "EP-S16"
+	// StationModelEPDashS16 captures enum value "EP-S16"
+	StationModelEPDashS16 string = "EP-S16"
 
-	// StationModelESMinus12F captures enum value "ES-12F"
-	StationModelESMinus12F string = "ES-12F"
+	// StationModelESDash12F captures enum value "ES-12F"
+	StationModelESDash12F string = "ES-12F"
 
-	// StationModelESMinus16Minus150W captures enum value "ES-16-150W"
-	StationModelESMinus16Minus150W string = "ES-16-150W"
+	// StationModelESDash16Dash150W captures enum value "ES-16-150W"
+	StationModelESDash16Dash150W string = "ES-16-150W"
 
-	// StationModelESMinus24Minus250W captures enum value "ES-24-250W"
-	StationModelESMinus24Minus250W string = "ES-24-250W"
+	// StationModelESDash24Dash250W captures enum value "ES-24-250W"
+	StationModelESDash24Dash250W string = "ES-24-250W"
 
-	// StationModelESMinus24Minus500W captures enum value "ES-24-500W"
-	StationModelESMinus24Minus500W string = "ES-24-500W"
+	// StationModelESDash24Dash500W captures enum value "ES-24-500W"
+	StationModelESDash24Dash500W string = "ES-24-500W"
 
-	// StationModelESMinus24MinusLite captures enum value "ES-24-Lite"
-	StationModelESMinus24MinusLite string = "ES-24-Lite"
+	// StationModelESDash24DashLite captures enum value "ES-24-Lite"
+	StationModelESDash24DashLite string = "ES-24-Lite"
 
-	// StationModelESMinus48Minus500W captures enum value "ES-48-500W"
-	StationModelESMinus48Minus500W string = "ES-48-500W"
+	// StationModelESDash48Dash500W captures enum value "ES-48-500W"
+	StationModelESDash48Dash500W string = "ES-48-500W"
 
-	// StationModelESMinus48Minus750W captures enum value "ES-48-750W"
-	StationModelESMinus48Minus750W string = "ES-48-750W"
+	// StationModelESDash48Dash750W captures enum value "ES-48-750W"
+	StationModelESDash48Dash750W string = "ES-48-750W"
 
-	// StationModelESMinus48MinusLite captures enum value "ES-48-Lite"
-	StationModelESMinus48MinusLite string = "ES-48-Lite"
+	// StationModelESDash48DashLite captures enum value "ES-48-Lite"
+	StationModelESDash48DashLite string = "ES-48-Lite"
 
-	// StationModelESMinus8Minus150W captures enum value "ES-8-150W"
-	StationModelESMinus8Minus150W string = "ES-8-150W"
+	// StationModelESDash8Dash150W captures enum value "ES-8-150W"
+	StationModelESDash8Dash150W string = "ES-8-150W"
 
-	// StationModelESMinus16MinusXG captures enum value "ES-16-XG"
-	StationModelESMinus16MinusXG string = "ES-16-XG"
+	// StationModelESDash16DashXG captures enum value "ES-16-XG"
+	StationModelESDash16DashXG string = "ES-16-XG"
 
-	// StationModelESMinus10XP captures enum value "ES-10XP"
-	StationModelESMinus10XP string = "ES-10XP"
+	// StationModelESDash10XP captures enum value "ES-10XP"
+	StationModelESDash10XP string = "ES-10XP"
 
-	// StationModelESMinus10X captures enum value "ES-10X"
-	StationModelESMinus10X string = "ES-10X"
+	// StationModelESDash10X captures enum value "ES-10X"
+	StationModelESDash10X string = "ES-10X"
 
-	// StationModelESMinus18X captures enum value "ES-18X"
-	StationModelESMinus18X string = "ES-18X"
+	// StationModelESDash18X captures enum value "ES-18X"
+	StationModelESDash18X string = "ES-18X"
 
-	// StationModelESMinus26X captures enum value "ES-26X"
-	StationModelESMinus26X string = "ES-26X"
+	// StationModelESDash26X captures enum value "ES-26X"
+	StationModelESDash26X string = "ES-26X"
 
-	// StationModelEPMinus54VMinus150W captures enum value "EP-54V-150W"
-	StationModelEPMinus54VMinus150W string = "EP-54V-150W"
+	// StationModelEPDash54VDash150W captures enum value "EP-54V-150W"
+	StationModelEPDash54VDash150W string = "EP-54V-150W"
 
-	// StationModelEPMinus24VMinus72W captures enum value "EP-24V-72W"
-	StationModelEPMinus24VMinus72W string = "EP-24V-72W"
+	// StationModelEPDash24VDash72W captures enum value "EP-24V-72W"
+	StationModelEPDash24VDash72W string = "EP-24V-72W"
 
-	// StationModelEPMinus54VMinus72W captures enum value "EP-54V-72W"
-	StationModelEPMinus54VMinus72W string = "EP-54V-72W"
+	// StationModelEPDash54VDash72W captures enum value "EP-54V-72W"
+	StationModelEPDash54VDash72W string = "EP-54V-72W"
 
-	// StationModelTSWMinusPoE captures enum value "TSW-PoE"
-	StationModelTSWMinusPoE string = "TSW-PoE"
+	// StationModelTSWDashPoE captures enum value "TSW-PoE"
+	StationModelTSWDashPoE string = "TSW-PoE"
 
-	// StationModelTSWMinusPoEPRO captures enum value "TSW-PoE PRO"
-	StationModelTSWMinusPoEPRO string = "TSW-PoE PRO"
+	// StationModelTSWDashPoEPRO captures enum value "TSW-PoE PRO"
+	StationModelTSWDashPoEPRO string = "TSW-PoE PRO"
 
-	// StationModelACBMinusAC captures enum value "ACB-AC"
-	StationModelACBMinusAC string = "ACB-AC"
+	// StationModelACBDashAC captures enum value "ACB-AC"
+	StationModelACBDashAC string = "ACB-AC"
 
-	// StationModelACBMinusISP captures enum value "ACB-ISP"
-	StationModelACBMinusISP string = "ACB-ISP"
+	// StationModelACBDashISP captures enum value "ACB-ISP"
+	StationModelACBDashISP string = "ACB-ISP"
 
-	// StationModelACBMinusLOCO captures enum value "ACB-LOCO"
-	StationModelACBMinusLOCO string = "ACB-LOCO"
+	// StationModelACBDashLOCO captures enum value "ACB-LOCO"
+	StationModelACBDashLOCO string = "ACB-LOCO"
 
 	// StationModelAF11FX captures enum value "AF11FX"
 	StationModelAF11FX string = "AF11FX"
@@ -421,20 +421,20 @@ const (
 	// StationModelAF5X captures enum value "AF5X"
 	StationModelAF5X string = "AF5X"
 
-	// StationModelAFMinus5XHD captures enum value "AF-5XHD"
-	StationModelAFMinus5XHD string = "AF-5XHD"
+	// StationModelAFDash5XHD captures enum value "AF-5XHD"
+	StationModelAFDash5XHD string = "AF-5XHD"
 
-	// StationModelAFMinusLTU captures enum value "AF-LTU"
-	StationModelAFMinusLTU string = "AF-LTU"
+	// StationModelAFDashLTU captures enum value "AF-LTU"
+	StationModelAFDashLTU string = "AF-LTU"
 
-	// StationModelLTUMinusLITE captures enum value "LTU-LITE"
-	StationModelLTUMinusLITE string = "LTU-LITE"
+	// StationModelLTUDashLITE captures enum value "LTU-LITE"
+	StationModelLTUDashLITE string = "LTU-LITE"
 
-	// StationModelAFMinusLTU5 captures enum value "AF-LTU5"
-	StationModelAFMinusLTU5 string = "AF-LTU5"
+	// StationModelAFDashLTU5 captures enum value "AF-LTU5"
+	StationModelAFDashLTU5 string = "AF-LTU5"
 
-	// StationModelLTUMinusRocket captures enum value "LTU-Rocket"
-	StationModelLTUMinusRocket string = "LTU-Rocket"
+	// StationModelLTUDashRocket captures enum value "LTU-Rocket"
+	StationModelLTUDashRocket string = "LTU-Rocket"
 
 	// StationModelAFLTULR captures enum value "AFLTULR"
 	StationModelAFLTULR string = "AFLTULR"
@@ -442,8 +442,8 @@ const (
 	// StationModelAF60 captures enum value "AF60"
 	StationModelAF60 string = "AF60"
 
-	// StationModelAF60MinusLR captures enum value "AF60-LR"
-	StationModelAF60MinusLR string = "AF60-LR"
+	// StationModelAF60DashLR captures enum value "AF60-LR"
+	StationModelAF60DashLR string = "AF60-LR"
 
 	// StationModelWaveAP captures enum value "WaveAP"
 	StationModelWaveAP string = "WaveAP"
@@ -451,17 +451,17 @@ const (
 	// StationModelWaveCPE captures enum value "WaveCPE"
 	StationModelWaveCPE string = "WaveCPE"
 
-	// StationModelGBEMinusLR captures enum value "GBE-LR"
-	StationModelGBEMinusLR string = "GBE-LR"
+	// StationModelGBEDashLR captures enum value "GBE-LR"
+	StationModelGBEDashLR string = "GBE-LR"
 
 	// StationModelGBE captures enum value "GBE"
 	StationModelGBE string = "GBE"
 
-	// StationModelGBEMinusPlus captures enum value "GBE-Plus"
-	StationModelGBEMinusPlus string = "GBE-Plus"
+	// StationModelGBEDashPlus captures enum value "GBE-Plus"
+	StationModelGBEDashPlus string = "GBE-Plus"
 
-	// StationModelGBEMinusAP captures enum value "GBE-AP"
-	StationModelGBEMinusAP string = "GBE-AP"
+	// StationModelGBEDashAP captures enum value "GBE-AP"
+	StationModelGBEDashAP string = "GBE-AP"
 
 	// StationModelR2N captures enum value "R2N"
 	StationModelR2N string = "R2N"
@@ -475,23 +475,23 @@ const (
 	// StationModelR6N captures enum value "R6N"
 	StationModelR6N string = "R6N"
 
-	// StationModelR36MinusGPS captures enum value "R36-GPS"
-	StationModelR36MinusGPS string = "R36-GPS"
+	// StationModelR36DashGPS captures enum value "R36-GPS"
+	StationModelR36DashGPS string = "R36-GPS"
 
-	// StationModelRM3MinusGPS captures enum value "RM3-GPS"
-	StationModelRM3MinusGPS string = "RM3-GPS"
+	// StationModelRM3DashGPS captures enum value "RM3-GPS"
+	StationModelRM3DashGPS string = "RM3-GPS"
 
-	// StationModelR2NMinusGPS captures enum value "R2N-GPS"
-	StationModelR2NMinusGPS string = "R2N-GPS"
+	// StationModelR2NDashGPS captures enum value "R2N-GPS"
+	StationModelR2NDashGPS string = "R2N-GPS"
 
-	// StationModelR5NMinusGPS captures enum value "R5N-GPS"
-	StationModelR5NMinusGPS string = "R5N-GPS"
+	// StationModelR5NDashGPS captures enum value "R5N-GPS"
+	StationModelR5NDashGPS string = "R5N-GPS"
 
-	// StationModelR9NMinusGPS captures enum value "R9N-GPS"
-	StationModelR9NMinusGPS string = "R9N-GPS"
+	// StationModelR9NDashGPS captures enum value "R9N-GPS"
+	StationModelR9NDashGPS string = "R9N-GPS"
 
-	// StationModelR5TMinusGPS captures enum value "R5T-GPS"
-	StationModelR5TMinusGPS string = "R5T-GPS"
+	// StationModelR5TDashGPS captures enum value "R5T-GPS"
+	StationModelR5TDashGPS string = "R5T-GPS"
 
 	// StationModelRM3 captures enum value "RM3"
 	StationModelRM3 string = "RM3"
@@ -547,14 +547,14 @@ const (
 	// StationModelAG2 captures enum value "AG2"
 	StationModelAG2 string = "AG2"
 
-	// StationModelAG2MinusHP captures enum value "AG2-HP"
-	StationModelAG2MinusHP string = "AG2-HP"
+	// StationModelAG2DashHP captures enum value "AG2-HP"
+	StationModelAG2DashHP string = "AG2-HP"
 
 	// StationModelAG5 captures enum value "AG5"
 	StationModelAG5 string = "AG5"
 
-	// StationModelAG5MinusHP captures enum value "AG5-HP"
-	StationModelAG5MinusHP string = "AG5-HP"
+	// StationModelAG5DashHP captures enum value "AG5-HP"
+	StationModelAG5DashHP string = "AG5-HP"
 
 	// StationModelP2N captures enum value "p2N"
 	StationModelP2N string = "p2N"
@@ -565,26 +565,26 @@ const (
 	// StationModelM25 captures enum value "M25"
 	StationModelM25 string = "M25"
 
-	// StationModelP2BMinus400 captures enum value "P2B-400"
-	StationModelP2BMinus400 string = "P2B-400"
+	// StationModelP2BDash400 captures enum value "P2B-400"
+	StationModelP2BDash400 string = "P2B-400"
 
-	// StationModelP5BMinus300 captures enum value "P5B-300"
-	StationModelP5BMinus300 string = "P5B-300"
+	// StationModelP5BDash300 captures enum value "P5B-300"
+	StationModelP5BDash300 string = "P5B-300"
 
-	// StationModelP5BMinus300MinusISO captures enum value "P5B-300-ISO"
-	StationModelP5BMinus300MinusISO string = "P5B-300-ISO"
+	// StationModelP5BDash300DashISO captures enum value "P5B-300-ISO"
+	StationModelP5BDash300DashISO string = "P5B-300-ISO"
 
-	// StationModelP5BMinus400 captures enum value "P5B-400"
-	StationModelP5BMinus400 string = "P5B-400"
+	// StationModelP5BDash400 captures enum value "P5B-400"
+	StationModelP5BDash400 string = "P5B-400"
 
-	// StationModelP5BMinus400MinusISO captures enum value "P5B-400-ISO"
-	StationModelP5BMinus400MinusISO string = "P5B-400-ISO"
+	// StationModelP5BDash400DashISO captures enum value "P5B-400-ISO"
+	StationModelP5BDash400DashISO string = "P5B-400-ISO"
 
-	// StationModelP5BMinus620 captures enum value "P5B-620"
-	StationModelP5BMinus620 string = "P5B-620"
+	// StationModelP5BDash620 captures enum value "P5B-620"
+	StationModelP5BDash620 string = "P5B-620"
 
-	// StationModelLB5Minus120 captures enum value "LB5-120"
-	StationModelLB5Minus120 string = "LB5-120"
+	// StationModelLB5Dash120 captures enum value "LB5-120"
+	StationModelLB5Dash120 string = "LB5-120"
 
 	// StationModelLB5 captures enum value "LB5"
 	StationModelLB5 string = "LB5"
@@ -592,35 +592,35 @@ const (
 	// StationModelN5B captures enum value "N5B"
 	StationModelN5B string = "N5B"
 
-	// StationModelN5BMinus16 captures enum value "N5B-16"
-	StationModelN5BMinus16 string = "N5B-16"
+	// StationModelN5BDash16 captures enum value "N5B-16"
+	StationModelN5BDash16 string = "N5B-16"
 
-	// StationModelN5BMinus19 captures enum value "N5B-19"
-	StationModelN5BMinus19 string = "N5B-19"
+	// StationModelN5BDash19 captures enum value "N5B-19"
+	StationModelN5BDash19 string = "N5B-19"
 
-	// StationModelN5BMinus300 captures enum value "N5B-300"
-	StationModelN5BMinus300 string = "N5B-300"
+	// StationModelN5BDash300 captures enum value "N5B-300"
+	StationModelN5BDash300 string = "N5B-300"
 
-	// StationModelN5BMinus400 captures enum value "N5B-400"
-	StationModelN5BMinus400 string = "N5B-400"
+	// StationModelN5BDash400 captures enum value "N5B-400"
+	StationModelN5BDash400 string = "N5B-400"
 
-	// StationModelN5BMinusClient captures enum value "N5B-Client"
-	StationModelN5BMinusClient string = "N5B-Client"
+	// StationModelN5BDashClient captures enum value "N5B-Client"
+	StationModelN5BDashClient string = "N5B-Client"
 
 	// StationModelN2B captures enum value "N2B"
 	StationModelN2B string = "N2B"
 
-	// StationModelN2BMinus13 captures enum value "N2B-13"
-	StationModelN2BMinus13 string = "N2B-13"
+	// StationModelN2BDash13 captures enum value "N2B-13"
+	StationModelN2BDash13 string = "N2B-13"
 
-	// StationModelN2BMinus400 captures enum value "N2B-400"
-	StationModelN2BMinus400 string = "N2B-400"
+	// StationModelN2BDash400 captures enum value "N2B-400"
+	StationModelN2BDash400 string = "N2B-400"
 
 	// StationModelPAP captures enum value "PAP"
 	StationModelPAP string = "PAP"
 
-	// StationModelLAPMinusHP captures enum value "LAP-HP"
-	StationModelLAPMinusHP string = "LAP-HP"
+	// StationModelLAPDashHP captures enum value "LAP-HP"
+	StationModelLAPDashHP string = "LAP-HP"
 
 	// StationModelLAP captures enum value "LAP"
 	StationModelLAP string = "LAP"
@@ -628,14 +628,14 @@ const (
 	// StationModelAGW captures enum value "AGW"
 	StationModelAGW string = "AGW"
 
-	// StationModelAGWMinusLR captures enum value "AGW-LR"
-	StationModelAGWMinusLR string = "AGW-LR"
+	// StationModelAGWDashLR captures enum value "AGW-LR"
+	StationModelAGWDashLR string = "AGW-LR"
 
-	// StationModelAGWMinusPro captures enum value "AGW-Pro"
-	StationModelAGWMinusPro string = "AGW-Pro"
+	// StationModelAGWDashPro captures enum value "AGW-Pro"
+	StationModelAGWDashPro string = "AGW-Pro"
 
-	// StationModelAGWMinusInstaller captures enum value "AGW-Installer"
-	StationModelAGWMinusInstaller string = "AGW-Installer"
+	// StationModelAGWDashInstaller captures enum value "AGW-Installer"
+	StationModelAGWDashInstaller string = "AGW-Installer"
 
 	// StationModelPB5 captures enum value "PB5"
 	StationModelPB5 string = "PB5"
@@ -670,113 +670,113 @@ const (
 	// StationModelWM5 captures enum value "WM5"
 	StationModelWM5 string = "WM5"
 
-	// StationModelISMinusM5 captures enum value "IS-M5"
-	StationModelISMinusM5 string = "IS-M5"
+	// StationModelISDashM5 captures enum value "IS-M5"
+	StationModelISDashM5 string = "IS-M5"
 
 	// StationModelLoco5AC captures enum value "Loco5AC"
 	StationModelLoco5AC string = "Loco5AC"
 
-	// StationModelNSMinus5AC captures enum value "NS-5AC"
-	StationModelNSMinus5AC string = "NS-5AC"
+	// StationModelNSDash5AC captures enum value "NS-5AC"
+	StationModelNSDash5AC string = "NS-5AC"
 
-	// StationModelR5ACMinusPTMP captures enum value "R5AC-PTMP"
-	StationModelR5ACMinusPTMP string = "R5AC-PTMP"
+	// StationModelR5ACDashPTMP captures enum value "R5AC-PTMP"
+	StationModelR5ACDashPTMP string = "R5AC-PTMP"
 
-	// StationModelR5ACMinusPTP captures enum value "R5AC-PTP"
-	StationModelR5ACMinusPTP string = "R5AC-PTP"
+	// StationModelR5ACDashPTP captures enum value "R5AC-PTP"
+	StationModelR5ACDashPTP string = "R5AC-PTP"
 
-	// StationModelR5ACMinusLite captures enum value "R5AC-Lite"
-	StationModelR5ACMinusLite string = "R5AC-Lite"
+	// StationModelR5ACDashLite captures enum value "R5AC-Lite"
+	StationModelR5ACDashLite string = "R5AC-Lite"
 
-	// StationModelR5ACMinusPRISM captures enum value "R5AC-PRISM"
-	StationModelR5ACMinusPRISM string = "R5AC-PRISM"
+	// StationModelR5ACDashPRISM captures enum value "R5AC-PRISM"
+	StationModelR5ACDashPRISM string = "R5AC-PRISM"
 
-	// StationModelR2ACMinusPrism captures enum value "R2AC-Prism"
-	StationModelR2ACMinusPrism string = "R2AC-Prism"
+	// StationModelR2ACDashPrism captures enum value "R2AC-Prism"
+	StationModelR2ACDashPrism string = "R2AC-Prism"
 
-	// StationModelR2ACMinusGen2 captures enum value "R2AC-Gen2"
-	StationModelR2ACMinusGen2 string = "R2AC-Gen2"
+	// StationModelR2ACDashGen2 captures enum value "R2AC-Gen2"
+	StationModelR2ACDashGen2 string = "R2AC-Gen2"
 
-	// StationModelRPMinus5ACMinusGen2 captures enum value "RP-5AC-Gen2"
-	StationModelRPMinus5ACMinusGen2 string = "RP-5AC-Gen2"
+	// StationModelRPDash5ACDashGen2 captures enum value "RP-5AC-Gen2"
+	StationModelRPDash5ACDashGen2 string = "RP-5AC-Gen2"
 
-	// StationModelNBEMinus2ACMinus13 captures enum value "NBE-2AC-13"
-	StationModelNBEMinus2ACMinus13 string = "NBE-2AC-13"
+	// StationModelNBEDash2ACDash13 captures enum value "NBE-2AC-13"
+	StationModelNBEDash2ACDash13 string = "NBE-2AC-13"
 
-	// StationModelNBEMinus5ACMinus16 captures enum value "NBE-5AC-16"
-	StationModelNBEMinus5ACMinus16 string = "NBE-5AC-16"
+	// StationModelNBEDash5ACDash16 captures enum value "NBE-5AC-16"
+	StationModelNBEDash5ACDash16 string = "NBE-5AC-16"
 
-	// StationModelNBEMinus5ACMinus19 captures enum value "NBE-5AC-19"
-	StationModelNBEMinus5ACMinus19 string = "NBE-5AC-19"
+	// StationModelNBEDash5ACDash19 captures enum value "NBE-5AC-19"
+	StationModelNBEDash5ACDash19 string = "NBE-5AC-19"
 
-	// StationModelNBEMinus5ACMinusGen2 captures enum value "NBE-5AC-Gen2"
-	StationModelNBEMinus5ACMinusGen2 string = "NBE-5AC-Gen2"
+	// StationModelNBEDash5ACDashGen2 captures enum value "NBE-5AC-Gen2"
+	StationModelNBEDash5ACDashGen2 string = "NBE-5AC-Gen2"
 
-	// StationModelPBEMinus5ACMinus300 captures enum value "PBE-5AC-300"
-	StationModelPBEMinus5ACMinus300 string = "PBE-5AC-300"
+	// StationModelPBEDash5ACDash300 captures enum value "PBE-5AC-300"
+	StationModelPBEDash5ACDash300 string = "PBE-5AC-300"
 
-	// StationModelPBEMinus5ACMinus300MinusISO captures enum value "PBE-5AC-300-ISO"
-	StationModelPBEMinus5ACMinus300MinusISO string = "PBE-5AC-300-ISO"
+	// StationModelPBEDash5ACDash300DashISO captures enum value "PBE-5AC-300-ISO"
+	StationModelPBEDash5ACDash300DashISO string = "PBE-5AC-300-ISO"
 
-	// StationModelPBEMinus5ACMinus400 captures enum value "PBE-5AC-400"
-	StationModelPBEMinus5ACMinus400 string = "PBE-5AC-400"
+	// StationModelPBEDash5ACDash400 captures enum value "PBE-5AC-400"
+	StationModelPBEDash5ACDash400 string = "PBE-5AC-400"
 
-	// StationModelPBEMinus5ACMinus400MinusISO captures enum value "PBE-5AC-400-ISO"
-	StationModelPBEMinus5ACMinus400MinusISO string = "PBE-5AC-400-ISO"
+	// StationModelPBEDash5ACDash400DashISO captures enum value "PBE-5AC-400-ISO"
+	StationModelPBEDash5ACDash400DashISO string = "PBE-5AC-400-ISO"
 
-	// StationModelPBEMinus5ACMinus500 captures enum value "PBE-5AC-500"
-	StationModelPBEMinus5ACMinus500 string = "PBE-5AC-500"
+	// StationModelPBEDash5ACDash500 captures enum value "PBE-5AC-500"
+	StationModelPBEDash5ACDash500 string = "PBE-5AC-500"
 
-	// StationModelPBEMinus5ACMinus500MinusISO captures enum value "PBE-5AC-500-ISO"
-	StationModelPBEMinus5ACMinus500MinusISO string = "PBE-5AC-500-ISO"
+	// StationModelPBEDash5ACDash500DashISO captures enum value "PBE-5AC-500-ISO"
+	StationModelPBEDash5ACDash500DashISO string = "PBE-5AC-500-ISO"
 
-	// StationModelPBEMinus5ACMinus620 captures enum value "PBE-5AC-620"
-	StationModelPBEMinus5ACMinus620 string = "PBE-5AC-620"
+	// StationModelPBEDash5ACDash620 captures enum value "PBE-5AC-620"
+	StationModelPBEDash5ACDash620 string = "PBE-5AC-620"
 
-	// StationModelPBEMinus5ACMinus620MinusISO captures enum value "PBE-5AC-620-ISO"
-	StationModelPBEMinus5ACMinus620MinusISO string = "PBE-5AC-620-ISO"
+	// StationModelPBEDash5ACDash620DashISO captures enum value "PBE-5AC-620-ISO"
+	StationModelPBEDash5ACDash620DashISO string = "PBE-5AC-620-ISO"
 
-	// StationModelPBEMinus2ACMinus400 captures enum value "PBE-2AC-400"
-	StationModelPBEMinus2ACMinus400 string = "PBE-2AC-400"
+	// StationModelPBEDash2ACDash400 captures enum value "PBE-2AC-400"
+	StationModelPBEDash2ACDash400 string = "PBE-2AC-400"
 
-	// StationModelPBEMinus2ACMinus400MinusISO captures enum value "PBE-2AC-400-ISO"
-	StationModelPBEMinus2ACMinus400MinusISO string = "PBE-2AC-400-ISO"
+	// StationModelPBEDash2ACDash400DashISO captures enum value "PBE-2AC-400-ISO"
+	StationModelPBEDash2ACDash400DashISO string = "PBE-2AC-400-ISO"
 
-	// StationModelPBEMinus5ACMinusXMinusGen2 captures enum value "PBE-5AC-X-Gen2"
-	StationModelPBEMinus5ACMinusXMinusGen2 string = "PBE-5AC-X-Gen2"
+	// StationModelPBEDash5ACDashXDashGen2 captures enum value "PBE-5AC-X-Gen2"
+	StationModelPBEDash5ACDashXDashGen2 string = "PBE-5AC-X-Gen2"
 
-	// StationModelPBEMinus5ACMinusGen2 captures enum value "PBE-5AC-Gen2"
-	StationModelPBEMinus5ACMinusGen2 string = "PBE-5AC-Gen2"
+	// StationModelPBEDash5ACDashGen2 captures enum value "PBE-5AC-Gen2"
+	StationModelPBEDash5ACDashGen2 string = "PBE-5AC-Gen2"
 
-	// StationModelPBEMinus5ACMinusISOMinusGen2 captures enum value "PBE-5AC-ISO-Gen2"
-	StationModelPBEMinus5ACMinusISOMinusGen2 string = "PBE-5AC-ISO-Gen2"
+	// StationModelPBEDash5ACDashISODashGen2 captures enum value "PBE-5AC-ISO-Gen2"
+	StationModelPBEDash5ACDashISODashGen2 string = "PBE-5AC-ISO-Gen2"
 
-	// StationModelPBEMinus5ACMinus400MinusISOMinusGen2 captures enum value "PBE-5AC-400-ISO-Gen2"
-	StationModelPBEMinus5ACMinus400MinusISOMinusGen2 string = "PBE-5AC-400-ISO-Gen2"
+	// StationModelPBEDash5ACDash400DashISODashGen2 captures enum value "PBE-5AC-400-ISO-Gen2"
+	StationModelPBEDash5ACDash400DashISODashGen2 string = "PBE-5AC-400-ISO-Gen2"
 
-	// StationModelLBEMinus5ACMinus16Minus120 captures enum value "LBE-5AC-16-120"
-	StationModelLBEMinus5ACMinus16Minus120 string = "LBE-5AC-16-120"
+	// StationModelLBEDash5ACDash16Dash120 captures enum value "LBE-5AC-16-120"
+	StationModelLBEDash5ACDash16Dash120 string = "LBE-5AC-16-120"
 
-	// StationModelLAPMinus120 captures enum value "LAP-120"
-	StationModelLAPMinus120 string = "LAP-120"
+	// StationModelLAPDash120 captures enum value "LAP-120"
+	StationModelLAPDash120 string = "LAP-120"
 
-	// StationModelLBEMinus5ACMinus23 captures enum value "LBE-5AC-23"
-	StationModelLBEMinus5ACMinus23 string = "LBE-5AC-23"
+	// StationModelLBEDash5ACDash23 captures enum value "LBE-5AC-23"
+	StationModelLBEDash5ACDash23 string = "LBE-5AC-23"
 
-	// StationModelLBEMinus5ACMinusGen2 captures enum value "LBE-5AC-Gen2"
-	StationModelLBEMinus5ACMinusGen2 string = "LBE-5AC-Gen2"
+	// StationModelLBEDash5ACDashGen2 captures enum value "LBE-5AC-Gen2"
+	StationModelLBEDash5ACDashGen2 string = "LBE-5AC-Gen2"
 
-	// StationModelLBEMinus5ACMinusLR captures enum value "LBE-5AC-LR"
-	StationModelLBEMinus5ACMinusLR string = "LBE-5AC-LR"
+	// StationModelLBEDash5ACDashLR captures enum value "LBE-5AC-LR"
+	StationModelLBEDash5ACDashLR string = "LBE-5AC-LR"
 
-	// StationModelLAPMinusGPS captures enum value "LAP-GPS"
-	StationModelLAPMinusGPS string = "LAP-GPS"
+	// StationModelLAPDashGPS captures enum value "LAP-GPS"
+	StationModelLAPDashGPS string = "LAP-GPS"
 
-	// StationModelISMinus5AC captures enum value "IS-5AC"
-	StationModelISMinus5AC string = "IS-5AC"
+	// StationModelISDash5AC captures enum value "IS-5AC"
+	StationModelISDash5AC string = "IS-5AC"
 
-	// StationModelPSMinus5AC captures enum value "PS-5AC"
-	StationModelPSMinus5AC string = "PS-5AC"
+	// StationModelPSDash5AC captures enum value "PS-5AC"
+	StationModelPSDash5AC string = "PS-5AC"
 
 	// StationModelSolarSwitch captures enum value "SolarSwitch"
 	StationModelSolarSwitch string = "SolarSwitch"
@@ -784,11 +784,11 @@ const (
 	// StationModelSolarPoint captures enum value "SolarPoint"
 	StationModelSolarPoint string = "SolarPoint"
 
-	// StationModelBulletACMinusIP67 captures enum value "BulletAC-IP67"
-	StationModelBulletACMinusIP67 string = "BulletAC-IP67"
+	// StationModelBulletACDashIP67 captures enum value "BulletAC-IP67"
+	StationModelBulletACDashIP67 string = "BulletAC-IP67"
 
-	// StationModelBMinusDBMinusAC captures enum value "B-DB-AC"
-	StationModelBMinusDBMinusAC string = "B-DB-AC"
+	// StationModelBDashDBDashAC captures enum value "B-DB-AC"
+	StationModelBDashDBDashAC string = "B-DB-AC"
 
 	// StationModelUNKNOWN captures enum value "UNKNOWN"
 	StationModelUNKNOWN string = "UNKNOWN"

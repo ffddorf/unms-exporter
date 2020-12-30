@@ -90,143 +90,143 @@ func init() {
 
 const (
 
-	// VisibleByModelUFMinusNano captures enum value "UF-Nano"
-	VisibleByModelUFMinusNano string = "UF-Nano"
+	// VisibleByModelUFDashNano captures enum value "UF-Nano"
+	VisibleByModelUFDashNano string = "UF-Nano"
 
-	// VisibleByModelUFMinusLoco captures enum value "UF-Loco"
-	VisibleByModelUFMinusLoco string = "UF-Loco"
+	// VisibleByModelUFDashLoco captures enum value "UF-Loco"
+	VisibleByModelUFDashLoco string = "UF-Loco"
 
-	// VisibleByModelUFMinusWifi captures enum value "UF-Wifi"
-	VisibleByModelUFMinusWifi string = "UF-Wifi"
+	// VisibleByModelUFDashWifi captures enum value "UF-Wifi"
+	VisibleByModelUFDashWifi string = "UF-Wifi"
 
-	// VisibleByModelUFMinusInstant captures enum value "UF-Instant"
-	VisibleByModelUFMinusInstant string = "UF-Instant"
+	// VisibleByModelUFDashInstant captures enum value "UF-Instant"
+	VisibleByModelUFDashInstant string = "UF-Instant"
 
-	// VisibleByModelUFMinusOLT captures enum value "UF-OLT"
-	VisibleByModelUFMinusOLT string = "UF-OLT"
+	// VisibleByModelUFDashOLT captures enum value "UF-OLT"
+	VisibleByModelUFDashOLT string = "UF-OLT"
 
-	// VisibleByModelUFMinusOLT4 captures enum value "UF-OLT4"
-	VisibleByModelUFMinusOLT4 string = "UF-OLT4"
+	// VisibleByModelUFDashOLT4 captures enum value "UF-OLT4"
+	VisibleByModelUFDashOLT4 string = "UF-OLT4"
 
-	// VisibleByModelUNMSMinusRMinusPRO captures enum value "UNMS-R-PRO"
-	VisibleByModelUNMSMinusRMinusPRO string = "UNMS-R-PRO"
+	// VisibleByModelUNMSDashRDashPRO captures enum value "UNMS-R-PRO"
+	VisibleByModelUNMSDashRDashPRO string = "UNMS-R-PRO"
 
-	// VisibleByModelUNMSMinusRMinusLite captures enum value "UNMS-R-Lite"
-	VisibleByModelUNMSMinusRMinusLite string = "UNMS-R-Lite"
+	// VisibleByModelUNMSDashRDashLite captures enum value "UNMS-R-Lite"
+	VisibleByModelUNMSDashRDashLite string = "UNMS-R-Lite"
 
-	// VisibleByModelUNMSMinusSMinusLite captures enum value "UNMS-S-Lite"
-	VisibleByModelUNMSMinusSMinusLite string = "UNMS-S-Lite"
+	// VisibleByModelUNMSDashSDashLite captures enum value "UNMS-S-Lite"
+	VisibleByModelUNMSDashSDashLite string = "UNMS-S-Lite"
 
-	// VisibleByModelERMinusX captures enum value "ER-X"
-	VisibleByModelERMinusX string = "ER-X"
+	// VisibleByModelERDashX captures enum value "ER-X"
+	VisibleByModelERDashX string = "ER-X"
 
-	// VisibleByModelERMinusXMinusSFP captures enum value "ER-X-SFP"
-	VisibleByModelERMinusXMinusSFP string = "ER-X-SFP"
+	// VisibleByModelERDashXDashSFP captures enum value "ER-X-SFP"
+	VisibleByModelERDashXDashSFP string = "ER-X-SFP"
 
-	// VisibleByModelERLiteMinus3 captures enum value "ERLite-3"
-	VisibleByModelERLiteMinus3 string = "ERLite-3"
+	// VisibleByModelERLiteDash3 captures enum value "ERLite-3"
+	VisibleByModelERLiteDash3 string = "ERLite-3"
 
-	// VisibleByModelERPoeMinus5 captures enum value "ERPoe-5"
-	VisibleByModelERPoeMinus5 string = "ERPoe-5"
+	// VisibleByModelERPoeDash5 captures enum value "ERPoe-5"
+	VisibleByModelERPoeDash5 string = "ERPoe-5"
 
-	// VisibleByModelERProMinus8 captures enum value "ERPro-8"
-	VisibleByModelERProMinus8 string = "ERPro-8"
+	// VisibleByModelERProDash8 captures enum value "ERPro-8"
+	VisibleByModelERProDash8 string = "ERPro-8"
 
-	// VisibleByModelERMinus8 captures enum value "ER-8"
-	VisibleByModelERMinus8 string = "ER-8"
+	// VisibleByModelERDash8 captures enum value "ER-8"
+	VisibleByModelERDash8 string = "ER-8"
 
-	// VisibleByModelERMinus8MinusXG captures enum value "ER-8-XG"
-	VisibleByModelERMinus8MinusXG string = "ER-8-XG"
+	// VisibleByModelERDash8DashXG captures enum value "ER-8-XG"
+	VisibleByModelERDash8DashXG string = "ER-8-XG"
 
-	// VisibleByModelERMinus4 captures enum value "ER-4"
-	VisibleByModelERMinus4 string = "ER-4"
+	// VisibleByModelERDash4 captures enum value "ER-4"
+	VisibleByModelERDash4 string = "ER-4"
 
-	// VisibleByModelERMinus6P captures enum value "ER-6P"
-	VisibleByModelERMinus6P string = "ER-6P"
+	// VisibleByModelERDash6P captures enum value "ER-6P"
+	VisibleByModelERDash6P string = "ER-6P"
 
-	// VisibleByModelERMinus12 captures enum value "ER-12"
-	VisibleByModelERMinus12 string = "ER-12"
+	// VisibleByModelERDash12 captures enum value "ER-12"
+	VisibleByModelERDash12 string = "ER-12"
 
-	// VisibleByModelERMinus12P captures enum value "ER-12P"
-	VisibleByModelERMinus12P string = "ER-12P"
+	// VisibleByModelERDash12P captures enum value "ER-12P"
+	VisibleByModelERDash12P string = "ER-12P"
 
-	// VisibleByModelERMinus10X captures enum value "ER-10X"
-	VisibleByModelERMinus10X string = "ER-10X"
+	// VisibleByModelERDash10X captures enum value "ER-10X"
+	VisibleByModelERDash10X string = "ER-10X"
 
-	// VisibleByModelEPMinusR8 captures enum value "EP-R8"
-	VisibleByModelEPMinusR8 string = "EP-R8"
+	// VisibleByModelEPDashR8 captures enum value "EP-R8"
+	VisibleByModelEPDashR8 string = "EP-R8"
 
-	// VisibleByModelEPMinusR6 captures enum value "EP-R6"
-	VisibleByModelEPMinusR6 string = "EP-R6"
+	// VisibleByModelEPDashR6 captures enum value "EP-R6"
+	VisibleByModelEPDashR6 string = "EP-R6"
 
-	// VisibleByModelEPMinusS16 captures enum value "EP-S16"
-	VisibleByModelEPMinusS16 string = "EP-S16"
+	// VisibleByModelEPDashS16 captures enum value "EP-S16"
+	VisibleByModelEPDashS16 string = "EP-S16"
 
-	// VisibleByModelESMinus12F captures enum value "ES-12F"
-	VisibleByModelESMinus12F string = "ES-12F"
+	// VisibleByModelESDash12F captures enum value "ES-12F"
+	VisibleByModelESDash12F string = "ES-12F"
 
-	// VisibleByModelESMinus16Minus150W captures enum value "ES-16-150W"
-	VisibleByModelESMinus16Minus150W string = "ES-16-150W"
+	// VisibleByModelESDash16Dash150W captures enum value "ES-16-150W"
+	VisibleByModelESDash16Dash150W string = "ES-16-150W"
 
-	// VisibleByModelESMinus24Minus250W captures enum value "ES-24-250W"
-	VisibleByModelESMinus24Minus250W string = "ES-24-250W"
+	// VisibleByModelESDash24Dash250W captures enum value "ES-24-250W"
+	VisibleByModelESDash24Dash250W string = "ES-24-250W"
 
-	// VisibleByModelESMinus24Minus500W captures enum value "ES-24-500W"
-	VisibleByModelESMinus24Minus500W string = "ES-24-500W"
+	// VisibleByModelESDash24Dash500W captures enum value "ES-24-500W"
+	VisibleByModelESDash24Dash500W string = "ES-24-500W"
 
-	// VisibleByModelESMinus24MinusLite captures enum value "ES-24-Lite"
-	VisibleByModelESMinus24MinusLite string = "ES-24-Lite"
+	// VisibleByModelESDash24DashLite captures enum value "ES-24-Lite"
+	VisibleByModelESDash24DashLite string = "ES-24-Lite"
 
-	// VisibleByModelESMinus48Minus500W captures enum value "ES-48-500W"
-	VisibleByModelESMinus48Minus500W string = "ES-48-500W"
+	// VisibleByModelESDash48Dash500W captures enum value "ES-48-500W"
+	VisibleByModelESDash48Dash500W string = "ES-48-500W"
 
-	// VisibleByModelESMinus48Minus750W captures enum value "ES-48-750W"
-	VisibleByModelESMinus48Minus750W string = "ES-48-750W"
+	// VisibleByModelESDash48Dash750W captures enum value "ES-48-750W"
+	VisibleByModelESDash48Dash750W string = "ES-48-750W"
 
-	// VisibleByModelESMinus48MinusLite captures enum value "ES-48-Lite"
-	VisibleByModelESMinus48MinusLite string = "ES-48-Lite"
+	// VisibleByModelESDash48DashLite captures enum value "ES-48-Lite"
+	VisibleByModelESDash48DashLite string = "ES-48-Lite"
 
-	// VisibleByModelESMinus8Minus150W captures enum value "ES-8-150W"
-	VisibleByModelESMinus8Minus150W string = "ES-8-150W"
+	// VisibleByModelESDash8Dash150W captures enum value "ES-8-150W"
+	VisibleByModelESDash8Dash150W string = "ES-8-150W"
 
-	// VisibleByModelESMinus16MinusXG captures enum value "ES-16-XG"
-	VisibleByModelESMinus16MinusXG string = "ES-16-XG"
+	// VisibleByModelESDash16DashXG captures enum value "ES-16-XG"
+	VisibleByModelESDash16DashXG string = "ES-16-XG"
 
-	// VisibleByModelESMinus10XP captures enum value "ES-10XP"
-	VisibleByModelESMinus10XP string = "ES-10XP"
+	// VisibleByModelESDash10XP captures enum value "ES-10XP"
+	VisibleByModelESDash10XP string = "ES-10XP"
 
-	// VisibleByModelESMinus10X captures enum value "ES-10X"
-	VisibleByModelESMinus10X string = "ES-10X"
+	// VisibleByModelESDash10X captures enum value "ES-10X"
+	VisibleByModelESDash10X string = "ES-10X"
 
-	// VisibleByModelESMinus18X captures enum value "ES-18X"
-	VisibleByModelESMinus18X string = "ES-18X"
+	// VisibleByModelESDash18X captures enum value "ES-18X"
+	VisibleByModelESDash18X string = "ES-18X"
 
-	// VisibleByModelESMinus26X captures enum value "ES-26X"
-	VisibleByModelESMinus26X string = "ES-26X"
+	// VisibleByModelESDash26X captures enum value "ES-26X"
+	VisibleByModelESDash26X string = "ES-26X"
 
-	// VisibleByModelEPMinus54VMinus150W captures enum value "EP-54V-150W"
-	VisibleByModelEPMinus54VMinus150W string = "EP-54V-150W"
+	// VisibleByModelEPDash54VDash150W captures enum value "EP-54V-150W"
+	VisibleByModelEPDash54VDash150W string = "EP-54V-150W"
 
-	// VisibleByModelEPMinus24VMinus72W captures enum value "EP-24V-72W"
-	VisibleByModelEPMinus24VMinus72W string = "EP-24V-72W"
+	// VisibleByModelEPDash24VDash72W captures enum value "EP-24V-72W"
+	VisibleByModelEPDash24VDash72W string = "EP-24V-72W"
 
-	// VisibleByModelEPMinus54VMinus72W captures enum value "EP-54V-72W"
-	VisibleByModelEPMinus54VMinus72W string = "EP-54V-72W"
+	// VisibleByModelEPDash54VDash72W captures enum value "EP-54V-72W"
+	VisibleByModelEPDash54VDash72W string = "EP-54V-72W"
 
-	// VisibleByModelTSWMinusPoE captures enum value "TSW-PoE"
-	VisibleByModelTSWMinusPoE string = "TSW-PoE"
+	// VisibleByModelTSWDashPoE captures enum value "TSW-PoE"
+	VisibleByModelTSWDashPoE string = "TSW-PoE"
 
-	// VisibleByModelTSWMinusPoEPRO captures enum value "TSW-PoE PRO"
-	VisibleByModelTSWMinusPoEPRO string = "TSW-PoE PRO"
+	// VisibleByModelTSWDashPoEPRO captures enum value "TSW-PoE PRO"
+	VisibleByModelTSWDashPoEPRO string = "TSW-PoE PRO"
 
-	// VisibleByModelACBMinusAC captures enum value "ACB-AC"
-	VisibleByModelACBMinusAC string = "ACB-AC"
+	// VisibleByModelACBDashAC captures enum value "ACB-AC"
+	VisibleByModelACBDashAC string = "ACB-AC"
 
-	// VisibleByModelACBMinusISP captures enum value "ACB-ISP"
-	VisibleByModelACBMinusISP string = "ACB-ISP"
+	// VisibleByModelACBDashISP captures enum value "ACB-ISP"
+	VisibleByModelACBDashISP string = "ACB-ISP"
 
-	// VisibleByModelACBMinusLOCO captures enum value "ACB-LOCO"
-	VisibleByModelACBMinusLOCO string = "ACB-LOCO"
+	// VisibleByModelACBDashLOCO captures enum value "ACB-LOCO"
+	VisibleByModelACBDashLOCO string = "ACB-LOCO"
 
 	// VisibleByModelAF11FX captures enum value "AF11FX"
 	VisibleByModelAF11FX string = "AF11FX"
@@ -255,20 +255,20 @@ const (
 	// VisibleByModelAF5X captures enum value "AF5X"
 	VisibleByModelAF5X string = "AF5X"
 
-	// VisibleByModelAFMinus5XHD captures enum value "AF-5XHD"
-	VisibleByModelAFMinus5XHD string = "AF-5XHD"
+	// VisibleByModelAFDash5XHD captures enum value "AF-5XHD"
+	VisibleByModelAFDash5XHD string = "AF-5XHD"
 
-	// VisibleByModelAFMinusLTU captures enum value "AF-LTU"
-	VisibleByModelAFMinusLTU string = "AF-LTU"
+	// VisibleByModelAFDashLTU captures enum value "AF-LTU"
+	VisibleByModelAFDashLTU string = "AF-LTU"
 
-	// VisibleByModelLTUMinusLITE captures enum value "LTU-LITE"
-	VisibleByModelLTUMinusLITE string = "LTU-LITE"
+	// VisibleByModelLTUDashLITE captures enum value "LTU-LITE"
+	VisibleByModelLTUDashLITE string = "LTU-LITE"
 
-	// VisibleByModelAFMinusLTU5 captures enum value "AF-LTU5"
-	VisibleByModelAFMinusLTU5 string = "AF-LTU5"
+	// VisibleByModelAFDashLTU5 captures enum value "AF-LTU5"
+	VisibleByModelAFDashLTU5 string = "AF-LTU5"
 
-	// VisibleByModelLTUMinusRocket captures enum value "LTU-Rocket"
-	VisibleByModelLTUMinusRocket string = "LTU-Rocket"
+	// VisibleByModelLTUDashRocket captures enum value "LTU-Rocket"
+	VisibleByModelLTUDashRocket string = "LTU-Rocket"
 
 	// VisibleByModelAFLTULR captures enum value "AFLTULR"
 	VisibleByModelAFLTULR string = "AFLTULR"
@@ -276,8 +276,8 @@ const (
 	// VisibleByModelAF60 captures enum value "AF60"
 	VisibleByModelAF60 string = "AF60"
 
-	// VisibleByModelAF60MinusLR captures enum value "AF60-LR"
-	VisibleByModelAF60MinusLR string = "AF60-LR"
+	// VisibleByModelAF60DashLR captures enum value "AF60-LR"
+	VisibleByModelAF60DashLR string = "AF60-LR"
 
 	// VisibleByModelWaveAP captures enum value "WaveAP"
 	VisibleByModelWaveAP string = "WaveAP"
@@ -285,17 +285,17 @@ const (
 	// VisibleByModelWaveCPE captures enum value "WaveCPE"
 	VisibleByModelWaveCPE string = "WaveCPE"
 
-	// VisibleByModelGBEMinusLR captures enum value "GBE-LR"
-	VisibleByModelGBEMinusLR string = "GBE-LR"
+	// VisibleByModelGBEDashLR captures enum value "GBE-LR"
+	VisibleByModelGBEDashLR string = "GBE-LR"
 
 	// VisibleByModelGBE captures enum value "GBE"
 	VisibleByModelGBE string = "GBE"
 
-	// VisibleByModelGBEMinusPlus captures enum value "GBE-Plus"
-	VisibleByModelGBEMinusPlus string = "GBE-Plus"
+	// VisibleByModelGBEDashPlus captures enum value "GBE-Plus"
+	VisibleByModelGBEDashPlus string = "GBE-Plus"
 
-	// VisibleByModelGBEMinusAP captures enum value "GBE-AP"
-	VisibleByModelGBEMinusAP string = "GBE-AP"
+	// VisibleByModelGBEDashAP captures enum value "GBE-AP"
+	VisibleByModelGBEDashAP string = "GBE-AP"
 
 	// VisibleByModelR2N captures enum value "R2N"
 	VisibleByModelR2N string = "R2N"
@@ -309,23 +309,23 @@ const (
 	// VisibleByModelR6N captures enum value "R6N"
 	VisibleByModelR6N string = "R6N"
 
-	// VisibleByModelR36MinusGPS captures enum value "R36-GPS"
-	VisibleByModelR36MinusGPS string = "R36-GPS"
+	// VisibleByModelR36DashGPS captures enum value "R36-GPS"
+	VisibleByModelR36DashGPS string = "R36-GPS"
 
-	// VisibleByModelRM3MinusGPS captures enum value "RM3-GPS"
-	VisibleByModelRM3MinusGPS string = "RM3-GPS"
+	// VisibleByModelRM3DashGPS captures enum value "RM3-GPS"
+	VisibleByModelRM3DashGPS string = "RM3-GPS"
 
-	// VisibleByModelR2NMinusGPS captures enum value "R2N-GPS"
-	VisibleByModelR2NMinusGPS string = "R2N-GPS"
+	// VisibleByModelR2NDashGPS captures enum value "R2N-GPS"
+	VisibleByModelR2NDashGPS string = "R2N-GPS"
 
-	// VisibleByModelR5NMinusGPS captures enum value "R5N-GPS"
-	VisibleByModelR5NMinusGPS string = "R5N-GPS"
+	// VisibleByModelR5NDashGPS captures enum value "R5N-GPS"
+	VisibleByModelR5NDashGPS string = "R5N-GPS"
 
-	// VisibleByModelR9NMinusGPS captures enum value "R9N-GPS"
-	VisibleByModelR9NMinusGPS string = "R9N-GPS"
+	// VisibleByModelR9NDashGPS captures enum value "R9N-GPS"
+	VisibleByModelR9NDashGPS string = "R9N-GPS"
 
-	// VisibleByModelR5TMinusGPS captures enum value "R5T-GPS"
-	VisibleByModelR5TMinusGPS string = "R5T-GPS"
+	// VisibleByModelR5TDashGPS captures enum value "R5T-GPS"
+	VisibleByModelR5TDashGPS string = "R5T-GPS"
 
 	// VisibleByModelRM3 captures enum value "RM3"
 	VisibleByModelRM3 string = "RM3"
@@ -381,14 +381,14 @@ const (
 	// VisibleByModelAG2 captures enum value "AG2"
 	VisibleByModelAG2 string = "AG2"
 
-	// VisibleByModelAG2MinusHP captures enum value "AG2-HP"
-	VisibleByModelAG2MinusHP string = "AG2-HP"
+	// VisibleByModelAG2DashHP captures enum value "AG2-HP"
+	VisibleByModelAG2DashHP string = "AG2-HP"
 
 	// VisibleByModelAG5 captures enum value "AG5"
 	VisibleByModelAG5 string = "AG5"
 
-	// VisibleByModelAG5MinusHP captures enum value "AG5-HP"
-	VisibleByModelAG5MinusHP string = "AG5-HP"
+	// VisibleByModelAG5DashHP captures enum value "AG5-HP"
+	VisibleByModelAG5DashHP string = "AG5-HP"
 
 	// VisibleByModelP2N captures enum value "p2N"
 	VisibleByModelP2N string = "p2N"
@@ -399,26 +399,26 @@ const (
 	// VisibleByModelM25 captures enum value "M25"
 	VisibleByModelM25 string = "M25"
 
-	// VisibleByModelP2BMinus400 captures enum value "P2B-400"
-	VisibleByModelP2BMinus400 string = "P2B-400"
+	// VisibleByModelP2BDash400 captures enum value "P2B-400"
+	VisibleByModelP2BDash400 string = "P2B-400"
 
-	// VisibleByModelP5BMinus300 captures enum value "P5B-300"
-	VisibleByModelP5BMinus300 string = "P5B-300"
+	// VisibleByModelP5BDash300 captures enum value "P5B-300"
+	VisibleByModelP5BDash300 string = "P5B-300"
 
-	// VisibleByModelP5BMinus300MinusISO captures enum value "P5B-300-ISO"
-	VisibleByModelP5BMinus300MinusISO string = "P5B-300-ISO"
+	// VisibleByModelP5BDash300DashISO captures enum value "P5B-300-ISO"
+	VisibleByModelP5BDash300DashISO string = "P5B-300-ISO"
 
-	// VisibleByModelP5BMinus400 captures enum value "P5B-400"
-	VisibleByModelP5BMinus400 string = "P5B-400"
+	// VisibleByModelP5BDash400 captures enum value "P5B-400"
+	VisibleByModelP5BDash400 string = "P5B-400"
 
-	// VisibleByModelP5BMinus400MinusISO captures enum value "P5B-400-ISO"
-	VisibleByModelP5BMinus400MinusISO string = "P5B-400-ISO"
+	// VisibleByModelP5BDash400DashISO captures enum value "P5B-400-ISO"
+	VisibleByModelP5BDash400DashISO string = "P5B-400-ISO"
 
-	// VisibleByModelP5BMinus620 captures enum value "P5B-620"
-	VisibleByModelP5BMinus620 string = "P5B-620"
+	// VisibleByModelP5BDash620 captures enum value "P5B-620"
+	VisibleByModelP5BDash620 string = "P5B-620"
 
-	// VisibleByModelLB5Minus120 captures enum value "LB5-120"
-	VisibleByModelLB5Minus120 string = "LB5-120"
+	// VisibleByModelLB5Dash120 captures enum value "LB5-120"
+	VisibleByModelLB5Dash120 string = "LB5-120"
 
 	// VisibleByModelLB5 captures enum value "LB5"
 	VisibleByModelLB5 string = "LB5"
@@ -426,35 +426,35 @@ const (
 	// VisibleByModelN5B captures enum value "N5B"
 	VisibleByModelN5B string = "N5B"
 
-	// VisibleByModelN5BMinus16 captures enum value "N5B-16"
-	VisibleByModelN5BMinus16 string = "N5B-16"
+	// VisibleByModelN5BDash16 captures enum value "N5B-16"
+	VisibleByModelN5BDash16 string = "N5B-16"
 
-	// VisibleByModelN5BMinus19 captures enum value "N5B-19"
-	VisibleByModelN5BMinus19 string = "N5B-19"
+	// VisibleByModelN5BDash19 captures enum value "N5B-19"
+	VisibleByModelN5BDash19 string = "N5B-19"
 
-	// VisibleByModelN5BMinus300 captures enum value "N5B-300"
-	VisibleByModelN5BMinus300 string = "N5B-300"
+	// VisibleByModelN5BDash300 captures enum value "N5B-300"
+	VisibleByModelN5BDash300 string = "N5B-300"
 
-	// VisibleByModelN5BMinus400 captures enum value "N5B-400"
-	VisibleByModelN5BMinus400 string = "N5B-400"
+	// VisibleByModelN5BDash400 captures enum value "N5B-400"
+	VisibleByModelN5BDash400 string = "N5B-400"
 
-	// VisibleByModelN5BMinusClient captures enum value "N5B-Client"
-	VisibleByModelN5BMinusClient string = "N5B-Client"
+	// VisibleByModelN5BDashClient captures enum value "N5B-Client"
+	VisibleByModelN5BDashClient string = "N5B-Client"
 
 	// VisibleByModelN2B captures enum value "N2B"
 	VisibleByModelN2B string = "N2B"
 
-	// VisibleByModelN2BMinus13 captures enum value "N2B-13"
-	VisibleByModelN2BMinus13 string = "N2B-13"
+	// VisibleByModelN2BDash13 captures enum value "N2B-13"
+	VisibleByModelN2BDash13 string = "N2B-13"
 
-	// VisibleByModelN2BMinus400 captures enum value "N2B-400"
-	VisibleByModelN2BMinus400 string = "N2B-400"
+	// VisibleByModelN2BDash400 captures enum value "N2B-400"
+	VisibleByModelN2BDash400 string = "N2B-400"
 
 	// VisibleByModelPAP captures enum value "PAP"
 	VisibleByModelPAP string = "PAP"
 
-	// VisibleByModelLAPMinusHP captures enum value "LAP-HP"
-	VisibleByModelLAPMinusHP string = "LAP-HP"
+	// VisibleByModelLAPDashHP captures enum value "LAP-HP"
+	VisibleByModelLAPDashHP string = "LAP-HP"
 
 	// VisibleByModelLAP captures enum value "LAP"
 	VisibleByModelLAP string = "LAP"
@@ -462,14 +462,14 @@ const (
 	// VisibleByModelAGW captures enum value "AGW"
 	VisibleByModelAGW string = "AGW"
 
-	// VisibleByModelAGWMinusLR captures enum value "AGW-LR"
-	VisibleByModelAGWMinusLR string = "AGW-LR"
+	// VisibleByModelAGWDashLR captures enum value "AGW-LR"
+	VisibleByModelAGWDashLR string = "AGW-LR"
 
-	// VisibleByModelAGWMinusPro captures enum value "AGW-Pro"
-	VisibleByModelAGWMinusPro string = "AGW-Pro"
+	// VisibleByModelAGWDashPro captures enum value "AGW-Pro"
+	VisibleByModelAGWDashPro string = "AGW-Pro"
 
-	// VisibleByModelAGWMinusInstaller captures enum value "AGW-Installer"
-	VisibleByModelAGWMinusInstaller string = "AGW-Installer"
+	// VisibleByModelAGWDashInstaller captures enum value "AGW-Installer"
+	VisibleByModelAGWDashInstaller string = "AGW-Installer"
 
 	// VisibleByModelPB5 captures enum value "PB5"
 	VisibleByModelPB5 string = "PB5"
@@ -504,113 +504,113 @@ const (
 	// VisibleByModelWM5 captures enum value "WM5"
 	VisibleByModelWM5 string = "WM5"
 
-	// VisibleByModelISMinusM5 captures enum value "IS-M5"
-	VisibleByModelISMinusM5 string = "IS-M5"
+	// VisibleByModelISDashM5 captures enum value "IS-M5"
+	VisibleByModelISDashM5 string = "IS-M5"
 
 	// VisibleByModelLoco5AC captures enum value "Loco5AC"
 	VisibleByModelLoco5AC string = "Loco5AC"
 
-	// VisibleByModelNSMinus5AC captures enum value "NS-5AC"
-	VisibleByModelNSMinus5AC string = "NS-5AC"
+	// VisibleByModelNSDash5AC captures enum value "NS-5AC"
+	VisibleByModelNSDash5AC string = "NS-5AC"
 
-	// VisibleByModelR5ACMinusPTMP captures enum value "R5AC-PTMP"
-	VisibleByModelR5ACMinusPTMP string = "R5AC-PTMP"
+	// VisibleByModelR5ACDashPTMP captures enum value "R5AC-PTMP"
+	VisibleByModelR5ACDashPTMP string = "R5AC-PTMP"
 
-	// VisibleByModelR5ACMinusPTP captures enum value "R5AC-PTP"
-	VisibleByModelR5ACMinusPTP string = "R5AC-PTP"
+	// VisibleByModelR5ACDashPTP captures enum value "R5AC-PTP"
+	VisibleByModelR5ACDashPTP string = "R5AC-PTP"
 
-	// VisibleByModelR5ACMinusLite captures enum value "R5AC-Lite"
-	VisibleByModelR5ACMinusLite string = "R5AC-Lite"
+	// VisibleByModelR5ACDashLite captures enum value "R5AC-Lite"
+	VisibleByModelR5ACDashLite string = "R5AC-Lite"
 
-	// VisibleByModelR5ACMinusPRISM captures enum value "R5AC-PRISM"
-	VisibleByModelR5ACMinusPRISM string = "R5AC-PRISM"
+	// VisibleByModelR5ACDashPRISM captures enum value "R5AC-PRISM"
+	VisibleByModelR5ACDashPRISM string = "R5AC-PRISM"
 
-	// VisibleByModelR2ACMinusPrism captures enum value "R2AC-Prism"
-	VisibleByModelR2ACMinusPrism string = "R2AC-Prism"
+	// VisibleByModelR2ACDashPrism captures enum value "R2AC-Prism"
+	VisibleByModelR2ACDashPrism string = "R2AC-Prism"
 
-	// VisibleByModelR2ACMinusGen2 captures enum value "R2AC-Gen2"
-	VisibleByModelR2ACMinusGen2 string = "R2AC-Gen2"
+	// VisibleByModelR2ACDashGen2 captures enum value "R2AC-Gen2"
+	VisibleByModelR2ACDashGen2 string = "R2AC-Gen2"
 
-	// VisibleByModelRPMinus5ACMinusGen2 captures enum value "RP-5AC-Gen2"
-	VisibleByModelRPMinus5ACMinusGen2 string = "RP-5AC-Gen2"
+	// VisibleByModelRPDash5ACDashGen2 captures enum value "RP-5AC-Gen2"
+	VisibleByModelRPDash5ACDashGen2 string = "RP-5AC-Gen2"
 
-	// VisibleByModelNBEMinus2ACMinus13 captures enum value "NBE-2AC-13"
-	VisibleByModelNBEMinus2ACMinus13 string = "NBE-2AC-13"
+	// VisibleByModelNBEDash2ACDash13 captures enum value "NBE-2AC-13"
+	VisibleByModelNBEDash2ACDash13 string = "NBE-2AC-13"
 
-	// VisibleByModelNBEMinus5ACMinus16 captures enum value "NBE-5AC-16"
-	VisibleByModelNBEMinus5ACMinus16 string = "NBE-5AC-16"
+	// VisibleByModelNBEDash5ACDash16 captures enum value "NBE-5AC-16"
+	VisibleByModelNBEDash5ACDash16 string = "NBE-5AC-16"
 
-	// VisibleByModelNBEMinus5ACMinus19 captures enum value "NBE-5AC-19"
-	VisibleByModelNBEMinus5ACMinus19 string = "NBE-5AC-19"
+	// VisibleByModelNBEDash5ACDash19 captures enum value "NBE-5AC-19"
+	VisibleByModelNBEDash5ACDash19 string = "NBE-5AC-19"
 
-	// VisibleByModelNBEMinus5ACMinusGen2 captures enum value "NBE-5AC-Gen2"
-	VisibleByModelNBEMinus5ACMinusGen2 string = "NBE-5AC-Gen2"
+	// VisibleByModelNBEDash5ACDashGen2 captures enum value "NBE-5AC-Gen2"
+	VisibleByModelNBEDash5ACDashGen2 string = "NBE-5AC-Gen2"
 
-	// VisibleByModelPBEMinus5ACMinus300 captures enum value "PBE-5AC-300"
-	VisibleByModelPBEMinus5ACMinus300 string = "PBE-5AC-300"
+	// VisibleByModelPBEDash5ACDash300 captures enum value "PBE-5AC-300"
+	VisibleByModelPBEDash5ACDash300 string = "PBE-5AC-300"
 
-	// VisibleByModelPBEMinus5ACMinus300MinusISO captures enum value "PBE-5AC-300-ISO"
-	VisibleByModelPBEMinus5ACMinus300MinusISO string = "PBE-5AC-300-ISO"
+	// VisibleByModelPBEDash5ACDash300DashISO captures enum value "PBE-5AC-300-ISO"
+	VisibleByModelPBEDash5ACDash300DashISO string = "PBE-5AC-300-ISO"
 
-	// VisibleByModelPBEMinus5ACMinus400 captures enum value "PBE-5AC-400"
-	VisibleByModelPBEMinus5ACMinus400 string = "PBE-5AC-400"
+	// VisibleByModelPBEDash5ACDash400 captures enum value "PBE-5AC-400"
+	VisibleByModelPBEDash5ACDash400 string = "PBE-5AC-400"
 
-	// VisibleByModelPBEMinus5ACMinus400MinusISO captures enum value "PBE-5AC-400-ISO"
-	VisibleByModelPBEMinus5ACMinus400MinusISO string = "PBE-5AC-400-ISO"
+	// VisibleByModelPBEDash5ACDash400DashISO captures enum value "PBE-5AC-400-ISO"
+	VisibleByModelPBEDash5ACDash400DashISO string = "PBE-5AC-400-ISO"
 
-	// VisibleByModelPBEMinus5ACMinus500 captures enum value "PBE-5AC-500"
-	VisibleByModelPBEMinus5ACMinus500 string = "PBE-5AC-500"
+	// VisibleByModelPBEDash5ACDash500 captures enum value "PBE-5AC-500"
+	VisibleByModelPBEDash5ACDash500 string = "PBE-5AC-500"
 
-	// VisibleByModelPBEMinus5ACMinus500MinusISO captures enum value "PBE-5AC-500-ISO"
-	VisibleByModelPBEMinus5ACMinus500MinusISO string = "PBE-5AC-500-ISO"
+	// VisibleByModelPBEDash5ACDash500DashISO captures enum value "PBE-5AC-500-ISO"
+	VisibleByModelPBEDash5ACDash500DashISO string = "PBE-5AC-500-ISO"
 
-	// VisibleByModelPBEMinus5ACMinus620 captures enum value "PBE-5AC-620"
-	VisibleByModelPBEMinus5ACMinus620 string = "PBE-5AC-620"
+	// VisibleByModelPBEDash5ACDash620 captures enum value "PBE-5AC-620"
+	VisibleByModelPBEDash5ACDash620 string = "PBE-5AC-620"
 
-	// VisibleByModelPBEMinus5ACMinus620MinusISO captures enum value "PBE-5AC-620-ISO"
-	VisibleByModelPBEMinus5ACMinus620MinusISO string = "PBE-5AC-620-ISO"
+	// VisibleByModelPBEDash5ACDash620DashISO captures enum value "PBE-5AC-620-ISO"
+	VisibleByModelPBEDash5ACDash620DashISO string = "PBE-5AC-620-ISO"
 
-	// VisibleByModelPBEMinus2ACMinus400 captures enum value "PBE-2AC-400"
-	VisibleByModelPBEMinus2ACMinus400 string = "PBE-2AC-400"
+	// VisibleByModelPBEDash2ACDash400 captures enum value "PBE-2AC-400"
+	VisibleByModelPBEDash2ACDash400 string = "PBE-2AC-400"
 
-	// VisibleByModelPBEMinus2ACMinus400MinusISO captures enum value "PBE-2AC-400-ISO"
-	VisibleByModelPBEMinus2ACMinus400MinusISO string = "PBE-2AC-400-ISO"
+	// VisibleByModelPBEDash2ACDash400DashISO captures enum value "PBE-2AC-400-ISO"
+	VisibleByModelPBEDash2ACDash400DashISO string = "PBE-2AC-400-ISO"
 
-	// VisibleByModelPBEMinus5ACMinusXMinusGen2 captures enum value "PBE-5AC-X-Gen2"
-	VisibleByModelPBEMinus5ACMinusXMinusGen2 string = "PBE-5AC-X-Gen2"
+	// VisibleByModelPBEDash5ACDashXDashGen2 captures enum value "PBE-5AC-X-Gen2"
+	VisibleByModelPBEDash5ACDashXDashGen2 string = "PBE-5AC-X-Gen2"
 
-	// VisibleByModelPBEMinus5ACMinusGen2 captures enum value "PBE-5AC-Gen2"
-	VisibleByModelPBEMinus5ACMinusGen2 string = "PBE-5AC-Gen2"
+	// VisibleByModelPBEDash5ACDashGen2 captures enum value "PBE-5AC-Gen2"
+	VisibleByModelPBEDash5ACDashGen2 string = "PBE-5AC-Gen2"
 
-	// VisibleByModelPBEMinus5ACMinusISOMinusGen2 captures enum value "PBE-5AC-ISO-Gen2"
-	VisibleByModelPBEMinus5ACMinusISOMinusGen2 string = "PBE-5AC-ISO-Gen2"
+	// VisibleByModelPBEDash5ACDashISODashGen2 captures enum value "PBE-5AC-ISO-Gen2"
+	VisibleByModelPBEDash5ACDashISODashGen2 string = "PBE-5AC-ISO-Gen2"
 
-	// VisibleByModelPBEMinus5ACMinus400MinusISOMinusGen2 captures enum value "PBE-5AC-400-ISO-Gen2"
-	VisibleByModelPBEMinus5ACMinus400MinusISOMinusGen2 string = "PBE-5AC-400-ISO-Gen2"
+	// VisibleByModelPBEDash5ACDash400DashISODashGen2 captures enum value "PBE-5AC-400-ISO-Gen2"
+	VisibleByModelPBEDash5ACDash400DashISODashGen2 string = "PBE-5AC-400-ISO-Gen2"
 
-	// VisibleByModelLBEMinus5ACMinus16Minus120 captures enum value "LBE-5AC-16-120"
-	VisibleByModelLBEMinus5ACMinus16Minus120 string = "LBE-5AC-16-120"
+	// VisibleByModelLBEDash5ACDash16Dash120 captures enum value "LBE-5AC-16-120"
+	VisibleByModelLBEDash5ACDash16Dash120 string = "LBE-5AC-16-120"
 
-	// VisibleByModelLAPMinus120 captures enum value "LAP-120"
-	VisibleByModelLAPMinus120 string = "LAP-120"
+	// VisibleByModelLAPDash120 captures enum value "LAP-120"
+	VisibleByModelLAPDash120 string = "LAP-120"
 
-	// VisibleByModelLBEMinus5ACMinus23 captures enum value "LBE-5AC-23"
-	VisibleByModelLBEMinus5ACMinus23 string = "LBE-5AC-23"
+	// VisibleByModelLBEDash5ACDash23 captures enum value "LBE-5AC-23"
+	VisibleByModelLBEDash5ACDash23 string = "LBE-5AC-23"
 
-	// VisibleByModelLBEMinus5ACMinusGen2 captures enum value "LBE-5AC-Gen2"
-	VisibleByModelLBEMinus5ACMinusGen2 string = "LBE-5AC-Gen2"
+	// VisibleByModelLBEDash5ACDashGen2 captures enum value "LBE-5AC-Gen2"
+	VisibleByModelLBEDash5ACDashGen2 string = "LBE-5AC-Gen2"
 
-	// VisibleByModelLBEMinus5ACMinusLR captures enum value "LBE-5AC-LR"
-	VisibleByModelLBEMinus5ACMinusLR string = "LBE-5AC-LR"
+	// VisibleByModelLBEDash5ACDashLR captures enum value "LBE-5AC-LR"
+	VisibleByModelLBEDash5ACDashLR string = "LBE-5AC-LR"
 
-	// VisibleByModelLAPMinusGPS captures enum value "LAP-GPS"
-	VisibleByModelLAPMinusGPS string = "LAP-GPS"
+	// VisibleByModelLAPDashGPS captures enum value "LAP-GPS"
+	VisibleByModelLAPDashGPS string = "LAP-GPS"
 
-	// VisibleByModelISMinus5AC captures enum value "IS-5AC"
-	VisibleByModelISMinus5AC string = "IS-5AC"
+	// VisibleByModelISDash5AC captures enum value "IS-5AC"
+	VisibleByModelISDash5AC string = "IS-5AC"
 
-	// VisibleByModelPSMinus5AC captures enum value "PS-5AC"
-	VisibleByModelPSMinus5AC string = "PS-5AC"
+	// VisibleByModelPSDash5AC captures enum value "PS-5AC"
+	VisibleByModelPSDash5AC string = "PS-5AC"
 
 	// VisibleByModelSolarSwitch captures enum value "SolarSwitch"
 	VisibleByModelSolarSwitch string = "SolarSwitch"
@@ -618,11 +618,11 @@ const (
 	// VisibleByModelSolarPoint captures enum value "SolarPoint"
 	VisibleByModelSolarPoint string = "SolarPoint"
 
-	// VisibleByModelBulletACMinusIP67 captures enum value "BulletAC-IP67"
-	VisibleByModelBulletACMinusIP67 string = "BulletAC-IP67"
+	// VisibleByModelBulletACDashIP67 captures enum value "BulletAC-IP67"
+	VisibleByModelBulletACDashIP67 string = "BulletAC-IP67"
 
-	// VisibleByModelBMinusDBMinusAC captures enum value "B-DB-AC"
-	VisibleByModelBMinusDBMinusAC string = "B-DB-AC"
+	// VisibleByModelBDashDBDashAC captures enum value "B-DB-AC"
+	VisibleByModelBDashDBDashAC string = "B-DB-AC"
 
 	// VisibleByModelUNKNOWN captures enum value "UNKNOWN"
 	VisibleByModelUNKNOWN string = "UNKNOWN"
