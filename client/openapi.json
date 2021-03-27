@@ -16911,11 +16911,9 @@
     "prerelease": {
       "type": "array",
       "items": {
-        "type": "string",
-        "example": "alpha",
-        "x-alternatives": [
-          { "type": "string", "example": "alpha" },
-          { "type": "number", "example": 1 }
+        "oneOf": [
+          {"type": "string"},
+          {"type": "number"}
         ]
       }
     },
