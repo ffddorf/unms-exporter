@@ -14,7 +14,7 @@ import (
 // Prerelease prerelease
 //
 // swagger:model prerelease
-type Prerelease []string
+type Prerelease []interface{}
 
 // Validate validates this prerelease
 func (m Prerelease) Validate(formats strfmt.Registry) error {
