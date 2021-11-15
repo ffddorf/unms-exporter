@@ -26,7 +26,7 @@ type InterfacePoe struct {
 	// output
 	// Example: off
 	// Enum: [off active 24v 48v 54v 24v-4pair 54v-4pair pthru]
-	Output string `json:"output,omitempty"`
+	Output *string `json:"output,omitempty"`
 }
 
 // Validate validates this interface poe
@@ -115,7 +115,7 @@ func (m *InterfacePoe) validateOutput(formats strfmt.Registry) error {
 	}
 
 	// value enum
-	if err := m.validateOutputEnum("output", "body", m.Output); err != nil {
+	if err := m.validateOutputEnum("output", "body", *m.Output); err != nil {
 		return err
 	}
 

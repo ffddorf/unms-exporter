@@ -23,7 +23,7 @@ type DeviceInterfaceSchema struct {
 	Addresses Addresses `json:"addresses,omitempty"`
 
 	// bridge
-	Bridge string `json:"bridge,omitempty"`
+	Bridge *string `json:"bridge,omitempty"`
 
 	// can display statistics
 	// Example: true

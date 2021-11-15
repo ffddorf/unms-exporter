@@ -21,7 +21,7 @@ type InterfaceIdentification struct {
 
 	// Nullable string.
 	// Example: Uplink
-	Description string `json:"description,omitempty"`
+	Description *string `json:"description,omitempty"`
 
 	// Computed display name from name and description
 	// Example: eth0
