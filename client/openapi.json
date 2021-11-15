@@ -16911,10 +16911,7 @@
     "prerelease": {
       "type": "array",
       "items": {
-        "oneOf": [
-          {"type": "string"},
-          {"type": "number"}
-        ]
+        "oneOf": [{ "type": "string" }, { "type": "number" }]
       }
     },
     "current": {
