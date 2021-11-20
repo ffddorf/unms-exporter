@@ -97,6 +97,8 @@ func (m *DeviceFirmware) validateSemver(formats strfmt.Registry) error {
 		if err := m.Semver.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("semver")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("semver")
 			}
 			return err
 		}
@@ -125,6 +127,8 @@ func (m *DeviceFirmware) contextValidateSemver(ctx context.Context, formats strf
 		if err := m.Semver.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("semver")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("semver")
 			}
 			return err
 		}

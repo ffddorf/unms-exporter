@@ -7,6 +7,7 @@ package models
 
 import (
 	"context"
+	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -19,18 +20,9 @@ import (
 // swagger:model DeviceStatusOverview
 type DeviceStatusOverview struct {
 
-	// attributes
-	Attributes *DeviceAttributes `json:"attributes,omitempty"`
-
-	// discovery
-	Discovery *Discovery `json:"discovery,omitempty"`
-
 	// enabled
 	// Required: true
 	Enabled *bool `json:"enabled"`
-
-	// eswitch
-	Eswitch *Eswitch `json:"eswitch,omitempty"`
 
 	// firmware
 	Firmware *DeviceFirmware `json:"firmware,omitempty"`
@@ -39,7 +31,7 @@ type DeviceStatusOverview struct {
 	Identification *DeviceIdentification `json:"identification,omitempty"`
 
 	// interfaces
-	Interfaces DeviceInterfaceListSchema `json:"interfaces,omitempty"`
+	Interfaces []*DeviceInterfaceSchema `json:"interfaces"`
 
 	// Custom IP address in IPv4 or IPv6 format.
 	// Example: 192.168.1.22
@@ -58,9 +50,6 @@ type DeviceStatusOverview struct {
 	// overview
 	Overview *DeviceOverview `json:"overview,omitempty"`
 
-	// unmss
-	Unmss *Unmss `json:"unmss,omitempty"`
-
 	// upgrade
 	Upgrade *DeviceUpgrade `json:"upgrade,omitempty"`
 }
@@ -69,19 +58,7 @@ type DeviceStatusOverview struct {
 func (m *DeviceStatusOverview) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateAttributes(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateDiscovery(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateEnabled(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateEswitch(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -113,10 +90,6 @@ func (m *DeviceStatusOverview) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateUnmss(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateUpgrade(formats); err != nil {
 		res = append(res, err)
 	}
@@ -127,61 +100,10 @@ func (m *DeviceStatusOverview) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *DeviceStatusOverview) validateAttributes(formats strfmt.Registry) error {
-	if swag.IsZero(m.Attributes) { // not required
-		return nil
-	}
-
-	if m.Attributes != nil {
-		if err := m.Attributes.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("attributes")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
-func (m *DeviceStatusOverview) validateDiscovery(formats strfmt.Registry) error {
-	if swag.IsZero(m.Discovery) { // not required
-		return nil
-	}
-
-	if m.Discovery != nil {
-		if err := m.Discovery.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("discovery")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
 func (m *DeviceStatusOverview) validateEnabled(formats strfmt.Registry) error {
 
 	if err := validate.Required("enabled", "body", m.Enabled); err != nil {
 		return err
-	}
-
-	return nil
-}
-
-func (m *DeviceStatusOverview) validateEswitch(formats strfmt.Registry) error {
-	if swag.IsZero(m.Eswitch) { // not required
-		return nil
-	}
-
-	if m.Eswitch != nil {
-		if err := m.Eswitch.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("eswitch")
-			}
-			return err
-		}
 	}
 
 	return nil
@@ -196,6 +118,8 @@ func (m *DeviceStatusOverview) validateFirmware(formats strfmt.Registry) error {
 		if err := m.Firmware.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("firmware")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("firmware")
 			}
 			return err
 		}
@@ -213,6 +137,8 @@ func (m *DeviceStatusOverview) validateIdentification(formats strfmt.Registry) e
 		if err := m.Identification.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("identification")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("identification")
 			}
 			return err
 		}
@@ -226,11 +152,22 @@ func (m *DeviceStatusOverview) validateInterfaces(formats strfmt.Registry) error
 		return nil
 	}
 
-	if err := m.Interfaces.Validate(formats); err != nil {
-		if ve, ok := err.(*errors.Validation); ok {
-			return ve.ValidateName("interfaces")
+	for i := 0; i < len(m.Interfaces); i++ {
+		if swag.IsZero(m.Interfaces[i]) { // not required
+			continue
 		}
-		return err
+
+		if m.Interfaces[i] != nil {
+			if err := m.Interfaces[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("interfaces" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("interfaces" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil
@@ -254,6 +191,8 @@ func (m *DeviceStatusOverview) validateLatestBackup(formats strfmt.Registry) err
 		if err := m.LatestBackup.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("latestBackup")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("latestBackup")
 			}
 			return err
 		}
@@ -271,6 +210,8 @@ func (m *DeviceStatusOverview) validateMeta(formats strfmt.Registry) error {
 		if err := m.Meta.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("meta")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("meta")
 			}
 			return err
 		}
@@ -288,23 +229,8 @@ func (m *DeviceStatusOverview) validateOverview(formats strfmt.Registry) error {
 		if err := m.Overview.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("overview")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
-func (m *DeviceStatusOverview) validateUnmss(formats strfmt.Registry) error {
-	if swag.IsZero(m.Unmss) { // not required
-		return nil
-	}
-
-	if m.Unmss != nil {
-		if err := m.Unmss.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("unmss")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("overview")
 			}
 			return err
 		}
@@ -322,6 +248,8 @@ func (m *DeviceStatusOverview) validateUpgrade(formats strfmt.Registry) error {
 		if err := m.Upgrade.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("upgrade")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("upgrade")
 			}
 			return err
 		}
@@ -333,18 +261,6 @@ func (m *DeviceStatusOverview) validateUpgrade(formats strfmt.Registry) error {
 // ContextValidate validate this device status overview based on the context it is used
 func (m *DeviceStatusOverview) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
-
-	if err := m.contextValidateAttributes(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.contextValidateDiscovery(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.contextValidateEswitch(ctx, formats); err != nil {
-		res = append(res, err)
-	}
 
 	if err := m.contextValidateFirmware(ctx, formats); err != nil {
 		res = append(res, err)
@@ -370,10 +286,6 @@ func (m *DeviceStatusOverview) ContextValidate(ctx context.Context, formats strf
 		res = append(res, err)
 	}
 
-	if err := m.contextValidateUnmss(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.contextValidateUpgrade(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -384,54 +296,14 @@ func (m *DeviceStatusOverview) ContextValidate(ctx context.Context, formats strf
 	return nil
 }
 
-func (m *DeviceStatusOverview) contextValidateAttributes(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.Attributes != nil {
-		if err := m.Attributes.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("attributes")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
-func (m *DeviceStatusOverview) contextValidateDiscovery(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.Discovery != nil {
-		if err := m.Discovery.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("discovery")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
-func (m *DeviceStatusOverview) contextValidateEswitch(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.Eswitch != nil {
-		if err := m.Eswitch.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("eswitch")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
 func (m *DeviceStatusOverview) contextValidateFirmware(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Firmware != nil {
 		if err := m.Firmware.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("firmware")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("firmware")
 			}
 			return err
 		}
@@ -446,6 +318,8 @@ func (m *DeviceStatusOverview) contextValidateIdentification(ctx context.Context
 		if err := m.Identification.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("identification")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("identification")
 			}
 			return err
 		}
@@ -456,11 +330,19 @@ func (m *DeviceStatusOverview) contextValidateIdentification(ctx context.Context
 
 func (m *DeviceStatusOverview) contextValidateInterfaces(ctx context.Context, formats strfmt.Registry) error {
 
-	if err := m.Interfaces.ContextValidate(ctx, formats); err != nil {
-		if ve, ok := err.(*errors.Validation); ok {
-			return ve.ValidateName("interfaces")
+	for i := 0; i < len(m.Interfaces); i++ {
+
+		if m.Interfaces[i] != nil {
+			if err := m.Interfaces[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("interfaces" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("interfaces" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
 		}
-		return err
+
 	}
 
 	return nil
@@ -472,6 +354,8 @@ func (m *DeviceStatusOverview) contextValidateLatestBackup(ctx context.Context, 
 		if err := m.LatestBackup.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("latestBackup")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("latestBackup")
 			}
 			return err
 		}
@@ -486,6 +370,8 @@ func (m *DeviceStatusOverview) contextValidateMeta(ctx context.Context, formats 
 		if err := m.Meta.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("meta")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("meta")
 			}
 			return err
 		}
@@ -500,20 +386,8 @@ func (m *DeviceStatusOverview) contextValidateOverview(ctx context.Context, form
 		if err := m.Overview.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("overview")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
-func (m *DeviceStatusOverview) contextValidateUnmss(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.Unmss != nil {
-		if err := m.Unmss.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("unmss")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("overview")
 			}
 			return err
 		}
@@ -528,6 +402,8 @@ func (m *DeviceStatusOverview) contextValidateUpgrade(ctx context.Context, forma
 		if err := m.Upgrade.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("upgrade")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("upgrade")
 			}
 			return err
 		}

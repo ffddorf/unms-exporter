@@ -17,64 +17,82 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetDevicesParams creates a new GetDevicesParams object
-// with the default values initialized.
+// NewGetDevicesParams creates a new GetDevicesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetDevicesParams() *GetDevicesParams {
-	var ()
 	return &GetDevicesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetDevicesParamsWithTimeout creates a new GetDevicesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetDevicesParamsWithTimeout(timeout time.Duration) *GetDevicesParams {
-	var ()
 	return &GetDevicesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetDevicesParamsWithContext creates a new GetDevicesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetDevicesParamsWithContext(ctx context.Context) *GetDevicesParams {
-	var ()
 	return &GetDevicesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetDevicesParamsWithHTTPClient creates a new GetDevicesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetDevicesParamsWithHTTPClient(client *http.Client) *GetDevicesParams {
-	var ()
 	return &GetDevicesParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetDevicesParams contains all the parameters to send to the API endpoint
-for the get devices operation typically these are written to a http.Request
+/* GetDevicesParams contains all the parameters to send to the API endpoint
+   for the get devices operation.
+
+   Typically these are written to a http.Request.
 */
 type GetDevicesParams struct {
 
-	/*Authorized*/
+	// Authorized.
 	Authorized *bool
-	/*Role*/
+
+	// Role.
 	Role []string
-	/*SiteID*/
+
+	// SiteID.
 	SiteID *string
-	/*Type*/
+
+	// Type.
 	Type []string
-	/*WithInterfaces*/
+
+	// WithInterfaces.
 	WithInterfaces *bool
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get devices params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetDevicesParams) WithDefaults() *GetDevicesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get devices params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetDevicesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get devices params
@@ -177,68 +195,111 @@ func (o *GetDevicesParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Re
 
 		// query param authorized
 		var qrAuthorized bool
+
 		if o.Authorized != nil {
 			qrAuthorized = *o.Authorized
 		}
 		qAuthorized := swag.FormatBool(qrAuthorized)
 		if qAuthorized != "" {
+
 			if err := r.SetQueryParam("authorized", qAuthorized); err != nil {
 				return err
 			}
 		}
-
 	}
 
-	valuesRole := o.Role
+	if o.Role != nil {
 
-	joinedRole := swag.JoinByFormat(valuesRole, "multi")
-	// query array param role
-	if err := r.SetQueryParam("role", joinedRole...); err != nil {
-		return err
+		// binding items for role
+		joinedRole := o.bindParamRole(reg)
+
+		// query array param role
+		if err := r.SetQueryParam("role", joinedRole...); err != nil {
+			return err
+		}
 	}
 
 	if o.SiteID != nil {
 
 		// query param siteId
 		var qrSiteID string
+
 		if o.SiteID != nil {
 			qrSiteID = *o.SiteID
 		}
 		qSiteID := qrSiteID
 		if qSiteID != "" {
+
 			if err := r.SetQueryParam("siteId", qSiteID); err != nil {
 				return err
 			}
 		}
-
 	}
 
-	valuesType := o.Type
+	if o.Type != nil {
 
-	joinedType := swag.JoinByFormat(valuesType, "multi")
-	// query array param type
-	if err := r.SetQueryParam("type", joinedType...); err != nil {
-		return err
+		// binding items for type
+		joinedType := o.bindParamType(reg)
+
+		// query array param type
+		if err := r.SetQueryParam("type", joinedType...); err != nil {
+			return err
+		}
 	}
 
 	if o.WithInterfaces != nil {
 
 		// query param withInterfaces
 		var qrWithInterfaces bool
+
 		if o.WithInterfaces != nil {
 			qrWithInterfaces = *o.WithInterfaces
 		}
 		qWithInterfaces := swag.FormatBool(qrWithInterfaces)
 		if qWithInterfaces != "" {
+
 			if err := r.SetQueryParam("withInterfaces", qWithInterfaces); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetDevices binds the parameter role
+func (o *GetDevicesParams) bindParamRole(formats strfmt.Registry) []string {
+	roleIR := o.Role
+
+	var roleIC []string
+	for _, roleIIR := range roleIR { // explode []string
+
+		roleIIV := roleIIR // string as string
+		roleIC = append(roleIC, roleIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	roleIS := swag.JoinByFormat(roleIC, "multi")
+
+	return roleIS
+}
+
+// bindParamGetDevices binds the parameter type
+func (o *GetDevicesParams) bindParamType(formats strfmt.Registry) []string {
+	typeIR := o.Type
+
+	var typeIC []string
+	for _, typeIIR := range typeIR { // explode []string
+
+		typeIIV := typeIIR // string as string
+		typeIC = append(typeIC, typeIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	typeIS := swag.JoinByFormat(typeIC, "multi")
+
+	return typeIS
 }

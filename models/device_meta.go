@@ -81,7 +81,7 @@ func (m *DeviceMeta) validateAlias(formats strfmt.Registry) error {
 		return nil
 	}
 
-	if err := validate.MaxLength("alias", "body", string(m.Alias), 30); err != nil {
+	if err := validate.MaxLength("alias", "body", m.Alias, 30); err != nil {
 		return err
 	}
 
@@ -111,7 +111,7 @@ func (m *DeviceMeta) validateNote(formats strfmt.Registry) error {
 		return nil
 	}
 
-	if err := validate.MaxLength("note", "body", string(m.Note), 300); err != nil {
+	if err := validate.MaxLength("note", "body", m.Note, 300); err != nil {
 		return err
 	}
 

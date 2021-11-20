@@ -25,9 +25,12 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
+// ClientOption is the option for Client methods
+type ClientOption func(*runtime.ClientOperation)
+
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetDevices(params *GetDevicesParams, authInfo runtime.ClientAuthInfoWriter) (*GetDevicesOK, error)
+	GetDevices(params *GetDevicesParams, opts ...ClientOption) (*GetDevicesOK, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -35,13 +38,12 @@ type ClientService interface {
 /*
   GetDevices lists of all devices in u n m s
 */
-func (a *Client) GetDevices(params *GetDevicesParams, authInfo runtime.ClientAuthInfoWriter) (*GetDevicesOK, error) {
+func (a *Client) GetDevices(params *GetDevicesParams, opts ...ClientOption) (*GetDevicesOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewGetDevicesParams()
 	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
+	op := &runtime.ClientOperation{
 		ID:                 "getDevices",
 		Method:             "GET",
 		PathPattern:        "/devices",
@@ -50,10 +52,14 @@ func (a *Client) GetDevices(params *GetDevicesParams, authInfo runtime.ClientAut
 		Schemes:            []string{"http"},
 		Params:             params,
 		Reader:             &GetDevicesReader{formats: a.formats},
-		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
-	})
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
 	if err != nil {
 		return nil, err
 	}

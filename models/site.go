@@ -30,7 +30,7 @@ type Site struct {
 	Name string `json:"name,omitempty"`
 
 	// parent
-	Parent Parent1 `json:"parent,omitempty"`
+	Parent *Site `json:"parent,omitempty"`
 
 	// Status of the site.
 	// Example: active
@@ -53,6 +53,10 @@ func (m *Site) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateParent(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateStatus(formats); err != nil {
 		res = append(res, err)
 	}
@@ -71,6 +75,25 @@ func (m *Site) validateID(formats strfmt.Registry) error {
 
 	if err := validate.Required("id", "body", m.ID); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *Site) validateParent(formats strfmt.Registry) error {
+	if swag.IsZero(m.Parent) { // not required
+		return nil
+	}
+
+	if m.Parent != nil {
+		if err := m.Parent.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("parent")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("parent")
+			}
+			return err
+		}
 	}
 
 	return nil
@@ -165,8 +188,33 @@ func (m *Site) validateType(formats strfmt.Registry) error {
 	return nil
 }
 
-// ContextValidate validates this site based on context it is used
+// ContextValidate validate this site based on the context it is used
 func (m *Site) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateParent(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *Site) contextValidateParent(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Parent != nil {
+		if err := m.Parent.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("parent")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("parent")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

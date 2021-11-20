@@ -33,7 +33,7 @@ type Error struct {
 	StatusCode *float64 `json:"statusCode"`
 
 	// validation
-	Validation Validation `json:"validation,omitempty"`
+	Validation interface{} `json:"validation,omitempty"`
 }
 
 // Validate validates this error

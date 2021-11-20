@@ -21,7 +21,7 @@ type DeviceUpgrade struct {
 
 	// firmware
 	// Required: true
-	Firmware *Firmware `json:"firmware"`
+	Firmware *SemverVersion `json:"firmware"`
 
 	// progress
 	// Required: true
@@ -64,6 +64,8 @@ func (m *DeviceUpgrade) validateFirmware(formats strfmt.Registry) error {
 		if err := m.Firmware.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("firmware")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("firmware")
 			}
 			return err
 		}
@@ -110,6 +112,8 @@ func (m *DeviceUpgrade) contextValidateFirmware(ctx context.Context, formats str
 		if err := m.Firmware.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("firmware")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("firmware")
 			}
 			return err
 		}
