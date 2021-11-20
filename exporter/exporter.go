@@ -140,7 +140,7 @@ func (e *Exporter) collectImpl(out chan<- prom.Metric) error {
 		WithInterfaces: &defaultWithInterfaces,
 		Context:        ctx,
 	}
-	devices, err := e.api.Devices.GetDevices(params, nil)
+	devices, err := e.api.Devices.GetDevices(params)
 	if err != nil {
 		return err
 	}
