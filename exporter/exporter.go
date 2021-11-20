@@ -173,7 +173,7 @@ func (e *Exporter) collectImpl(out chan<- prom.Metric) error {
 			intfLabels = append(intfLabels, deviceLabels...)
 			intfLabels = append(intfLabels,
 				intf.Identification.Name,                            // ifName
-				intf.Identification.Description,                     // ifDescr
+				*intf.Identification.Description,                    // ifDescr
 				strconv.FormatInt(intf.Identification.Position, 10), // ifPos
 				intf.Identification.Type,                            // ifType
 			)

@@ -1,0 +1,523 @@
+{
+  "swagger": "2.0",
+  "basePath": "/nms/api/v2.1",
+  "info": {
+    "title": "UNMS API",
+    "version": "1.0.0",
+    "description": "This is a minimalistic description of the UNMS API centered on what the UNMS exporter needs."
+  },
+  "securityDefinitions": {
+    "UserSecurity": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "x-auth-token",
+      "description": "User authorization token"
+    }
+  },
+  "produces": ["application/json"],
+  "paths": {
+    "/devices": {
+      "get": {
+        "summary": "List of all devices in UNMS.",
+        "operationId": "getDevices",
+        "parameters": [
+          {
+            "type": "string",
+            "x-format": { "guid": true },
+            "name": "siteId",
+            "in": "query",
+            "required": false
+          },
+          {
+            "type": "boolean",
+            "name": "withInterfaces",
+            "in": "query",
+            "required": false
+          },
+          {
+            "type": "boolean",
+            "name": "authorized",
+            "in": "query",
+            "required": false
+          },
+          {
+            "type": "array",
+            "x-constraint": { "single": true },
+            "items": {
+              "type": "string",
+              "enum": [
+                "onu",
+                "olt",
+                "unmsr",
+                "unmss",
+                "erouter",
+                "eswitch",
+                "epower",
+                "airCube",
+                "airMax",
+                "airFiber",
+                "toughSwitch",
+                "solarBeam",
+                "wave",
+                "blackBox"
+              ]
+            },
+            "collectionFormat": "multi",
+            "name": "type",
+            "in": "query",
+            "required": false
+          },
+          {
+            "type": "array",
+            "x-constraint": { "single": true },
+            "items": {
+              "type": "string",
+              "enum": [
+                "router",
+                "switch",
+                "gpon",
+                "ap",
+                "station",
+                "other",
+                "ups",
+                "server",
+                "wireless",
+                "convertor",
+                "gateway"
+              ]
+            },
+            "collectionFormat": "multi",
+            "name": "role",
+            "in": "query",
+            "required": false
+          }
+        ],
+        "produces": ["application/json"],
+        "tags": ["Devices"],
+        "responses": {
+          "200": {
+            "description": "Read-only overview for device list.",
+            "schema": {
+              "type": "array",
+              "description": "Read-only overview for device list.",
+              "items": { "$ref": "#/definitions/DeviceStatusOverview" }
+            }
+          },
+          "400": {
+            "schema": { "$ref": "#/definitions/Error" },
+            "description": "Bad Request"
+          },
+          "401": {
+            "schema": { "$ref": "#/definitions/Error" },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "schema": { "$ref": "#/definitions/Error" },
+            "description": "Forbidden"
+          },
+          "500": {
+            "schema": { "$ref": "#/definitions/Error" },
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "DeviceStatusOverview": {
+      "type": "object",
+      "properties": {
+        "enabled": { "type": "boolean" },
+        "firmware": { "$ref": "#/definitions/DeviceFirmware" },
+        "identification": { "$ref": "#/definitions/DeviceIdentification" },
+        "ipAddress": {
+          "type": "string",
+          "description": "Custom IP address in IPv4 or IPv6 format.",
+          "example": "192.168.1.22",
+          "x-format": { "ip": { "cidr": "optional" } }
+        },
+        "latestBackup": { "$ref": "#/definitions/latestBackup" },
+        "meta": { "$ref": "#/definitions/DeviceMeta" },
+        "mode": { "type": "string" },
+        "overview": { "$ref": "#/definitions/DeviceOverview" },
+        "upgrade": { "$ref": "#/definitions/DeviceUpgrade" },
+        "interfaces": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/DeviceInterfaceSchema" }
+        }
+      },
+      "required": ["enabled", "ipAddress"]
+    },
+    "DeviceFirmware": {
+      "type": "object",
+      "properties": {
+        "current": {
+          "type": "string",
+          "description": "Current firmware version."
+        },
+        "latest": {
+          "type": "string",
+          "description": "Latest known firmware version."
+        },
+        "compatible": {
+          "type": "boolean",
+          "description": "Is firmware compatible with UNMS"
+        },
+        "semver": { "$ref": "#/definitions/semver" }
+      },
+      "required": ["current", "latest", "compatible"]
+    },
+    "semver": {
+      "type": "object",
+      "properties": {
+        "current": { "$ref": "#/definitions/semverVersion" },
+        "latest": { "$ref": "#/definitions/semverVersion" }
+      },
+      "required": ["current", "latest"]
+    },
+    "semverVersion": {
+      "type": "object",
+      "properties": {
+        "major": { "type": "number", "example": 1 },
+        "minor": { "type": "number", "example": 10 },
+        "patch": { "type": "number", "example": 8 },
+        "order": { "type": "string", "example": "65546.8.0" }
+      },
+      "required": ["major", "minor", "patch"]
+    },
+    "DeviceIdentification": {
+      "type": "object",
+      "description": "Read-only identification attributes.",
+      "properties": {
+        "authorized": {
+          "type": "boolean",
+          "description": "Device is added to UNMS."
+        },
+        "category": {
+          "type": "string",
+          "enum": ["optical", "wired", "wireless", "accessories"]
+        },
+        "displayName": {
+          "type": "string",
+          "description": "UNMS device alias or real name."
+        },
+        "firmwareVersion": {
+          "type": "string",
+          "description": "In SemVer format."
+        },
+        "hostname": { "type": "string" },
+        "id": {
+          "type": "string",
+          "description": "Device ID.",
+          "example": "f7ac9cad-ea28-4390-93c8-7add010e8ee3",
+          "x-format": { "guid": true }
+        },
+        "ip": {
+          "type": "string",
+          "description": "Custom IP address in IPv4 or IPv6 format.",
+          "example": "192.168.1.22",
+          "x-format": { "ip": { "cidr": "optional" } }
+        },
+        "mac": {
+          "type": "string",
+          "pattern": "^([0-9a-fA-F][0-9a-fA-F]:){5}([0-9a-fA-F][0-9a-fA-F])$|^([0-9a-fA-F]){12}$"
+        },
+        "model": {
+          "type": "string",
+          "description": "Short names, for example UF-OLT."
+        },
+        "modelName": {
+          "type": "string",
+          "description": "Full names, for example UFiber OLT."
+        },
+        "name": { "type": "string" },
+        "platformId": {
+          "type": "string",
+          "description": "Short name, for example e600."
+        },
+        "platformName": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string",
+          "enum": [
+            "router",
+            "switch",
+            "gpon",
+            "ap",
+            "station",
+            "other",
+            "ups",
+            "server",
+            "wireless",
+            "convertor",
+            "gateway"
+          ]
+        },
+        "serialNumber": { "type": "string" },
+        "site": {
+          "$ref": "#/definitions/site"
+        },
+        "started": { "type": "string", "format": "date-time" },
+        "status": {
+          "type": "string",
+          "description": "Status of the station.",
+          "example": "active",
+          "enum": [
+            "active",
+            "connecting",
+            "discovered",
+            "inactive",
+            "disabled",
+            "disconnected",
+            "unauthorized",
+            "proposed",
+            "unknown",
+            "unplaced",
+            "custom"
+          ]
+        },
+        "type": {
+          "type": "string"
+        },
+        "wanInterfaceId": { "type": "string" },
+        "updated": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id"]
+    },
+    "site": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Site ID.",
+          "example": "f7ac9cad-ea28-4390-93c8-7add010e8ee3",
+          "x-format": { "guid": true }
+        },
+        "name": {
+          "type": "string",
+          "description": "Site name.",
+          "example": "Mount Everest"
+        },
+        "status": {
+          "type": "string",
+          "description": "Status of the site.",
+          "example": "active",
+          "enum": ["active", "disconnected", "inactive"]
+        },
+        "type": {
+          "type": "string",
+          "description": "Type of the site.",
+          "example": "site",
+          "enum": ["site", "endpoint"]
+        },
+        "parent": { "$ref": "#/definitions/site" }
+      },
+      "required": ["id", "status", "type"]
+    },
+    "latestBackup": {
+      "type": "object",
+      "description": "Latest backup info.",
+      "properties": {
+        "timestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Latest backup timestamp.",
+          "example": "2018-11-14T15:20:32.004Z"
+        },
+        "id": { "type": "string", "description": "Latest backup ID." }
+      },
+      "required": ["timestamp", "id"]
+    },
+    "DeviceMeta": {
+      "type": "object",
+      "properties": {
+        "alias": { "type": "string", "maxLength": 30 },
+        "customIpAddress": {
+          "type": "string",
+          "description": "Custom IP address in IPv4 or IPv6 format.",
+          "example": "192.168.1.22",
+          "x-format": { "ip": { "cidr": "optional" } }
+        },
+        "failedMessageDecryption": { "type": "boolean" },
+        "maintenance": { "type": "boolean" },
+        "note": { "type": "string", "maxLength": 300 },
+        "restartTimestamp": {
+          "type": "string",
+          "format": "date-time",
+          "example": "2018-11-14T15:20:32.004Z"
+        }
+      },
+      "required": ["failedMessageDecryption", "maintenance", "restartTimestamp"]
+    },
+    "DeviceOverview": {
+      "type": "object",
+      "description": "Read-only basic device/client overview attributes.",
+      "properties": {
+        "batteryCapacity": { "type": "number" },
+        "batteryTime": { "type": "number" },
+        "biasCurrent": {
+          "type": "number",
+          "description": "Nullable property in milliamperes."
+        },
+        "canUpgrade": {
+          "type": "boolean",
+          "description": "TRUE if device can be upgraded."
+        },
+        "cpu": { "type": "number", "description": "Current cpu load." },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "distance": {
+          "type": "number",
+          "description": "Nullable property in meters."
+        },
+        "frequency": {
+          "type": "number",
+          "description": "Nullable prop; current frequency (only for airmax devices)."
+        },
+        "isLocateRunning": {
+          "type": "boolean",
+          "description": "TRUE if device is in location mode."
+        },
+        "lastSeen": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Last seen timestamp in ISO format.",
+          "example": "2018-11-14T15:20:32.004Z"
+        },
+        "powerStatus": { "type": "number" },
+        "runningOnBattery": {
+          "type": "boolean",
+          "description": "TRUE if device is running on battery"
+        },
+        "ram": { "type": "number", "description": "Current memory usage." },
+        "signal": {
+          "type": "number",
+          "description": "Nullable prop; current signal level (only for airmax devices), for example -55 dBm.",
+          "example": "-55"
+        },
+        "signalMax": {
+          "type": "number",
+          "description": "Theoretical max local signal level.",
+          "example": "-55"
+        },
+        "remoteSignalMax": {
+          "type": "number",
+          "description": "Theoretical max remote signal level.",
+          "example": "-55"
+        },
+        "stationsCount": {
+          "type": "number",
+          "description": "Count of stations (only for airmax and aircube)."
+        },
+        "status": {
+          "type": "string",
+          "description": "Read-only value generated by UNMS."
+        },
+        "temperature": { "type": "number" },
+        "uptime": { "type": "number", "description": "Uptime in seconds." },
+        "voltage": {
+          "type": "number",
+          "description": "System input voltage in V."
+        },
+        "downlinkCapacity": { "type": "integer" },
+        "uplinkCapacity": { "type": "integer" },
+        "theoreticalUplinkCapacity": { "type": "integer" },
+        "theoreticalDownlinkCapacity": { "type": "integer" },
+        "theoreticalMaxUplinkCapacity": { "type": "integer" },
+        "theoreticalMaxDownlinkCapacity": { "type": "integer" },
+        "channelWidth": { "type": "number" },
+        "transmitPower": { "type": "number" },
+        "wirelessMode": { "type": "string" }
+      }
+    },
+    "DeviceUpgrade": {
+      "type": "object",
+      "properties": {
+        "status": { "type": "string" },
+        "progress": { "type": "number" },
+        "firmware": { "$ref": "#/definitions/semverVersion" }
+      },
+      "required": ["status", "progress", "firmware"]
+    },
+    "DeviceInterfaceSchema": {
+      "type": "object",
+      "properties": {
+        "canDisplayStatistics": { "type": "boolean", "example": true },
+        "enabled": { "type": "boolean", "example": true },
+        "identification": { "$ref": "#/definitions/InterfaceIdentification" },
+        "speed": {
+          "type": "string",
+          "example": "auto",
+          "pattern": "^autodetect|auto|\\d+-(half|full)$"
+        },
+        "statistics": { "$ref": "#/definitions/InterfaceStatistics" },
+        "status": { "$ref": "#/definitions/InterfaceStatus" }
+      },
+      "required": ["identification"]
+    },
+    "InterfaceIdentification": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string",
+          "description": "Nullable string.",
+          "example": "Uplink",
+          "x-nullable": true
+        },
+        "displayName": {
+          "type": "string",
+          "description": "Computed display name from name and description",
+          "example": "eth0"
+        },
+        "mac": {
+          "type": "string",
+          "example": "fc:ec:da:03:bb:a8",
+          "pattern": "^([0-9a-fA-F][0-9a-fA-F]:){5}([0-9a-fA-F][0-9a-fA-F])$|^([0-9a-fA-F]){12}$"
+        },
+        "name": {
+          "type": "string",
+          "description": "Interface name.",
+          "example": "eth0"
+        },
+        "position": {
+          "type": "integer",
+          "description": "Physical port position.",
+          "example": 0
+        },
+        "type": { "type": "string", "example": "eth" }
+      }
+    },
+    "InterfaceStatistics": {
+      "type": "object",
+      "properties": {
+        "dropped": { "type": "number", "example": 0 },
+        "errors": { "type": "number", "example": 0 },
+        "rxbytes": { "type": "number", "example": 7487858302 },
+        "rxrate": { "type": "number", "example": 3440 },
+        "txbytes": { "type": "number", "example": 368737600 },
+        "txrate": { "type": "number", "example": 736 },
+        "poePower": { "type": "number", "example": 736 }
+      }
+    },
+    "InterfaceStatus": {
+      "type": "object",
+      "properties": {
+        "currentSpeed": { "type": "string", "example": "1000-full" },
+        "description": { "type": "string", "example": "1 Gbps - Full Duplex" },
+        "plugged": { "type": "boolean", "example": true },
+        "speed": { "type": "string", "example": "auto" },
+        "status": { "type": "string", "example": "active" }
+      }
+    },
+    "Error": {
+      "type": "object",
+      "properties": {
+        "statusCode": { "type": "number", "minimum": 400, "maximum": 599 },
+        "error": { "type": "string" },
+        "message": { "type": "string" },
+        "validation": { "type": "object" }
+      },
+      "required": ["statusCode", "error"]
+    }
+  }
+}

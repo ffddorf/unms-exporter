@@ -53,7 +53,6 @@ func (o *GetDevicesReader) ReadResponse(response runtime.ClientResponse, consume
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -64,19 +63,18 @@ func NewGetDevicesOK() *GetDevicesOK {
 	return &GetDevicesOK{}
 }
 
-/*GetDevicesOK handles this case with default header values.
+/* GetDevicesOK describes a response with status code 200, with default header values.
 
 Read-only overview for device list.
 */
 type GetDevicesOK struct {
-	Payload models.ListOfDevices
+	Payload []*models.DeviceStatusOverview
 }
 
 func (o *GetDevicesOK) Error() string {
 	return fmt.Sprintf("[GET /devices][%d] getDevicesOK  %+v", 200, o.Payload)
 }
-
-func (o *GetDevicesOK) GetPayload() models.ListOfDevices {
+func (o *GetDevicesOK) GetPayload() []*models.DeviceStatusOverview {
 	return o.Payload
 }
 
@@ -95,7 +93,7 @@ func NewGetDevicesBadRequest() *GetDevicesBadRequest {
 	return &GetDevicesBadRequest{}
 }
 
-/*GetDevicesBadRequest handles this case with default header values.
+/* GetDevicesBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -106,7 +104,6 @@ type GetDevicesBadRequest struct {
 func (o *GetDevicesBadRequest) Error() string {
 	return fmt.Sprintf("[GET /devices][%d] getDevicesBadRequest  %+v", 400, o.Payload)
 }
-
 func (o *GetDevicesBadRequest) GetPayload() *models.Error {
 	return o.Payload
 }
@@ -128,7 +125,7 @@ func NewGetDevicesUnauthorized() *GetDevicesUnauthorized {
 	return &GetDevicesUnauthorized{}
 }
 
-/*GetDevicesUnauthorized handles this case with default header values.
+/* GetDevicesUnauthorized describes a response with status code 401, with default header values.
 
 Unauthorized
 */
@@ -139,7 +136,6 @@ type GetDevicesUnauthorized struct {
 func (o *GetDevicesUnauthorized) Error() string {
 	return fmt.Sprintf("[GET /devices][%d] getDevicesUnauthorized  %+v", 401, o.Payload)
 }
-
 func (o *GetDevicesUnauthorized) GetPayload() *models.Error {
 	return o.Payload
 }
@@ -161,7 +157,7 @@ func NewGetDevicesForbidden() *GetDevicesForbidden {
 	return &GetDevicesForbidden{}
 }
 
-/*GetDevicesForbidden handles this case with default header values.
+/* GetDevicesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -172,7 +168,6 @@ type GetDevicesForbidden struct {
 func (o *GetDevicesForbidden) Error() string {
 	return fmt.Sprintf("[GET /devices][%d] getDevicesForbidden  %+v", 403, o.Payload)
 }
-
 func (o *GetDevicesForbidden) GetPayload() *models.Error {
 	return o.Payload
 }
@@ -194,7 +189,7 @@ func NewGetDevicesInternalServerError() *GetDevicesInternalServerError {
 	return &GetDevicesInternalServerError{}
 }
 
-/*GetDevicesInternalServerError handles this case with default header values.
+/* GetDevicesInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
@@ -205,7 +200,6 @@ type GetDevicesInternalServerError struct {
 func (o *GetDevicesInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /devices][%d] getDevicesInternalServerError  %+v", 500, o.Payload)
 }
-
 func (o *GetDevicesInternalServerError) GetPayload() *models.Error {
 	return o.Payload
 }

@@ -21,7 +21,7 @@ type InterfaceIdentification struct {
 
 	// Nullable string.
 	// Example: Uplink
-	Description string `json:"description,omitempty"`
+	Description *string `json:"description,omitempty"`
 
 	// Computed display name from name and description
 	// Example: eth0
@@ -64,7 +64,7 @@ func (m *InterfaceIdentification) validateMac(formats strfmt.Registry) error {
 		return nil
 	}
 
-	if err := validate.Pattern("mac", "body", string(m.Mac), `^([0-9a-fA-F][0-9a-fA-F]:){5}([0-9a-fA-F][0-9a-fA-F])$|^([0-9a-fA-F]){12}$`); err != nil {
+	if err := validate.Pattern("mac", "body", m.Mac, `^([0-9a-fA-F][0-9a-fA-F]:){5}([0-9a-fA-F][0-9a-fA-F])$|^([0-9a-fA-F]){12}$`); err != nil {
 		return err
 	}
 

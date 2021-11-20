@@ -21,11 +21,11 @@ type Semver struct {
 
 	// current
 	// Required: true
-	Current *Current `json:"current"`
+	Current *SemverVersion `json:"current"`
 
 	// latest
 	// Required: true
-	Latest *Latest `json:"latest"`
+	Latest *SemverVersion `json:"latest"`
 }
 
 // Validate validates this semver
@@ -56,6 +56,8 @@ func (m *Semver) validateCurrent(formats strfmt.Registry) error {
 		if err := m.Current.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("current")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("current")
 			}
 			return err
 		}
@@ -74,6 +76,8 @@ func (m *Semver) validateLatest(formats strfmt.Registry) error {
 		if err := m.Latest.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("latest")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("latest")
 			}
 			return err
 		}
@@ -106,6 +110,8 @@ func (m *Semver) contextValidateCurrent(ctx context.Context, formats strfmt.Regi
 		if err := m.Current.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("current")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("current")
 			}
 			return err
 		}
@@ -120,6 +126,8 @@ func (m *Semver) contextValidateLatest(ctx context.Context, formats strfmt.Regis
 		if err := m.Latest.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("latest")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("latest")
 			}
 			return err
 		}
