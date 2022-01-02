@@ -179,20 +179,24 @@ func (e *Exporter) collectImpl(out chan<- prom.Metric) error {
 			)
 
 			out <- prom.MustNewConstMetric(e.metrics["interface_enabled"], prom.GaugeValue, boolToGauge(intf.Enabled), intfLabels...)
-			out <- prom.MustNewConstMetric(e.metrics["interface_plugged"], prom.GaugeValue, boolToGauge(intf.Status.Plugged), intfLabels...)
-			out <- prom.MustNewConstMetric(e.metrics["interface_up"], prom.GaugeValue, boolToGauge(intf.Status.Status == "active"), intfLabels...)
+			if intf.Status != nil {
+				out <- prom.MustNewConstMetric(e.metrics["interface_plugged"], prom.GaugeValue, boolToGauge(intf.Status.Plugged), intfLabels...)
+				out <- prom.MustNewConstMetric(e.metrics["interface_up"], prom.GaugeValue, boolToGauge(intf.Status.Status == "active"), intfLabels...)
+			}
 
-			out <- prom.MustNewConstMetric(e.metrics["interface_dropped"], prom.CounterValue, intf.Statistics.Dropped, intfLabels...)
-			out <- prom.MustNewConstMetric(e.metrics["interface_errors"], prom.CounterValue, intf.Statistics.Errors, intfLabels...)
-			out <- prom.MustNewConstMetric(e.metrics["interface_rx_bytes"], prom.CounterValue, intf.Statistics.Rxbytes, intfLabels...)
-			out <- prom.MustNewConstMetric(e.metrics["interface_tx_bytes"], prom.CounterValue, intf.Statistics.Txbytes, intfLabels...)
-			out <- prom.MustNewConstMetric(e.metrics["interface_rx_rate"], prom.GaugeValue, intf.Statistics.Rxrate, intfLabels...)
-			out <- prom.MustNewConstMetric(e.metrics["interface_tx_rate"], prom.GaugeValue, intf.Statistics.Txrate, intfLabels...)
-			out <- prom.MustNewConstMetric(e.metrics["interface_poe_power"], prom.GaugeValue, intf.Statistics.PoePower, intfLabels...)
+			if intf.Statistics != nil {
+				out <- prom.MustNewConstMetric(e.metrics["interface_dropped"], prom.CounterValue, intf.Statistics.Dropped, intfLabels...)
+				out <- prom.MustNewConstMetric(e.metrics["interface_errors"], prom.CounterValue, intf.Statistics.Errors, intfLabels...)
+				out <- prom.MustNewConstMetric(e.metrics["interface_rx_bytes"], prom.CounterValue, intf.Statistics.Rxbytes, intfLabels...)
+				out <- prom.MustNewConstMetric(e.metrics["interface_tx_bytes"], prom.CounterValue, intf.Statistics.Txbytes, intfLabels...)
+				out <- prom.MustNewConstMetric(e.metrics["interface_rx_rate"], prom.GaugeValue, intf.Statistics.Rxrate, intfLabels...)
+				out <- prom.MustNewConstMetric(e.metrics["interface_tx_rate"], prom.GaugeValue, intf.Statistics.Txrate, intfLabels...)
+				out <- prom.MustNewConstMetric(e.metrics["interface_poe_power"], prom.GaugeValue, intf.Statistics.PoePower, intfLabels...)
+			}
 		}
 
 		// WAN metrics
-		if wanIF != nil {
+		if wanIF != nil && wanIF.Statistics != nil {
 			out <- prom.MustNewConstMetric(e.metrics["wan_rx_bytes"], prom.CounterValue, wanIF.Statistics.Rxbytes, deviceLabels...)
 			out <- prom.MustNewConstMetric(e.metrics["wan_tx_bytes"], prom.CounterValue, wanIF.Statistics.Txbytes, deviceLabels...)
 			out <- prom.MustNewConstMetric(e.metrics["wan_rx_rate"], prom.GaugeValue, wanIF.Statistics.Rxrate, deviceLabels...)
