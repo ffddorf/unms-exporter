@@ -121,6 +121,13 @@ func (e *Exporter) Collect(out chan<- prom.Metric) {
 	}
 }
 
+func derefOrFalse(in *bool) bool {
+	if in == nil {
+		return false
+	}
+	return *in
+}
+
 func boolToGauge(in bool) float64 {
 	if in {
 		return 1
@@ -155,9 +162,9 @@ func (e *Exporter) collectImpl(out chan<- prom.Metric) error {
 			device.Identification.Site.Name, // siteName
 		}
 
-		out <- prom.MustNewConstMetric(e.metrics["device_enabled"], prom.GaugeValue, boolToGauge(*device.Enabled), deviceLabels...)
+		out <- prom.MustNewConstMetric(e.metrics["device_enabled"], prom.GaugeValue, boolToGauge(derefOrFalse(device.Enabled)), deviceLabels...)
 		if device.Meta != nil {
-			out <- prom.MustNewConstMetric(e.metrics["device_maintenance"], prom.GaugeValue, boolToGauge(*device.Meta.Maintenance), deviceLabels...)
+			out <- prom.MustNewConstMetric(e.metrics["device_maintenance"], prom.GaugeValue, boolToGauge(derefOrFalse(device.Meta.Maintenance)), deviceLabels...)
 		}
 		if device.Overview != nil {
 			out <- prom.MustNewConstMetric(e.metrics["device_cpu"], prom.GaugeValue, device.Overview.CPU, deviceLabels...)
