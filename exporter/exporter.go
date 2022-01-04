@@ -157,6 +157,9 @@ func (e *Exporter) collectImpl(out chan<- prom.Metric) error {
 	}
 
 	for _, device := range devices.Payload {
+		if device.Identification == nil {
+			continue
+		}
 		deviceLabels := []string{
 			*device.Identification.ID,       // deviceId
 			device.Identification.Name,      // deviceName
@@ -182,6 +185,10 @@ func (e *Exporter) collectImpl(out chan<- prom.Metric) error {
 
 		var wanIF *models.DeviceInterfaceSchema
 		for _, intf := range device.Interfaces {
+			if intf.Identification == nil {
+				continue
+			}
+
 			if intf.Identification.Name == device.Identification.WanInterfaceID {
 				wanIF = intf
 			}
