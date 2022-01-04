@@ -135,6 +135,10 @@ func boolToGauge(in bool) float64 {
 	return 0
 }
 
+func timeToGauge(ts strfmt.DateTime) float64 {
+	return float64(time.Time(ts).Unix())
+}
+
 var (
 	defaultWithInterfaces = true
 )
@@ -170,10 +174,10 @@ func (e *Exporter) collectImpl(out chan<- prom.Metric) error {
 			out <- prom.MustNewConstMetric(e.metrics["device_cpu"], prom.GaugeValue, device.Overview.CPU, deviceLabels...)
 			out <- prom.MustNewConstMetric(e.metrics["device_ram"], prom.GaugeValue, device.Overview.RAM, deviceLabels...)
 			out <- prom.MustNewConstMetric(e.metrics["device_uptime"], prom.GaugeValue, device.Overview.Uptime, deviceLabels...)
-			out <- prom.MustNewConstMetric(e.metrics["device_last_seen"], prom.CounterValue, float64(time.Time(device.Overview.LastSeen).Unix()), deviceLabels...)
+			out <- prom.MustNewConstMetric(e.metrics["device_last_seen"], prom.CounterValue, timeToGauge(device.Overview.LastSeen), deviceLabels...)
 		}
-		if device.LatestBackup != nil {
-			out <- prom.MustNewConstMetric(e.metrics["device_last_backup"], prom.GaugeValue, float64(time.Time(*device.LatestBackup.Timestamp).Unix()), deviceLabels...)
+		if device.LatestBackup != nil && device.LatestBackup.Timestamp != nil {
+			out <- prom.MustNewConstMetric(e.metrics["device_last_backup"], prom.GaugeValue, timeToGauge(*device.LatestBackup.Timestamp), deviceLabels...)
 		}
 
 		var wanIF *models.DeviceInterfaceSchema
