@@ -121,11 +121,22 @@ func (e *Exporter) Collect(out chan<- prom.Metric) {
 	}
 }
 
+func derefOrFalse(in *bool) bool {
+	if in == nil {
+		return false
+	}
+	return *in
+}
+
 func boolToGauge(in bool) float64 {
 	if in {
 		return 1
 	}
 	return 0
+}
+
+func timeToGauge(ts strfmt.DateTime) float64 {
+	return float64(time.Time(ts).Unix())
 }
 
 var (
@@ -146,6 +157,9 @@ func (e *Exporter) collectImpl(out chan<- prom.Metric) error {
 	}
 
 	for _, device := range devices.Payload {
+		if device.Identification == nil {
+			continue
+		}
 		deviceLabels := []string{
 			*device.Identification.ID,       // deviceId
 			device.Identification.Name,      // deviceName
@@ -155,16 +169,26 @@ func (e *Exporter) collectImpl(out chan<- prom.Metric) error {
 			device.Identification.Site.Name, // siteName
 		}
 
-		out <- prom.MustNewConstMetric(e.metrics["device_cpu"], prom.GaugeValue, device.Overview.CPU, deviceLabels...)
-		out <- prom.MustNewConstMetric(e.metrics["device_ram"], prom.GaugeValue, device.Overview.RAM, deviceLabels...)
-		out <- prom.MustNewConstMetric(e.metrics["device_enabled"], prom.GaugeValue, boolToGauge(*device.Enabled), deviceLabels...)
-		out <- prom.MustNewConstMetric(e.metrics["device_maintenance"], prom.GaugeValue, boolToGauge(*device.Meta.Maintenance), deviceLabels...)
-		out <- prom.MustNewConstMetric(e.metrics["device_uptime"], prom.GaugeValue, device.Overview.Uptime, deviceLabels...)
-		out <- prom.MustNewConstMetric(e.metrics["device_last_seen"], prom.CounterValue, float64(time.Time(device.Overview.LastSeen).Unix()), deviceLabels...)
-		out <- prom.MustNewConstMetric(e.metrics["device_last_backup"], prom.GaugeValue, float64(time.Time(*device.LatestBackup.Timestamp).Unix()), deviceLabels...)
+		out <- prom.MustNewConstMetric(e.metrics["device_enabled"], prom.GaugeValue, boolToGauge(derefOrFalse(device.Enabled)), deviceLabels...)
+		if device.Meta != nil {
+			out <- prom.MustNewConstMetric(e.metrics["device_maintenance"], prom.GaugeValue, boolToGauge(derefOrFalse(device.Meta.Maintenance)), deviceLabels...)
+		}
+		if device.Overview != nil {
+			out <- prom.MustNewConstMetric(e.metrics["device_cpu"], prom.GaugeValue, device.Overview.CPU, deviceLabels...)
+			out <- prom.MustNewConstMetric(e.metrics["device_ram"], prom.GaugeValue, device.Overview.RAM, deviceLabels...)
+			out <- prom.MustNewConstMetric(e.metrics["device_uptime"], prom.GaugeValue, device.Overview.Uptime, deviceLabels...)
+			out <- prom.MustNewConstMetric(e.metrics["device_last_seen"], prom.CounterValue, timeToGauge(device.Overview.LastSeen), deviceLabels...)
+		}
+		if device.LatestBackup != nil && device.LatestBackup.Timestamp != nil {
+			out <- prom.MustNewConstMetric(e.metrics["device_last_backup"], prom.GaugeValue, timeToGauge(*device.LatestBackup.Timestamp), deviceLabels...)
+		}
 
 		var wanIF *models.DeviceInterfaceSchema
 		for _, intf := range device.Interfaces {
+			if intf.Identification == nil {
+				continue
+			}
+
 			if intf.Identification.Name == device.Identification.WanInterfaceID {
 				wanIF = intf
 			}
@@ -179,20 +203,24 @@ func (e *Exporter) collectImpl(out chan<- prom.Metric) error {
 			)
 
 			out <- prom.MustNewConstMetric(e.metrics["interface_enabled"], prom.GaugeValue, boolToGauge(intf.Enabled), intfLabels...)
-			out <- prom.MustNewConstMetric(e.metrics["interface_plugged"], prom.GaugeValue, boolToGauge(intf.Status.Plugged), intfLabels...)
-			out <- prom.MustNewConstMetric(e.metrics["interface_up"], prom.GaugeValue, boolToGauge(intf.Status.Status == "active"), intfLabels...)
+			if intf.Status != nil {
+				out <- prom.MustNewConstMetric(e.metrics["interface_plugged"], prom.GaugeValue, boolToGauge(intf.Status.Plugged), intfLabels...)
+				out <- prom.MustNewConstMetric(e.metrics["interface_up"], prom.GaugeValue, boolToGauge(intf.Status.Status == "active"), intfLabels...)
+			}
 
-			out <- prom.MustNewConstMetric(e.metrics["interface_dropped"], prom.CounterValue, intf.Statistics.Dropped, intfLabels...)
-			out <- prom.MustNewConstMetric(e.metrics["interface_errors"], prom.CounterValue, intf.Statistics.Errors, intfLabels...)
-			out <- prom.MustNewConstMetric(e.metrics["interface_rx_bytes"], prom.CounterValue, intf.Statistics.Rxbytes, intfLabels...)
-			out <- prom.MustNewConstMetric(e.metrics["interface_tx_bytes"], prom.CounterValue, intf.Statistics.Txbytes, intfLabels...)
-			out <- prom.MustNewConstMetric(e.metrics["interface_rx_rate"], prom.GaugeValue, intf.Statistics.Rxrate, intfLabels...)
-			out <- prom.MustNewConstMetric(e.metrics["interface_tx_rate"], prom.GaugeValue, intf.Statistics.Txrate, intfLabels...)
-			out <- prom.MustNewConstMetric(e.metrics["interface_poe_power"], prom.GaugeValue, intf.Statistics.PoePower, intfLabels...)
+			if intf.Statistics != nil {
+				out <- prom.MustNewConstMetric(e.metrics["interface_dropped"], prom.CounterValue, intf.Statistics.Dropped, intfLabels...)
+				out <- prom.MustNewConstMetric(e.metrics["interface_errors"], prom.CounterValue, intf.Statistics.Errors, intfLabels...)
+				out <- prom.MustNewConstMetric(e.metrics["interface_rx_bytes"], prom.CounterValue, intf.Statistics.Rxbytes, intfLabels...)
+				out <- prom.MustNewConstMetric(e.metrics["interface_tx_bytes"], prom.CounterValue, intf.Statistics.Txbytes, intfLabels...)
+				out <- prom.MustNewConstMetric(e.metrics["interface_rx_rate"], prom.GaugeValue, intf.Statistics.Rxrate, intfLabels...)
+				out <- prom.MustNewConstMetric(e.metrics["interface_tx_rate"], prom.GaugeValue, intf.Statistics.Txrate, intfLabels...)
+				out <- prom.MustNewConstMetric(e.metrics["interface_poe_power"], prom.GaugeValue, intf.Statistics.PoePower, intfLabels...)
+			}
 		}
 
 		// WAN metrics
-		if wanIF != nil {
+		if wanIF != nil && wanIF.Statistics != nil {
 			out <- prom.MustNewConstMetric(e.metrics["wan_rx_bytes"], prom.CounterValue, wanIF.Statistics.Rxbytes, deviceLabels...)
 			out <- prom.MustNewConstMetric(e.metrics["wan_tx_bytes"], prom.CounterValue, wanIF.Statistics.Txbytes, deviceLabels...)
 			out <- prom.MustNewConstMetric(e.metrics["wan_rx_rate"], prom.GaugeValue, wanIF.Statistics.Rxrate, deviceLabels...)
