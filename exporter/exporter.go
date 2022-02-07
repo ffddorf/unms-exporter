@@ -160,13 +160,25 @@ func (e *Exporter) collectImpl(out chan<- prom.Metric) error {
 		if device.Identification == nil {
 			continue
 		}
+
+		siteID := "no-site-id"
+		siteName := "no-site"
+		if s := device.Identification.Site; s != nil {
+			if s.ID != nil {
+				siteID = *s.ID
+			}
+			if s.Name != "" {
+				siteName = s.Name
+			}
+		}
+
 		deviceLabels := []string{
-			*device.Identification.ID,       // deviceId
-			device.Identification.Name,      // deviceName
-			device.Identification.Mac,       // mac
-			device.Identification.Role,      // role
-			*device.Identification.Site.ID,  // siteId
-			device.Identification.Site.Name, // siteName
+			*device.Identification.ID,  // deviceId
+			device.Identification.Name, // deviceName
+			device.Identification.Mac,  // mac
+			device.Identification.Role, // role
+			siteID,
+			siteName,
 		}
 
 		out <- prom.MustNewConstMetric(e.metrics["device_enabled"], prom.GaugeValue, boolToGauge(derefOrFalse(device.Enabled)), deviceLabels...)
