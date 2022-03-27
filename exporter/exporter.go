@@ -195,11 +195,20 @@ func (e *Exporter) collectImpl(out chan<- prom.Metric) error {
 			out <- prom.MustNewConstMetric(e.metrics["device_last_backup"], prom.GaugeValue, timeToGauge(*device.LatestBackup.Timestamp), deviceLabels...)
 		}
 
+		seenInterfaces := make(map[string]struct{})
+
 		var wanIF *models.DeviceInterfaceSchema
 		for _, intf := range device.Interfaces {
 			if intf.Identification == nil {
 				continue
 			}
+
+			// sometimes UNMS duplicates an interface in the list.
+			// skip it so we don't send duplicate metrics.
+			if _, ok := seenInterfaces[intf.Identification.Name]; ok {
+				continue
+			}
+			seenInterfaces[intf.Identification.Name] = struct{}{}
 
 			if intf.Identification.Name == device.Identification.WanInterfaceID {
 				wanIF = intf
