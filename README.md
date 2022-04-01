@@ -114,3 +114,11 @@ If an interface is marked as the WAN interface, these metrics are populated.
 - `wan_tx_bytes`: Bytes transmitted since last reset
 - `wan_rx_rate`: Bytes received rate (momentarily)
 - `wan_tx_rate`: Bytes transmitted rate (momentarily)
+
+### Ping Metrics
+
+- `ping_loss_ratio`: Packet loss ratio (range 0-1, with 0.33 meaning 33% packet loss)
+- `ping_rtt_best_seconds`: Best round trip time, in seconds
+- `ping_rtt_mean_seconds`: Mean round trip time, in seconds
+- `ping_rtt_worst_seconds`: Worst round trip time, in seconds
+- `ping_rtt_std_deviation_seconds`: Standard deviation for round trip time, in seconds
