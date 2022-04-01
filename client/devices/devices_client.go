@@ -32,6 +32,8 @@ type ClientOption func(*runtime.ClientOperation)
 type ClientService interface {
 	GetDevices(params *GetDevicesParams, opts ...ClientOption) (*GetDevicesOK, error)
 
+	GetDevicesIDStatistics(params *GetDevicesIDStatisticsParams, opts ...ClientOption) (*GetDevicesIDStatisticsOK, error)
+
 	SetTransport(transport runtime.ClientTransport)
 }
 
@@ -70,6 +72,44 @@ func (a *Client) GetDevices(params *GetDevicesParams, opts ...ClientOption) (*Ge
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
 	msg := fmt.Sprintf("unexpected success response for getDevices: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+  GetDevicesIDStatistics returns device statistics
+*/
+func (a *Client) GetDevicesIDStatistics(params *GetDevicesIDStatisticsParams, opts ...ClientOption) (*GetDevicesIDStatisticsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetDevicesIDStatisticsParams()
+	}
+	op := &runtime.ClientOperation{
+		ID:                 "getDevicesIdStatistics",
+		Method:             "GET",
+		PathPattern:        "/devices/{id}/statistics",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"http"},
+		Params:             params,
+		Reader:             &GetDevicesIDStatisticsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	}
+	for _, opt := range opts {
+		opt(op)
+	}
+
+	result, err := a.transport.Submit(op)
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetDevicesIDStatisticsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for getDevicesIdStatistics: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
