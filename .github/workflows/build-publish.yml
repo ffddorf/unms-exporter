@@ -12,9 +12,10 @@ jobs:
     # run on same-repo pushes or forks
     # this avoids running the action twice for
     # pull requests from same-repo branches
-    if: ${{ github.event_name == 'push' || github.repository != github.event.repository.full_name }}
+    #if: ${{ github.event_name == 'push' || github.repository != github.event.repository.full_name }}
 
     steps:
+      - uses: hmarr/debug-action@v2
       - name: Compute Labels
         id: meta
         uses: docker/metadata-action@v3
