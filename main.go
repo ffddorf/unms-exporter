@@ -17,7 +17,7 @@ import (
 )
 
 type config struct {
-	ServerAddr string       `mapstructure:"listen" split_words:"true"`
+	ServerAddr stringythingy       `mapstructure:"listen" split_words:"true"`
 	LogLevel   logrus.Level `mapstructure:"log_level" split_words:"true"`
 
 	TokenPerHost map[string]string `mapstructure:"token" envconfig:"-"`
