@@ -146,10 +146,6 @@ func (e *Exporter) collectImpl(out chan<- prom.Metric) error {
 	}
 
 	for _, device := range devices {
-		if device.Identification == nil {
-			continue
-		}
-
 		siteID := "no-site-id"
 		siteName := "no-site"
 		if s := device.Identification.Site; s != nil {
