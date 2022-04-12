@@ -40,6 +40,8 @@ Log verbosity level. Defaults to `info`. Use `debug` to get more details.
 ### UNMS API Tokens
 
 - Config: `token`
+- Env: `UNMS_EXPORTER_TOKEN`
+  - use a comma-separated list of `instance=token` values
 
 Configures an API token per UNMS instance.
 
@@ -47,7 +49,13 @@ Example:
 
 ```yaml
 token:
-  "my-unms-instance.example.org": "my token"
+  my-unms-instance.example.org: "my token"
+  unms.example.com: "token123"
+```
+
+```console
+$ UNMS_EXPORTER_TOKEN="my-unms-instance.example.org=my token,unms.example.com=token123" \
+    unms-exporter
 ```
 
 ## Prometheus Scrape Setup
@@ -76,6 +84,7 @@ scrape_configs:
 ## Available Metrics
 
 ### Device wide
+
 - `device_cpu`: CPU load average in percent
 - `device_ram`: RAM usage in percent
 - `device_enabled`: Indicating if device is enabled in UNMS
