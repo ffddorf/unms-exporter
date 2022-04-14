@@ -58,6 +58,66 @@ $ UNMS_EXPORTER_TOKEN="my-unms-instance.example.org=my token,unms.example.com=to
     unms-exporter
 ```
 
+### Extra metrics
+
+- Config: `extras` (as Array)
+- Args: `--extras` (as comma-separated list)
+- Env: `UNMS_EXPORTER_EXTRAS` (as comma-separated list)
+
+Enable additional metrics to be exported. These metrics may require extra
+HTTP requests, usually one per device, so they are disabled by default.
+
+<details><summary>Example: config file (click to open)</summary>
+
+```yaml
+# config.yaml
+extras:
+- ping
+```
+
+```console
+$ unms-exporter --config config.yaml
+```
+
+</details>
+<details><summary>Example: environment variable (click to open)</summary>
+
+```console
+$ UNMS_EXPORTER_EXTRAS="ping" \
+    unms-exporter
+```
+
+</details>
+<details><summary>Example: command line argument (click to open)</summary>
+
+```console
+$ unms-exporter --extras="ping"
+```
+
+</details>
+
+#### Available metrics
+
+- `ping`: Fetch statistical data from UNMS and extract and export
+  Ping RTT measurements between UNMS and the device.
+
+  <details><summary>Exported metrics (click to open)</summary>
+
+  - `ping_loss_ratio`: Packet loss ratio (range 0-1, with 0.33 meaning 33% packet loss)
+  - `ping_rtt_best_seconds`: Best round trip time, in seconds
+  - `ping_rtt_mean_seconds`: Mean round trip time, in seconds
+  - `ping_rtt_worst_seconds`: Worst round trip time, in seconds
+  - `ping_rtt_std_deviation_seconds`: Standard deviation for round trip time, in seconds
+
+  </details>
+
+Further data is available, but not currently exported (see the API
+documentation for the `/devices/{id}/statistics` endpoint on your UNMS
+installation to get an overview). Feel free to [open a new issue][] to
+inquire whether an integration into the exporter is feasable.
+
+[open a new issue]: https://github.com/ffddorf/unms-exporter/issues/new
+
 ## Prometheus Scrape Setup
 
 The exporter follows the convention for exporters. The UNMS instance to target should be specified using the `target` query parameter.
@@ -114,11 +174,3 @@ If an interface is marked as the WAN interface, these metrics are populated.
 - `wan_tx_bytes`: Bytes transmitted since last reset
 - `wan_rx_rate`: Bytes received rate (momentarily)
 - `wan_tx_rate`: Bytes transmitted rate (momentarily)
-
-### Ping Metrics
-
-- `ping_loss_ratio`: Packet loss ratio (range 0-1, with 0.33 meaning 33% packet loss)
-- `ping_rtt_best_seconds`: Best round trip time, in seconds
-- `ping_rtt_mean_seconds`: Mean round trip time, in seconds
-- `ping_rtt_worst_seconds`: Worst round trip time, in seconds
-- `ping_rtt_std_deviation_seconds`: Standard deviation for round trip time, in seconds
