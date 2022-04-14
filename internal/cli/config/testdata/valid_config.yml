@@ -1,0 +1,4 @@
+log_level: 3
+listen: ::1
+token:
+  a.example.com: abc

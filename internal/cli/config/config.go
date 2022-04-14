@@ -41,7 +41,10 @@ func New(args []string) (*Config, error) {
 	}
 
 	v := viper.NewWithOptions(viper.KeyDelimiter("::"))
-	v.BindPFlags(flags)
+	if err := v.BindPFlags(flags); err != nil {
+		// this should not happen
+		return nil, fmt.Errorf("invalid config setup: %w", err)
+	}
 
 	if path := v.GetString("config"); path != "" {
 		v.SetConfigFile(path)
@@ -64,7 +67,7 @@ func (c *Config) validate() error {
 		return errors.New("No token configured")
 	}
 	if c.ServerAddr == "" {
-		return errors.New("Server addr cannot be nil")
+		return errors.New("Server addr can't be blank")
 	}
 	return nil
 }
