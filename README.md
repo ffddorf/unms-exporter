@@ -45,18 +45,28 @@ Log verbosity level. Defaults to `info`. Use `debug` to get more details.
 
 Configures an API token per UNMS instance.
 
-Example:
+<details><summary>Example: config file (click to open)</summary>
 
 ```yaml
+# config.yaml
 token:
   my-unms-instance.example.org: "my token"
   unms.example.com: "token123"
 ```
 
 ```console
+$ unms-exporter --config config.yaml
+```
+
+</details>
+<details><summary>Example: environment variable (click to open)</summary>
+
+```console
 $ UNMS_EXPORTER_TOKEN="my-unms-instance.example.org=my token,unms.example.com=token123" \
     unms-exporter
 ```
+
+</details>
 
 ### Extra metrics
 
