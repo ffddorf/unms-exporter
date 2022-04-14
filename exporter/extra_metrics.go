@@ -1,8 +1,6 @@
 package exporter
 
-import (
-	"fmt"
-)
+import "fmt"
 
 // ExtraMetrics is used to instruct Exporter to fetch additional metrics,
 // not captured by the UNMS API /devices endpoint.
@@ -24,9 +22,6 @@ var pingMetrics = map[string]metricSpec{
 	"ping_rtt_mean_seconds":          newSpec("Mean ping round trip time in seconds", nil),
 	"ping_rtt_worst_seconds":         newSpec("Worst ping round trip time in seconds", nil),
 	"ping_rtt_std_deviation_seconds": newSpec("Standard deviation for ping round trip time in seconds", nil),
-}
-
-func (x *ExtraMetrics) configure() {
 }
 
 func (e *Exporter) SetExtras(extras []string) error {
