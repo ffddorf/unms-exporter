@@ -35,17 +35,19 @@ func (e *Exporter) fetchDeviceData() ([]Device, error) {
 		}
 		dev := Device{nil, overview}
 
-		if id := derefOrEmpty(overview.Identification.ID); id != "" {
-			params := &devices.GetDevicesIDStatisticsParams{
-				ID:       id,
-				Interval: "hour", // smallest interval possible
-				Context:  ctx,
+		if e.extras.Ping {
+			if id := derefOrEmpty(overview.Identification.ID); id != "" {
+				params := &devices.GetDevicesIDStatisticsParams{
+					ID:       id,
+					Interval: "hour", // smallest interval possible
+					Context:  ctx,
+				}
+				statisticsResponse, err := e.api.Devices.GetDevicesIDStatistics(params)
+				if err != nil {
+					return nil, err
+				}
+				dev.Statistics = statisticsResponse.Payload
 			}
-			statisticsResponse, err := e.api.Devices.GetDevicesIDStatistics(params)
-			if err != nil {
-				return nil, err
-			}
-			dev.Statistics = statisticsResponse.Payload
 		}
 		data = append(data, dev)
 	}

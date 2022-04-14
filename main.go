@@ -20,6 +20,7 @@ type config struct {
 	ServerAddr   string       `mapstructure:"listen" split_words:"true"`
 	LogLevel     logrus.Level `mapstructure:"log_level" split_words:"true"`
 	TokenPerHost tokenMap     `mapstructure:"token" envconfig:"token"`
+	ExtraMetrics []string     `mapstructure:"extras" envconfig:"extras"`
 }
 
 type tokenMap map[string]string
@@ -71,6 +72,7 @@ func main() {
 	flags := pflag.NewFlagSet("unms_exporter", pflag.ContinueOnError)
 	flags.StringP("listen", "l", conf.ServerAddr, "Address for the exporter to listen on")
 	flags.StringP("config", "c", "", "Config file to use")
+	flags.StringSlice("extras", nil, "Enable additional metrics")
 	if err := flags.Parse(os.Args[1:]); err != nil {
 		log.WithError(err).Fatal("failed to parse flags")
 	}
@@ -112,6 +114,9 @@ func main() {
 			"host":      host,
 		})
 		export := exporter.New(logger, host, token)
+		if err := export.SetExtras(conf.ExtraMetrics); err != nil {
+			log.WithError(err).Fatal("failed to configure extra metrics")
+		}
 		if err := registry.Register(export); err != nil {
 			log.WithFields(logrus.Fields{
 				logrus.ErrorKey: err,

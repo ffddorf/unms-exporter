@@ -66,17 +66,12 @@ var metricSpecs = map[string]metricSpec{
 	"wan_tx_bytes": newSpec("Bytes sent on WAN interface", nil),
 	"wan_rx_rate":  newSpec("Receive rate on WAN interface", nil),
 	"wan_tx_rate":  newSpec("Transmit rate on WAN interface", nil),
-
-	"ping_loss_ratio":                newSpec("Ping packet loss ratio", nil),
-	"ping_rtt_best_seconds":          newSpec("Best ping round trip time in seconds", nil),
-	"ping_rtt_mean_seconds":          newSpec("Mean ping round trip time in seconds", nil),
-	"ping_rtt_worst_seconds":         newSpec("Worst ping round trip time in seconds", nil),
-	"ping_rtt_std_deviation_seconds": newSpec("Standard deviation for ping round trip time in seconds", nil),
 }
 
 type Exporter struct {
 	api     *client.UNMSAPI
 	metrics map[string]*prom.Desc
+	extras  ExtraMetrics
 
 	// Internal metrics about the exporter
 	im  internalMetrics
@@ -102,7 +97,12 @@ func New(log logrus.FieldLogger, host string, token string) *Exporter {
 	}
 
 	im := newInternalMetrics()
-	return &Exporter{api, metrics, im, log}
+	return &Exporter{
+		api:     api,
+		metrics: metrics,
+		im:      im,
+		log:     log,
+	}
 }
 
 func (e *Exporter) Describe(out chan<- *prom.Desc) {
@@ -239,18 +239,20 @@ func (e *Exporter) collectImpl(out chan<- prom.Metric) error {
 			out <- e.newMetric("wan_tx_rate", prom.GaugeValue, wanIF.Statistics.Txrate, deviceLabels...)
 		}
 
-		// Ping metrics
-		ratio := 1.0
-		if ping := device.PingMetrics(); ping != nil {
-			if ping.PacketsSent > 0 {
-				ratio = float64(ping.PacketsLost) / float64(ping.PacketsSent)
+		// Ping metrics, if enabled
+		if e.extras.Ping {
+			ratio := 1.0
+			if ping := device.PingMetrics(); ping != nil {
+				if ping.PacketsSent > 0 {
+					ratio = float64(ping.PacketsLost) / float64(ping.PacketsSent)
+				}
+				out <- e.newMetric("ping_rtt_best_seconds", prom.GaugeValue, ping.Best.Seconds(), deviceLabels...)
+				out <- e.newMetric("ping_rtt_mean_seconds", prom.GaugeValue, ping.Mean.Seconds(), deviceLabels...)
+				out <- e.newMetric("ping_rtt_worst_seconds", prom.GaugeValue, ping.Worst.Seconds(), deviceLabels...)
+				out <- e.newMetric("ping_rtt_std_deviation_seconds", prom.GaugeValue, ping.StdDev.Seconds(), deviceLabels...)
 			}
-			out <- e.newMetric("ping_rtt_best_seconds", prom.GaugeValue, ping.Best.Seconds(), deviceLabels...)
-			out <- e.newMetric("ping_rtt_mean_seconds", prom.GaugeValue, ping.Mean.Seconds(), deviceLabels...)
-			out <- e.newMetric("ping_rtt_worst_seconds", prom.GaugeValue, ping.Worst.Seconds(), deviceLabels...)
-			out <- e.newMetric("ping_rtt_std_deviation_seconds", prom.GaugeValue, ping.StdDev.Seconds(), deviceLabels...)
+			out <- e.newMetric("ping_loss_ratio", prom.GaugeValue, ratio, deviceLabels...)
 		}
-		out <- e.newMetric("ping_loss_ratio", prom.GaugeValue, ratio, deviceLabels...)
 	}
 
 	return nil
