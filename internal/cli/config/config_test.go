@@ -53,12 +53,12 @@ func TestNew_multipleToken(t *testing.T) {
 func TestNew_flagsTakePriorityOverEnv(t *testing.T) {
 	NewEnvTest(map[string]string{
 		"UNMS_EXPORTER_TOKEN":  "a=b",
-		"UNMS_EXPORTER_LISTEN": "::1",
+		"UNMS_EXPORTER_LISTEN": "[::1]:1234",
 	}).Run(func() {
-		conf, err := New([]string{"--listen", "fe80::1"})
+		conf, err := New([]string{"--listen", "[fe80::1]:9806"})
 		require.NoError(t, err)
 		assert.EqualValues(t, &Config{
-			ServerAddr:   "fe80::1",
+			ServerAddr:   "[fe80::1]:9806",
 			LogLevel:     DefaultLogLevel,
 			TokenPerHost: tokenMap{"a": "b"},
 		}, conf)
@@ -70,7 +70,7 @@ func TestNew_withConfigFile(t *testing.T) {
 		conf, err := New([]string{"--config", "testdata/valid_config.yml"})
 		require.NoError(t, err)
 		assert.EqualValues(t, &Config{
-			ServerAddr:   "::1",
+			ServerAddr:   "[::1]:1234",
 			LogLevel:     logrus.WarnLevel,
 			TokenPerHost: tokenMap{"a.example.com": "abc"},
 		}, conf)
