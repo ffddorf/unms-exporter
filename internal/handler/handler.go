@@ -49,6 +49,8 @@ func (h *Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		h.getIndex(w, r)
 	case "/metrics":
 		h.getMetrics(w, r)
+	case "/favicon.ico":
+		h.getFavicon(w, r)
 	default:
 		http.NotFound(w, r)
 	}
@@ -57,11 +59,6 @@ func (h *Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 func (h *Handler) errorResponse(w http.ResponseWriter, code int) {
 	text := fmt.Sprintf("%d %s", code, http.StatusText(code))
 	http.Error(w, text, code)
-}
-
-func (h *Handler) getIndex(w http.ResponseWriter, r *http.Request) {
-	// TODO
-	http.NotFound(w, r)
 }
 
 func (h *Handler) getMetrics(w http.ResponseWriter, r *http.Request) {
