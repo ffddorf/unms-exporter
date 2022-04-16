@@ -90,6 +90,5 @@ func (h *Handler) getMetrics(w http.ResponseWriter, r *http.Request) {
 
 	promhttp.HandlerFor(reg, promhttp.HandlerOpts{
 		ErrorLog: log,
-		Registry: reg,
 	}).ServeHTTP(w, r)
 }

@@ -20,6 +20,10 @@ func (lw *logWrapper) WriteHeader(code int) {
 }
 
 func (lw *logWrapper) Write(b []byte) (int, error) {
+	if lw.status == 0 {
+		// promhttp does not call WriteHeader
+		lw.status = http.StatusOK
+	}
 	n, err := lw.ResponseWriter.Write(b)
 	lw.size += n
 	return n, err
