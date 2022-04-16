@@ -1,6 +1,7 @@
 package exporter
 
 import (
+	"context"
 	"fmt"
 	"strconv"
 	"time"
@@ -100,6 +101,10 @@ func New(log logrus.FieldLogger, host string, token string) *Exporter {
 }
 
 func (e *Exporter) Describe(out chan<- *prom.Desc) {
+	e.DescribeContext(context.Background(), out)
+}
+
+func (e *Exporter) DescribeContext(ctx context.Context, out chan<- *prom.Desc) {
 	for _, desc := range e.metrics {
 		out <- desc
 	}
@@ -107,9 +112,13 @@ func (e *Exporter) Describe(out chan<- *prom.Desc) {
 }
 
 func (e *Exporter) Collect(out chan<- prom.Metric) {
+	e.CollectContext(context.Background(), out)
+}
+
+func (e *Exporter) CollectContext(ctx context.Context, out chan<- prom.Metric) {
 	defer e.im.Collect(out)
 
-	if err := e.collectImpl(out); err != nil {
+	if err := e.collectImpl(ctx, out); err != nil {
 		e.log.WithError(err).Warn("Metric collection failed")
 		e.im.errors.Inc()
 	} else {
@@ -139,8 +148,8 @@ func (e *Exporter) newMetric(name string, typ prom.ValueType, val float64, label
 	return prom.MustNewConstMetric(e.metrics[name], typ, val, labels...)
 }
 
-func (e *Exporter) collectImpl(out chan<- prom.Metric) error {
-	devices, err := e.fetchDeviceData()
+func (e *Exporter) collectImpl(ctx context.Context, out chan<- prom.Metric) error {
+	devices, err := e.fetchDeviceData(ctx)
 	if err != nil {
 		return err
 	}
