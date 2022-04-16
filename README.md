@@ -66,20 +66,51 @@ Here is how to achieve this using a static prometheus config:
 
 ```yaml
 scrape_configs:
+- job_name: exporters
+  static_configs:
+    - exporter.example.org:9806 # UNMS exporter
+    - exporter.example.org:9100 # node exporter
+    - ...
+
 - job_name: unms_exporter
-  metrics_path: /
+  # for a static target "unms.example.org", rewrite it to
+  # "exporter.example.org:9806/metrics?target=unms.example.org",
+  # but keep "unms.example.org" as instance label
   relabel_configs:
     - source_labels: [__address__]
       target_label: instance
     - source_labels: [__address__]
       target_label: __param_target
-    - replacement: 'unms_exporter:9806'
+    - replacement: 'exporter.example.org:9806'
       target_label: __address__
-
   static_configs:
     - targets:
-        - my-unms-instance.example.org
+      - my-unms-instance.example.org
 ```
+
+<details><summary>Upgrade from v0.1.2 or earlier (click to open)</summary>
+
+Previous versions did expose the UNMS metrics under any path on the exporter,
+i.e. the following URLs were handled identically:
+
+- `http://localhost:9806/?target=my-unms-instance.example.org`
+- `http://localhost:9806/metrics?target=my-unms-instance.example.org`
+- `http://localhost:9806/this/is/all/ignored?target=my-unms-instance.example.org`
+
+Additionally, the UNMS exporter has returned a mixed set of internal and
+instance-specific metrics.
+
+This has changed and now follows best practices. All UNMS-specific metrics
+are now available *only* on the following URL:
+
+- `http://localhost:9806/metrics?target=my-unms-instance.example.org`
+
+Additionally, internal metrics (e.g. Go runtime statistics) can be retrieved
+by omitting the `target` parameter:
+
+- `http://localhost:9806/metrics`
+
+</details>
 
 ## Available Metrics
 
