@@ -23,6 +23,7 @@ func main() {
 		log.WithError(err).Fatal("failed to setup HTTP handler")
 	}
 
+	h = handler.Logging(log, h)
 
 	log.WithField("addr", conf.ServerAddr).Info("Server starting...")
 	if err := http.ListenAndServe(conf.ServerAddr, h); err != nil {
