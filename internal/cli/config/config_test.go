@@ -28,7 +28,7 @@ func TestNew_minimalEnv(t *testing.T) {
 			ServerAddr:   DefaultServerAddress,
 			LogLevel:     DefaultLogLevel,
 			TokenPerHost: tokenMap{"a": "b"},
-			ExtraMetrics: []string{},
+			ExtraMetrics: nil,
 		}, conf)
 	})
 }
@@ -47,7 +47,7 @@ func TestNew_multipleToken(t *testing.T) {
 				"c": "d",
 				"e": "=f",
 			},
-			ExtraMetrics: []string{},
+			ExtraMetrics: nil,
 		}, conf)
 	})
 }
@@ -63,7 +63,7 @@ func TestNew_flagsTakePriorityOverEnv(t *testing.T) {
 			ServerAddr:   "[fe80::1]:9806",
 			LogLevel:     DefaultLogLevel,
 			TokenPerHost: tokenMap{"a": "b"},
-			ExtraMetrics: []string{},
+			ExtraMetrics: nil,
 		}, conf)
 	})
 }
@@ -76,15 +76,15 @@ func TestNew_withConfigFile(t *testing.T) {
 			ServerAddr:   "[::1]:1234",
 			LogLevel:     logrus.WarnLevel,
 			TokenPerHost: tokenMap{"a.example.com": "abc"},
-			ExtraMetrics: []string{},
+			ExtraMetrics: nil,
 		}, conf)
 	})
 }
 
 func TestNew_extraMetricsFromEnv(t *testing.T) {
 	NewEnvTest(map[string]string{
-		"UNMS_EXPORTER_TOKEN":  "a=b",
-		"UNMS_EXPORTER_EXTRAS": "ping,ccq",
+		"UNMS_EXPORTER_TOKEN":         "a=b",
+		"UNMS_EXPORTER_EXTRA_METRICS": "ping,ccq",
 	}).Run(func() {
 		conf, err := New(nil)
 		require.NoError(t, err)
@@ -101,7 +101,7 @@ func TestNew_extraMetricsFromSingleFlag(t *testing.T) {
 	NewEnvTest(map[string]string{
 		"UNMS_EXPORTER_TOKEN": "a=b",
 	}).Run(func() {
-		conf, err := New([]string{"--extras", "ping,ccq"})
+		conf, err := New([]string{"--extra-metrics", "ping,ccq"})
 		require.NoError(t, err)
 		assert.EqualValues(t, &Config{
 			ServerAddr:   DefaultServerAddress,
@@ -116,7 +116,7 @@ func TestNew_extraMetricsFromMultipleFlags(t *testing.T) {
 	NewEnvTest(map[string]string{
 		"UNMS_EXPORTER_TOKEN": "a=b",
 	}).Run(func() {
-		conf, err := New([]string{"--extras", "link", "--extras", "wifi"})
+		conf, err := New([]string{"--extra-metrics", "link", "--extra-metrics", "wifi"})
 		require.NoError(t, err)
 		assert.EqualValues(t, &Config{
 			ServerAddr:   DefaultServerAddress,

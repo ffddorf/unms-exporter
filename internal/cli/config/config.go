@@ -22,7 +22,7 @@ type Config struct {
 	ServerAddr   string       `mapstructure:"listen" split_words:"true"`
 	LogLevel     logrus.Level `mapstructure:"log_level" split_words:"true"`
 	TokenPerHost tokenMap     `mapstructure:"token" envconfig:"token"`
-	ExtraMetrics []string     `mapstructure:"extras" envconfig:"extras"`
+	ExtraMetrics []string     `mapstructure:"extra_metrics" split_words:"true"`
 }
 
 func New(args []string) (*Config, error) {
@@ -37,7 +37,7 @@ func New(args []string) (*Config, error) {
 	flags := pflag.NewFlagSet("unms_exporter", pflag.ContinueOnError)
 	flags.StringP("listen", "l", conf.ServerAddr, "Address for the exporter to listen on")
 	flags.StringP("config", "c", "", "Config file to use")
-	flags.StringSlice("extras", nil, "Enable additional metrics")
+	flags.StringSliceVar(&conf.ExtraMetrics, "extra-metrics", conf.ExtraMetrics, "Enable additional metrics")
 	if err := flags.Parse(args); err != nil {
 		return nil, fmt.Errorf("failed to parse flags: %w", err)
 	}
