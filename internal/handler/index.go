@@ -11,7 +11,6 @@ import (
 
 //go:embed favicon.ico
 var faviconRaw []byte
-var faviconReader = bytes.NewBuffer(faviconRaw)
 
 //go:embed index.html.gotmpl
 var indexRaw string
@@ -38,7 +37,8 @@ func (h *Handler) getFavicon(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("X-Content-Type-Options", "nosniff")
 	w.WriteHeader(http.StatusOK)
 
-	if _, err := io.Copy(w, faviconReader); err != nil {
+	ico := bytes.NewBuffer(faviconRaw)
+	if _, err := io.Copy(w, ico); err != nil {
 		h.log.WithError(err).Error("failed to serve favicon")
 	}
 }
