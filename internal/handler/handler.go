@@ -17,7 +17,7 @@ type Handler struct {
 	log     logrus.FieldLogger
 }
 
-func New(logger logrus.FieldLogger, targets map[string]string) (http.Handler, error) {
+func New(logger logrus.FieldLogger, targets map[string]string) http.Handler {
 	reg := prometheus.NewPedanticRegistry()
 	reg.MustRegister(
 		prometheus.NewBuildInfoCollector(),
@@ -34,7 +34,7 @@ func New(logger logrus.FieldLogger, targets map[string]string) (http.Handler, er
 		base:    reg,
 		targets: exporters,
 		log:     logger.WithField("component", "exporter"),
-	}, nil
+	}
 }
 
 // ServeHTTP realizes a very rudimentary routing.

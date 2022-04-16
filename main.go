@@ -18,11 +18,7 @@ func main() {
 
 	log.SetLevel(conf.LogLevel)
 
-	h, err := handler.New(log, conf.TokenPerHost)
-	if err != nil {
-		log.WithError(err).Fatal("failed to setup HTTP handler")
-	}
-
+	h := handler.New(log, conf.TokenPerHost)
 	h = handler.Logging(log, h)
 
 	log.WithField("addr", conf.ServerAddr).Info("Server starting...")
