@@ -28,12 +28,17 @@ func (h *Handler) getIndex(w http.ResponseWriter, r *http.Request) {
 	}
 	sort.Strings(vars.Instances)
 
-	indexTpl.Execute(w, vars)
+	if err := indexTpl.Execute(w, vars); err != nil {
+		h.log.WithError(err).Error("failed to serve index template")
+	}
 }
 
 func (h *Handler) getFavicon(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "image/vnd.microsoft.icon")
 	w.Header().Set("X-Content-Type-Options", "nosniff")
 	w.WriteHeader(http.StatusOK)
-	io.Copy(w, faviconReader)
+
+	if _, err := io.Copy(w, faviconReader); err != nil {
+		h.log.WithError(err).Error("failed to serve favicon")
+	}
 }
