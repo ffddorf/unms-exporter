@@ -70,9 +70,9 @@ $ UNMS_EXPORTER_TOKEN="my-unms-instance.example.org=my token,unms.example.com=to
 
 ### Extra metrics
 
-- Config: `extras` (as Array)
-- Args: `--extras` (as comma-separated list)
-- Env: `UNMS_EXPORTER_EXTRAS` (as comma-separated list)
+- Config: `extra_metrics` (as Array)
+- Args: `--extra-metrics` (as comma-separated list)
+- Env: `UNMS_EXPORTER_EXTRA_METRICS` (as comma-separated list)
 
 Enable additional metrics to be exported. These metrics may require extra
 HTTP requests, usually one per device, so they are disabled by default.
@@ -93,7 +93,7 @@ $ unms-exporter --config config.yaml
 <details><summary>Example: environment variable (click to open)</summary>
 
 ```console
-$ UNMS_EXPORTER_EXTRAS="ping" \
+$ UNMS_EXPORTER_EXTRA_METRICS="ping" \
     unms-exporter
 ```
 
@@ -101,7 +101,7 @@ $ UNMS_EXPORTER_EXTRAS="ping" \
 <details><summary>Example: command line argument (click to open)</summary>
 
 ```console
-$ unms-exporter --extras="ping"
+$ unms-exporter --extra-metrics="ping"
 ```
 
 </details>

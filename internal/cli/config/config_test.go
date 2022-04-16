@@ -76,7 +76,7 @@ func TestNew_withConfigFile(t *testing.T) {
 			ServerAddr:   "[::1]:1234",
 			LogLevel:     logrus.WarnLevel,
 			TokenPerHost: tokenMap{"a.example.com": "abc"},
-			ExtraMetrics: nil,
+			ExtraMetrics: []string{"ping", "link", "wifi"},
 		}, conf)
 	})
 }
