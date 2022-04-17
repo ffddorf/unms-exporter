@@ -35,7 +35,7 @@ func (e *Exporter) fetchDeviceData(ctx context.Context) ([]Device, error) {
 		}
 		dev := Device{nil, overview}
 
-		if e.extras.Ping {
+		if e.extras.NeedStatistics() {
 			if id := derefOrEmpty(overview.Identification.ID); id != "" {
 				params := &devices.GetDevicesIDStatisticsParams{
 					ID:       id,
@@ -72,4 +72,34 @@ func (dev *Device) PingMetrics() *PingMetrics {
 	}
 
 	return m.Compute()
+}
+
+type LinkMetrics struct {
+	UplinkCapacity      float64
+	UplinkUtilization   float64
+	DownlinkCapacity    float64
+	DownlinkUtilization float64
+}
+
+// LinkMetricsWindow limits the data returned from the statistics
+// endpoint from which we compute the average. The smallest interval
+// allowed by UNMS is 1 hour, but we don't want to wait this long for
+// anomalies to become visible.
+const LinkMetricsWindow = 10 * time.Minute
+
+func (dev *Device) LinkMetrics() *LinkMetrics {
+	s := dev.Statistics
+	if s == nil {
+		return nil
+	}
+
+	max := s.Interval.End
+	min := float64(time.UnixMilli(int64(max)).Add(-LinkMetricsWindow).UnixMilli())
+
+	return &LinkMetrics{
+		UplinkCapacity:      weightedMean(min, max, s.UplinkCapacity),
+		UplinkUtilization:   weightedMean(min, max, s.UplinkUtilization),
+		DownlinkCapacity:    weightedMean(min, max, s.DownlinkCapacity),
+		DownlinkUtilization: weightedMean(min, max, s.DownlinkUtilization),
+	}
 }
