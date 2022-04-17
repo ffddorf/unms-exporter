@@ -20,7 +20,7 @@ type indexVars struct {
 	Instances []string
 }
 
-func (h *Handler) getIndex(w http.ResponseWriter, r *http.Request) {
+func (h *handler) getIndex(w http.ResponseWriter, r *http.Request) {
 	var vars indexVars
 	for name := range h.targets {
 		vars.Instances = append(vars.Instances, name)
@@ -32,7 +32,7 @@ func (h *Handler) getIndex(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func (h *Handler) getFavicon(w http.ResponseWriter, r *http.Request) {
+func (h *handler) getFavicon(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "image/vnd.microsoft.icon")
 	w.Header().Set("X-Content-Type-Options", "nosniff")
 	w.WriteHeader(http.StatusOK)

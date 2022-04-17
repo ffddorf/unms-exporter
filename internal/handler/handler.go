@@ -11,7 +11,7 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
-type Handler struct {
+type handler struct {
 	base    *prometheus.Registry
 	targets map[string]*exporter.Exporter
 	log     logrus.FieldLogger
@@ -30,7 +30,7 @@ func New(logger logrus.FieldLogger, targets map[string]string) http.Handler {
 		exporters[host] = exporter.New(logger, host, token)
 	}
 
-	return &Handler{
+	return &handler{
 		base:    reg,
 		targets: exporters,
 		log:     logger.WithField("component", "exporter"),
@@ -38,7 +38,7 @@ func New(logger logrus.FieldLogger, targets map[string]string) http.Handler {
 }
 
 // ServeHTTP realizes a very rudimentary routing.
-func (h *Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+func (h *handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodGet {
 		h.errorResponse(w, http.StatusMethodNotAllowed)
 		return
@@ -56,12 +56,12 @@ func (h *Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func (h *Handler) errorResponse(w http.ResponseWriter, code int) {
+func (h *handler) errorResponse(w http.ResponseWriter, code int) {
 	text := fmt.Sprintf("%d %s", code, http.StatusText(code))
 	http.Error(w, text, code)
 }
 
-func (h *Handler) getMetrics(w http.ResponseWriter, r *http.Request) {
+func (h *handler) getMetrics(w http.ResponseWriter, r *http.Request) {
 	target := r.URL.Query().Get("target")
 	log := h.log
 	reg := h.base
