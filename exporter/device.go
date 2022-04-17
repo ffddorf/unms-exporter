@@ -2,7 +2,6 @@ package exporter
 
 import (
 	"context"
-	"time"
 
 	"github.com/ffddorf/unms-exporter/client/devices"
 	"github.com/ffddorf/unms-exporter/models"
@@ -10,10 +9,7 @@ import (
 
 var defaultWithInterfaces = true
 
-func (e *Exporter) fetchDeviceData() ([]*models.DeviceStatusOverview, error) {
-	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
-	defer cancel()
-
+func (e *Exporter) fetchDeviceData(ctx context.Context) ([]*models.DeviceStatusOverview, error) {
 	params := &devices.GetDevicesParams{
 		WithInterfaces: &defaultWithInterfaces,
 		Context:        ctx,
