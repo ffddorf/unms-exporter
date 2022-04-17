@@ -121,6 +121,78 @@
           }
         }
       }
+    },
+    "/devices/{id}/statistics": {
+      "get": {
+        "summary": "Return device statistics.",
+        "operationId": "getDevicesIdStatistics",
+        "parameters": [
+          {
+            "type": "string",
+            "x-format": { "guid": true },
+            "name": "id",
+            "in": "path",
+            "required": true
+          },
+          {
+            "type": "string",
+            "description": "Interval",
+            "enum": [
+              "hour",
+              "fourhours",
+              "day",
+              "week",
+              "month",
+              "quarter",
+              "year",
+              "range"
+            ],
+            "name": "interval",
+            "in": "query",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "start",
+            "in": "query",
+            "required": true
+          },
+          {
+            "type": "string",
+            "name": "period",
+            "in": "query",
+            "required": true
+          }
+        ],
+        "produces": ["application/json"],
+        "tags": ["Devices"],
+        "responses": {
+          "200": {
+            "schema": { "$ref": "#/definitions/DeviceStatistics" },
+            "description": "Successful"
+          },
+          "400": {
+            "schema": { "$ref": "#/definitions/Error" },
+            "description": "Bad Request"
+          },
+          "401": {
+            "schema": { "$ref": "#/definitions/Error" },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "schema": { "$ref": "#/definitions/Error" },
+            "description": "Forbidden"
+          },
+          "404": {
+            "schema": { "$ref": "#/definitions/Error" },
+            "description": "Not Found"
+          },
+          "500": {
+            "schema": { "$ref": "#/definitions/Error" },
+            "description": "Internal Server Error"
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -507,6 +579,23 @@
         "plugged": { "type": "boolean", "example": true },
         "speed": { "type": "string", "example": "auto" },
         "status": { "type": "string", "example": "active" }
+      }
+    },
+    "CoordinatesXY.": {
+      "type": "object",
+      "properties": {
+        "x": { "type": "number" },
+        "y": { "type": "number" }
+      }
+    },
+    "ListOfCoordinates": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/CoordinatesXY." }
+    },
+    "DeviceStatistics": {
+      "type": "object",
+      "properties": {
+        "ping": { "$ref": "#/definitions/ListOfCoordinates" }
       }
     },
     "Error": {

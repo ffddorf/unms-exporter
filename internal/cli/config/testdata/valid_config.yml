@@ -2,3 +2,7 @@ log_level: 3
 listen: "[::1]:1234"
 token:
   a.example.com: abc
+extra_metrics:
+  - ping
+  - link
+  - wifi

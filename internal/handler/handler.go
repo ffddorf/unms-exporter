@@ -6,6 +6,7 @@ import (
 	"strings"
 
 	"github.com/ffddorf/unms-exporter/exporter"
+	"github.com/ffddorf/unms-exporter/internal/cli/config"
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"github.com/sirupsen/logrus"
@@ -17,7 +18,7 @@ type handler struct {
 	log     logrus.FieldLogger
 }
 
-func New(logger logrus.FieldLogger, targets map[string]string) http.Handler {
+func New(logger logrus.FieldLogger, cfg *config.Config) (http.Handler, error) {
 	reg := prometheus.NewPedanticRegistry()
 	reg.MustRegister(
 		prometheus.NewBuildInfoCollector(),
@@ -25,16 +26,20 @@ func New(logger logrus.FieldLogger, targets map[string]string) http.Handler {
 	)
 
 	exporters := make(map[string]*exporter.Exporter)
-	for host, token := range targets {
+	for host, token := range cfg.TokenPerHost {
 		host := strings.ToLower(host)
-		exporters[host] = exporter.New(logger, host, token)
+		exporter := exporter.New(logger, host, token)
+		if err := exporter.SetExtras(cfg.ExtraMetrics); err != nil {
+			return nil, err
+		}
+		exporters[host] = exporter
 	}
 
 	return &handler{
 		base:    reg,
 		targets: exporters,
 		log:     logger.WithField("component", "exporter"),
-	}
+	}, nil
 }
 
 // ServeHTTP realizes a very rudimentary routing.
