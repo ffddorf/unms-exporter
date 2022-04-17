@@ -3,12 +3,9 @@ package main
 import (
 	"net/http"
 	"os"
-	"strings"
 
-	"github.com/ffddorf/unms-exporter/exporter"
 	"github.com/ffddorf/unms-exporter/internal/cli/config"
-	"github.com/prometheus/client_golang/prometheus"
-	"github.com/prometheus/client_golang/prometheus/promhttp"
+	"github.com/ffddorf/unms-exporter/internal/handler"
 	"github.com/sirupsen/logrus"
 )
 
@@ -21,59 +18,14 @@ func main() {
 
 	log.SetLevel(conf.LogLevel)
 
-	targets := make(map[string]*prometheus.Registry)
-	for host, token := range conf.TokenPerHost {
-		host := strings.ToLower(host)
-		registry := prometheus.NewPedanticRegistry()
-		registry.MustRegister(
-			prometheus.NewBuildInfoCollector(),
-			prometheus.NewGoCollector(),
-		)
-		logger := log.WithFields(logrus.Fields{
-			"component": "exporter",
-			"host":      host,
-		})
-		export := exporter.New(logger, host, token)
-		if err := export.SetExtras(conf.ExtraMetrics); err != nil {
-			log.WithError(err).Fatal("failed to configure extra metrics")
-		}
-		if err := registry.Register(export); err != nil {
-			log.WithFields(logrus.Fields{
-				logrus.ErrorKey: err,
-				"host":          host,
-			}).Fatal("failed to register exporter")
-		}
-		targets[host] = registry
+	h, err := handler.New(log, conf)
+	if err != nil {
+		log.WithError(err).Fatal("failed to setup exporter")
 	}
-
-	handler := http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		log := log.WithFields(logrus.Fields{
-			"url":    r.URL,
-			"method": r.Method,
-		})
-		log.Debug("Starting request")
-
-		target := r.URL.Query().Get("target")
-		if target == "" {
-			w.WriteHeader(http.StatusBadRequest)
-			return
-		}
-
-		registry, ok := targets[strings.ToLower(target)]
-		if !ok {
-			w.WriteHeader(http.StatusNotFound)
-			return
-		}
-
-		h := promhttp.HandlerFor(registry, promhttp.HandlerOpts{
-			ErrorLog: log,
-			Registry: registry,
-		})
-		h.ServeHTTP(w, r)
-	})
+	h = handler.Logging(log, h)
 
 	log.WithField("addr", conf.ServerAddr).Info("Server starting...")
-	if err := http.ListenAndServe(conf.ServerAddr, handler); err != nil {
+	if err := http.ListenAndServe(conf.ServerAddr, h); err != nil {
 		log.WithError(err).Warn("HTTP server failed")
 	}
 }

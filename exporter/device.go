@@ -15,7 +15,7 @@ type Device struct {
 	*models.DeviceStatusOverview
 }
 
-func (e *Exporter) fetchDeviceData() ([]Device, error) {
+func (e *Exporter) fetchDeviceData(ctx context.Context) ([]Device, error) {
 	ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
 	defer cancel()
 
