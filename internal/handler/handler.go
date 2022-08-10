@@ -8,6 +8,7 @@ import (
 	"github.com/ffddorf/unms-exporter/exporter"
 	"github.com/ffddorf/unms-exporter/internal/cli/config"
 	"github.com/prometheus/client_golang/prometheus"
+	"github.com/prometheus/client_golang/prometheus/collectors"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"github.com/sirupsen/logrus"
 )
@@ -21,8 +22,8 @@ type handler struct {
 func New(logger logrus.FieldLogger, cfg *config.Config) (http.Handler, error) {
 	reg := prometheus.NewPedanticRegistry()
 	reg.MustRegister(
-		prometheus.NewBuildInfoCollector(),
-		prometheus.NewGoCollector(),
+		collectors.NewBuildInfoCollector(),
+		collectors.NewGoCollector(),
 	)
 
 	exporters := make(map[string]*exporter.Exporter)

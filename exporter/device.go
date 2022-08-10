@@ -16,7 +16,7 @@ type Device struct {
 }
 
 func (e *Exporter) fetchDeviceData(ctx context.Context) ([]Device, error) {
-	ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
+	ctx, cancel := context.WithTimeout(ctx, 30*time.Second)
 	defer cancel()
 
 	params := &devices.GetDevicesParams{
