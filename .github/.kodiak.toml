@@ -1,0 +1,4 @@
+version = 1
+merge.blocking_labels = ["WIP", "blocked"]
+merge.notify_on_conflict = false
+approve.auto_approve_usernames = ["renovate"]
