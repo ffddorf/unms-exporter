@@ -43,7 +43,7 @@ func TestDevice_PingMetrics_connected(t *testing.T) {
 
 	actual := subject.PingMetrics()
 	if actual == nil {
-		t.Error("expected PingMetrics() to return somthing, got nil")
+		t.Fatal("expected PingMetrics() to return somthing, got nil")
 	}
 
 	comparePingMetrics(t, metricExpectation{
@@ -68,7 +68,7 @@ func TestDevice_PingMetrics_missingPackets(t *testing.T) {
 
 	actual := subject.PingMetrics()
 	if actual == nil {
-		t.Error("expected PingMetrics() to return somthing, got nil")
+		t.Fatal("expected PingMetrics() to return somthing, got nil")
 	}
 
 	comparePingMetrics(t, metricExpectation{
