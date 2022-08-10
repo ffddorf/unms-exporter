@@ -69,7 +69,8 @@ func NewGetDevicesIDStatisticsOK() *GetDevicesIDStatisticsOK {
 	return &GetDevicesIDStatisticsOK{}
 }
 
-/* GetDevicesIDStatisticsOK describes a response with status code 200, with default header values.
+/*
+GetDevicesIDStatisticsOK describes a response with status code 200, with default header values.
 
 Successful
 */
@@ -101,7 +102,8 @@ func NewGetDevicesIDStatisticsBadRequest() *GetDevicesIDStatisticsBadRequest {
 	return &GetDevicesIDStatisticsBadRequest{}
 }
 
-/* GetDevicesIDStatisticsBadRequest describes a response with status code 400, with default header values.
+/*
+GetDevicesIDStatisticsBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -133,7 +135,8 @@ func NewGetDevicesIDStatisticsUnauthorized() *GetDevicesIDStatisticsUnauthorized
 	return &GetDevicesIDStatisticsUnauthorized{}
 }
 
-/* GetDevicesIDStatisticsUnauthorized describes a response with status code 401, with default header values.
+/*
+GetDevicesIDStatisticsUnauthorized describes a response with status code 401, with default header values.
 
 Unauthorized
 */
@@ -165,7 +168,8 @@ func NewGetDevicesIDStatisticsForbidden() *GetDevicesIDStatisticsForbidden {
 	return &GetDevicesIDStatisticsForbidden{}
 }
 
-/* GetDevicesIDStatisticsForbidden describes a response with status code 403, with default header values.
+/*
+GetDevicesIDStatisticsForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -197,7 +201,8 @@ func NewGetDevicesIDStatisticsNotFound() *GetDevicesIDStatisticsNotFound {
 	return &GetDevicesIDStatisticsNotFound{}
 }
 
-/* GetDevicesIDStatisticsNotFound describes a response with status code 404, with default header values.
+/*
+GetDevicesIDStatisticsNotFound describes a response with status code 404, with default header values.
 
 Not Found
 */
@@ -229,7 +234,8 @@ func NewGetDevicesIDStatisticsInternalServerError() *GetDevicesIDStatisticsInter
 	return &GetDevicesIDStatisticsInternalServerError{}
 }
 
-/* GetDevicesIDStatisticsInternalServerError describes a response with status code 500, with default header values.
+/*
+GetDevicesIDStatisticsInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */
