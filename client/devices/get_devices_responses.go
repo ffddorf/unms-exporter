@@ -63,7 +63,8 @@ func NewGetDevicesOK() *GetDevicesOK {
 	return &GetDevicesOK{}
 }
 
-/* GetDevicesOK describes a response with status code 200, with default header values.
+/*
+GetDevicesOK describes a response with status code 200, with default header values.
 
 Read-only overview for device list.
 */
@@ -93,7 +94,8 @@ func NewGetDevicesBadRequest() *GetDevicesBadRequest {
 	return &GetDevicesBadRequest{}
 }
 
-/* GetDevicesBadRequest describes a response with status code 400, with default header values.
+/*
+GetDevicesBadRequest describes a response with status code 400, with default header values.
 
 Bad Request
 */
@@ -125,7 +127,8 @@ func NewGetDevicesUnauthorized() *GetDevicesUnauthorized {
 	return &GetDevicesUnauthorized{}
 }
 
-/* GetDevicesUnauthorized describes a response with status code 401, with default header values.
+/*
+GetDevicesUnauthorized describes a response with status code 401, with default header values.
 
 Unauthorized
 */
@@ -157,7 +160,8 @@ func NewGetDevicesForbidden() *GetDevicesForbidden {
 	return &GetDevicesForbidden{}
 }
 
-/* GetDevicesForbidden describes a response with status code 403, with default header values.
+/*
+GetDevicesForbidden describes a response with status code 403, with default header values.
 
 Forbidden
 */
@@ -189,7 +193,8 @@ func NewGetDevicesInternalServerError() *GetDevicesInternalServerError {
 	return &GetDevicesInternalServerError{}
 }
 
-/* GetDevicesInternalServerError describes a response with status code 500, with default header values.
+/*
+GetDevicesInternalServerError describes a response with status code 500, with default header values.
 
 Internal Server Error
 */

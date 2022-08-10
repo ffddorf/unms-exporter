@@ -38,7 +38,7 @@ type ClientService interface {
 }
 
 /*
-  GetDevices lists of all devices in u n m s
+GetDevices lists of all devices in u n m s
 */
 func (a *Client) GetDevices(params *GetDevicesParams, opts ...ClientOption) (*GetDevicesOK, error) {
 	// TODO: Validate the params before sending
@@ -76,7 +76,7 @@ func (a *Client) GetDevices(params *GetDevicesParams, opts ...ClientOption) (*Ge
 }
 
 /*
-  GetDevicesIDStatistics returns device statistics
+GetDevicesIDStatistics returns device statistics
 */
 func (a *Client) GetDevicesIDStatistics(params *GetDevicesIDStatisticsParams, opts ...ClientOption) (*GetDevicesIDStatisticsOK, error) {
 	// TODO: Validate the params before sending
