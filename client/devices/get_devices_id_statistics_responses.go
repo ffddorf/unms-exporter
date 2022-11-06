@@ -78,9 +78,39 @@ type GetDevicesIDStatisticsOK struct {
 	Payload *models.DeviceStatistics
 }
 
+// IsSuccess returns true when this get devices Id statistics o k response has a 2xx status code
+func (o *GetDevicesIDStatisticsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get devices Id statistics o k response has a 3xx status code
+func (o *GetDevicesIDStatisticsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get devices Id statistics o k response has a 4xx status code
+func (o *GetDevicesIDStatisticsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get devices Id statistics o k response has a 5xx status code
+func (o *GetDevicesIDStatisticsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get devices Id statistics o k response a status code equal to that given
+func (o *GetDevicesIDStatisticsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetDevicesIDStatisticsOK) Error() string {
 	return fmt.Sprintf("[GET /devices/{id}/statistics][%d] getDevicesIdStatisticsOK  %+v", 200, o.Payload)
 }
+
+func (o *GetDevicesIDStatisticsOK) String() string {
+	return fmt.Sprintf("[GET /devices/{id}/statistics][%d] getDevicesIdStatisticsOK  %+v", 200, o.Payload)
+}
+
 func (o *GetDevicesIDStatisticsOK) GetPayload() *models.DeviceStatistics {
 	return o.Payload
 }
@@ -111,9 +141,39 @@ type GetDevicesIDStatisticsBadRequest struct {
 	Payload *models.Error
 }
 
+// IsSuccess returns true when this get devices Id statistics bad request response has a 2xx status code
+func (o *GetDevicesIDStatisticsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get devices Id statistics bad request response has a 3xx status code
+func (o *GetDevicesIDStatisticsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get devices Id statistics bad request response has a 4xx status code
+func (o *GetDevicesIDStatisticsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get devices Id statistics bad request response has a 5xx status code
+func (o *GetDevicesIDStatisticsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get devices Id statistics bad request response a status code equal to that given
+func (o *GetDevicesIDStatisticsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetDevicesIDStatisticsBadRequest) Error() string {
 	return fmt.Sprintf("[GET /devices/{id}/statistics][%d] getDevicesIdStatisticsBadRequest  %+v", 400, o.Payload)
 }
+
+func (o *GetDevicesIDStatisticsBadRequest) String() string {
+	return fmt.Sprintf("[GET /devices/{id}/statistics][%d] getDevicesIdStatisticsBadRequest  %+v", 400, o.Payload)
+}
+
 func (o *GetDevicesIDStatisticsBadRequest) GetPayload() *models.Error {
 	return o.Payload
 }
@@ -144,9 +204,39 @@ type GetDevicesIDStatisticsUnauthorized struct {
 	Payload *models.Error
 }
 
+// IsSuccess returns true when this get devices Id statistics unauthorized response has a 2xx status code
+func (o *GetDevicesIDStatisticsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get devices Id statistics unauthorized response has a 3xx status code
+func (o *GetDevicesIDStatisticsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get devices Id statistics unauthorized response has a 4xx status code
+func (o *GetDevicesIDStatisticsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get devices Id statistics unauthorized response has a 5xx status code
+func (o *GetDevicesIDStatisticsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get devices Id statistics unauthorized response a status code equal to that given
+func (o *GetDevicesIDStatisticsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetDevicesIDStatisticsUnauthorized) Error() string {
 	return fmt.Sprintf("[GET /devices/{id}/statistics][%d] getDevicesIdStatisticsUnauthorized  %+v", 401, o.Payload)
 }
+
+func (o *GetDevicesIDStatisticsUnauthorized) String() string {
+	return fmt.Sprintf("[GET /devices/{id}/statistics][%d] getDevicesIdStatisticsUnauthorized  %+v", 401, o.Payload)
+}
+
 func (o *GetDevicesIDStatisticsUnauthorized) GetPayload() *models.Error {
 	return o.Payload
 }
@@ -177,9 +267,39 @@ type GetDevicesIDStatisticsForbidden struct {
 	Payload *models.Error
 }
 
+// IsSuccess returns true when this get devices Id statistics forbidden response has a 2xx status code
+func (o *GetDevicesIDStatisticsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get devices Id statistics forbidden response has a 3xx status code
+func (o *GetDevicesIDStatisticsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get devices Id statistics forbidden response has a 4xx status code
+func (o *GetDevicesIDStatisticsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get devices Id statistics forbidden response has a 5xx status code
+func (o *GetDevicesIDStatisticsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get devices Id statistics forbidden response a status code equal to that given
+func (o *GetDevicesIDStatisticsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetDevicesIDStatisticsForbidden) Error() string {
 	return fmt.Sprintf("[GET /devices/{id}/statistics][%d] getDevicesIdStatisticsForbidden  %+v", 403, o.Payload)
 }
+
+func (o *GetDevicesIDStatisticsForbidden) String() string {
+	return fmt.Sprintf("[GET /devices/{id}/statistics][%d] getDevicesIdStatisticsForbidden  %+v", 403, o.Payload)
+}
+
 func (o *GetDevicesIDStatisticsForbidden) GetPayload() *models.Error {
 	return o.Payload
 }
@@ -210,9 +330,39 @@ type GetDevicesIDStatisticsNotFound struct {
 	Payload *models.Error
 }
 
+// IsSuccess returns true when this get devices Id statistics not found response has a 2xx status code
+func (o *GetDevicesIDStatisticsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get devices Id statistics not found response has a 3xx status code
+func (o *GetDevicesIDStatisticsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get devices Id statistics not found response has a 4xx status code
+func (o *GetDevicesIDStatisticsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get devices Id statistics not found response has a 5xx status code
+func (o *GetDevicesIDStatisticsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get devices Id statistics not found response a status code equal to that given
+func (o *GetDevicesIDStatisticsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetDevicesIDStatisticsNotFound) Error() string {
 	return fmt.Sprintf("[GET /devices/{id}/statistics][%d] getDevicesIdStatisticsNotFound  %+v", 404, o.Payload)
 }
+
+func (o *GetDevicesIDStatisticsNotFound) String() string {
+	return fmt.Sprintf("[GET /devices/{id}/statistics][%d] getDevicesIdStatisticsNotFound  %+v", 404, o.Payload)
+}
+
 func (o *GetDevicesIDStatisticsNotFound) GetPayload() *models.Error {
 	return o.Payload
 }
@@ -243,9 +393,39 @@ type GetDevicesIDStatisticsInternalServerError struct {
 	Payload *models.Error
 }
 
+// IsSuccess returns true when this get devices Id statistics internal server error response has a 2xx status code
+func (o *GetDevicesIDStatisticsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get devices Id statistics internal server error response has a 3xx status code
+func (o *GetDevicesIDStatisticsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get devices Id statistics internal server error response has a 4xx status code
+func (o *GetDevicesIDStatisticsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get devices Id statistics internal server error response has a 5xx status code
+func (o *GetDevicesIDStatisticsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get devices Id statistics internal server error response a status code equal to that given
+func (o *GetDevicesIDStatisticsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetDevicesIDStatisticsInternalServerError) Error() string {
 	return fmt.Sprintf("[GET /devices/{id}/statistics][%d] getDevicesIdStatisticsInternalServerError  %+v", 500, o.Payload)
 }
+
+func (o *GetDevicesIDStatisticsInternalServerError) String() string {
+	return fmt.Sprintf("[GET /devices/{id}/statistics][%d] getDevicesIdStatisticsInternalServerError  %+v", 500, o.Payload)
+}
+
 func (o *GetDevicesIDStatisticsInternalServerError) GetPayload() *models.Error {
 	return o.Payload
 }
