@@ -65,7 +65,7 @@ jobs:
 
       - name: Build Image
         if: ${{ github.event_name == 'push' }}
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v4
         with:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
@@ -73,7 +73,7 @@ jobs:
 
       - name: Build Image for fork PR
         if: ${{ github.event_name == 'pull_request_target' }}
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v4
         with:
           context: https://github.com/${{ github.event.pull_request.head.repo.full_name }}.git#${{ github.event.pull_request.head.sha }}
           tags: ${{ steps.forkmeta.outputs.tags }}
