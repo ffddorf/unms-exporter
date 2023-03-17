@@ -36,7 +36,7 @@ jobs:
 
       - id: short-sha
         if: ${{ github.event_name == 'pull_request_target' }}
-        uses: actions/github-script@v6.3.3
+        uses: actions/github-script@v6.4.0
         with:
           script: |
             const sha = context.payload.pull_request.head.sha.substr(0,7)
