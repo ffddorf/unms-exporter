@@ -18,7 +18,7 @@ jobs:
       - name: Compute Labels
         if: ${{ github.event_name == 'push' }}
         id: meta
-        uses: docker/metadata-action@v4
+        uses: docker/metadata-action@v5
         with:
           images: quay.io/ffddorf/unms-exporter
           # generate Docker tags based on the following events/attributes
@@ -44,7 +44,7 @@ jobs:
       - name: Compute Labels for fork
         if: ${{ github.event_name == 'pull_request_target' }}
         id: forkmeta
-        uses: docker/metadata-action@v4
+        uses: docker/metadata-action@v5
         with:
           images: quay.io/ffddorf/unms-exporter
           # generate Docker tags based on the following events/attributes
