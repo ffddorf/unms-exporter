@@ -299,6 +299,11 @@ func (m *DeviceStatusOverview) ContextValidate(ctx context.Context, formats strf
 func (m *DeviceStatusOverview) contextValidateFirmware(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Firmware != nil {
+
+		if swag.IsZero(m.Firmware) { // not required
+			return nil
+		}
+
 		if err := m.Firmware.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("firmware")
@@ -315,6 +320,11 @@ func (m *DeviceStatusOverview) contextValidateFirmware(ctx context.Context, form
 func (m *DeviceStatusOverview) contextValidateIdentification(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Identification != nil {
+
+		if swag.IsZero(m.Identification) { // not required
+			return nil
+		}
+
 		if err := m.Identification.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("identification")
@@ -333,6 +343,11 @@ func (m *DeviceStatusOverview) contextValidateInterfaces(ctx context.Context, fo
 	for i := 0; i < len(m.Interfaces); i++ {
 
 		if m.Interfaces[i] != nil {
+
+			if swag.IsZero(m.Interfaces[i]) { // not required
+				return nil
+			}
+
 			if err := m.Interfaces[i].ContextValidate(ctx, formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("interfaces" + "." + strconv.Itoa(i))
@@ -351,6 +366,11 @@ func (m *DeviceStatusOverview) contextValidateInterfaces(ctx context.Context, fo
 func (m *DeviceStatusOverview) contextValidateLatestBackup(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.LatestBackup != nil {
+
+		if swag.IsZero(m.LatestBackup) { // not required
+			return nil
+		}
+
 		if err := m.LatestBackup.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("latestBackup")
@@ -367,6 +387,11 @@ func (m *DeviceStatusOverview) contextValidateLatestBackup(ctx context.Context, 
 func (m *DeviceStatusOverview) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Meta != nil {
+
+		if swag.IsZero(m.Meta) { // not required
+			return nil
+		}
+
 		if err := m.Meta.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("meta")
@@ -383,6 +408,11 @@ func (m *DeviceStatusOverview) contextValidateMeta(ctx context.Context, formats 
 func (m *DeviceStatusOverview) contextValidateOverview(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Overview != nil {
+
+		if swag.IsZero(m.Overview) { // not required
+			return nil
+		}
+
 		if err := m.Overview.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("overview")
@@ -399,6 +429,11 @@ func (m *DeviceStatusOverview) contextValidateOverview(ctx context.Context, form
 func (m *DeviceStatusOverview) contextValidateUpgrade(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Upgrade != nil {
+
+		if swag.IsZero(m.Upgrade) { // not required
+			return nil
+		}
+
 		if err := m.Upgrade.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("upgrade")

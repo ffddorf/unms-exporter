@@ -164,6 +164,7 @@ func (m *DeviceInterfaceSchema) ContextValidate(ctx context.Context, formats str
 func (m *DeviceInterfaceSchema) contextValidateIdentification(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Identification != nil {
+
 		if err := m.Identification.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("identification")
@@ -180,6 +181,11 @@ func (m *DeviceInterfaceSchema) contextValidateIdentification(ctx context.Contex
 func (m *DeviceInterfaceSchema) contextValidateStatistics(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Statistics != nil {
+
+		if swag.IsZero(m.Statistics) { // not required
+			return nil
+		}
+
 		if err := m.Statistics.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("statistics")
@@ -196,6 +202,11 @@ func (m *DeviceInterfaceSchema) contextValidateStatistics(ctx context.Context, f
 func (m *DeviceInterfaceSchema) contextValidateStatus(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Status != nil {
+
+		if swag.IsZero(m.Status) { // not required
+			return nil
+		}
+
 		if err := m.Status.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("status")

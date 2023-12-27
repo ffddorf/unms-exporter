@@ -107,6 +107,7 @@ func (m *Semver) ContextValidate(ctx context.Context, formats strfmt.Registry) e
 func (m *Semver) contextValidateCurrent(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Current != nil {
+
 		if err := m.Current.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("current")
@@ -123,6 +124,7 @@ func (m *Semver) contextValidateCurrent(ctx context.Context, formats strfmt.Regi
 func (m *Semver) contextValidateLatest(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Latest != nil {
+
 		if err := m.Latest.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("latest")
