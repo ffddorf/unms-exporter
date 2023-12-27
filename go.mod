@@ -1,6 +1,6 @@
 module github.com/ffddorf/unms-exporter
 
-go 1.18
+go 1.21
 
 require (
 	github.com/go-openapi/errors v0.21.0
