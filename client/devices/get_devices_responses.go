@@ -97,6 +97,11 @@ func (o *GetDevicesOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get devices o k response
+func (o *GetDevicesOK) Code() int {
+	return 200
+}
+
 func (o *GetDevicesOK) Error() string {
 	return fmt.Sprintf("[GET /devices][%d] getDevicesOK  %+v", 200, o.Payload)
 }
@@ -156,6 +161,11 @@ func (o *GetDevicesBadRequest) IsServerError() bool {
 // IsCode returns true when this get devices bad request response a status code equal to that given
 func (o *GetDevicesBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the get devices bad request response
+func (o *GetDevicesBadRequest) Code() int {
+	return 400
 }
 
 func (o *GetDevicesBadRequest) Error() string {
@@ -221,6 +231,11 @@ func (o *GetDevicesUnauthorized) IsCode(code int) bool {
 	return code == 401
 }
 
+// Code gets the status code for the get devices unauthorized response
+func (o *GetDevicesUnauthorized) Code() int {
+	return 401
+}
+
 func (o *GetDevicesUnauthorized) Error() string {
 	return fmt.Sprintf("[GET /devices][%d] getDevicesUnauthorized  %+v", 401, o.Payload)
 }
@@ -284,6 +299,11 @@ func (o *GetDevicesForbidden) IsCode(code int) bool {
 	return code == 403
 }
 
+// Code gets the status code for the get devices forbidden response
+func (o *GetDevicesForbidden) Code() int {
+	return 403
+}
+
 func (o *GetDevicesForbidden) Error() string {
 	return fmt.Sprintf("[GET /devices][%d] getDevicesForbidden  %+v", 403, o.Payload)
 }
@@ -345,6 +365,11 @@ func (o *GetDevicesInternalServerError) IsServerError() bool {
 // IsCode returns true when this get devices internal server error response a status code equal to that given
 func (o *GetDevicesInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the get devices internal server error response
+func (o *GetDevicesInternalServerError) Code() int {
+	return 500
 }
 
 func (o *GetDevicesInternalServerError) Error() string {

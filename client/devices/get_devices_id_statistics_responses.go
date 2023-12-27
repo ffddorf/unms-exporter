@@ -103,6 +103,11 @@ func (o *GetDevicesIDStatisticsOK) IsCode(code int) bool {
 	return code == 200
 }
 
+// Code gets the status code for the get devices Id statistics o k response
+func (o *GetDevicesIDStatisticsOK) Code() int {
+	return 200
+}
+
 func (o *GetDevicesIDStatisticsOK) Error() string {
 	return fmt.Sprintf("[GET /devices/{id}/statistics][%d] getDevicesIdStatisticsOK  %+v", 200, o.Payload)
 }
@@ -164,6 +169,11 @@ func (o *GetDevicesIDStatisticsBadRequest) IsServerError() bool {
 // IsCode returns true when this get devices Id statistics bad request response a status code equal to that given
 func (o *GetDevicesIDStatisticsBadRequest) IsCode(code int) bool {
 	return code == 400
+}
+
+// Code gets the status code for the get devices Id statistics bad request response
+func (o *GetDevicesIDStatisticsBadRequest) Code() int {
+	return 400
 }
 
 func (o *GetDevicesIDStatisticsBadRequest) Error() string {
@@ -229,6 +239,11 @@ func (o *GetDevicesIDStatisticsUnauthorized) IsCode(code int) bool {
 	return code == 401
 }
 
+// Code gets the status code for the get devices Id statistics unauthorized response
+func (o *GetDevicesIDStatisticsUnauthorized) Code() int {
+	return 401
+}
+
 func (o *GetDevicesIDStatisticsUnauthorized) Error() string {
 	return fmt.Sprintf("[GET /devices/{id}/statistics][%d] getDevicesIdStatisticsUnauthorized  %+v", 401, o.Payload)
 }
@@ -290,6 +305,11 @@ func (o *GetDevicesIDStatisticsForbidden) IsServerError() bool {
 // IsCode returns true when this get devices Id statistics forbidden response a status code equal to that given
 func (o *GetDevicesIDStatisticsForbidden) IsCode(code int) bool {
 	return code == 403
+}
+
+// Code gets the status code for the get devices Id statistics forbidden response
+func (o *GetDevicesIDStatisticsForbidden) Code() int {
+	return 403
 }
 
 func (o *GetDevicesIDStatisticsForbidden) Error() string {
@@ -355,6 +375,11 @@ func (o *GetDevicesIDStatisticsNotFound) IsCode(code int) bool {
 	return code == 404
 }
 
+// Code gets the status code for the get devices Id statistics not found response
+func (o *GetDevicesIDStatisticsNotFound) Code() int {
+	return 404
+}
+
 func (o *GetDevicesIDStatisticsNotFound) Error() string {
 	return fmt.Sprintf("[GET /devices/{id}/statistics][%d] getDevicesIdStatisticsNotFound  %+v", 404, o.Payload)
 }
@@ -416,6 +441,11 @@ func (o *GetDevicesIDStatisticsInternalServerError) IsServerError() bool {
 // IsCode returns true when this get devices Id statistics internal server error response a status code equal to that given
 func (o *GetDevicesIDStatisticsInternalServerError) IsCode(code int) bool {
 	return code == 500
+}
+
+// Code gets the status code for the get devices Id statistics internal server error response
+func (o *GetDevicesIDStatisticsInternalServerError) Code() int {
+	return 500
 }
 
 func (o *GetDevicesIDStatisticsInternalServerError) Error() string {
