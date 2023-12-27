@@ -403,6 +403,11 @@ func (m *DeviceIdentification) ContextValidate(ctx context.Context, formats strf
 func (m *DeviceIdentification) contextValidateSite(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Site != nil {
+
+		if swag.IsZero(m.Site) { // not required
+			return nil
+		}
+
 		if err := m.Site.ContextValidate(ctx, formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("site")
