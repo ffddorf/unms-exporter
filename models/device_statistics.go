@@ -18,21 +18,109 @@ import (
 // swagger:model DeviceStatistics
 type DeviceStatistics struct {
 
+	// downlink capacity
+	DownlinkCapacity ListOfCoordinates `json:"downlinkCapacity,omitempty"`
+
+	// downlink utilization
+	DownlinkUtilization ListOfCoordinates `json:"downlinkUtilization,omitempty"`
+
+	// interval
+	Interval *Interval `json:"interval,omitempty"`
+
 	// ping
 	Ping ListOfCoordinates `json:"ping,omitempty"`
+
+	// uplink capacity
+	UplinkCapacity ListOfCoordinates `json:"uplinkCapacity,omitempty"`
+
+	// uplink utilization
+	UplinkUtilization ListOfCoordinates `json:"uplinkUtilization,omitempty"`
 }
 
 // Validate validates this device statistics
 func (m *DeviceStatistics) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateDownlinkCapacity(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDownlinkUtilization(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateInterval(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validatePing(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateUplinkCapacity(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateUplinkUtilization(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DeviceStatistics) validateDownlinkCapacity(formats strfmt.Registry) error {
+	if swag.IsZero(m.DownlinkCapacity) { // not required
+		return nil
+	}
+
+	if err := m.DownlinkCapacity.Validate(formats); err != nil {
+		if ve, ok := err.(*errors.Validation); ok {
+			return ve.ValidateName("downlinkCapacity")
+		} else if ce, ok := err.(*errors.CompositeError); ok {
+			return ce.ValidateName("downlinkCapacity")
+		}
+		return err
+	}
+
+	return nil
+}
+
+func (m *DeviceStatistics) validateDownlinkUtilization(formats strfmt.Registry) error {
+	if swag.IsZero(m.DownlinkUtilization) { // not required
+		return nil
+	}
+
+	if err := m.DownlinkUtilization.Validate(formats); err != nil {
+		if ve, ok := err.(*errors.Validation); ok {
+			return ve.ValidateName("downlinkUtilization")
+		} else if ce, ok := err.(*errors.CompositeError); ok {
+			return ce.ValidateName("downlinkUtilization")
+		}
+		return err
+	}
+
+	return nil
+}
+
+func (m *DeviceStatistics) validateInterval(formats strfmt.Registry) error {
+	if swag.IsZero(m.Interval) { // not required
+		return nil
+	}
+
+	if m.Interval != nil {
+		if err := m.Interval.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("interval")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("interval")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -53,17 +141,115 @@ func (m *DeviceStatistics) validatePing(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *DeviceStatistics) validateUplinkCapacity(formats strfmt.Registry) error {
+	if swag.IsZero(m.UplinkCapacity) { // not required
+		return nil
+	}
+
+	if err := m.UplinkCapacity.Validate(formats); err != nil {
+		if ve, ok := err.(*errors.Validation); ok {
+			return ve.ValidateName("uplinkCapacity")
+		} else if ce, ok := err.(*errors.CompositeError); ok {
+			return ce.ValidateName("uplinkCapacity")
+		}
+		return err
+	}
+
+	return nil
+}
+
+func (m *DeviceStatistics) validateUplinkUtilization(formats strfmt.Registry) error {
+	if swag.IsZero(m.UplinkUtilization) { // not required
+		return nil
+	}
+
+	if err := m.UplinkUtilization.Validate(formats); err != nil {
+		if ve, ok := err.(*errors.Validation); ok {
+			return ve.ValidateName("uplinkUtilization")
+		} else if ce, ok := err.(*errors.CompositeError); ok {
+			return ce.ValidateName("uplinkUtilization")
+		}
+		return err
+	}
+
+	return nil
+}
+
 // ContextValidate validate this device statistics based on the context it is used
 func (m *DeviceStatistics) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.contextValidateDownlinkCapacity(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDownlinkUtilization(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateInterval(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidatePing(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUplinkCapacity(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUplinkUtilization(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *DeviceStatistics) contextValidateDownlinkCapacity(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := m.DownlinkCapacity.ContextValidate(ctx, formats); err != nil {
+		if ve, ok := err.(*errors.Validation); ok {
+			return ve.ValidateName("downlinkCapacity")
+		} else if ce, ok := err.(*errors.CompositeError); ok {
+			return ce.ValidateName("downlinkCapacity")
+		}
+		return err
+	}
+
+	return nil
+}
+
+func (m *DeviceStatistics) contextValidateDownlinkUtilization(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := m.DownlinkUtilization.ContextValidate(ctx, formats); err != nil {
+		if ve, ok := err.(*errors.Validation); ok {
+			return ve.ValidateName("downlinkUtilization")
+		} else if ce, ok := err.(*errors.CompositeError); ok {
+			return ce.ValidateName("downlinkUtilization")
+		}
+		return err
+	}
+
+	return nil
+}
+
+func (m *DeviceStatistics) contextValidateInterval(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Interval != nil {
+		if err := m.Interval.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("interval")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("interval")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 
@@ -74,6 +260,34 @@ func (m *DeviceStatistics) contextValidatePing(ctx context.Context, formats strf
 			return ve.ValidateName("ping")
 		} else if ce, ok := err.(*errors.CompositeError); ok {
 			return ce.ValidateName("ping")
+		}
+		return err
+	}
+
+	return nil
+}
+
+func (m *DeviceStatistics) contextValidateUplinkCapacity(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := m.UplinkCapacity.ContextValidate(ctx, formats); err != nil {
+		if ve, ok := err.(*errors.Validation); ok {
+			return ve.ValidateName("uplinkCapacity")
+		} else if ce, ok := err.(*errors.CompositeError); ok {
+			return ce.ValidateName("uplinkCapacity")
+		}
+		return err
+	}
+
+	return nil
+}
+
+func (m *DeviceStatistics) contextValidateUplinkUtilization(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := m.UplinkUtilization.ContextValidate(ctx, formats); err != nil {
+		if ve, ok := err.(*errors.Validation); ok {
+			return ve.ValidateName("uplinkUtilization")
+		} else if ce, ok := err.(*errors.CompositeError); ok {
+			return ce.ValidateName("uplinkUtilization")
 		}
 		return err
 	}

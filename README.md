@@ -121,6 +121,22 @@ $ unms-exporter --extra-metrics="ping"
 
   </details>
 
+- `link`: Fetch statistical data from UNMS and extract and export
+  capacity and utilization for up- and downlink.
+
+  <details><summary>Exported metrics (click to open)</summary>
+
+  - `uplink_capacity_rate`: Uplink capacity in Bit/s
+  - `uplink_utilization_ratio`: Uplink utilization ratio
+  - `downlink_capacity_rate`: Downlink capacity in Bit/s
+  - `downlink_utilization_ratio`: Downlink utilization ratio
+
+  Utilization ratio are expressed as a number in the range 0-1, with 0.33
+  meaning 33% of the capacity is in use.
+
+  </details>
+
+
 Further data is available, but not currently exported (see the API
 documentation for the `/devices/{id}/statistics` endpoint on your UNMS
 installation to get an overview). Feel free to [open a new issue][] to
