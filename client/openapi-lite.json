@@ -581,6 +581,13 @@
         "status": { "type": "string", "example": "active" }
       }
     },
+    "interval": {
+      "type": "object",
+      "properties": {
+        "start": { "type": "number" },
+        "end": { "type": "number" }
+      }
+    },
     "CoordinatesXY.": {
       "type": "object",
       "properties": {
@@ -595,7 +602,12 @@
     "DeviceStatistics": {
       "type": "object",
       "properties": {
-        "ping": { "$ref": "#/definitions/ListOfCoordinates" }
+        "interval": { "$ref": "#/definitions/interval"},
+        "ping": { "$ref": "#/definitions/ListOfCoordinates" },
+        "uplinkCapacity": { "$ref": "#/definitions/ListOfCoordinates" },
+        "uplinkUtilization": { "$ref": "#/definitions/ListOfCoordinates" },
+        "downlinkCapacity": { "$ref": "#/definitions/ListOfCoordinates" },
+        "downlinkUtilization": { "$ref": "#/definitions/ListOfCoordinates" }
       }
     },
     "Error": {

@@ -14,6 +14,13 @@ import "fmt"
 // capacity, and many more values.
 type ExtraMetrics struct {
 	Ping bool
+	Link bool
+}
+
+// NeedStatistics is true, if any field is true that require data from
+// the same device statistics endpoint.
+func (x ExtraMetrics) NeedStatistics() bool {
+	return x.Ping || x.Link
 }
 
 var pingMetrics = map[string]metricSpec{
@@ -24,24 +31,37 @@ var pingMetrics = map[string]metricSpec{
 	"ping_rtt_std_deviation_seconds": newSpec("Standard deviation for ping round trip time in seconds", nil),
 }
 
+var linkMetrics = map[string]metricSpec{
+	"uplink_capacity_rate":       newSpec("Uplink capacity in Bit/s", nil),
+	"uplink_utilization_ratio":   newSpec("Uplink utilization ratio", nil),
+	"downlink_capacity_rate":     newSpec("Downlink capacity in Bit/s", nil),
+	"downlink_utilization_ratio": newSpec("Downlink utilization ratio", nil),
+}
+
 func (e *Exporter) SetExtras(extras []string) error {
 	e.extras = ExtraMetrics{} // reset all values
 	for _, x := range extras {
 		switch x {
 		case "ping":
 			e.extras.Ping = true
+		case "link":
+			e.extras.Link = true
 		default:
 			return fmt.Errorf("unknown extra metric: %q", x)
 		}
 	}
 
-	for name, spec := range pingMetrics {
-		if _, exists := e.metrics[name]; !exists && e.extras.Ping {
+	e.configureMetrics(e.extras.Ping, pingMetrics)
+	e.configureMetrics(e.extras.Link, linkMetrics)
+	return nil
+}
+
+func (e *Exporter) configureMetrics(enable bool, metrics map[string]metricSpec) {
+	for name, spec := range metrics {
+		if _, exists := e.metrics[name]; !exists && enable {
 			e.metrics[name] = spec.intoDesc(name)
-		} else if !e.extras.Ping {
+		} else if !enable {
 			delete(e.metrics, name)
 		}
 	}
-
-	return nil
 }

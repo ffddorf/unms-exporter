@@ -262,6 +262,16 @@ func (e *Exporter) collectImpl(ctx context.Context, out chan<- prom.Metric) erro
 			}
 			out <- e.newMetric("ping_loss_ratio", prom.GaugeValue, ratio, deviceLabels...)
 		}
+
+		// Link metrics, if enabled
+		if e.extras.Link {
+			if link := device.LinkMetrics(); link != nil {
+				out <- e.newMetric("uplink_capacity_rate", prom.GaugeValue, link.UplinkCapacity, deviceLabels...)
+				out <- e.newMetric("downlink_capacity_rate", prom.GaugeValue, link.DownlinkCapacity, deviceLabels...)
+				out <- e.newMetric("uplink_utilization_ratio", prom.GaugeValue, link.UplinkUtilization, deviceLabels...)
+				out <- e.newMetric("downlink_utilization_ratio", prom.GaugeValue, link.DownlinkUtilization, deviceLabels...)
+			}
+		}
 	}
 
 	return nil
