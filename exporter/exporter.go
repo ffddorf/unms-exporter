@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"strconv"
+	"strings"
 	"time"
 
 	"github.com/ffddorf/unms-exporter/client"
@@ -226,7 +227,7 @@ func (e *Exporter) collectImpl(ctx context.Context, out chan<- prom.Metric) erro
 			out <- e.newMetric("interface_enabled", prom.GaugeValue, boolToGauge(intf.Enabled), intfLabels...)
 			if intf.Status != nil {
 				out <- e.newMetric("interface_plugged", prom.GaugeValue, boolToGauge(intf.Status.Plugged), intfLabels...)
-				out <- e.newMetric("interface_up", prom.GaugeValue, boolToGauge(intf.Status.Status == "active"), intfLabels...)
+				out <- e.newMetric("interface_up", prom.GaugeValue, boolToGauge(isInterfaceUp(intf.Status.Status, intf.Status.Plugged)), intfLabels...)
 			}
 
 			if intf.Statistics != nil {
@@ -265,6 +266,22 @@ func (e *Exporter) collectImpl(ctx context.Context, out chan<- prom.Metric) erro
 	}
 
 	return nil
+}
+
+// isInterfaceUp checks if the interface status string indicates the interface is up.
+// UISP/UNMS API may return different status strings across versions.
+// If the status string is empty or unrecognized, falls back to the plugged state,
+// since some UISP 3.x devices (e.g. Router Pro) do not populate the status field.
+func isInterfaceUp(status string, plugged bool) bool {
+	s := strings.ToLower(status)
+	switch s {
+	case "active", "up", "connected":
+		return true
+	case "inactive", "down", "disconnected", "disabled":
+		return false
+	default:
+		return plugged
+	}
 }
 
 func derefOrEmpty(in *string) string {

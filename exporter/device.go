@@ -56,18 +56,20 @@ func (e *Exporter) fetchDeviceData(ctx context.Context) ([]Device, error) {
 }
 
 func (dev *Device) PingMetrics() *PingMetrics {
-	if dev.Statistics == nil || len(dev.Statistics.Ping) == 0 {
+	if dev.Statistics == nil || dev.Statistics.Ping == nil || len(dev.Statistics.Ping.Avg) == 0 {
 		return nil
 	}
 
-	m := NewHistory(len(dev.Statistics.Ping))
-	for _, xy := range dev.Statistics.Ping {
+	coords := dev.Statistics.Ping.Avg
+	m := NewHistory(len(coords))
+	for _, xy := range coords {
 		if xy == nil {
 			m.Add(0, true)
 			continue
 		}
 
-		rtt := time.Duration(xy.Y * float64(time.Millisecond))
+		// UISP 3.x returns RTT in seconds, convert to Duration
+		rtt := time.Duration(xy.Y * float64(time.Second))
 		m.Add(rtt, false)
 	}
 

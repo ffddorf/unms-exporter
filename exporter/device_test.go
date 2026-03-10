@@ -37,13 +37,15 @@ func TestDevice_PingMetrics_connected(t *testing.T) {
 
 	subject := Device{
 		Statistics: &models.DeviceStatistics{
-			Ping: models.ListOfCoordinates{{Y: 5}, {Y: 10}, {Y: 25}, {Y: 15}, {Y: 1}}, // x values are ignored
+			Ping: &models.TimeSeriesData{
+				Avg: models.ListOfCoordinates{{Y: 0.005}, {Y: 0.010}, {Y: 0.025}, {Y: 0.015}, {Y: 0.001}}, // RTT in seconds
+			},
 		},
 	}
 
 	actual := subject.PingMetrics()
 	if actual == nil {
-		t.Fatal("expected PingMetrics() to return somthing, got nil")
+		t.Fatal("expected PingMetrics() to return something, got nil")
 	}
 
 	comparePingMetrics(t, metricExpectation{
@@ -52,8 +54,8 @@ func TestDevice_PingMetrics_connected(t *testing.T) {
 		"rtt best":     {actual.Best, actual.Best == 1*ms},
 		"rtt worst":    {actual.Worst, actual.Worst == 25*ms},
 		"rtt median":   {actual.Median, actual.Median == 10*ms},
-		"rtt meain":    {actual.Mean, actual.Mean == 11200*µs},                              // 11.2ms
-		"rtt std dev":  {actual.StdDev, 8350*µs < actual.StdDev && actual.StdDev < 8360*µs}, // ~8.352245ms
+		"rtt mean":     {actual.Mean, actual.Mean == 11200*µs},                                // 11.2ms
+		"rtt std dev":  {actual.StdDev, 8350*µs < actual.StdDev && actual.StdDev < 8360*µs},   // ~8.352245ms
 	}, actual)
 }
 
@@ -62,13 +64,15 @@ func TestDevice_PingMetrics_missingPackets(t *testing.T) {
 
 	subject := Device{
 		Statistics: &models.DeviceStatistics{
-			Ping: models.ListOfCoordinates{nil, {Y: 100}, {Y: 250}, nil, {Y: 120}},
+			Ping: &models.TimeSeriesData{
+				Avg: models.ListOfCoordinates{nil, {Y: 0.100}, {Y: 0.250}, nil, {Y: 0.120}}, // RTT in seconds
+			},
 		},
 	}
 
 	actual := subject.PingMetrics()
 	if actual == nil {
-		t.Fatal("expected PingMetrics() to return somthing, got nil")
+		t.Fatal("expected PingMetrics() to return something, got nil")
 	}
 
 	comparePingMetrics(t, metricExpectation{
@@ -77,7 +81,7 @@ func TestDevice_PingMetrics_missingPackets(t *testing.T) {
 		"rtt best":     {actual.Best, actual.Best == 100*ms},
 		"rtt worst":    {actual.Worst, actual.Worst == 250*ms},
 		"rtt median":   {actual.Median, actual.Median == 120*ms},
-		"rtt meain":    {actual.Mean, 156666*µs < actual.Mean && actual.Mean < 156667*µs},     // 156.66666ms
+		"rtt mean":     {actual.Mean, 156666*µs < actual.Mean && actual.Mean < 156667*µs},     // 156.66666ms
 		"rtt std dev":  {actual.StdDev, 66499*µs < actual.StdDev && actual.StdDev < 66500*µs}, // ~66.499791ms
 	}, actual)
 }
