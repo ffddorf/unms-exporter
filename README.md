@@ -182,6 +182,24 @@ by omitting the `target` parameter:
 
 </details>
 
+## Grafana Dashboard
+
+A ready-to-use Grafana dashboard is included in [`grafana/unms-dashboard.json`](grafana/unms-dashboard.json) and available on [Grafana Dashboards (ID: 24994)](https://grafana.com/grafana/dashboards/24994).
+
+It provides:
+
+- Device overview (CPU, RAM, uptime)
+- WAN traffic rate and cumulative bytes
+- Physical ports status table with link state, plugged status, and live rates
+- Per-port traffic rate and total bytes graphs
+- VLANs & bridges status table sorted by VLAN ID
+- Per-VLAN traffic rate and total bytes graphs
+- PoE power consumption per interface
+- Ping RTT and packet loss (requires `ping` extra metric)
+- Device inventory table
+
+To import: In Grafana, go to **Dashboards > Import**, upload the JSON file or paste the dashboard ID, and select your Prometheus data source.
+
 ## Available Metrics
 
 ### Device wide
