@@ -19,10 +19,11 @@ var (
 )
 
 type Config struct {
-	ServerAddr   string       `mapstructure:"listen" split_words:"true"`
-	LogLevel     logrus.Level `mapstructure:"log_level" split_words:"true"`
-	TokenPerHost tokenMap     `mapstructure:"token" envconfig:"token"`
-	ExtraMetrics []string     `mapstructure:"extra_metrics" split_words:"true"`
+	ServerAddr    string       `mapstructure:"listen" split_words:"true"`
+	LogLevel      logrus.Level `mapstructure:"log_level" split_words:"true"`
+	TokenPerHost  tokenMap     `mapstructure:"token" envconfig:"token"`
+	ExtraMetrics  []string     `mapstructure:"extra_metrics" split_words:"true"`
+	TLSSkipVerify bool         `mapstructure:"tls_skip_verify" split_words:"true"`
 }
 
 func New(args []string) (*Config, error) {
@@ -66,10 +67,10 @@ func New(args []string) (*Config, error) {
 
 func (c *Config) validate() error {
 	if len(c.TokenPerHost) < 1 {
-		return errors.New("No token configured")
+		return errors.New("no token configured")
 	}
 	if c.ServerAddr == "" {
-		return errors.New("Server addr can't be blank")
+		return errors.New("server addr can't be blank")
 	}
 	return nil
 }

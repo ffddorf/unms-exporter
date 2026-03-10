@@ -68,6 +68,13 @@ $ UNMS_EXPORTER_TOKEN="my-unms-instance.example.org=my token,unms.example.com=to
 
 </details>
 
+### TLS Skip Verify
+
+- Config: `tls_skip_verify`
+- Env: `UNMS_EXPORTER_TLS_SKIP_VERIFY`
+
+Skip TLS certificate verification when connecting to the UNMS/UISP API. Useful for self-signed certificates. Defaults to `false`.
+
 ### Extra metrics
 
 - Config: `extra_metrics` (as Array)

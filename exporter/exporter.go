@@ -2,7 +2,9 @@ package exporter
 
 import (
 	"context"
+	"crypto/tls"
 	"fmt"
+	"net/http"
 	"strconv"
 	"strings"
 	"time"
@@ -80,7 +82,7 @@ type Exporter struct {
 	log logrus.FieldLogger
 }
 
-func New(log logrus.FieldLogger, host string, token string) *Exporter {
+func New(log logrus.FieldLogger, host string, token string, tlsSkipVerify bool) *Exporter {
 	conf := client.DefaultTransportConfig()
 	conf.Schemes = []string{"https"}
 	conf.Host = host
@@ -88,7 +90,12 @@ func New(log logrus.FieldLogger, host string, token string) *Exporter {
 
 	client, ok := api.Transport.(*openapi.Runtime)
 	if !ok {
-		panic(fmt.Errorf("Invalid openapi transport: %T", api.Transport))
+		panic(fmt.Errorf("invalid openapi transport: %T", api.Transport))
+	}
+	if tlsSkipVerify {
+		client.Transport = &http.Transport{
+			TLSClientConfig: &tls.Config{InsecureSkipVerify: true}, //nolint:gosec // user-opted insecure TLS
+		}
 	}
 	auth := openapi.APIKeyAuth("x-auth-token", "header", token)
 	client.DefaultAuthentication = auth

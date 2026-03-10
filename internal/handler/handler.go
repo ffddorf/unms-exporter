@@ -29,7 +29,7 @@ func New(logger logrus.FieldLogger, cfg *config.Config) (http.Handler, error) {
 	exporters := make(map[string]*exporter.Exporter)
 	for host, token := range cfg.TokenPerHost {
 		host := strings.ToLower(host)
-		exporter := exporter.New(logger, host, token)
+		exporter := exporter.New(logger, host, token, cfg.TLSSkipVerify)
 		if err := exporter.SetExtras(cfg.ExtraMetrics); err != nil {
 			return nil, err
 		}
