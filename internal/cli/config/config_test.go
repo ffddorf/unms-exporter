@@ -13,7 +13,7 @@ import (
 func TestNew_emptyEnv(t *testing.T) {
 	NewEnvTest(nil).Run(func() {
 		conf, err := New(nil)
-		require.EqualError(t, err, "invalid config settings: No token configured")
+		require.EqualError(t, err, "invalid config settings: no token configured")
 		assert.Nil(t, conf)
 	})
 }
@@ -161,12 +161,12 @@ func (e *envTest) Run(runner func()) {
 
 func (e *envTest) Apply(env map[string]string) {
 	for k, v := range env {
-		os.Setenv(k, v)
+		_ = os.Setenv(k, v)
 	}
 }
 
 func (e *envTest) Clear() {
 	for k := range e.test {
-		os.Unsetenv(k)
+		_ = os.Unsetenv(k)
 	}
 }
