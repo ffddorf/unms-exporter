@@ -155,13 +155,13 @@
             "type": "string",
             "name": "start",
             "in": "query",
-            "required": true
+            "required": false
           },
           {
             "type": "string",
             "name": "period",
             "in": "query",
-            "required": true
+            "required": false
           }
         ],
         "produces": ["application/json"],
@@ -592,10 +592,21 @@
       "type": "array",
       "items": { "$ref": "#/definitions/CoordinatesXY." }
     },
+    "TimeSeriesData": {
+      "type": "object",
+      "properties": {
+        "avg": { "$ref": "#/definitions/ListOfCoordinates" },
+        "max": { "$ref": "#/definitions/ListOfCoordinates" }
+      }
+    },
     "DeviceStatistics": {
       "type": "object",
       "properties": {
-        "ping": { "$ref": "#/definitions/ListOfCoordinates" }
+        "ping": { "$ref": "#/definitions/TimeSeriesData" },
+        "cpu": { "$ref": "#/definitions/TimeSeriesData" },
+        "ram": { "$ref": "#/definitions/TimeSeriesData" },
+        "temperature": { "$ref": "#/definitions/TimeSeriesData" },
+        "errors": { "$ref": "#/definitions/TimeSeriesData" }
       }
     },
     "Error": {

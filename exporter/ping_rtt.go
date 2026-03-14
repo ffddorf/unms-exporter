@@ -69,7 +69,8 @@ func (h PingHistory) Compute() *PingMetrics {
 	size := float64(numTotal - numFailure)
 	mean = total / size
 	for _, rtt := range data {
-		sumSquares += math.Pow(rtt-mean, 2)
+		d := rtt - mean
+		sumSquares += d * d
 	}
 	stddev = math.Sqrt(sumSquares / size)
 

@@ -1,0 +1,890 @@
+{
+  "__inputs": [
+    {
+      "name": "DS_PROMETHEUS",
+      "label": "Prometheus",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "prometheus",
+      "pluginName": "Prometheus"
+    }
+  ],
+  "__elements": {},
+  "__requires": [
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "10.0.0"
+    },
+    {
+      "type": "datasource",
+      "id": "prometheus",
+      "name": "Prometheus",
+      "version": "1.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "gauge",
+      "name": "Gauge",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "stat",
+      "name": "Stat",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "timeseries",
+      "name": "Time series",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "table",
+      "name": "Table",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "state-timeline",
+      "name": "State timeline",
+      "version": ""
+    }
+  ],
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": { "type": "grafana", "uid": "-- Grafana --" },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "description": "Comprehensive monitoring dashboard for UNMS/UISP devices via unms-exporter",
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 1,
+  "id": null,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "collapsed": false,
+      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 0 },
+      "id": 100,
+      "title": "Device Overview",
+      "type": "row"
+    },
+    {
+      "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+      "fieldConfig": {
+        "defaults": {
+          "mappings": [
+            { "options": { "0": { "color": "red", "text": "Down" }, "1": { "color": "green", "text": "Up" } }, "type": "value" }
+          ],
+          "thresholds": { "mode": "absolute", "steps": [ { "color": "red", "value": null }, { "color": "green", "value": 1 } ] },
+          "color": { "mode": "thresholds" }
+        },
+        "overrides": []
+      },
+      "gridPos": { "h": 4, "w": 3, "x": 0, "y": 1 },
+      "id": 1,
+      "options": { "colorMode": "background", "graphMode": "none", "justifyMode": "auto", "orientation": "auto", "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }, "textMode": "auto" },
+      "title": "Device Status",
+      "type": "stat",
+      "targets": [
+        {
+          "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+          "expr": "unms_device_enabled{instance=\"$instance\", deviceName=~\"$device\"}",
+          "legendFormat": "{{deviceName}}",
+          "refId": "A"
+        }
+      ]
+    },
+    {
+      "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+      "fieldConfig": {
+        "defaults": {
+          "mappings": [
+            { "options": { "0": { "color": "green", "text": "No" }, "1": { "color": "orange", "text": "Yes" } }, "type": "value" }
+          ],
+          "thresholds": { "mode": "absolute", "steps": [ { "color": "green", "value": null }, { "color": "orange", "value": 1 } ] },
+          "color": { "mode": "thresholds" }
+        },
+        "overrides": []
+      },
+      "gridPos": { "h": 4, "w": 3, "x": 3, "y": 1 },
+      "id": 2,
+      "options": { "colorMode": "background", "graphMode": "none", "justifyMode": "auto", "orientation": "auto", "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }, "textMode": "auto" },
+      "title": "Maintenance Mode",
+      "type": "stat",
+      "targets": [
+        {
+          "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+          "expr": "unms_device_maintenance{instance=\"$instance\", deviceName=~\"$device\"}",
+          "legendFormat": "{{deviceName}}",
+          "refId": "A"
+        }
+      ]
+    },
+    {
+      "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "dtdurations",
+          "thresholds": { "mode": "absolute", "steps": [ { "color": "red", "value": null }, { "color": "orange", "value": 3600 }, { "color": "green", "value": 86400 } ] },
+          "color": { "mode": "thresholds" }
+        },
+        "overrides": []
+      },
+      "gridPos": { "h": 4, "w": 4, "x": 6, "y": 1 },
+      "id": 3,
+      "options": { "colorMode": "value", "graphMode": "none", "justifyMode": "auto", "orientation": "auto", "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }, "textMode": "auto" },
+      "title": "Uptime",
+      "type": "stat",
+      "targets": [
+        {
+          "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+          "expr": "unms_device_uptime{instance=\"$instance\", deviceName=~\"$device\"}",
+          "legendFormat": "{{deviceName}}",
+          "refId": "A"
+        }
+      ]
+    },
+    {
+      "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "dateTimeFromNow",
+          "thresholds": { "mode": "absolute", "steps": [ { "color": "green", "value": null } ] },
+          "color": { "mode": "thresholds" }
+        },
+        "overrides": []
+      },
+      "gridPos": { "h": 4, "w": 4, "x": 10, "y": 1 },
+      "id": 4,
+      "options": { "colorMode": "value", "graphMode": "none", "justifyMode": "auto", "orientation": "auto", "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }, "textMode": "auto" },
+      "title": "Last Seen",
+      "type": "stat",
+      "targets": [
+        {
+          "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+          "expr": "unms_device_last_seen{instance=\"$instance\", deviceName=~\"$device\"} * 1000",
+          "legendFormat": "{{deviceName}}",
+          "refId": "A"
+        }
+      ]
+    },
+    {
+      "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "dateTimeFromNow",
+          "thresholds": { "mode": "absolute", "steps": [ { "color": "green", "value": null } ] },
+          "color": { "mode": "thresholds" }
+        },
+        "overrides": []
+      },
+      "gridPos": { "h": 4, "w": 4, "x": 14, "y": 1 },
+      "id": 5,
+      "options": { "colorMode": "value", "graphMode": "none", "justifyMode": "auto", "orientation": "auto", "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }, "textMode": "auto" },
+      "title": "Last Backup",
+      "type": "stat",
+      "targets": [
+        {
+          "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+          "expr": "unms_device_last_backup{instance=\"$instance\", deviceName=~\"$device\"} * 1000",
+          "legendFormat": "{{deviceName}}",
+          "refId": "A"
+        }
+      ]
+    },
+    {
+      "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+      "fieldConfig": {
+        "defaults": {
+          "mappings": [],
+          "thresholds": { "mode": "absolute", "steps": [ { "color": "green", "value": null }, { "color": "#EAB839", "value": 1 }, { "color": "red", "value": 5 } ] },
+          "color": { "mode": "thresholds" },
+          "noValue": "0"
+        },
+        "overrides": []
+      },
+      "gridPos": { "h": 4, "w": 3, "x": 18, "y": 1 },
+      "id": 6,
+      "options": { "colorMode": "background", "graphMode": "none", "justifyMode": "auto", "orientation": "auto", "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }, "textMode": "auto" },
+      "title": "Scrape Errors",
+      "type": "stat",
+      "targets": [
+        {
+          "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+          "expr": "increase(unms_collector_errors{instance=\"$instance\"}[5m])",
+          "legendFormat": "errors",
+          "refId": "A"
+        }
+      ]
+    },
+    {
+      "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+      "fieldConfig": {
+        "defaults": {
+          "mappings": [],
+          "thresholds": { "mode": "absolute", "steps": [ { "color": "green", "value": null } ] },
+          "color": { "mode": "thresholds" },
+          "noValue": "0"
+        },
+        "overrides": []
+      },
+      "gridPos": { "h": 4, "w": 3, "x": 21, "y": 1 },
+      "id": 7,
+      "options": { "colorMode": "background", "graphMode": "area", "justifyMode": "auto", "orientation": "auto", "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false }, "textMode": "auto" },
+      "title": "Successful Scrapes",
+      "type": "stat",
+      "targets": [
+        {
+          "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+          "expr": "increase(unms_collector_success{instance=\"$instance\"}[5m])",
+          "legendFormat": "success",
+          "refId": "A"
+        }
+      ]
+    },
+    {
+      "collapsed": false,
+      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 5 },
+      "id": 101,
+      "title": "CPU & RAM",
+      "type": "row"
+    },
+    {
+      "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percent", "min": 0, "max": 100,
+          "thresholds": { "mode": "absolute", "steps": [ { "color": "green", "value": null }, { "color": "yellow", "value": 60 }, { "color": "orange", "value": 80 }, { "color": "red", "value": 90 } ] },
+          "color": { "mode": "thresholds" }
+        },
+        "overrides": []
+      },
+      "gridPos": { "h": 6, "w": 4, "x": 0, "y": 6 },
+      "id": 10,
+      "options": { "orientation": "auto", "showThresholdLabels": false, "showThresholdMarkers": true, "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false } },
+      "title": "CPU Usage",
+      "type": "gauge",
+      "targets": [
+        {
+          "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+          "expr": "unms_device_cpu{instance=\"$instance\", deviceName=~\"$device\"}",
+          "legendFormat": "{{deviceName}}",
+          "refId": "A"
+        }
+      ]
+    },
+    {
+      "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percent", "min": 0, "max": 100,
+          "custom": { "lineWidth": 2, "fillOpacity": 20, "gradientMode": "scheme", "axisSoftMin": 0, "axisSoftMax": 100, "spanNulls": false, "thresholdsStyle": { "mode": "line" } },
+          "thresholds": { "mode": "absolute", "steps": [ { "color": "green", "value": null }, { "color": "yellow", "value": 60 }, { "color": "orange", "value": 80 }, { "color": "red", "value": 90 } ] },
+          "color": { "mode": "palette-classic" }
+        },
+        "overrides": []
+      },
+      "gridPos": { "h": 6, "w": 8, "x": 4, "y": 6 },
+      "id": 11,
+      "options": { "tooltip": { "mode": "multi", "sort": "desc" }, "legend": { "displayMode": "list", "placement": "bottom", "calcs": ["mean", "max"] } },
+      "title": "CPU Usage Over Time",
+      "type": "timeseries",
+      "targets": [
+        {
+          "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+          "expr": "unms_device_cpu{instance=\"$instance\", deviceName=~\"$device\"}",
+          "legendFormat": "{{deviceName}}",
+          "refId": "A"
+        }
+      ]
+    },
+    {
+      "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percent", "min": 0, "max": 100,
+          "thresholds": { "mode": "absolute", "steps": [ { "color": "green", "value": null }, { "color": "yellow", "value": 60 }, { "color": "orange", "value": 80 }, { "color": "red", "value": 90 } ] },
+          "color": { "mode": "thresholds" }
+        },
+        "overrides": []
+      },
+      "gridPos": { "h": 6, "w": 4, "x": 12, "y": 6 },
+      "id": 12,
+      "options": { "orientation": "auto", "showThresholdLabels": false, "showThresholdMarkers": true, "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false } },
+      "title": "RAM Usage",
+      "type": "gauge",
+      "targets": [
+        {
+          "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+          "expr": "unms_device_ram{instance=\"$instance\", deviceName=~\"$device\"}",
+          "legendFormat": "{{deviceName}}",
+          "refId": "A"
+        }
+      ]
+    },
+    {
+      "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percent", "min": 0, "max": 100,
+          "custom": { "lineWidth": 2, "fillOpacity": 20, "gradientMode": "scheme", "axisSoftMin": 0, "axisSoftMax": 100, "spanNulls": false, "thresholdsStyle": { "mode": "line" } },
+          "thresholds": { "mode": "absolute", "steps": [ { "color": "green", "value": null }, { "color": "yellow", "value": 60 }, { "color": "orange", "value": 80 }, { "color": "red", "value": 90 } ] },
+          "color": { "mode": "palette-classic" }
+        },
+        "overrides": []
+      },
+      "gridPos": { "h": 6, "w": 8, "x": 16, "y": 6 },
+      "id": 13,
+      "options": { "tooltip": { "mode": "multi", "sort": "desc" }, "legend": { "displayMode": "list", "placement": "bottom", "calcs": ["mean", "max"] } },
+      "title": "RAM Usage Over Time",
+      "type": "timeseries",
+      "targets": [
+        {
+          "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+          "expr": "unms_device_ram{instance=\"$instance\", deviceName=~\"$device\"}",
+          "legendFormat": "{{deviceName}}",
+          "refId": "A"
+        }
+      ]
+    },
+    {
+      "collapsed": false,
+      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 12 },
+      "id": 102,
+      "title": "WAN Traffic",
+      "type": "row"
+    },
+    {
+      "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "Bps",
+          "custom": { "lineWidth": 2, "fillOpacity": 15, "gradientMode": "scheme", "spanNulls": false, "axisSoftMin": 0 },
+          "color": { "mode": "palette-classic" }
+        },
+        "overrides": [
+          { "matcher": { "id": "byRegexp", "options": "TX.*" }, "properties": [ { "id": "custom.transform", "value": "negative-Y" } ] }
+        ]
+      },
+      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 13 },
+      "id": 20,
+      "options": { "tooltip": { "mode": "multi", "sort": "desc" }, "legend": { "displayMode": "list", "placement": "bottom", "calcs": ["mean", "max"] } },
+      "title": "WAN Traffic Rate",
+      "type": "timeseries",
+      "targets": [
+        { "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" }, "expr": "unms_wan_rx_rate{instance=\"$instance\", deviceName=~\"$device\"}", "legendFormat": "RX {{deviceName}}", "refId": "A" },
+        { "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" }, "expr": "unms_wan_tx_rate{instance=\"$instance\", deviceName=~\"$device\"}", "legendFormat": "TX {{deviceName}}", "refId": "B" }
+      ]
+    },
+    {
+      "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "bytes",
+          "custom": { "lineWidth": 2, "fillOpacity": 15, "gradientMode": "scheme", "spanNulls": false, "axisSoftMin": 0 },
+          "color": { "mode": "palette-classic" }
+        },
+        "overrides": []
+      },
+      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 13 },
+      "id": 21,
+      "options": { "tooltip": { "mode": "multi", "sort": "desc" }, "legend": { "displayMode": "list", "placement": "bottom", "calcs": ["lastNotNull"] } },
+      "title": "WAN Total Traffic",
+      "type": "timeseries",
+      "targets": [
+        { "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" }, "expr": "unms_wan_rx_bytes{instance=\"$instance\", deviceName=~\"$device\"}", "legendFormat": "RX {{deviceName}}", "refId": "A" },
+        { "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" }, "expr": "unms_wan_tx_bytes{instance=\"$instance\", deviceName=~\"$device\"}", "legendFormat": "TX {{deviceName}}", "refId": "B" }
+      ]
+    },
+    {
+      "collapsed": false,
+      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 21 },
+      "id": 200,
+      "title": "Physical Ports",
+      "type": "row"
+    },
+    {
+      "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+      "fieldConfig": {
+        "defaults": {
+          "custom": { "align": "center", "cellOptions": { "type": "auto" }, "inspect": false, "filterable": false }
+        },
+        "overrides": [
+          {
+            "matcher": { "id": "byName", "options": "Interface" },
+            "properties": [ { "id": "custom.width", "value": 120 } ]
+          },
+          {
+            "matcher": { "id": "byName", "options": "Enabled" },
+            "properties": [
+              { "id": "custom.cellOptions", "value": { "mode": "basic", "type": "color-background" } },
+              { "id": "mappings", "value": [ { "options": { "0": { "color": "red", "text": "No" }, "1": { "color": "green", "text": "Yes" } }, "type": "value" } ] },
+              { "id": "custom.width", "value": 90 }
+            ]
+          },
+          {
+            "matcher": { "id": "byName", "options": "Plugged" },
+            "properties": [
+              { "id": "custom.cellOptions", "value": { "mode": "basic", "type": "color-background" } },
+              { "id": "mappings", "value": [ { "options": { "0": { "color": "red", "text": "No" }, "1": { "color": "green", "text": "Yes" } }, "type": "value" } ] },
+              { "id": "custom.width", "value": 90 }
+            ]
+          },
+          {
+            "matcher": { "id": "byName", "options": "Link Up" },
+            "properties": [
+              { "id": "custom.cellOptions", "value": { "mode": "basic", "type": "color-background" } },
+              { "id": "mappings", "value": [ { "options": { "0": { "color": "red", "text": "Down" }, "1": { "color": "green", "text": "Up" } }, "type": "value" } ] },
+              { "id": "custom.width", "value": 90 }
+            ]
+          },
+          {
+            "matcher": { "id": "byName", "options": "RX Rate" },
+            "properties": [ { "id": "unit", "value": "Bps" }, { "id": "custom.width", "value": 110 } ]
+          },
+          {
+            "matcher": { "id": "byName", "options": "TX Rate" },
+            "properties": [ { "id": "unit", "value": "Bps" }, { "id": "custom.width", "value": 110 } ]
+          }
+        ]
+      },
+      "gridPos": { "h": 10, "w": 24, "x": 0, "y": 22 },
+      "id": 201,
+      "options": { "showHeader": true, "cellHeight": "sm", "footer": { "show": false }, "sortBy": [ { "displayName": "Interface", "desc": false } ] },
+      "title": "Physical Ports Status",
+      "type": "table",
+      "transformations": [
+        {
+          "id": "joinByLabels",
+          "options": { "join": ["ifName"], "value": "__name__" }
+        },
+        {
+          "id": "convertFieldType",
+          "options": { "conversions": [{ "targetField": "ifName", "destinationType": "number" }] }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "indexByName": { "ifName": 0, "unms_interface_enabled": 1, "unms_interface_plugged": 2, "link_up": 3, "unms_interface_rx_rate": 4, "unms_interface_tx_rate": 5 },
+            "renameByName": { "ifName": "Interface", "unms_interface_enabled": "Enabled", "unms_interface_plugged": "Plugged", "link_up": "Link Up", "unms_interface_rx_rate": "RX Rate", "unms_interface_tx_rate": "TX Rate" }
+          }
+        }
+      ],
+      "targets": [
+        { "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" }, "expr": "unms_interface_enabled{instance=\"$instance\", deviceName=~\"$device\", ifName=~\"$interface_port\"}", "instant": true, "refId": "A" },
+        { "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" }, "expr": "unms_interface_plugged{instance=\"$instance\", deviceName=~\"$device\", ifName=~\"$interface_port\"}", "instant": true, "refId": "B" },
+        { "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" }, "expr": "label_replace(unms_interface_plugged{instance=\"$instance\", deviceName=~\"$device\", ifName=~\"$interface_port\"}, \"__name__\", \"link_up\", \"\", \"\")", "instant": true, "refId": "C" },
+        { "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" }, "expr": "unms_interface_rx_rate{instance=\"$instance\", deviceName=~\"$device\", ifName=~\"$interface_port\"}", "instant": true, "refId": "D" },
+        { "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" }, "expr": "unms_interface_tx_rate{instance=\"$instance\", deviceName=~\"$device\", ifName=~\"$interface_port\"}", "instant": true, "refId": "E" }
+      ]
+    },
+    {
+      "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "Bps",
+          "custom": { "lineWidth": 2, "fillOpacity": 15, "gradientMode": "none", "spanNulls": false, "axisSoftMin": 0 },
+          "color": { "mode": "fixed", "fixedColor": "green" }
+        },
+        "overrides": [
+          { "matcher": { "id": "byRegexp", "options": "^TX" }, "properties": [{ "id": "color", "value": { "fixedColor": "blue", "mode": "fixed" } }] }
+        ]
+      },
+      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 32 },
+      "id": 202,
+      "repeat": "interface_port",
+      "repeatDirection": "h",
+      "maxPerRow": 2,
+      "options": { "tooltip": { "mode": "multi", "sort": "desc" }, "legend": { "displayMode": "list", "placement": "bottom", "calcs": ["mean", "max"] } },
+      "title": "Traffic Rate - $interface_port",
+      "type": "timeseries",
+      "targets": [
+        { "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" }, "expr": "unms_interface_rx_rate{instance=\"$instance\", deviceName=~\"$device\", ifName=\"$interface_port\"}", "legendFormat": "RX", "refId": "A" },
+        { "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" }, "expr": "unms_interface_tx_rate{instance=\"$instance\", deviceName=~\"$device\", ifName=\"$interface_port\"}", "legendFormat": "TX", "refId": "B" }
+      ]
+    },
+    {
+      "collapsed": false,
+      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 40 },
+      "id": 210,
+      "title": "Physical Ports - Total Bytes (Per Interface)",
+      "type": "row"
+    },
+    {
+      "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "bytes",
+          "custom": { "lineWidth": 2, "fillOpacity": 15, "gradientMode": "none", "spanNulls": false, "axisSoftMin": 0 },
+          "color": { "mode": "fixed", "fixedColor": "green" }
+        },
+        "overrides": [
+          { "matcher": { "id": "byRegexp", "options": "^TX" }, "properties": [{ "id": "color", "value": { "fixedColor": "blue", "mode": "fixed" } }] }
+        ]
+      },
+      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 41 },
+      "id": 203,
+      "repeat": "interface_port",
+      "repeatDirection": "h",
+      "maxPerRow": 2,
+      "options": { "tooltip": { "mode": "multi", "sort": "desc" }, "legend": { "displayMode": "list", "placement": "bottom", "calcs": ["lastNotNull"] } },
+      "title": "Total Bytes - $interface_port",
+      "type": "timeseries",
+      "targets": [
+        { "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" }, "expr": "unms_interface_rx_bytes{instance=\"$instance\", deviceName=~\"$device\", ifName=\"$interface_port\"}", "legendFormat": "RX", "refId": "A" },
+        { "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" }, "expr": "unms_interface_tx_bytes{instance=\"$instance\", deviceName=~\"$device\", ifName=\"$interface_port\"}", "legendFormat": "TX", "refId": "B" }
+      ]
+    },
+    {
+      "collapsed": false,
+      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 49 },
+      "id": 300,
+      "title": "VLANs & Bridges",
+      "type": "row"
+    },
+    {
+      "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+      "fieldConfig": {
+        "defaults": {
+          "custom": { "align": "center", "cellOptions": { "type": "auto" }, "inspect": false, "filterable": false }
+        },
+        "overrides": [
+          {
+            "matcher": { "id": "byName", "options": "Interface" },
+            "properties": [ { "id": "custom.width", "value": 140 } ]
+          },
+          {
+            "matcher": { "id": "byName", "options": "Enabled" },
+            "properties": [
+              { "id": "custom.cellOptions", "value": { "mode": "basic", "type": "color-background" } },
+              { "id": "mappings", "value": [ { "options": { "0": { "color": "red", "text": "No" }, "1": { "color": "green", "text": "Yes" } }, "type": "value" } ] },
+              { "id": "custom.width", "value": 90 }
+            ]
+          },
+          {
+            "matcher": { "id": "byName", "options": "Plugged" },
+            "properties": [
+              { "id": "custom.cellOptions", "value": { "mode": "basic", "type": "color-background" } },
+              { "id": "mappings", "value": [ { "options": { "0": { "color": "red", "text": "No" }, "1": { "color": "green", "text": "Yes" } }, "type": "value" } ] },
+              { "id": "custom.width", "value": 90 }
+            ]
+          },
+          {
+            "matcher": { "id": "byName", "options": "Link Up" },
+            "properties": [
+              { "id": "custom.cellOptions", "value": { "mode": "basic", "type": "color-background" } },
+              { "id": "mappings", "value": [ { "options": { "0": { "color": "red", "text": "Down" }, "1": { "color": "green", "text": "Up" } }, "type": "value" } ] },
+              { "id": "custom.width", "value": 90 }
+            ]
+          },
+          {
+            "matcher": { "id": "byName", "options": "RX Rate" },
+            "properties": [ { "id": "unit", "value": "Bps" }, { "id": "custom.width", "value": 110 } ]
+          },
+          {
+            "matcher": { "id": "byName", "options": "TX Rate" },
+            "properties": [ { "id": "unit", "value": "Bps" }, { "id": "custom.width", "value": 110 } ]
+          }
+        ]
+      },
+      "gridPos": { "h": 10, "w": 24, "x": 0, "y": 50 },
+      "id": 301,
+      "options": { "showHeader": true, "cellHeight": "sm", "footer": { "show": false }, "sortBy": [] },
+      "title": "VLANs & Bridges Status",
+      "type": "table",
+      "transformations": [
+        {
+          "id": "joinByLabels",
+          "options": { "join": ["ifName", "ifPos"], "value": "__name__" }
+        },
+        {
+          "id": "convertFieldType",
+          "options": { "conversions": [{ "targetField": "ifPos", "destinationType": "number" }] }
+        },
+        {
+          "id": "sortBy",
+          "options": { "fields": {}, "sort": [{ "field": "ifPos" }] }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": { "ifPos": true },
+            "indexByName": { "ifName": 0, "unms_interface_enabled": 1, "unms_interface_plugged": 2, "link_up": 3, "unms_interface_rx_rate": 4, "unms_interface_tx_rate": 5 },
+            "renameByName": { "ifName": "Interface", "unms_interface_enabled": "Enabled", "unms_interface_plugged": "Plugged", "link_up": "Link Up", "unms_interface_rx_rate": "RX Rate", "unms_interface_tx_rate": "TX Rate" }
+          }
+        }
+      ],
+      "targets": [
+        { "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" }, "expr": "unms_interface_enabled{instance=\"$instance\", deviceName=~\"$device\", ifName=~\".*[^0-9].*\"}", "instant": true, "refId": "A" },
+        { "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" }, "expr": "unms_interface_plugged{instance=\"$instance\", deviceName=~\"$device\", ifName=~\".*[^0-9].*\"}", "instant": true, "refId": "B" },
+        { "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" }, "expr": "label_replace(unms_interface_plugged{instance=\"$instance\", deviceName=~\"$device\", ifName=~\".*[^0-9].*\"}, \"__name__\", \"link_up\", \"\", \"\")", "instant": true, "refId": "C" },
+        { "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" }, "expr": "unms_interface_rx_rate{instance=\"$instance\", deviceName=~\"$device\", ifName=~\".*[^0-9].*\"}", "instant": true, "refId": "D" },
+        { "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" }, "expr": "unms_interface_tx_rate{instance=\"$instance\", deviceName=~\"$device\", ifName=~\".*[^0-9].*\"}", "instant": true, "refId": "E" }
+      ]
+    },
+    {
+      "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "Bps",
+          "custom": { "lineWidth": 2, "fillOpacity": 15, "gradientMode": "none", "spanNulls": false, "axisSoftMin": 0 },
+          "color": { "mode": "fixed", "fixedColor": "green" }
+        },
+        "overrides": [
+          { "matcher": { "id": "byRegexp", "options": "^TX" }, "properties": [{ "id": "color", "value": { "fixedColor": "blue", "mode": "fixed" } }] }
+        ]
+      },
+      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 60 },
+      "id": 302,
+      "repeat": "interface_vlan",
+      "repeatDirection": "h",
+      "maxPerRow": 2,
+      "options": { "tooltip": { "mode": "multi", "sort": "desc" }, "legend": { "displayMode": "list", "placement": "bottom", "calcs": ["mean", "max"] } },
+      "title": "Traffic Rate - $interface_vlan",
+      "type": "timeseries",
+      "targets": [
+        { "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" }, "expr": "unms_interface_rx_rate{instance=\"$instance\", deviceName=~\"$device\", ifName=~\"^$interface_vlan$\"}", "legendFormat": "RX", "refId": "A" },
+        { "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" }, "expr": "unms_interface_tx_rate{instance=\"$instance\", deviceName=~\"$device\", ifName=~\"^$interface_vlan$\"}", "legendFormat": "TX", "refId": "B" }
+      ]
+    },
+    {
+      "collapsed": false,
+      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 68 },
+      "id": 310,
+      "title": "VLANs & Bridges - Total Bytes (Per Interface)",
+      "type": "row"
+    },
+    {
+      "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "bytes",
+          "custom": { "lineWidth": 2, "fillOpacity": 15, "gradientMode": "none", "spanNulls": false, "axisSoftMin": 0 },
+          "color": { "mode": "fixed", "fixedColor": "green" }
+        },
+        "overrides": [
+          { "matcher": { "id": "byRegexp", "options": "^TX" }, "properties": [{ "id": "color", "value": { "fixedColor": "blue", "mode": "fixed" } }] }
+        ]
+      },
+      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 69 },
+      "id": 303,
+      "repeat": "interface_vlan",
+      "repeatDirection": "h",
+      "maxPerRow": 2,
+      "options": { "tooltip": { "mode": "multi", "sort": "desc" }, "legend": { "displayMode": "list", "placement": "bottom", "calcs": ["lastNotNull"] } },
+      "title": "Total Bytes - $interface_vlan",
+      "type": "timeseries",
+      "targets": [
+        { "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" }, "expr": "unms_interface_rx_bytes{instance=\"$instance\", deviceName=~\"$device\", ifName=~\"^$interface_vlan$\"}", "legendFormat": "RX", "refId": "A" },
+        { "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" }, "expr": "unms_interface_tx_bytes{instance=\"$instance\", deviceName=~\"$device\", ifName=~\"^$interface_vlan$\"}", "legendFormat": "TX", "refId": "B" }
+      ]
+    },
+    {
+      "collapsed": false,
+      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 94 },
+      "id": 106,
+      "title": "PoE",
+      "type": "row"
+    },
+    {
+      "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "watt",
+          "custom": { "lineWidth": 2, "fillOpacity": 15, "gradientMode": "scheme", "spanNulls": false, "axisSoftMin": 0 },
+          "color": { "mode": "palette-classic" }
+        },
+        "overrides": []
+      },
+      "gridPos": { "h": 8, "w": 24, "x": 0, "y": 95 },
+      "id": 60,
+      "options": { "tooltip": { "mode": "multi", "sort": "desc" }, "legend": { "displayMode": "table", "placement": "right", "calcs": ["mean", "max", "lastNotNull"] } },
+      "title": "PoE Power Consumption",
+      "type": "timeseries",
+      "targets": [
+        { "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" }, "expr": "unms_interface_poe_power{instance=\"$instance\", deviceName=~\"$device\"} > 0", "legendFormat": "{{deviceName}} {{ifName}}", "refId": "A" }
+      ]
+    },
+    {
+      "collapsed": true,
+      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 103 },
+      "id": 107,
+      "title": "Ping Metrics (requires --extra-metrics=ping)",
+      "type": "row",
+      "panels": [
+        {
+          "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+          "fieldConfig": { "defaults": { "unit": "percentunit", "min": 0, "max": 1, "thresholds": { "mode": "absolute", "steps": [ { "color": "green", "value": null }, { "color": "yellow", "value": 0.01 }, { "color": "orange", "value": 0.05 }, { "color": "red", "value": 0.1 } ] }, "color": { "mode": "thresholds" } }, "overrides": [] },
+          "gridPos": { "h": 6, "w": 6, "x": 0, "y": 104 },
+          "id": 70,
+          "options": { "orientation": "auto", "showThresholdLabels": false, "showThresholdMarkers": true, "reduceOptions": { "calcs": ["lastNotNull"], "fields": "", "values": false } },
+          "title": "Packet Loss",
+          "type": "gauge",
+          "targets": [ { "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" }, "expr": "unms_ping_loss_ratio{instance=\"$instance\", deviceName=~\"$device\"}", "legendFormat": "{{deviceName}}", "refId": "A" } ]
+        },
+        {
+          "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+          "fieldConfig": { "defaults": { "unit": "percentunit", "custom": { "lineWidth": 2, "fillOpacity": 15, "spanNulls": false, "axisSoftMin": 0 }, "thresholds": { "mode": "absolute", "steps": [ { "color": "green", "value": null }, { "color": "orange", "value": 0.05 }, { "color": "red", "value": 0.1 } ] }, "color": { "mode": "palette-classic" } }, "overrides": [] },
+          "gridPos": { "h": 6, "w": 18, "x": 6, "y": 104 },
+          "id": 71,
+          "options": { "tooltip": { "mode": "multi", "sort": "desc" }, "legend": { "displayMode": "list", "placement": "bottom", "calcs": ["mean", "max"] } },
+          "title": "Packet Loss Over Time",
+          "type": "timeseries",
+          "targets": [ { "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" }, "expr": "unms_ping_loss_ratio{instance=\"$instance\", deviceName=~\"$device\"}", "legendFormat": "{{deviceName}}", "refId": "A" } ]
+        },
+        {
+          "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+          "fieldConfig": { "defaults": { "unit": "s", "custom": { "lineWidth": 2, "fillOpacity": 10, "spanNulls": false, "axisSoftMin": 0 }, "color": { "mode": "palette-classic" } }, "overrides": [] },
+          "gridPos": { "h": 8, "w": 12, "x": 0, "y": 110 },
+          "id": 72,
+          "options": { "tooltip": { "mode": "multi", "sort": "desc" }, "legend": { "displayMode": "table", "placement": "bottom", "calcs": ["mean", "max", "lastNotNull"] } },
+          "title": "Ping RTT",
+          "type": "timeseries",
+          "targets": [
+            { "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" }, "expr": "unms_ping_rtt_mean_seconds{instance=\"$instance\", deviceName=~\"$device\"}", "legendFormat": "Mean {{deviceName}}", "refId": "A" },
+            { "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" }, "expr": "unms_ping_rtt_best_seconds{instance=\"$instance\", deviceName=~\"$device\"}", "legendFormat": "Best {{deviceName}}", "refId": "B" },
+            { "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" }, "expr": "unms_ping_rtt_worst_seconds{instance=\"$instance\", deviceName=~\"$device\"}", "legendFormat": "Worst {{deviceName}}", "refId": "C" }
+          ]
+        },
+        {
+          "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+          "fieldConfig": { "defaults": { "unit": "s", "custom": { "lineWidth": 2, "fillOpacity": 10, "spanNulls": false, "axisSoftMin": 0 }, "color": { "mode": "palette-classic" } }, "overrides": [] },
+          "gridPos": { "h": 8, "w": 12, "x": 12, "y": 110 },
+          "id": 73,
+          "options": { "tooltip": { "mode": "multi", "sort": "desc" }, "legend": { "displayMode": "table", "placement": "bottom", "calcs": ["mean", "max", "lastNotNull"] } },
+          "title": "Ping RTT Std Deviation",
+          "type": "timeseries",
+          "targets": [ { "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" }, "expr": "unms_ping_rtt_std_deviation_seconds{instance=\"$instance\", deviceName=~\"$device\"}", "legendFormat": "StdDev {{deviceName}}", "refId": "A" } ]
+        }
+      ]
+    },
+    {
+      "collapsed": true,
+      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 104 },
+      "id": 108,
+      "title": "Device Inventory",
+      "type": "row",
+      "panels": [
+        {
+          "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+          "fieldConfig": {
+            "defaults": { "custom": { "align": "auto", "cellOptions": { "type": "auto" }, "inspect": false, "filterable": true } },
+            "overrides": [
+              { "matcher": { "id": "byName", "options": "Enabled" }, "properties": [ { "id": "custom.cellOptions", "value": { "mode": "basic", "type": "color-background" } }, { "id": "mappings", "value": [ { "options": { "0": { "color": "red", "text": "No" }, "1": { "color": "green", "text": "Yes" } }, "type": "value" } ] }, { "id": "custom.width", "value": 80 } ] },
+              { "matcher": { "id": "byName", "options": "Uptime" }, "properties": [ { "id": "unit", "value": "dtdurations" } ] },
+              { "matcher": { "id": "byName", "options": "CPU %" }, "properties": [ { "id": "unit", "value": "percent" }, { "id": "custom.cellOptions", "value": { "mode": "gradient", "type": "gauge" } }, { "id": "thresholds", "value": { "mode": "absolute", "steps": [ { "color": "green", "value": null }, { "color": "yellow", "value": 60 }, { "color": "red", "value": 90 } ] } }, { "id": "min", "value": 0 }, { "id": "max", "value": 100 } ] },
+              { "matcher": { "id": "byName", "options": "RAM %" }, "properties": [ { "id": "unit", "value": "percent" }, { "id": "custom.cellOptions", "value": { "mode": "gradient", "type": "gauge" } }, { "id": "thresholds", "value": { "mode": "absolute", "steps": [ { "color": "green", "value": null }, { "color": "yellow", "value": 60 }, { "color": "red", "value": 90 } ] } }, { "id": "min", "value": 0 }, { "id": "max", "value": 100 } ] }
+            ]
+          },
+          "gridPos": { "h": 10, "w": 24, "x": 0, "y": 105 },
+          "id": 80,
+          "options": { "showHeader": true, "cellHeight": "sm", "footer": { "show": false }, "sortBy": [ { "displayName": "Device", "desc": false } ] },
+          "title": "Device Inventory",
+          "type": "table",
+          "transformations": [
+            { "id": "joinByLabels", "options": { "join": ["deviceName"], "value": "__name__" } },
+            { "id": "organize", "options": { "indexByName": { "deviceName": 0, "unms_device_enabled": 1, "unms_device_cpu": 2, "unms_device_ram": 3, "unms_device_uptime": 4 }, "renameByName": { "deviceName": "Device", "unms_device_enabled": "Enabled", "unms_device_cpu": "CPU %", "unms_device_ram": "RAM %", "unms_device_uptime": "Uptime" } } }
+          ],
+          "targets": [
+            { "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" }, "expr": "unms_device_enabled{instance=\"$instance\"}", "instant": true, "refId": "A" },
+            { "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" }, "expr": "unms_device_cpu{instance=\"$instance\"}", "instant": true, "refId": "B" },
+            { "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" }, "expr": "unms_device_ram{instance=\"$instance\"}", "instant": true, "refId": "C" },
+            { "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" }, "expr": "unms_device_uptime{instance=\"$instance\"}", "instant": true, "refId": "D" }
+          ]
+        }
+      ]
+    }
+  ],
+  "refresh": "30s",
+  "schemaVersion": 38,
+  "style": "dark",
+  "tags": ["unms", "uisp", "ubiquiti", "networking", "prometheus"],
+  "templating": {
+    "list": [
+      {
+        "current": {},
+        "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+        "definition": "label_values(unms_device_enabled, instance)",
+        "hide": 0,
+        "includeAll": false,
+        "multi": false,
+        "name": "instance",
+        "options": [],
+        "query": { "query": "label_values(unms_device_enabled, instance)", "refId": "StandardVariableQuery" },
+        "refresh": 1,
+        "regex": "",
+        "sort": 1,
+        "type": "query"
+      },
+      {
+        "current": {},
+        "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+        "definition": "label_values(unms_device_enabled{instance=\"$instance\"}, deviceName)",
+        "hide": 0,
+        "includeAll": true,
+        "multi": true,
+        "name": "device",
+        "options": [],
+        "query": { "query": "label_values(unms_device_enabled{instance=\"$instance\"}, deviceName)", "refId": "StandardVariableQuery" },
+        "refresh": 1,
+        "regex": "",
+        "sort": 1,
+        "type": "query",
+        "allValue": ".*"
+      },
+      {
+        "current": { "selected": true, "text": "All", "value": "$__all" },
+        "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+        "definition": "label_values(unms_interface_up{instance=\"$instance\", deviceName=~\"$device\"}, ifName)",
+        "hide": 0,
+        "includeAll": true,
+        "multi": true,
+        "name": "interface_port",
+        "label": "Physical Ports",
+        "options": [],
+        "query": { "query": "label_values(unms_interface_up{instance=\"$instance\", deviceName=~\"$device\"}, ifName)", "refId": "StandardVariableQuery" },
+        "refresh": 1,
+        "regex": "/^(\\d+|eth\\d+|sfp\\d+|lan\\d+|wan\\d+)$/",
+        "sort": 3,
+        "type": "query"
+      },
+      {
+        "current": { "selected": true, "text": "All", "value": "$__all" },
+        "datasource": { "type": "prometheus", "uid": "${DS_PROMETHEUS}" },
+        "definition": "label_values(unms_interface_up{instance=\"$instance\", deviceName=~\"$device\"}, ifName)",
+        "hide": 0,
+        "includeAll": true,
+        "multi": true,
+        "name": "interface_vlan",
+        "label": "VLANs & Bridges",
+        "options": [],
+        "query": { "query": "label_values(unms_interface_up{instance=\"$instance\", deviceName=~\"$device\"}, ifName)", "refId": "StandardVariableQuery" },
+        "refresh": 1,
+        "regex": "/[^0-9]/",
+        "sort": 1,
+        "type": "query"
+      }
+    ]
+  },
+  "time": { "from": "now-6h", "to": "now" },
+  "timepicker": {},
+  "timezone": "",
+  "title": "UNMS / UISP Devices",
+  "uid": "unms-uisp-devices",
+  "version": 1,
+  "weekStart": ""
+}

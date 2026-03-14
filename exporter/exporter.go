@@ -2,8 +2,11 @@ package exporter
 
 import (
 	"context"
+	"crypto/tls"
 	"fmt"
+	"net/http"
 	"strconv"
+	"strings"
 	"time"
 
 	"github.com/ffddorf/unms-exporter/client"
@@ -79,7 +82,7 @@ type Exporter struct {
 	log logrus.FieldLogger
 }
 
-func New(log logrus.FieldLogger, host string, token string) *Exporter {
+func New(log logrus.FieldLogger, host string, token string, tlsSkipVerify bool) *Exporter {
 	conf := client.DefaultTransportConfig()
 	conf.Schemes = []string{"https"}
 	conf.Host = host
@@ -87,7 +90,12 @@ func New(log logrus.FieldLogger, host string, token string) *Exporter {
 
 	client, ok := api.Transport.(*openapi.Runtime)
 	if !ok {
-		panic(fmt.Errorf("Invalid openapi transport: %T", api.Transport))
+		panic(fmt.Errorf("invalid openapi transport: %T", api.Transport))
+	}
+	if tlsSkipVerify {
+		client.Transport = &http.Transport{
+			TLSClientConfig: &tls.Config{InsecureSkipVerify: true}, //nolint:gosec // user-opted insecure TLS
+		}
 	}
 	auth := openapi.APIKeyAuth("x-auth-token", "header", token)
 	client.DefaultAuthentication = auth
@@ -226,7 +234,7 @@ func (e *Exporter) collectImpl(ctx context.Context, out chan<- prom.Metric) erro
 			out <- e.newMetric("interface_enabled", prom.GaugeValue, boolToGauge(intf.Enabled), intfLabels...)
 			if intf.Status != nil {
 				out <- e.newMetric("interface_plugged", prom.GaugeValue, boolToGauge(intf.Status.Plugged), intfLabels...)
-				out <- e.newMetric("interface_up", prom.GaugeValue, boolToGauge(intf.Status.Status == "active"), intfLabels...)
+				out <- e.newMetric("interface_up", prom.GaugeValue, boolToGauge(isInterfaceUp(intf.Status.Status, intf.Status.Plugged)), intfLabels...)
 			}
 
 			if intf.Statistics != nil {
@@ -265,6 +273,22 @@ func (e *Exporter) collectImpl(ctx context.Context, out chan<- prom.Metric) erro
 	}
 
 	return nil
+}
+
+// isInterfaceUp checks if the interface status string indicates the interface is up.
+// UISP/UNMS API may return different status strings across versions.
+// If the status string is empty or unrecognized, falls back to the plugged state,
+// since some UISP 3.x devices (e.g. Router Pro) do not populate the status field.
+func isInterfaceUp(status string, plugged bool) bool {
+	s := strings.ToLower(status)
+	switch s {
+	case "active", "up", "connected":
+		return true
+	case "inactive", "down", "disconnected", "disabled":
+		return false
+	default:
+		return plugged
+	}
 }
 
 func derefOrEmpty(in *string) string {
